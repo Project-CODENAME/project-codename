@@ -1,6 +1,6 @@
 # project-codename
-lorem ipsum dolor sit amet
 
+## *CODE* *N*ecessary at *A*ltitude to *M*an "*E*xperiments"
 
 Dr. Smith's Period 7 AP Physics 2 Class.
 
