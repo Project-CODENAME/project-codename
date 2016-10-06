@@ -110,21 +110,33 @@ s as well as photographs at short intervals for the duration of the balloon
  that runs on a separate power source to ensure location redundancy.
  The projected weight for the payload is 210 grams, and the projected price
  is less than $750.
- Maximum battery life of the payload operating at maximum expenditure (Bluetooth
- and GPS included) is approximately 22 hours.
+ Maximum battery life of the payload operating at maximum expenditure is
+ approximately 22 hours.
 \end_layout
 
-\begin_layout Part*
-Payload
+\begin_layout Section*
+Primary Advantages
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+The combined chipset and program employed by Project CODENAME gives the
+ payload several thousand times the processing power of a rasberry pi on
+ significantly less battery power.
+ The configuration would also allow for seamless integration of additional
+ sensors; any existing scientific eqipment could be attached to the payload
+ with minimal effort, weight allowing.
+ All sensor data can be sent almost continuously (without violating APRS
+ fair use rules) and the payload could also be used to transmit photographs
+ in real-time.
+\end_layout
+
+\begin_layout Section*
 Hardware
 \end_layout
 
 \begin_layout Standard
 The payload will be run by a chipset taken from a Samsung Galaxy s4.
- A version of this chipset* has already been acquired by Project Codename,
+ A version of this chipset has already been acquired by Project Codename,
  and tested extensively.
 \end_layout
 
@@ -203,7 +215,7 @@ MicroSD Card
 \series bold
 Internal Sensors 
 \series default
-Pressure, Temperature, and Humidity
+Pressure, temperature, and humidity
 \series bold
 : 
 \series default
@@ -217,7 +229,7 @@ Data collected from these sensors is written onto the Micro SD Card AND
 Accelerometer 
 \series default
 Data from the accelerometer is also written to the MicroSD card and sent
- to the ground via APRS
+ to the ground continuously via APRS
 \end_layout
 
 \begin_layout Enumerate
@@ -288,7 +300,7 @@ end{multicols}
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Section*
 Software
 \end_layout
 
@@ -297,12 +309,11 @@ The Project CODENAME team has already written and tested a comprehensive
  operational script for the payload.
  By serializing all data sent by APRS, the payload is able to transmit 2
  times the amount of data of typical APRS systems, with less power consumption.
- The program is also written and run natively on the chipset, reducing power
- consumption even further.
- A program to quickly deserialize the data has also been constructed.
+ The program is also written to run natively on a rooted chipset, reducing
+ power consumption even further.
 \end_layout
 
-\begin_layout Part*
+\begin_layout Section*
 Ground Station
 \end_layout
 
@@ -311,7 +322,7 @@ Project CODENAME has two independent methods for predicting weather patterns
  and ballon flight path, both of which have been proven effective in the
  field.
  The team also has direct ties to the Office of Congresswoman Kristi Noem,
- which is expected to simplify negotiations with the FAA tremendously.
+ which will simplify negotiations with the FAA tremendously.
 \end_layout
 
 \end_body
