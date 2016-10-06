@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass paper
+\begin_preamble
+\usepackage{multicol}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -47,20 +50,20 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 2.54cm
-\topmargin 2.54cm
-\rightmargin 2.54cm
-\bottommargin 2.54cm
-\headheight 0cm
-\headsep 2.54cm
-\footskip 0cm
+\leftmargin 0.5cm
+\topmargin 0.5cm
+\rightmargin 0.5cm
+\bottommargin 0.5cm
+\headheight 0.4cm
+\headsep 0.5cm
+\footskip 0.4cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -78,12 +81,11 @@
 
 \begin_body
 
-\begin_layout Title
+\begin_layout Part*
 Project CODENAME
 \end_layout
 
 \begin_layout Standard
-\noindent
 \begin_inset CommandInset line
 LatexCommand rule
 offset "0.5ex"
@@ -95,28 +97,70 @@ height "1pt"
 
 \end_layout
 
-\begin_layout Part*
-Payload
+\begin_layout Standard
+\noindent
+The Project CODENAME payload is equipped to collect internal and external
+ temperature and pressure data, location, accelerometer and humidity measurement
+s as well as photographs at short intervals for the duration of the balloon
+ flight.
+ This data will be written to a MicroSD Card which can be read upon retrieval
+ of the capsule, and all information except for live video will also be
+ transmitted in real-time to a ground station via APRS.
+ The Project CODENAME payload is equipped with a secondary GPS (and transmitter)
+ that runs on a separate power source to ensure location redundancy.
+ The projected weight for the payload is 210 grams, and the projected price
+ is less than $750.
+ Maximum battery life of the payload operating at maximum expenditure is
+ approximately 22 hours.
 \end_layout
 
-\begin_layout Section
-Tech
+\begin_layout Section*
+Primary Advantages
 \end_layout
 
 \begin_layout Standard
-[insert dia diagram graphic]
+The combined chipset and program employed by Project CODENAME gives the
+ payload several thousand times the processing power of a raspberry pi on
+ significantly less battery power.
+ The direct integration of storage and sensors on the circuit board means
+ the payload is much faster and more efficient than any other processor.
+ The program written by Project CODENAME allows for all sensor data to be
+ transmitted almost continuously (without violating APRS fair use rules)
+ and also potentially to transmit photographs in real-time.
+ The configuration of the chipset would also allow for seamless integration
+ of additional sensors; any existing scientific equipment could be attached
+ to the payload with minimal effort, weight allowing.
+ The independent nature of the external sensors also means that the working
+ components of the payload could be situated on a gyroscope, ensuring payload
+ safety in all conditions (this is not reflected in the memo design due
+ to time constraints).
+ Each of these advantages is explored in more detail in this memo.
 \end_layout
 
-\begin_layout Section
-Software
+\begin_layout Section*
+Hardware
 \end_layout
 
-\begin_layout Section
-Parachute/Lines
+\begin_layout Standard
+The payload will be run by a chipset taken from a Samsung Galaxy S4.
+ A version of this chipset has already been acquired and tested extensively
+ by Project Codename.
 \end_layout
 
-\begin_layout Part*
-External
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{2}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -139,7 +183,14 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-[insert dramatization]
+\begin_inset Graphics
+	filename diagram.png
+	display false
+	scale 6.6
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -147,31 +198,138 @@ status open
 
 \end_layout
 
-\begin_layout Part*
-Ground Support and Weather
+\begin_layout Enumerate
+
+\series bold
+APRS Transmitter
+\series default
+ Leverages existing radio relays to keep payload in constant contact after
+ takeoff; will send all sensor data to ground station in real-time; also
+ equipped with GPS capable of high altitude positioning
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+MicroSD Card
+\series default
+ Storage capacity of 256GB (3 million photos or 33 hours of HD video) All
+ sensor data will be saved to this, including live video and photographs
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Internal Sensors 
+\series default
+Pressure, temperature, and humidity
+\series bold
+: 
+\series default
+Data collected from these sensors is written onto the Micro SD Card AND
+ sent to the ground in real-time via the APRS transmitter
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Accelerometer 
+\series default
+Data from the accelerometer is also written to the MicroSD card and sent
+ to the ground continuously via APRS
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+GPS 
+\series default
+Secondary GPS on separate power source, provides 100% location redundancy
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Bluetooth Transmitter 
+\series default
+Power consumption by transmitter almost negligible; transmission does not
+ interfere with APRS
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+External Camera 
+\series default
+13MP Live video and photographs written to MicroSD Card; possibility of
+ transmitting photos in real-time via digital APRS band
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+External Sensors 
+\series default
+Pressure and temperature:
+\series bold
+ 
+\series default
+These sensors transmit to the chipset via bluetooth; this data is written
+ to the MicroSD card and sent to ground in real-time via APRS
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Extended Density Lithium Ion Battery 
+\series default
+22 hour projected life
+\end_layout
+
+\begin_layout Enumerate
+PLEASE NOTE The nature of this chipset is such that any existing scientific
+ instrument can be added to the payload with minimal effort, weight allowing.
 \end_layout
 
 \begin_layout Standard
-Project CODENAME has two independent methods of predicting both the weather
- patterns and potential flight path of the payload for any given day.
- These methods have already been tested and determined be be 95% accurate,
- and several ideal launch dates have already been determined.
- Data collected from the payload will be serialized and saved on the microSD
- drive.
- A program will be used to deserialize this data.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
 \end_layout
 
-\begin_layout Part*
-Legal
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Software
 \end_layout
 
 \begin_layout Standard
-The design of Project CODENAME complies with all applicable FCC, FAA, and
- NSA regulations.
- Project CODENAME currently has direct ties to the offices of Congresswoman
- Kristi Noem; this is expected to greatly simplify the process of negotiating
- the launch with the FAA.
- Project CODENAME is expected to have two HAM Radio licensed members.
+The Project CODENAME team has already written and tested a comprehensive
+ operational script for the payload.
+ By serializing all data sent by APRS, the payload is able to transmit 2
+ times the amount of data of typical APRS systems, with less power consumption.
+ The program is also written to run natively on a rooted chipset, reducing
+ power consumption even further.
+\end_layout
+
+\begin_layout Section*
+Ground Station
+\end_layout
+
+\begin_layout Standard
+Project CODENAME has two independent methods for predicting weather patterns
+ and balloon flight path, both of which have been proven effective in the
+ field.
+ The team also has direct ties to the Office of Congresswoman Kristi Noem,
+ which will simplify negotiations with the FAA tremendously.
 \end_layout
 
 \end_body
