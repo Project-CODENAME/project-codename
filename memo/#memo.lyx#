@@ -5,9 +5,6 @@
 \save_transient_properties true
 \origin unavailable
 \textclass paper
-\begin_preamble
-\usepackage{multicol}
-\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -50,7 +47,7 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date true
+\suppress_date false
 \justification true
 \use_refstyle 1
 \index Index
@@ -103,161 +100,27 @@ Payload
 \end_layout
 
 \begin_layout Section
-Hardware
+Tech
 \end_layout
 
 \begin_layout Standard
-The payload will be run by a chipset taken from a Samsung Galaxy s4.
- A version of this chipset has already been aquired by Project Codename,
- and tested extensively.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{multicols}{2}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename memo/diagram.png
-	display false
-	scale 5
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+[insert dia diagram graphic]
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-MicroSD Card
-\series default
- Storage capacity of 256GB (3 million photos
+Internal Pressure Sensor
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-APRS Transmitter
-\series default
- Equipped with GPS built to exceed 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Internal Pressure, Temperature, and Humidity Sensors 
-\series default
-Data is written on SD Card and sent to ground in real-time via APRS
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Accelerometer
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-GPS
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Bluetooth Transmitter 
-\series default
-Power consumption almost negligible
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Lithium Ion Battery
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-External Camera 
-\series default
-Live video and photographs written to MicroSD Card
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-External Pressure Sensor, External Temperature Sensor 
-\series default
-Transmits to chipset via bluetooth; data is written to MicroSD card and
- sent to ground in real-time via APRS
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{multicols}
-\end_layout
-
-\end_inset
-
-
+Internal Temperature Sensor
 \end_layout
 
 \begin_layout Section
 Software
 \end_layout
 
-\begin_layout Standard
-Project CODENAME has already written and extensively tested a comprehensive
- operational script for the payload.
- By serializing the temperature and pressure data, the payload is able to
- transmit 2 times the amount of data of typical APRS systems, with less
- power consumption.
- The program also written and run natively on the chipset, reducing power
- consumption significantly.
+\begin_layout Section
+Parachute/Lines
 \end_layout
 
 \begin_layout Part*
