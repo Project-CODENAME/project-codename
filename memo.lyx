@@ -81,12 +81,11 @@
 
 \begin_body
 
-\begin_layout Title
+\begin_layout Part*
 Project Codename
 \end_layout
 
 \begin_layout Standard
-\noindent
 \begin_inset CommandInset line
 LatexCommand rule
 offset "0.5ex"
@@ -99,6 +98,7 @@ height "1pt"
 \end_layout
 
 \begin_layout Standard
+\noindent
 The Project CODENAME payload is equipped to collect internal and external
  temperature and pressure data, location, accelerometer and humidity measurement
 s as well as photographs at short intervals for the duration of the balloon
