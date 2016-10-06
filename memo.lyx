@@ -120,14 +120,21 @@ Primary Advantages
 
 \begin_layout Standard
 The combined chipset and program employed by Project CODENAME gives the
- payload several thousand times the processing power of a rasberry pi on
+ payload several thousand times the processing power of a raspberry pi on
  significantly less battery power.
- The configuration would also allow for seamless integration of additional
- sensors; any existing scientific eqipment could be attached to the payload
- with minimal effort, weight allowing.
- All sensor data can be sent almost continuously (without violating APRS
- fair use rules) and the payload could also be used to transmit photographs
- in real-time.
+ The direct integration of storage and sensors on the circuit board means
+ the payload is much faster and more efficient than any other processor.
+ The program written by Project CODENAME allows for all sensor data to be
+ transmitted almost continuously (without violating APRS fair use rules)
+ and also potentially to transmit photographs in real-time.
+ The configuration of the chipset would also allow for seamless integration
+ of additional sensors; any existing scientific equipment could be attached
+ to the payload with minimal effort, weight allowing.
+ The independent nature of the external sensors also means that the working
+ components of the payload could be situated on a gyroscope, ensuring payload
+ safety in all conditions (this is not reflected in the memo design due
+ to time constraints).
+ Each of these advantages is explored in more detail in this memo.
 \end_layout
 
 \begin_layout Section*
@@ -136,8 +143,8 @@ Hardware
 
 \begin_layout Standard
 The payload will be run by a chipset taken from a Samsung Galaxy s4.
- A version of this chipset has already been acquired by Project Codename,
- and tested extensively.
+ A version of this chipset has already been acquired and tested extensively
+ by Project Codename.
 \end_layout
 
 \begin_layout Standard
@@ -197,8 +204,8 @@ status collapsed
 APRS Transmitter
 \series default
  Leverages existing radio relays to keep payload in constant contact after
- takeoff; will send all data (except for photographs) to ground station
- in real-time; also equipped with GPS capable of high altitude positioning
+ takeoff; will send all sensor data to ground station in real-time; also
+ equipped with GPS capable of high altitude positioning
 \end_layout
 
 \begin_layout Enumerate
@@ -319,7 +326,7 @@ Ground Station
 
 \begin_layout Standard
 Project CODENAME has two independent methods for predicting weather patterns
- and ballon flight path, both of which have been proven effective in the
+ and balloon flight path, both of which have been proven effective in the
  field.
  The team also has direct ties to the Office of Congresswoman Kristi Noem,
  which will simplify negotiations with the FAA tremendously.
