@@ -6,7 +6,7 @@ import java.util.Date;
  * Class that will be logged as a separate file
  */
 
-class DataPoint implements java.io.Serializable{
+public class DataPoint implements java.io.Serializable{
     public float a_y;
     public float a_x;
     public float a_z;
