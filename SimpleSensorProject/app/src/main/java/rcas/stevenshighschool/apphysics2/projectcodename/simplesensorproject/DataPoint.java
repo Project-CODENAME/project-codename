@@ -7,6 +7,7 @@ import java.util.Date;
  */
 
 class DataPoint implements java.io.Serializable{
+    //things in a data point
     public float a_y;
     public float a_x;
     public float a_z;
@@ -19,8 +20,11 @@ class DataPoint implements java.io.Serializable{
      * public float ext_p;
      * public float ext_t;
      */
+
+    //allows for this to be used in our decoder--it's a specific value
     private static final long serialVersionUID= 862329458582895689L;
 
+    //initializer
     public DataPoint(float a_x, float a_y, float a_z, float p, Date time){
         this.a_y=a_y;
         this.a_x=a_x;

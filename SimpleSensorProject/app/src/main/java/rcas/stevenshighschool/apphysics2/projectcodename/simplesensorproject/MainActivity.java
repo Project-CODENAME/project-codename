@@ -33,25 +33,41 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This is the main activity from which everything is run.
+ * Extends GoogleApiClient things so we can get the location
+ */
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
+    //Sensor manager
     private SensorManager sensorManager;
+
+    //Main loops for the sensors
     final Handler h = new Handler();
     Runnable r;
 
+    //Data values
     float a_y;
     float a_x;
     float a_z;
     float p;
     Location mLastLocation;
+
+    //Sensors and their listeners
     Sensor accelerometer;
     Sensor pressure;
     SensorEventListener accelerometerListener;
     SensorEventListener pressureListener;
+
+    //Array list of datapoints
     ArrayList<DataPoint> dataPointArrayList;
+
+    //Google Location things
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
+
+    //Logging TAG
     private final String TAG = "SENSORS:";
 
     /**Once we have an Arduino
@@ -63,18 +79,14 @@ public class MainActivity extends AppCompatActivity implements
      */
     @Override
     public void onConnected(Bundle connectionHint) {
-        // Provides a simple way of getting a device's location and is well suited for
-        // applications that do not require a fine-grained location and that do not need location
-        // updates. Gets the best and most recent location currently available, which may be null
-        // in rare cases when a location is not available.
+        // Starts by getting the location and requesting location updates
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         startLocationUpdates();
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult result) {
-        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
-        // onConnectionFailed.
+        // In case the connection fails
         Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
     }
 
@@ -87,10 +99,14 @@ public class MainActivity extends AppCompatActivity implements
         mGoogleApiClient.connect();
     }
 
+    //Initialization of the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //starts things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //gets sensors and checks for permissions
         sensorManager=(SensorManager)getSystemService(Context.SENSOR_SERVICE);
          if (ContextCompat.checkSelfPermission(this,
                          Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -110,33 +126,41 @@ public class MainActivity extends AppCompatActivity implements
                     250);
 
         }
+
+        //initializes sensors and their listeners
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         accelerometerListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
+                //changes a to most recent value
                 a_x=sensorEvent.values[0];
-                a_y=sensorEvent.values[0];
-                a_z=sensorEvent.values[0];
+                a_y=sensorEvent.values[1];
+                a_z=sensorEvent.values[2];
             }
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
-
+                //do nothing
             }
         };
         pressureListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
+                //changes p to most recent value
                 p = sensorEvent.values[0];
             }
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
-
+                //do nothing
             }
         };
+
+        //initializes array
         dataPointArrayList = new ArrayList<DataPoint>();
+
+        //intiializes google location things
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -147,12 +171,14 @@ public class MainActivity extends AppCompatActivity implements
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(10);
+
         /**
          * mRobot.Connect();
          */
     }
 
     protected void startLocationUpdates() {
+        //Starts location updates
         LocationServices.FusedLocationApi.requestLocationUpdates(
                 mGoogleApiClient, mLocationRequest, this);
     }
@@ -162,11 +188,16 @@ public class MainActivity extends AppCompatActivity implements
         mLastLocation = location;
     }
 
+    //recording function that starts running things
     public void record(View view){
         final int delay = 1000; //milliseconds
+
+        //initializes and starts Runnable
         r = new Runnable(){
             public void run(){
                 Log.d(TAG, "RUN!");
+
+                //initializes data points and its values
                 DataPoint point = new DataPoint(a_x, a_y, a_z, p, new Date());
                 point.lat=mLastLocation.getLatitude();
                 point.alt=mLastLocation.getAltitude();
@@ -178,6 +209,8 @@ public class MainActivity extends AppCompatActivity implements
                  * point.ext_t=Float.parseFloat(parts[1]);
                  */
                 dataPointArrayList.add(point);
+
+                //saves to a folder(pictures for some vague reason), the sensor data file--and the object is serialized here
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 File file = new File(path,"SENSORDATA.txt");
                 try {
@@ -191,9 +224,12 @@ public class MainActivity extends AppCompatActivity implements
                     e.printStackTrace();
                 }
 
+                //schedules the next job
                 h.postDelayed(this, delay);
             }
         };
+
+        //schedules the first job
         h.postDelayed(r, delay);
     }
 
@@ -201,6 +237,7 @@ public class MainActivity extends AppCompatActivity implements
         h.removeCallbacks(r);
     }
 
+    //initializes things sensors that should not be done in onCreate
     @Override
     protected void onStart() {
         super.onStart();
@@ -212,6 +249,7 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    //de-initializes things sensors that should be destroyed before onDestroyed
     @Override
     protected void onStop() {
         super.onStop();
