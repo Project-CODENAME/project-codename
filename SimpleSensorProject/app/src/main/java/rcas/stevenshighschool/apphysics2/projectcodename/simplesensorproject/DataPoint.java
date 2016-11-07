@@ -15,6 +15,10 @@ class DataPoint implements java.io.Serializable{
     public double lon;
     public double alt;
     public Date time;
+    /**
+     * public float ext_p;
+     * public float ext_t;
+     */
     private static final long serialVersionUID= 862329458582895689L;
 
     public DataPoint(float a_x, float a_y, float a_z, float p, Date time){

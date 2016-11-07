@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
 import java.io.File;
@@ -32,7 +34,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private SensorManager sensorManager;
     final Handler h = new Handler();
@@ -49,7 +51,12 @@ public class MainActivity extends AppCompatActivity implements
     SensorEventListener pressureListener;
     ArrayList<DataPoint> dataPointArrayList;
     GoogleApiClient mGoogleApiClient;
+    LocationRequest mLocationRequest;
     private final String TAG = "SENSORS:";
+
+    /**Once we have an Arduino
+     * BluetoothAndroid mRobot = BluetoothArduino.getInstance("ExtSensorsRobot");
+     */
 
     /**
      * Runs when a GoogleApiClient object successfully connects.
@@ -61,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements
         // updates. Gets the best and most recent location currently available, which may be null
         // in rare cases when a location is not available.
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        startLocationUpdates();
     }
 
     @Override
@@ -136,8 +144,23 @@ public class MainActivity extends AppCompatActivity implements
                     .addApi(LocationServices.API)
                     .build();
         }
+        mLocationRequest = LocationRequest.create();
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(10);
+        /**
+         * mRobot.Connect();
+         */
     }
 
+    protected void startLocationUpdates() {
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                mGoogleApiClient, mLocationRequest, this);
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        mLastLocation = location;
+    }
 
     public void record(View view){
         final int delay = 1000; //milliseconds
@@ -145,11 +168,16 @@ public class MainActivity extends AppCompatActivity implements
             public void run(){
                 Log.d(TAG, "RUN!");
                 DataPoint point = new DataPoint(a_x, a_y, a_z, p, new Date());
-                mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                dataPointArrayList.add(point);
                 point.lat=mLastLocation.getLatitude();
                 point.alt=mLastLocation.getAltitude();
                 point.lon=mLastLocation.getLongitude();
+                /**
+                 * String msg = mRobot.getLastMessage();
+                 * String[] parts = msg.split("-");
+                 * point.ext_p=Float.parseFloat(parts[0]);
+                 * point.ext_t=Float.parseFloat(parts[1]);
+                 */
+                dataPointArrayList.add(point);
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 File file = new File(path,"SENSORDATA.txt");
                 try {
@@ -179,6 +207,9 @@ public class MainActivity extends AppCompatActivity implements
         mGoogleApiClient.connect();
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(pressureListener, pressure, SensorManager.SENSOR_DELAY_NORMAL);
+        if(mGoogleApiClient.isConnected()){
+            startLocationUpdates();
+        }
     }
 
     @Override
@@ -187,6 +218,8 @@ public class MainActivity extends AppCompatActivity implements
         mGoogleApiClient.disconnect();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
+        LocationServices.FusedLocationApi.removeLocationUpdates(
+                mGoogleApiClient, this);
     }
 
 }
