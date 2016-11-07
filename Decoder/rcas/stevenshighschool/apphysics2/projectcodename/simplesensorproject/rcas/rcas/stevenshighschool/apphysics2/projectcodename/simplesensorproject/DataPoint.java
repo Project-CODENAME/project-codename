@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * Class that will be logged as a separate file
+ * Excerpted straight from the Android project
  */
 
 public class DataPoint implements java.io.Serializable{
