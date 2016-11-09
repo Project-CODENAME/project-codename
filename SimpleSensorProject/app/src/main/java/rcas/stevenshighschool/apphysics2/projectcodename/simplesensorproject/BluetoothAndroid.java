@@ -95,7 +95,7 @@ public class BluetoothAndroid extends Thread {
 
     }
 
-    //I'm not quite sure
+    //This is for if you just call new() without arguments
     BluetoothAndroid(){
         this("Arduino-Robot");
     }

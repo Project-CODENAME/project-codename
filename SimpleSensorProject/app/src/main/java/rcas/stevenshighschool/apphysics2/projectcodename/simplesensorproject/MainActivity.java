@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,9 +81,15 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onConnected(Bundle connectionHint) {
         // Starts by getting the location and requesting location updates
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        startLocationUpdates();
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+            startLocationUpdates();
+        }
     }
+
+
 
     @Override
     public void onConnectionFailed(ConnectionResult result) {
@@ -117,19 +124,25 @@ public class MainActivity extends AppCompatActivity implements
                      250);
 
          }
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // No explanation needed, we can request the permission.
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    250);
+                    251);
 
         }
 
         //initializes sensors and their listeners
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
+        //TODO extra sensors--magnetic and orientation--commented out relative humidity, temperature
+        /**
+         * TODO note that we have low power sensors as in https://source.android.com/devices/sensors/sensor-types.html
+         * that is - maybe look at geomagnetic rotation vector, as well as rotation vector
+         */
         accelerometerListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -172,6 +185,8 @@ public class MainActivity extends AppCompatActivity implements
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(10);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         /**
          * mRobot.Connect();
          */
@@ -179,8 +194,12 @@ public class MainActivity extends AppCompatActivity implements
 
     protected void startLocationUpdates() {
         //Starts location updates
-        LocationServices.FusedLocationApi.requestLocationUpdates(
-                mGoogleApiClient, mLocationRequest, this);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            LocationServices.FusedLocationApi.requestLocationUpdates(
+                    mGoogleApiClient, mLocationRequest, this);
+        }
     }
 
     @Override
@@ -199,9 +218,11 @@ public class MainActivity extends AppCompatActivity implements
 
                 //initializes data points and its values
                 DataPoint point = new DataPoint(a_x, a_y, a_z, p, new Date());
-                point.lat=mLastLocation.getLatitude();
-                point.alt=mLastLocation.getAltitude();
-                point.lon=mLastLocation.getLongitude();
+                if(mLastLocation!=null) {
+                    point.lat = mLastLocation.getLatitude();
+                    point.alt = mLastLocation.getAltitude();
+                    point.lon = mLastLocation.getLongitude();
+                }
                 /**
                  * String msg = mRobot.getLastMessage();
                  * String[] parts = msg.split("-");
@@ -223,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements
                 } catch (Exception e){
                     e.printStackTrace();
                 }
-
+                Log.d(TAG, mGoogleApiClient.isConnected()+"");
                 //schedules the next job
                 h.postDelayed(this, delay);
             }
@@ -249,15 +270,41 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    //de-initializes things sensors that should be destroyed before onDestroyed
+    //de-initializes sensors that should be destroyed before onDestroyed
     @Override
     protected void onStop() {
         super.onStop();
         mGoogleApiClient.disconnect();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
-        LocationServices.FusedLocationApi.removeLocationUpdates(
-                mGoogleApiClient, this);
+        if(mGoogleApiClient.isConnected()) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(
+                    mGoogleApiClient, this);
+        }
+        //TODO WRITE WAKELOCK
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 251: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if(mGoogleApiClient.isConnected()){
+                        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                        startLocationUpdates();
+                    }
+                } else {
+
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 
 }

@@ -17,6 +17,14 @@ class DataPoint implements java.io.Serializable{
     public double alt;
     public Date time;
     /**
+     * public float rot_x;
+     * public float rot_y;
+     * public float rot_z;
+     * public float mag_x;
+     * public float mag_y;
+     * public float mag_z;
+     */
+    /**
      * public float ext_p;
      * public float ext_t;
      */
@@ -26,10 +34,13 @@ class DataPoint implements java.io.Serializable{
 
     //initializer
     public DataPoint(float a_x, float a_y, float a_z, float p, Date time){
-        this.a_y=a_y;
+        this.a_y = a_y;
         this.a_x=a_x;
         this.a_z=a_z;
         this.p=p;
         this.time=time;
+        this.lat=-1;
+        this.lon=-1;
+        this.alt=-1;
     }
 }
