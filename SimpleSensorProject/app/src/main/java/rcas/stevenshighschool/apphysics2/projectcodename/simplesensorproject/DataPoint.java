@@ -8,6 +8,7 @@ import java.util.Date;
 
 class DataPoint implements java.io.Serializable{
     //things in a data point
+    public float t;
     public float a_y;
     public float a_x;
     public float a_z;
@@ -23,6 +24,9 @@ class DataPoint implements java.io.Serializable{
     public float rot_x;
     public float rot_y;
     public float rot_z;
+    public float g_x;
+    public float g_y;
+    public float g_z;
     /**
 
      */
@@ -36,7 +40,11 @@ class DataPoint implements java.io.Serializable{
     private static final long serialVersionUID= 862329458582895689L;
 
     //initializer
-    public DataPoint(float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time){
+    public DataPoint(float t, float g_x, float g_y, float g_z, float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time){
+        this.t = t;
+        this.g_x = g_x;
+        this.g_y = g_y;
+        this.g_z = g_z;
         this.rot_x = rot_x;
         this.rot_y = rot_y;
         this.rot_z = rot_z;

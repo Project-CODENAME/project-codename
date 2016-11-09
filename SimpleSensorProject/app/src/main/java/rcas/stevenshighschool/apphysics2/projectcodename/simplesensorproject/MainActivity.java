@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements
     Runnable r;
 
     //Data values
+    float t;
     float a_y;
     float a_x;
     float a_z;
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements
     float rot_x;
     float rot_y;
     float rot_z;
+    float g_x;
+    float g_y;
+    float g_z;
     Location mLastLocation;
 
     //Sensors and their listeners
@@ -68,11 +72,15 @@ public class MainActivity extends AppCompatActivity implements
     Sensor magnet;
     Sensor humidity;
     Sensor rotation;
+    Sensor gravity;
+    Sensor temperature;
     SensorEventListener accelerometerListener;
     SensorEventListener pressureListener;
     SensorEventListener magnetListener;
     SensorEventListener humidityListener;
     SensorEventListener rotationListener;
+    SensorEventListener gravityListener;
+    SensorEventListener temperatureListener;
 
     //Array list of datapoints
     ArrayList<DataPoint> dataPointArrayList;
@@ -154,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements
         magnet = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         humidity = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
         rotation = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        temperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
         //TODO extra sensors--magnetic and orientation--commented out relative humidity, temperature
         /**
          * TODO note that we have low power sensors as in https://source.android.com/devices/sensors/sensor-types.html
@@ -231,6 +241,35 @@ public class MainActivity extends AppCompatActivity implements
         };
 
 
+        gravityListener=new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                //changes a to most recent value
+                g_x=sensorEvent.values[0];
+                g_y=sensorEvent.values[1];
+                g_z=sensorEvent.values[2];
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int i) {
+                //do nothing
+            }
+        };
+
+        temperatureListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                //changes p to most recent value
+                t = sensorEvent.values[0];
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int i) {
+                //do nothing
+            }
+        };
+
+
 
         //initializes array
         dataPointArrayList = new ArrayList<DataPoint>();
@@ -279,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements
                 Log.d(TAG, "RUN!");
 
                 //initializes data points and its values
-                DataPoint point = new DataPoint(rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
+                DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
                 if(mLastLocation!=null) {
                     point.lat = mLastLocation.getLatitude();
                     point.alt = mLastLocation.getAltitude();
@@ -331,6 +370,8 @@ public class MainActivity extends AppCompatActivity implements
         sensorManager.registerListener(magnetListener, magnet, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(humidityListener, humidity, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(rotationListener, rotation, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(gravityListener, gravity, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(temperatureListener, temperature, SensorManager.SENSOR_DELAY_NORMAL);
         if(mGoogleApiClient.isConnected()){
             startLocationUpdates();
         }
@@ -346,6 +387,8 @@ public class MainActivity extends AppCompatActivity implements
         sensorManager.unregisterListener(magnetListener);
         sensorManager.unregisterListener(humidityListener);
         sensorManager.unregisterListener(rotationListener);
+        sensorManager.unregisterListener(gravityListener);
+        sensorManager.unregisterListener(temperatureListener);
         if(mGoogleApiClient.isConnected()) {
             LocationServices.FusedLocationApi.removeLocationUpdates(
                     mGoogleApiClient, this);
@@ -362,6 +405,7 @@ public class MainActivity extends AppCompatActivity implements
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if(mGoogleApiClient.isConnected()){
                         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                        //TODO fix permissions
                         startLocationUpdates();
                     }
                 } else {
