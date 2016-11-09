@@ -290,6 +290,7 @@ public class MainActivity extends AppCompatActivity implements
                  * String[] parts = msg.split("-");
                  * point.ext_p=Float.parseFloat(parts[0]);
                  * point.ext_t=Float.parseFloat(parts[1]);
+                 * point.ard_alt=Float.parseFloat(parts[2]);
                  */
                 dataPointArrayList.add(point);
 

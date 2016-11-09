@@ -29,6 +29,7 @@ class DataPoint implements java.io.Serializable{
     /**
      * public float ext_p;
      * public float ext_t;
+     * public float ard_alt;
      */
 
     //allows for this to be used in our decoder--it's a specific value
