@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 class DataPoint implements java.io.Serializable{
-    //things in a data point
+    /** Declares each variable that takes a value from an internal sensor */
     public float t;
     public float a_y;
     public float a_x;
@@ -24,16 +24,18 @@ class DataPoint implements java.io.Serializable{
     public float g_x;
     public float g_y;
     public float g_z;
-    //private float ext_p;
-    //private float ext_t;
+
+    /** Declares each variable that takes a value from an external sensor */
+    //public float ext_p;
+    //public float ext_t;
     //private float ard_alt;
 
 
 
-    //allows for this to be used in our decoder--it's a specific value
+    /** Specific value that corresponds to the decoder (enabling deserialization of data) */
     private static final long serialVersionUID= 862329458582895689L;
 
-    //initializer
+    /** Initializer.  Each variable must be listed twice, in the row of variables and in the column that begins with this. */
     public DataPoint(float t, float g_x, float g_y, float g_z, float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time){
         this.t = t;
         this.g_x = g_x;

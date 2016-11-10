@@ -1,5 +1,4 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -34,9 +33,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
-
 
     /** Sensor manager */
     private SensorManager sensorManager;
@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements
      * */
 
 
+
     /** Runs when a GoogleApiClient object successfully connects. */
     @Override
     public void onConnected(Bundle connectionHint) {
@@ -111,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements
             startLocationUpdates();
         }
     }
-
 
 
     @Override
@@ -210,7 +210,6 @@ public class MainActivity extends AppCompatActivity implements
             }
         };
 
-
         humidityListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -239,7 +238,6 @@ public class MainActivity extends AppCompatActivity implements
             }
         };
 
-
         gravityListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -254,7 +252,6 @@ public class MainActivity extends AppCompatActivity implements
                 //do nothing
             }
         };
-
 
         temperatureListener = new SensorEventListener() {
             @Override
@@ -308,16 +305,17 @@ public class MainActivity extends AppCompatActivity implements
         mLastLocation = location;
     }
 
-    //recording function that starts running things
+    /** Recording function that starts running things */
     public void record(View view){
         final int delay = 1000; //milliseconds
 
-        //initializes and starts Runnable
+        /** Initializes and starts Runnable */
         r = new Runnable(){
             public void run(){
                 Log.d(TAG, "RUN!");
 
-                //initializes data points and its values
+                /** Initializes the data point class */
+                /** TODO decide on preferred order order of variables - not hugely important but deserves some consideration */
                 DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
                 if(mLastLocation!=null) {
                     point.lat = mLastLocation.getLatitude();
@@ -335,7 +333,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 dataPointArrayList.add(point);
 
-                /** Saves datafile to the documents folder, and the object is serialized here */
+                /** Object is serialized here, and the datafile is saved to the documents folder */
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 File file = new File(path,"SENSORDATA.txt");
                 try {
@@ -362,7 +360,7 @@ public class MainActivity extends AppCompatActivity implements
         h.removeCallbacks(r);
     }
 
-    //initializes things sensors that should not be done in onCreate
+    /** Initializes sensors that should not be done in onCreate */
     @Override
     protected void onStart() {
         super.onStart();
@@ -379,7 +377,7 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    //de-initializes sensors that should be destroyed before onDestroyed
+    /** de-initializes sensors that should be destroyed before onDestroyed */
     @Override
     protected void onStop() {
         super.onStop();
@@ -406,7 +404,7 @@ public class MainActivity extends AppCompatActivity implements
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if(mGoogleApiClient.isConnected()){
-                        //TODO fix permissions
+                        /** TODO fix permission issues...several possible solutions to entertain */
                         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                         startLocationUpdates();
                     }
