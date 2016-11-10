@@ -1,5 +1,4 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
-
 import java.util.Date;
 
 
