@@ -1,5 +1,6 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -7,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
@@ -16,6 +18,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -42,24 +46,21 @@ import java.util.Date;
 
 import eu.chainfire.libsuperuser.Shell;
 
+//import eu.chainfire.libsuperuser.Shell;
+
+
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    /**
-     * Sensor manager
-     */
+    /** Sensor manager */
     private SensorManager sensorManager;
 
-    /**
-     * Main loops for the sensors
-     */
+    /** Main loops for the sensors */
     final Handler h = new Handler();
     Runnable r;
 
-    /**
-     * Data values
-     */
+    /** Data values */
     float t;
     float a_y;
     float a_x;
@@ -96,6 +97,10 @@ public class MainActivity extends AppCompatActivity implements
     SensorEventListener rotationListener;
     SensorEventListener gravityListener;
     SensorEventListener temperatureListener;
+
+
+    Button reboot,recv,shut,sysui;
+
 
     /**
      * Array list of datapoints
@@ -153,11 +158,87 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     //Initialization of the activity
+
+
+    public class StartUp extends AsyncTask<String,Void,Void> {
+        public Context context = null;
+        boolean suAvailable = false;
+        public MainActivity.StartUp setContext(Context context) {
+            this.context = context;
+            return this;
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            suAvailable = Shell.SU.available();
+            if (suAvailable) {
+
+                // suResult = Shell.SU.run(new String[] {"cd data; ls"}); Shell.SU.run("reboot");
+                switch (params[0]){
+                    case "reboot"  : Shell.SU.run("reboot");break;
+                    case "recov"   : Shell.SU.run("reboot recovery");break;
+                    case "shutdown": Shell.SU.run("reboot -p");break;
+                    //case "sysui"   : Shell.SU.run("am startservice -n com.android.systemui/.SystemUIService");break;
+                    case "sysui"   : Shell.SU.run("pkill com.android.systemui");break;
+                }
+            }
+            else{
+                runOnUiThread(new Runnable() {
+                    public void run() {
+
+                        Toast.makeText(getApplicationContext(),"Phone not Rooted",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            return null;
+        }
+    }
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //starts things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        reboot = (Button) findViewById(R.id.btn_reb);
+        recv = (Button) findViewById(R.id.btn_rec);
+        shut = (Button) findViewById(R.id.shut);
+        sysui = (Button) findViewById(R.id.SysUi);
+        reboot.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                (new MainActivity.StartUp()).setContext(v.getContext()).execute("reboot");
+            }
+        });
+        recv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                (new MainActivity.StartUp()).setContext(v.getContext()).execute("recov");
+            }
+        });
+        shut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                (new MainActivity.StartUp()).setContext(v.getContext()).execute("shutdown");
+            }
+        });
+        sysui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                (new MainActivity.StartUp()).setContext(v.getContext()).execute("sysui");
+
+            }
+        });
+
 
         //gets sensors and checks for permissions
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -446,4 +527,12 @@ public class MainActivity extends AppCompatActivity implements
             // permissions this app might request
         }
     }
+
+
+
+
+
+
+
 }
+

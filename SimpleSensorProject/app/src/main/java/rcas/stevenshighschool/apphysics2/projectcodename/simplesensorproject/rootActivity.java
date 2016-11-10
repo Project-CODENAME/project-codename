@@ -11,7 +11,7 @@ import android.widget.Toast;
 import eu.chainfire.libsuperuser.Shell;
 
 
-public class rootActivity extends Activity {
+ class rootActivity extends Activity {
 
     Button reboot,recv,shut,sysui;
 
@@ -66,7 +66,7 @@ public class rootActivity extends Activity {
     public class StartUp extends AsyncTask<String,Void,Void> {
 
 
-        private Context context = null;
+        public Context context = null;
         boolean suAvailable = false;
         public StartUp setContext(Context context) {
             this.context = context;
