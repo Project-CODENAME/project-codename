@@ -47,7 +47,7 @@ plt.yticks()
 plt.xticks()
 
 
-plt.plot(data.time.values, data.p.values, lw=2.5, color=tableau20[0]);
+plt.plot(data.n.values, data.p.values, lw=2.5, color=tableau20[0]);
 
 plt.grid(b=True, which='both', color='0.65',linestyle='-')
 
@@ -89,7 +89,7 @@ plt.xlim(-2, 240)
 headers = ['a_x', 'a_y', 'a_z']
 
 for rank, column in enumerate(headers):
-    plt.plot(data2.time.values, data2[column].values, lw=2.5, color=tableau20[rank])
+    plt.plot(data2.n.values, data2[column].values, lw=2.5, color=tableau20[rank])
     plt.text(239.5, data2[column].values[rank]+rank*6, column, fontsize=14, color=tableau20[rank])
 
 plt.grid(b=True, which='both', color='0.65',linestyle='-')
