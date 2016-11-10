@@ -39,7 +39,7 @@ ax.get_yaxis().tick_left()
 # Limit the range of the plot to only where the data is.
 # Avoid unnecessary whitespace.
 plt.ylim(895, 896.8)
-plt.xlim(-2, 240)
+plt.xlim(-2, 48)
 
 # Make sure your axis ticks are large enough to be easily read.
 # You don't want your viewers squinting to read your plot.
@@ -84,13 +84,13 @@ ax.get_yaxis().tick_left()
 # Limit the range of the plot to only where the data is.
 # Avoid unnecessary whitespace.
 plt.ylim(-70, 70)
-plt.xlim(-2, 240)
+plt.xlim(-2, 48)
 
 headers = ['a_x', 'a_y', 'a_z']
 
 for rank, column in enumerate(headers):
     plt.plot(data2.n.values, data2[column].values, lw=2.5, color=tableau20[rank])
-    plt.text(239.5, data2[column].values[rank]+rank*6, column, fontsize=14, color=tableau20[rank])
+    plt.text(46, data2[column].values[rank]+rank*6, column, fontsize=14, color=tableau20[rank])
 
 plt.grid(b=True, which='both', color='0.65',linestyle='-')
 
@@ -106,3 +106,132 @@ plt.savefig("accelerationtime.png", bbox_inches="tight")
 
 py_fig2 = tls.mpl_to_plotly(plt.gcf())
 plotly.offline.plot(py_fig2, filename="accelerations.html")
+
+plt.clf();
+
+data3 = pd.read_csv(
+    "data.csv", usecols=[0, 6, 7, 8])
+
+# Remove the plot frame lines. They are unnecessary chartjunk.
+ax = plt.subplot(111)
+ax.spines["top"].set_visible(False)
+ax.spines["bottom"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)
+
+# Ensure that the axis ticks only show up on the bottom and left of the plot.
+# Ticks on the right and top of the plot are generally unnecessary chartjunk.
+ax.get_xaxis().tick_bottom()
+ax.get_yaxis().tick_left()
+
+# Limit the range of the plot to only where the data is.
+# Avoid unnecessary whitespace.
+plt.ylim(-10, 10)
+plt.xlim(-2, 48)
+
+headers = ['g_x', 'g_y', 'g_z']
+
+for rank, column in enumerate(headers):
+    plt.plot(data3.n.values, data3[column].values, lw=2.5, color=tableau20[rank])
+    plt.text(46, data3[column].values[rank]+rank*6, column, fontsize=14, color=tableau20[rank])
+
+plt.grid(b=True, which='both', color='0.65',linestyle='-')
+
+plt.title('Gravity Vector for Data Given')
+plt.xlabel('t (s)')
+plt.ylabel('component of gravity (m/s^2)')
+
+# Finally, save the figure as a PNG.
+# You can also save it as a PDF, JPEG, etc.
+# Just change the file extension in this call.
+# bbox_inches="tight" removes all the extra whitespace on the edges of your plot.
+plt.savefig("gravitytime.png", bbox_inches="tight")
+
+py_fig3 = tls.mpl_to_plotly(plt.gcf())
+plotly.offline.plot(py_fig3, filename="gravity.html")
+
+plt.clf();
+
+data4 = pd.read_csv(
+    "data.csv", usecols=[0, 9, 10, 11])
+
+# Remove the plot frame lines. They are unnecessary chartjunk.
+ax = plt.subplot(111)
+ax.spines["top"].set_visible(False)
+ax.spines["bottom"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)
+
+# Ensure that the axis ticks only show up on the bottom and left of the plot.
+# Ticks on the right and top of the plot are generally unnecessary chartjunk.
+ax.get_xaxis().tick_bottom()
+ax.get_yaxis().tick_left()
+
+# Limit the range of the plot to only where the data is.
+# Avoid unnecessary whitespace.
+plt.ylim(-1, 1)
+plt.xlim(-2, 48)
+
+headers = ['rot_x', 'rot_y', 'rot_z']
+
+for rank, column in enumerate(headers):
+    plt.plot(data4.n.values, data4[column].values, lw=2.5, color=tableau20[rank])
+    plt.text(46, data4[column].values[rank]+rank*6, column, fontsize=14, color=tableau20[rank])
+
+plt.grid(b=True, which='both', color='0.65',linestyle='-')
+
+plt.title('Rotation Vector for Data Given')
+plt.xlabel('t (s)')
+plt.ylabel('component of rotation (m/s^2)')
+
+# Finally, save the figure as a PNG.
+# You can also save it as a PDF, JPEG, etc.
+# Just change the file extension in this call.
+# bbox_inches="tight" removes all the extra whitespace on the edges of your plot.
+plt.savefig("rotationtime.png", bbox_inches="tight")
+
+py_fig4 = tls.mpl_to_plotly(plt.gcf())
+plotly.offline.plot(py_fig4, filename="rotation.html")
+
+plt.clf();
+
+data5 = pd.read_csv(
+    "data.csv", usecols=[0, 14, 15, 16])
+
+# Remove the plot frame lines. They are unnecessary chartjunk.
+ax = plt.subplot(111)
+ax.spines["top"].set_visible(False)
+ax.spines["bottom"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)
+
+# Ensure that the axis ticks only show up on the bottom and left of the plot.
+# Ticks on the right and top of the plot are generally unnecessary chartjunk.
+ax.get_xaxis().tick_bottom()
+ax.get_yaxis().tick_left()
+
+# Limit the range of the plot to only where the data is.
+# Avoid unnecessary whitespace.
+plt.ylim(-60, 60)
+plt.xlim(-2, 48)
+
+headers = ['mag_x', 'mag_y', 'mag_z']
+
+for rank, column in enumerate(headers):
+    plt.plot(data5.n.values, data5[column].values, lw=2.5, color=tableau20[rank])
+    plt.text(46, data5[column].values[rank]+rank*6, column, fontsize=14, color=tableau20[rank])
+
+plt.grid(b=True, which='both', color='0.65',linestyle='-')
+
+plt.title('Magnetic Field for Data Given')
+plt.xlabel('t (s)')
+plt.ylabel('component of rotation (microTesla)')
+
+# Finally, save the figure as a PNG.
+# You can also save it as a PDF, JPEG, etc.
+# Just change the file extension in this call.
+# bbox_inches="tight" removes all the extra whitespace on the edges of your plot.
+plt.savefig("magnetictime.png", bbox_inches="tight")
+
+py_fig5 = tls.mpl_to_plotly(plt.gcf())
+plotly.offline.plot(py_fig5, filename="magnetic.html")
