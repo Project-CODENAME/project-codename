@@ -2,39 +2,33 @@ package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
 
 import java.util.Date;
 
-/**
- * Class that will be logged as a separate file
- */
 
 class DataPoint implements java.io.Serializable{
     //things in a data point
-    public float t;
-    public float a_y;
-    public float a_x;
-    public float a_z;
-    public float p;
-    public double lat;
-    public double lon;
-    public double alt;
-    public Date time;
-    public float mag_x;
-    public float mag_y;
-    public float mag_z;
-    public float rh;
-    public float rot_x;
-    public float rot_y;
-    public float rot_z;
-    public float g_x;
-    public float g_y;
-    public float g_z;
-    /**
+    private float t;
+    private float a_y;
+    private float a_x;
+    private float a_z;
+    private float p;
+    double lat;
+    double lon;
+    double alt;
+    private Date time;
+    private float mag_x;
+    private float mag_y;
+    private float mag_z;
+    private float rh;
+    private float rot_x;
+    private float rot_y;
+    private float rot_z;
+    private float g_x;
+    private float g_y;
+    private float g_z;
+    //private float ext_p;
+    //private float ext_t;
+    //private float ard_alt;
 
-     */
-    /**
-     * public float ext_p;
-     * public float ext_t;
-     * public float ard_alt;
-     */
+
 
     //allows for this to be used in our decoder--it's a specific value
     private static final long serialVersionUID= 862329458582895689L;
@@ -60,5 +54,8 @@ class DataPoint implements java.io.Serializable{
         this.lat=-1;
         this.lon=-1;
         this.alt=-1;
+        //this.ext_p = ext_p;
+        //this.ext_t = ext_t;
+        //this.ard_alt = ard_alt;
     }
 }

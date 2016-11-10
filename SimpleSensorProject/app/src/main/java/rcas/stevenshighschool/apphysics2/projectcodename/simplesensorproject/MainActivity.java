@@ -41,14 +41,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    //Sensor manager
+
+    /** Sensor manager */
     private SensorManager sensorManager;
 
-    //Main loops for the sensors
+    /** Main loops for the sensors */
     final Handler h = new Handler();
     Runnable r;
 
-    //Data values
+    /** Data values */
     float t;
     float a_y;
     float a_x;
@@ -64,9 +65,11 @@ public class MainActivity extends AppCompatActivity implements
     float g_x;
     float g_y;
     float g_z;
+    //float ext_t;
+    //float ext_p;
     Location mLastLocation;
 
-    //Sensors and their listeners
+    /** Sensors and their listeners */
     Sensor accelerometer;
     Sensor pressure;
     Sensor magnet;
@@ -82,23 +85,26 @@ public class MainActivity extends AppCompatActivity implements
     SensorEventListener gravityListener;
     SensorEventListener temperatureListener;
 
-    //Array list of datapoints
+    /** Array list of datapoints */
     ArrayList<DataPoint> dataPointArrayList;
 
-    //Google Location things
+    /** Google Location things */
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
 
-    //Logging TAG
+    /** Logging TAG */
     private final String TAG = "SENSORS:";
 
-    /**Once we have an Arduino
-     * BluetoothAndroid mRobot = BluetoothArduino.getInstance("ExtSensorsRobot");
-     */
-
     /**
-     * Runs when a GoogleApiClient object successfully connects.
-     */
+     * Arduino connection code will be inserted below
+     *
+     * NOTE: SENSOR DATA COLLECTED BY THE ARDUINO WILL BE WRITTEN TO ext_t, ext_p, and ard_alt
+     *
+     * BluetoothAndroid mRobot = BluetoothArduino.getInstance("ExtSensorsRobot");
+     * */
+
+
+    /** Runs when a GoogleApiClient object successfully connects. */
     @Override
     public void onConnected(Bundle connectionHint) {
         // Starts by getting the location and requesting location updates
@@ -139,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements
          if (ContextCompat.checkSelfPermission(this,
                          Manifest.permission.WRITE_EXTERNAL_STORAGE)
                          != PackageManager.PERMISSION_GRANTED) {
-             // No explanation needed, we can request the permission.
              ActivityCompat.requestPermissions(this,
                      new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                      250);
@@ -149,14 +154,13 @@ public class MainActivity extends AppCompatActivity implements
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // No explanation needed, we can request the permission.
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     251);
 
         }
 
-        //initializes sensors and their listeners
+        /** Initializes sensors and their listeners */
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         magnet = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -164,11 +168,9 @@ public class MainActivity extends AppCompatActivity implements
         rotation = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         temperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        //TODO extra sensors--magnetic and orientation--commented out relative humidity, temperature
-        /**
-         * TODO note that we have low power sensors as in https://source.android.com/devices/sensors/sensor-types.html
-         * that is - maybe look at geomagnetic rotation vector, as well as rotation vector
-         */
+        /** TODO incorporate low-power mode for payload in emergency low-power situation */
+
+
         accelerometerListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -183,6 +185,7 @@ public class MainActivity extends AppCompatActivity implements
                 //do nothing
             }
         };
+
         pressureListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -199,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements
         magnetListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes a to most recent value
+                //changes m to most recent value
                 m_x=sensorEvent.values[0];
                 m_y=sensorEvent.values[1];
                 m_z=sensorEvent.values[2];
@@ -215,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements
         humidityListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes p to most recent value
+                //changes rh to most recent value
                 rh = sensorEvent.values[0];
             }
 
@@ -228,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements
         rotationListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes a to most recent value
+                //changes rot to most recent value
                 rot_x = sensorEvent.values[0];
                 rot_y = sensorEvent.values[1];
                 rot_z = sensorEvent.values[2];
@@ -244,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements
         gravityListener=new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes a to most recent value
+                //changes g to most recent value
                 g_x=sensorEvent.values[0];
                 g_y=sensorEvent.values[1];
                 g_z=sensorEvent.values[2];
@@ -256,10 +259,11 @@ public class MainActivity extends AppCompatActivity implements
             }
         };
 
+
         temperatureListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes p to most recent value
+                //changes t to most recent value
                 t = sensorEvent.values[0];
             }
 
@@ -271,10 +275,10 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
-        //initializes array
+        /** Initializes Array */
         dataPointArrayList = new ArrayList<DataPoint>();
 
-        //initializes google location things
+        /** Initializes Google Location Things */
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -324,6 +328,7 @@ public class MainActivity extends AppCompatActivity implements
                     point.alt = mLastLocation.getAltitude();
                     point.lon = mLastLocation.getLongitude();
                 }
+
                 /**
                  * String msg = mRobot.getLastMessage();
                  * String[] parts = msg.split("-");
@@ -331,10 +336,11 @@ public class MainActivity extends AppCompatActivity implements
                  * point.ext_t=Float.parseFloat(parts[1]);
                  * point.ard_alt=Float.parseFloat(parts[2]);
                  */
+
                 dataPointArrayList.add(point);
 
-                //saves to a folder(pictures for some vague reason), the sensor data file--and the object is serialized here
-                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                /** Saves datafile to the documents folder, and the object is serialized here */
+                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 File file = new File(path,"SENSORDATA.txt");
                 try {
                     path.mkdirs();
@@ -404,8 +410,8 @@ public class MainActivity extends AppCompatActivity implements
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if(mGoogleApiClient.isConnected()){
-                        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                         //TODO fix permissions
+                        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                         startLocationUpdates();
                     }
                 } else {

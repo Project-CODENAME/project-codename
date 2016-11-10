@@ -19,6 +19,7 @@ import java.util.UUID;
  * Taken from https://github.com/aron-bordin/Android-with-Arduino-Bluetooth
  * I honestly don't totally understand this code yet
  */
+
 public class BluetoothAndroid extends Thread {
 
     //bluetooth variables
@@ -53,7 +54,7 @@ public class BluetoothAndroid extends Thread {
         return __blue == null ? new BluetoothAndroid() : __blue;
     }
 
-    //intitializer
+    //initializer
     private  BluetoothAndroid(String Name){
         __blue = this;
         try {
@@ -126,7 +127,7 @@ public class BluetoothAndroid extends Thread {
 
         }catch (Exception e){
             //fuuuuuuuuu...
-            LogError("\t\t[#]Error while conecting: " + e.getMessage());
+            LogError("\t\t[#]Error while connecting: " + e.getMessage());
             return false;
         }
     }
