@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf986fe4-e63c-4ad1-bec2-3f7a1213db10" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tween.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/AZDATA2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/AZDATA3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/AZDATAFirst.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/DATAJOSH.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/DATAJOSH1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/DATAJOSH2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/SENSORDATA.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/SENSORDATA2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Decoder/SENSORDATA3.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.class" afterPath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" afterPath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.csv" afterPath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.kml" afterPath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.kml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Decoder/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" afterPath="$PROJECT_DIR$/../Decoder/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" afterPath="$PROJECT_DIR$/../Decoder/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SimpleSensorProject/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../SimpleSensorProject/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
     </list>
     <ignored path="Animations.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +26,8 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="813">
-              <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -243,12 +222,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1478752992650</updated>
-      <workItem from="1478752999491" duration="6251000" />
+      <workItem from="1478752999491" duration="6594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6251000" />
+    <option name="totallyTimeSpent" value="6594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="120" y="-8" width="1808" height="1096" extended-state="6" />
@@ -298,8 +277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
           <folding />
         </state>
       </provider>
