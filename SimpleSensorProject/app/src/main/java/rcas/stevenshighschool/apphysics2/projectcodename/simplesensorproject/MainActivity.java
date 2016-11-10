@@ -1,4 +1,5 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -16,8 +17,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-//import android.widget.TextView;
+
+/** for eventual root access */
+//import android.app.Activity;
+//import android.os.AsyncTask;
+//import android.widget.Button;
 //import android.widget.Toast;
+//import android.os.AsyncTask;
+//import eu.chainfire.libsuperuser.Shell;
+
+
+
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -98,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements
      *
      * BluetoothAndroid mRobot = BluetoothArduino.getInstance("ExtSensorsRobot");
      * */
-
 
 
     /** Runs when a GoogleApiClient object successfully connects. */

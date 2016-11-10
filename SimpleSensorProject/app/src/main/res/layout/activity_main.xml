@@ -27,10 +27,38 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Shutdown Phone"
+        android:id="@+id/shut"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="61dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reboot Recovery"
+        android:id="@+id/btn_rec"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/SysUi"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Reboot Phone"
         android:id="@+id/btn_reb"
-        android:layout_marginTop="163dp"
-        android:layout_below="@+id/button2"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/btn_rec"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restart SystemUI"
+        android:id="@+id/SysUi"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/shut"
         android:layout_alignParentStart="true" />
 
 </RelativeLayout>
