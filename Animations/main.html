@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Three.js app</title>
+    <style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+    </style>
+</head>
+<body>
+<script src="Three.js"></script>
+<script src="Tween.js"></script>
+<script>
+
+    function CSVToArray( strData, strDelimiter ){
+        // Check to see if the delimiter is defined. If not,
+        // then default to comma.
+        strDelimiter = (strDelimiter || ",");
+
+        // Create a regular expression to parse the CSV values.
+        var objPattern = new RegExp(
+                (
+                        // Delimiters.
+                        "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+
+                        // Quoted fields.
+                        "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+
+                        // Standard fields.
+                        "([^\"\\" + strDelimiter + "\\r\\n]*))"
+                ),
+                "gi"
+        );
+
+
+        // Create an array to hold our data. Give the array
+        // a default empty first row.
+        var arrData = [[]];
+
+        // Create an array to hold our individual pattern
+        // matching groups.
+        var arrMatches = null;
+
+
+        // Keep looping over the regular expression matches
+        // until we can no longer find a match.
+        while (arrMatches = objPattern.exec( strData )){
+
+            // Get the delimiter that was found.
+            var strMatchedDelimiter = arrMatches[ 1 ];
+
+            // Check to see if the given delimiter has a length
+            // (is not the start of string) and if it matches
+            // field delimiter. If id does not, then we know
+            // that this delimiter is a row delimiter.
+            if (
+                    strMatchedDelimiter.length &&
+                    strMatchedDelimiter !== strDelimiter
+            ){
+
+                // Since we have reached a new row of data,
+                // add an empty row to our data array.
+                arrData.push( [] );
+
+            }
+
+            var strMatchedValue;
+
+            // Now that we have our delimiter out of the way,
+            // let's check to see which kind of value we
+            // captured (quoted or unquoted).
+            if (arrMatches[ 2 ]){
+
+                // We found a quoted value. When we capture
+                // this value, unescape any double quotes.
+                strMatchedValue = arrMatches[ 2 ].replace(
+                        new RegExp( "\"\"", "g" ),
+                        "\""
+                );
+
+            } else {
+
+                // We found a non-quoted value.
+                strMatchedValue = arrMatches[ 3 ];
+
+            }
+
+
+            // Now that we have our value string, let's add
+            // it to the data array.
+            arrData[ arrData.length - 1 ].push( strMatchedValue );
+        }
+
+        // Return the parsed data.
+        return( arrData );
+    }
+    var allText;
+    function readTextFile(file)
+    {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function ()
+        {
+            if(rawFile.readyState === 4)
+            {
+                if(rawFile.status === 200 || rawFile.status == 0)
+                {
+                    allText = rawFile.responseText;
+                }
+            }
+        }
+        rawFile.send(null);
+    }
+
+    readTextFile("/Animations/data.csv");
+    var data_array = CSVToArray(allText, ",");
+    console.log(data_array);
+
+    var arrayLength = data_array.length;
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    // Set the background color of the scene.
+    renderer.setClearColor(new THREE.Color(0x333F47, 1));
+
+    // Create a light, set its position, and add it to the scene.
+    var light = new THREE.PointLight(0xffffff);
+    light.position.set(-100,200,100);
+    scene.add(light);
+
+    var geometry = new THREE.BoxGeometry( 1.366, 0.698, 0.079 );
+    var material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
+    var cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+
+    var i=2;
+    var newDir = new THREE.Vector3(parseFloat(data_array[2][9]),parseFloat(data_array[2][10]),parseFloat(data_array[2][11]));
+    var euler = new THREE.Euler();
+    euler.setFromVector3(newDir);
+
+    function tweenNext(){
+        var tween = new TWEEN.Tween(cube.rotation)
+                .to({x: euler.x, y: euler.y, z: euler.z},1000)
+                .onUpdate(function(){
+                })
+                .onComplete(function(){
+                    i++;
+                    if(i>=data_array.length){
+                        i=2;
+                    }
+                    console.log(i);
+                    newDir = new THREE.Vector3(parseFloat(data_array[i][9]),parseFloat(data_array[i][10]),parseFloat(data_array[i][11]));
+                    euler = new THREE.Euler();
+                    euler.setFromVector3(newDir);
+                    tweenNext();
+                })
+                .start();
+    }
+
+    var tween = new TWEEN.Tween(cube.rotation)
+            .to({x: euler.x, y: euler.y, z: euler.z},1000)
+            .onUpdate(function(){
+            })
+            .onComplete(function(){
+                i++;
+                if(i>=data_array.length){
+                    i=2;
+                }
+                newDir = new THREE.Vector3(parseFloat(data_array[i][9]),parseFloat(data_array[i][10]),parseFloat(data_array[i][11]));
+                euler = new THREE.Euler();
+                euler.setFromVector3(newDir);
+                tweenNext();
+            })
+            .start();
+
+    function render() {
+        requestAnimationFrame(render);
+        TWEEN.update();
+        renderer.render(scene, camera);
+    }
+
+    render();
+</script>
+</body>
+</html>
