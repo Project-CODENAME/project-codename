@@ -3,377 +3,361 @@
   <Document xmlns="">
     <Placemark>
       <name>0</name>
-      <description>Wed Nov 09 21:14:11 MST 2016</description>
+      <description>Thu Nov 10 12:58:31 MST 2016</description>
       <Point>
-        <coordinates>-103.267385,44.0354645,0.0</coordinates>
+        <coordinates>-96.7653805,43.5252207,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>1</name>
-      <description>Wed Nov 09 21:14:12 MST 2016</description>
+      <description>Thu Nov 10 12:58:32 MST 2016</description>
       <Point>
-        <coordinates>-103.267385,44.0354645,0.0</coordinates>
+        <coordinates>-96.7653805,43.5252207,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>2</name>
-      <description>Wed Nov 09 21:14:13 MST 2016</description>
+      <description>Thu Nov 10 12:58:34 MST 2016</description>
       <Point>
-        <coordinates>-103.2673548,44.035614,1068.0</coordinates>
+        <coordinates>-96.7653805,43.5252207,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>3</name>
-      <description>Wed Nov 09 21:14:14 MST 2016</description>
+      <description>Thu Nov 10 12:58:35 MST 2016</description>
       <Point>
-        <coordinates>-103.2673565,44.0356084,1069.0</coordinates>
+        <coordinates>-96.7653805,43.5252207,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>4</name>
-      <description>Wed Nov 09 21:14:15 MST 2016</description>
+      <description>Thu Nov 10 12:58:36 MST 2016</description>
       <Point>
-        <coordinates>-103.2673662,44.0356045,1070.0</coordinates>
+        <coordinates>-96.7653805,43.5252207,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>5</name>
-      <description>Wed Nov 09 21:14:16 MST 2016</description>
+      <description>Thu Nov 10 12:58:37 MST 2016</description>
       <Point>
-        <coordinates>-103.2673738,44.0356037,1071.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>6</name>
-      <description>Wed Nov 09 21:14:17 MST 2016</description>
+      <description>Thu Nov 10 12:58:38 MST 2016</description>
       <Point>
-        <coordinates>-103.2673819,44.0355984,1070.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>7</name>
-      <description>Wed Nov 09 21:14:18 MST 2016</description>
+      <description>Thu Nov 10 12:58:39 MST 2016</description>
       <Point>
-        <coordinates>-103.2673835,44.0355933,1070.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>8</name>
-      <description>Wed Nov 09 21:14:19 MST 2016</description>
+      <description>Thu Nov 10 12:58:40 MST 2016</description>
       <Point>
-        <coordinates>-103.2673867,44.0355912,1069.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>9</name>
-      <description>Wed Nov 09 21:14:20 MST 2016</description>
+      <description>Thu Nov 10 12:58:41 MST 2016</description>
       <Point>
-        <coordinates>-103.2673906,44.035589,1070.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>10</name>
-      <description>Wed Nov 09 21:14:21 MST 2016</description>
+      <description>Thu Nov 10 12:58:42 MST 2016</description>
       <Point>
-        <coordinates>-103.2673868,44.0355816,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>11</name>
-      <description>Wed Nov 09 21:14:22 MST 2016</description>
+      <description>Thu Nov 10 12:58:43 MST 2016</description>
       <Point>
-        <coordinates>-103.2673902,44.0355711,1065.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>12</name>
-      <description>Wed Nov 09 21:14:23 MST 2016</description>
+      <description>Thu Nov 10 12:58:44 MST 2016</description>
       <Point>
-        <coordinates>-103.2673931,44.0355776,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>13</name>
-      <description>Wed Nov 09 21:14:24 MST 2016</description>
+      <description>Thu Nov 10 12:58:45 MST 2016</description>
       <Point>
-        <coordinates>-103.2673922,44.0355728,1066.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>14</name>
-      <description>Wed Nov 09 21:14:25 MST 2016</description>
+      <description>Thu Nov 10 12:58:46 MST 2016</description>
       <Point>
-        <coordinates>-103.267387,44.0355673,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>15</name>
-      <description>Wed Nov 09 21:14:26 MST 2016</description>
+      <description>Thu Nov 10 12:58:47 MST 2016</description>
       <Point>
-        <coordinates>-103.267387,44.0355532,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>16</name>
-      <description>Wed Nov 09 21:14:27 MST 2016</description>
+      <description>Thu Nov 10 12:58:48 MST 2016</description>
       <Point>
-        <coordinates>-103.2673872,44.0355504,1068.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>17</name>
-      <description>Wed Nov 09 21:14:28 MST 2016</description>
+      <description>Thu Nov 10 12:58:49 MST 2016</description>
       <Point>
-        <coordinates>-103.2673928,44.0355475,1068.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>18</name>
-      <description>Wed Nov 09 21:14:29 MST 2016</description>
+      <description>Thu Nov 10 12:58:50 MST 2016</description>
       <Point>
-        <coordinates>-103.2674008,44.0355491,1068.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>19</name>
-      <description>Wed Nov 09 21:14:30 MST 2016</description>
+      <description>Thu Nov 10 12:58:51 MST 2016</description>
       <Point>
-        <coordinates>-103.2674039,44.0355499,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>20</name>
-      <description>Wed Nov 09 21:14:31 MST 2016</description>
+      <description>Thu Nov 10 12:58:52 MST 2016</description>
       <Point>
-        <coordinates>-103.2674057,44.0355499,1068.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>21</name>
-      <description>Wed Nov 09 21:14:32 MST 2016</description>
+      <description>Thu Nov 10 12:58:53 MST 2016</description>
       <Point>
-        <coordinates>-103.2674019,44.0355448,1068.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>22</name>
-      <description>Wed Nov 09 21:14:33 MST 2016</description>
+      <description>Thu Nov 10 12:58:54 MST 2016</description>
       <Point>
-        <coordinates>-103.2673966,44.0355431,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>23</name>
-      <description>Wed Nov 09 21:14:34 MST 2016</description>
+      <description>Thu Nov 10 12:58:55 MST 2016</description>
       <Point>
-        <coordinates>-103.2673907,44.0355386,1067.0</coordinates>
+        <coordinates>-103.2754012,44.0644592,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>24</name>
-      <description>Wed Nov 09 21:14:35 MST 2016</description>
+      <description>Thu Nov 10 12:58:56 MST 2016</description>
       <Point>
-        <coordinates>-103.2673841,44.0355278,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>25</name>
-      <description>Wed Nov 09 21:14:36 MST 2016</description>
+      <description>Thu Nov 10 12:58:57 MST 2016</description>
       <Point>
-        <coordinates>-103.267378,44.0355196,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>26</name>
-      <description>Wed Nov 09 21:14:37 MST 2016</description>
+      <description>Thu Nov 10 12:58:58 MST 2016</description>
       <Point>
-        <coordinates>-103.2673768,44.0355173,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>27</name>
-      <description>Wed Nov 09 21:14:38 MST 2016</description>
+      <description>Thu Nov 10 12:58:59 MST 2016</description>
       <Point>
-        <coordinates>-103.2673833,44.0355165,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>28</name>
-      <description>Wed Nov 09 21:14:40 MST 2016</description>
+      <description>Thu Nov 10 12:59:01 MST 2016</description>
       <Point>
-        <coordinates>-103.2673921,44.0355199,1064.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>29</name>
-      <description>Wed Nov 09 21:14:41 MST 2016</description>
+      <description>Thu Nov 10 12:59:02 MST 2016</description>
       <Point>
-        <coordinates>-103.2673953,44.0355266,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>30</name>
-      <description>Wed Nov 09 21:14:42 MST 2016</description>
+      <description>Thu Nov 10 12:59:03 MST 2016</description>
       <Point>
-        <coordinates>-103.2673958,44.03553,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>31</name>
-      <description>Wed Nov 09 21:14:43 MST 2016</description>
+      <description>Thu Nov 10 12:59:04 MST 2016</description>
       <Point>
-        <coordinates>-103.2673973,44.0355345,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>32</name>
-      <description>Wed Nov 09 21:14:44 MST 2016</description>
+      <description>Thu Nov 10 12:59:05 MST 2016</description>
       <Point>
-        <coordinates>-103.2673989,44.0355371,1065.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>33</name>
-      <description>Wed Nov 09 21:14:45 MST 2016</description>
+      <description>Thu Nov 10 12:59:06 MST 2016</description>
       <Point>
-        <coordinates>-103.2673993,44.0355417,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>34</name>
-      <description>Wed Nov 09 21:14:46 MST 2016</description>
+      <description>Thu Nov 10 12:59:07 MST 2016</description>
       <Point>
-        <coordinates>-103.2673985,44.0355444,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>35</name>
-      <description>Wed Nov 09 21:14:47 MST 2016</description>
+      <description>Thu Nov 10 12:59:08 MST 2016</description>
       <Point>
-        <coordinates>-103.2673971,44.0355452,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>36</name>
-      <description>Wed Nov 09 21:14:48 MST 2016</description>
+      <description>Thu Nov 10 12:59:09 MST 2016</description>
       <Point>
-        <coordinates>-103.267395,44.0355455,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>37</name>
-      <description>Wed Nov 09 21:14:49 MST 2016</description>
+      <description>Thu Nov 10 12:59:10 MST 2016</description>
       <Point>
-        <coordinates>-103.2673947,44.0355463,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>38</name>
-      <description>Wed Nov 09 21:14:50 MST 2016</description>
+      <description>Thu Nov 10 12:59:11 MST 2016</description>
       <Point>
-        <coordinates>-103.2673947,44.0355468,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>39</name>
-      <description>Wed Nov 09 21:14:51 MST 2016</description>
+      <description>Thu Nov 10 12:59:12 MST 2016</description>
       <Point>
-        <coordinates>-103.2673954,44.0355468,1066.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>40</name>
-      <description>Wed Nov 09 21:14:52 MST 2016</description>
+      <description>Thu Nov 10 12:59:13 MST 2016</description>
       <Point>
-        <coordinates>-103.2673922,44.0355478,1067.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>41</name>
-      <description>Wed Nov 09 21:14:53 MST 2016</description>
+      <description>Thu Nov 10 12:59:14 MST 2016</description>
       <Point>
-        <coordinates>-103.2673901,44.0355499,1068.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>42</name>
-      <description>Wed Nov 09 21:14:54 MST 2016</description>
+      <description>Thu Nov 10 12:59:15 MST 2016</description>
       <Point>
-        <coordinates>-103.2673877,44.0355485,1069.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>43</name>
-      <description>Wed Nov 09 21:14:55 MST 2016</description>
+      <description>Thu Nov 10 12:59:16 MST 2016</description>
       <Point>
-        <coordinates>-103.2673877,44.0355497,1069.0</coordinates>
+        <coordinates>-103.2827804,44.0751271,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>
     <Placemark>
       <name>44</name>
-      <description>Wed Nov 09 21:14:56 MST 2016</description>
+      <description>Thu Nov 10 12:59:18 MST 2016</description>
       <Point>
-        <coordinates>-103.2673894,44.0355517,1069.0</coordinates>
-        <altitudeMode>absolute</altitudeMode>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>45</name>
-      <description>Wed Nov 09 21:14:57 MST 2016</description>
-      <Point>
-        <coordinates>-103.2673934,44.0355518,1069.0</coordinates>
-        <altitudeMode>absolute</altitudeMode>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>46</name>
-      <description>Wed Nov 09 21:14:59 MST 2016</description>
-      <Point>
-        <coordinates>-103.2673964,44.0355498,1069.0</coordinates>
+        <coordinates>-103.2901596,44.0857949,0.0</coordinates>
         <altitudeMode>absolute</altitudeMode>
       </Point>
     </Placemark>

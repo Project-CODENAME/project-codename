@@ -112,7 +112,7 @@
         rawFile.send(null);
     }
 
-    readTextFile("/Animations/data.csv");
+    readTextFile("/data.csv");
     var data_array = CSVToArray(allText, ",");
     console.log(data_array);
 
@@ -133,7 +133,7 @@
     light.position.set(-100,200,100);
     scene.add(light);
 
-    var geometry = new THREE.BoxGeometry( 1.366, 0.698, 0.079 );
+    var geometry = new THREE.BoxGeometry( 0.698, 1.366, 0.079 );
     var material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
     var cube = new THREE.Mesh( geometry, material );
     scene.add( cube );
