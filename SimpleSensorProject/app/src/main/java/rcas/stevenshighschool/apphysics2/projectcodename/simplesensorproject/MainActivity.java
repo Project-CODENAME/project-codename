@@ -7,7 +7,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
@@ -18,9 +17,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -30,6 +26,10 @@ import com.google.android.gms.location.LocationServices;
 /** For Root Access*/
 //import android.widget.Button;
 //import android.app.Activity;
+//import android.widget.Button;
+//import android.widget.Toast;
+//import android.net.Uri;
+//import android.os.AsyncTask;
 
 
 import java.io.File;
@@ -40,18 +40,26 @@ import java.util.ArrayList;
 //import java.util.List;
 import java.util.Date;
 
+import eu.chainfire.libsuperuser.Shell;
+
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    /** Sensor manager */
+    /**
+     * Sensor manager
+     */
     private SensorManager sensorManager;
 
-    /** Main loops for the sensors */
+    /**
+     * Main loops for the sensors
+     */
     final Handler h = new Handler();
     Runnable r;
 
-    /** Data values */
+    /**
+     * Data values
+     */
     float t;
     float a_y;
     float a_x;
@@ -71,7 +79,9 @@ public class MainActivity extends AppCompatActivity implements
     //float ext_p;
     Location mLastLocation;
 
-    /** Sensors and their listeners */
+    /**
+     * Sensors and their listeners
+     */
     Sensor accelerometer;
     Sensor pressure;
     Sensor magnet;
@@ -87,14 +97,20 @@ public class MainActivity extends AppCompatActivity implements
     SensorEventListener gravityListener;
     SensorEventListener temperatureListener;
 
-    /** Array list of datapoints */
+    /**
+     * Array list of datapoints
+     */
     ArrayList<DataPoint> dataPointArrayList;
 
-    /** Google Location things */
+    /**
+     * Google Location things
+     */
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
 
-    /** Logging TAG */
+    /**
+     * Logging TAG
+     */
     private final String TAG = "SENSORS:";
 
     /**
@@ -106,7 +122,9 @@ public class MainActivity extends AppCompatActivity implements
      * */
 
 
-    /** Runs when a GoogleApiClient object successfully connects. */
+    /**
+     * Runs when a GoogleApiClient object successfully connects.
+     */
     @Override
     public void onConnected(Bundle connectionHint) {
         // Starts by getting the location and requesting location updates
@@ -277,13 +295,11 @@ public class MainActivity extends AppCompatActivity implements
 
         /** Initializes Google Location Things */
         if (mGoogleApiClient == null) {
-            // ATTENTION: This "addApi(AppIndex.API)"was auto-generated to implement the App Indexing API.
-            // See https://g.co/AppIndexing/AndroidStudio for more information.
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .addApi(LocationServices.API)
-                    .addApi(AppIndex.API).build();
+                    .build();
         }
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -311,19 +327,21 @@ public class MainActivity extends AppCompatActivity implements
         mLastLocation = location;
     }
 
-    /** Recording function that starts running things */
-    public void record(View view){
+    /**
+     * Recording function that starts running things
+     */
+    public void record(View view) {
         final int delay = 1000; //milliseconds
 
         /** Initializes and starts Runnable */
-        r = new Runnable(){
-            public void run(){
+        r = new Runnable() {
+            public void run() {
                 Log.d(TAG, "RUN!");
 
                 /** Initializes the data point class */
                 /** TODO decide on preferred order order of variables - not hugely important but deserves some consideration */
                 DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
-                if(mLastLocation!=null) {
+                if (mLastLocation != null) {
                     point.lat = mLastLocation.getLatitude();
                     point.alt = mLastLocation.getAltitude();
                     point.lon = mLastLocation.getLongitude();
@@ -341,7 +359,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 /** Object is serialized here, and the datafile is saved to the documents folder */
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-                File file = new File(path,"SENSORDATA.txt");
+                File file = new File(path, "SENSORDATA.txt");
                 try {
                     path.mkdirs();
                     OutputStream os = new FileOutputStream(file);
@@ -349,10 +367,10 @@ public class MainActivity extends AppCompatActivity implements
                     out.writeObject(dataPointArrayList);
                     out.close();
                     os.close();
-                } catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Log.d(TAG, mGoogleApiClient.isConnected()+"");
+                Log.d(TAG, mGoogleApiClient.isConnected() + "");
                 //schedules the next job
                 h.postDelayed(this, delay);
             }
@@ -362,11 +380,13 @@ public class MainActivity extends AppCompatActivity implements
         h.postDelayed(r, delay);
     }
 
-    public void stopRecord(View view){
+    public void stopRecord(View view) {
         h.removeCallbacks(r);
     }
 
-    /** Initializes sensors that should not be done in onCreate */
+    /**
+     * Initializes sensors that should not be done in onCreate
+     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -381,17 +401,14 @@ public class MainActivity extends AppCompatActivity implements
         if (mGoogleApiClient.isConnected()) {
             startLocationUpdates();
         }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.start(mGoogleApiClient, getIndexApiAction());
     }
 
-    /** de-initializes sensors that should be destroyed before onDestroyed */
+    /**
+     * de-initializes sensors that should be destroyed before onDestroyed
+     */
     @Override
     protected void onStop() {
-        super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(mGoogleApiClient, getIndexApiAction());
+        super.onStop();
         mGoogleApiClient.disconnect();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
@@ -414,7 +431,7 @@ public class MainActivity extends AppCompatActivity implements
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if(mGoogleApiClient.isConnected()){
+                    if (mGoogleApiClient.isConnected()) {
                         /** TODO fix permission issues...several possible solutions to entertain */
                         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                         startLocationUpdates();
@@ -428,21 +445,5 @@ public class MainActivity extends AppCompatActivity implements
             // other 'case' lines to check for other
             // permissions this app might request
         }
-    }
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Main Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
     }
 }

@@ -63,7 +63,7 @@ public class rootActivity extends Activity {
 
     }
 
-    private class StartUp extends AsyncTask<String,Void,Void> {
+    public class StartUp extends AsyncTask<String,Void,Void> {
 
 
         private Context context = null;
