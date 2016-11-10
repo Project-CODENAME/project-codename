@@ -53,23 +53,6 @@ import eu.chainfire.libsuperuser.Shell;
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    public void openFolder()
-    {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-
-        intent.setType("text/csv");
-
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-
-        try {
-            startActivityForResult(Intent.createChooser(intent, "Select a File to Upload"), 0);
-
-        } catch (android.content.ActivityNotFoundException ex) {
-            ex.printStackTrace();
-        }
-
-    }
-
     /** Sensor manager */
     private SensorManager sensorManager;
 
