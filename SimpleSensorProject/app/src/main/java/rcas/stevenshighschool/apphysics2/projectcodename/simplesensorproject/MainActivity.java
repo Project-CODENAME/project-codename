@@ -1,5 +1,4 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -8,6 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
@@ -18,22 +18,19 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-/** for eventual root access */
-//import android.app.Activity;
-//import android.os.AsyncTask;
-//import android.widget.Button;
-//import android.widget.Toast;
-//import android.os.AsyncTask;
-//import eu.chainfire.libsuperuser.Shell;
-
-
-
-
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+
+/** For Root Access*/
+//import android.widget.Button;
+//import android.app.Activity;
+
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,7 +39,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 //import java.util.List;
 import java.util.Date;
-
 
 
 public class MainActivity extends AppCompatActivity implements
@@ -146,15 +142,15 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         //gets sensors and checks for permissions
-        sensorManager=(SensorManager)getSystemService(Context.SENSOR_SERVICE);
-         if (ContextCompat.checkSelfPermission(this,
-                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                         != PackageManager.PERMISSION_GRANTED) {
-             ActivityCompat.requestPermissions(this,
-                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                     250);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    250);
 
-         }
+        }
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
@@ -176,13 +172,13 @@ public class MainActivity extends AppCompatActivity implements
         /** TODO incorporate low-power mode for payload in emergency low-power situation */
 
 
-        accelerometerListener=new SensorEventListener() {
+        accelerometerListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes a to most recent value
-                a_x=sensorEvent.values[0];
-                a_y=sensorEvent.values[1];
-                a_z=sensorEvent.values[2];
+                a_x = sensorEvent.values[0];
+                a_y = sensorEvent.values[1];
+                a_z = sensorEvent.values[2];
             }
 
             @Override
@@ -204,13 +200,13 @@ public class MainActivity extends AppCompatActivity implements
             }
         };
 
-        magnetListener=new SensorEventListener() {
+        magnetListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes m to most recent value
-                m_x=sensorEvent.values[0];
-                m_y=sensorEvent.values[1];
-                m_z=sensorEvent.values[2];
+                m_x = sensorEvent.values[0];
+                m_y = sensorEvent.values[1];
+                m_z = sensorEvent.values[2];
             }
 
             @Override
@@ -232,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements
             }
         };
 
-        rotationListener=new SensorEventListener() {
+        rotationListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes rot to most recent value
@@ -247,13 +243,13 @@ public class MainActivity extends AppCompatActivity implements
             }
         };
 
-        gravityListener=new SensorEventListener() {
+        gravityListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes g to most recent value
-                g_x=sensorEvent.values[0];
-                g_y=sensorEvent.values[1];
-                g_z=sensorEvent.values[2];
+                g_x = sensorEvent.values[0];
+                g_y = sensorEvent.values[1];
+                g_z = sensorEvent.values[2];
             }
 
             @Override
@@ -276,17 +272,18 @@ public class MainActivity extends AppCompatActivity implements
         };
 
 
-
         /** Initializes Array */
         dataPointArrayList = new ArrayList<DataPoint>();
 
         /** Initializes Google Location Things */
         if (mGoogleApiClient == null) {
+            // ATTENTION: This "addApi(AppIndex.API)"was auto-generated to implement the App Indexing API.
+            // See https://g.co/AppIndexing/AndroidStudio for more information.
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .addApi(LocationServices.API)
-                    .build();
+                    .addApi(AppIndex.API).build();
         }
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -381,15 +378,20 @@ public class MainActivity extends AppCompatActivity implements
         sensorManager.registerListener(rotationListener, rotation, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(gravityListener, gravity, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(temperatureListener, temperature, SensorManager.SENSOR_DELAY_NORMAL);
-        if(mGoogleApiClient.isConnected()){
+        if (mGoogleApiClient.isConnected()) {
             startLocationUpdates();
         }
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.start(mGoogleApiClient, getIndexApiAction());
     }
 
     /** de-initializes sensors that should be destroyed before onDestroyed */
     @Override
     protected void onStop() {
-        super.onStop();
+        super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
+// See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(mGoogleApiClient, getIndexApiAction());
         mGoogleApiClient.disconnect();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
@@ -398,7 +400,7 @@ public class MainActivity extends AppCompatActivity implements
         sensorManager.unregisterListener(rotationListener);
         sensorManager.unregisterListener(gravityListener);
         sensorManager.unregisterListener(temperatureListener);
-        if(mGoogleApiClient.isConnected()) {
+        if (mGoogleApiClient.isConnected()) {
             LocationServices.FusedLocationApi.removeLocationUpdates(
                     mGoogleApiClient, this);
         }
@@ -428,4 +430,19 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Main Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
 }
