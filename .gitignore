@@ -6,3 +6,5 @@ Data Vis/accelerations.html
 Data Vis/gravity.html
 Data Vis/magnetic.html
 Data Vis/rotation.html
+*.html
+!Animations/main.html
