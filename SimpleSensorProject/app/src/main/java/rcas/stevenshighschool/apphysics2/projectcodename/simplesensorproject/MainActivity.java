@@ -331,7 +331,7 @@ public class MainActivity extends AppCompatActivity implements
                     case "rootTest" : runOnUiThread(new Runnable() {
                         public void run() {
 
-                            Toast.makeText(getApplicationContext(),"Phone Is Rooted",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Your Phone Is Rooted, Begin The Asian Invasion",Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -340,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements
                 runOnUiThread(new Runnable() {
                     public void run() {
 
-                        Toast.makeText(getApplicationContext(),"Phone Not Rooted",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"The Asian Invasion Cannot Begin, Your Phone Is Not Rooted",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
