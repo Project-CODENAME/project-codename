@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -14,22 +19,120 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start"
+        android:text="start recording sensor data"
         android:onClick="record"
         android:id="@+id/main"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/buttonStop"
+        android:layout_toStartOf="@+id/buttonStop" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Begin"
+        android:id="@+id/buttonStart"
+        android:layout_below="@+id/rootTest"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onClickStart"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Root Test"
+        android:id="@+id/rootTest"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="stop"
+        android:text="Send"
+        android:id="@+id/buttonSend"
+        android:onClick="onClickSend"
+        android:layout_below="@+id/rootTest"
+        android:layout_toRightOf="@+id/buttonStart"
+        android:layout_toEndOf="@+id/buttonStart" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/buttonStop"
+        android:layout_below="@+id/rootTest"
+        android:layout_toRightOf="@+id/buttonSend"
+        android:onClick="onClickStop"/>
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/buttonStart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop recording sensor data"
         android:onClick="stopRecord"
         android:id="@+id/button2"
-        android:layout_below="@+id/main"
-        android:layout_marginTop="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/main"
+        android:layout_toEndOf="@+id/main" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:id="@+id/buttonClear"
+            android:layout_below="@+id/rootTest"
+            android:layout_toEndOf="@+id/buttonStop"
+            android:onClick="onClickClear"
+            android:layout_toRightOf="@+id/buttonStop" />
+
+
+    <!--
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reboot Recovery"
+        android:id="@+id/btn_rec"
+        android:layout_below="@+id/buttonStart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="59dp" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restart SystemUI"
+        android:id="@+id/SysUi"
+        android:layout_above="@+id/btn_rec"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -37,35 +140,11 @@
         android:layout_height="wrap_content"
         android:text="Shutdown Phone"
         android:id="@+id/shut"
-        android:layout_marginTop="61dp"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/SysUi"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" /> -->
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Reboot Recovery"
-        android:id="@+id/btn_rec"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/SysUi"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Reboot Phone"
-        android:id="@+id/btn_reb"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/btn_rec"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Restart SystemUI"
-        android:id="@+id/SysUi"
-        android:layout_marginTop="21dp"
-        android:layout_below="@+id/shut"
-        android:layout_alignParentStart="true" />
+        -->
 
 </RelativeLayout>
+</ScrollView>

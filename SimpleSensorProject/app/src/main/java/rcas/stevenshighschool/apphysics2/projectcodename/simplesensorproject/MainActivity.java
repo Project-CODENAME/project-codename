@@ -1,13 +1,18 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
 import android.Manifest;
-import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.hardware.usb.UsbDevice;
+import android.hardware.usb.UsbDeviceConnection;
+import android.hardware.usb.UsbManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -20,34 +25,33 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.felhr.usbserial.UsbSerialDevice;
+import com.felhr.usbserial.UsbSerialInterface;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-/** For Root Access*/
-//import android.widget.Button;
-//import android.app.Activity;
-//import android.widget.Button;
-//import android.widget.Toast;
-//import android.net.Uri;
-//import android.os.AsyncTask;
-
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 //import java.util.List;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import eu.chainfire.libsuperuser.Shell;
 
-//import eu.chainfire.libsuperuser.Shell;
 
 
 public class MainActivity extends AppCompatActivity implements
@@ -99,7 +103,20 @@ public class MainActivity extends AppCompatActivity implements
     SensorEventListener temperatureListener;
 
 
-    Button reboot,recv,shut,sysui;
+    /** Root Access variables */
+    Button rootTest; //reboot,recv,shut,sysui;
+
+    /** Arduino USB connection variables */
+    UsbDevice device;
+    UsbDeviceConnection usbConnection;
+    public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
+    Button startButton, sendButton, clearButton, stopButton;
+    TextView textView;
+    EditText editText;
+    UsbManager usbManager;
+    UsbSerialDevice serialPort;
+    UsbDeviceConnection connection;
+
 
 
     /**
@@ -142,6 +159,137 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
+
+    /** ARDUINO CONNECTION CODE */
+
+        UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
+            @Override
+            public void onReceivedData(byte[] arg0) {
+                String data = null;
+                try {
+                    data = new String(arg0, "UTF-8");
+                    data.concat("/n");
+                    tvAppend(textView, data);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        };
+
+        private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
+                    boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
+                    if (granted) {
+                        connection = usbManager.openDevice(device);
+                        serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
+                        if (serialPort != null) {
+                            if (serialPort.open()) { //Set Serial Connection Parameters.
+                                setUiEnabled(true);
+                                serialPort.setBaudRate(9600);
+                                serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
+                                serialPort.setStopBits(UsbSerialInterface.STOP_BITS_1);
+                                serialPort.setParity(UsbSerialInterface.PARITY_NONE);
+                                serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
+                                serialPort.read(mCallback);
+                                tvAppend(textView, "Serial Connection Opened!\n");
+
+                            } else {
+                                Log.d("SERIAL", "PORT NOT OPEN");
+                            }
+                        } else {
+                            Log.d("SERIAL", "PORT IS NULL");
+                        }
+                    } else {
+                        Log.d("SERIAL", "PERM NOT GRANTED");
+                    }
+                } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
+                    onClickStart(startButton);
+                } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
+                    onClickStop(stopButton);
+
+                }
+            }
+
+            ;
+        };
+
+    public void setUiEnabled(boolean bool) {
+        startButton.setEnabled(!bool);
+        sendButton.setEnabled(bool);
+        stopButton.setEnabled(bool);
+        textView.setEnabled(bool);
+
+    }
+
+    public void onClickStart(View view) {
+
+        HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
+        if (!usbDevices.isEmpty()) {
+            boolean keep = true;
+            for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
+                device = entry.getValue();
+                int deviceVID = device.getVendorId();
+                if (deviceVID == 0x2341)//Arduino Vendor ID
+                {
+                    PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+                    usbManager.requestPermission(device, pi);
+                    keep = false;
+                } else {
+                    connection = null;
+                    device = null;
+                }
+
+                if (!keep)
+                    break;
+            }
+        }
+
+
+    }
+
+    public void onClickSend(View view) {
+        String string = editText.getText().toString();
+        serialPort.write(string.getBytes());
+        tvAppend(textView, "\nData Sent : " + string + "\n");
+
+    }
+
+    public void onClickStop(View view) {
+        setUiEnabled(false);
+        serialPort.close();
+        tvAppend(textView, "\nSerial Connection Closed! \n");
+
+    }
+
+    public void onClickClear(View view) {
+        textView.setText(" ");
+        editText.setText(" ");
+    }
+
+    private void tvAppend(TextView tv, CharSequence text) {
+        final TextView ftv = tv;
+        final CharSequence ftext = text;
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ftv.append(ftext);
+            }
+        });
+    }
+
+
+    /** ------------------------------------- END ARDUINO CONNECTION CODE ------------------------------------- */
+
+
+
+
+
+
     @Override
     public void onConnectionFailed(ConnectionResult result) {
         // In case the connection fails
@@ -175,18 +323,24 @@ public class MainActivity extends AppCompatActivity implements
 
                 // suResult = Shell.SU.run(new String[] {"cd data; ls"}); Shell.SU.run("reboot");
                 switch (params[0]){
-                    case "reboot"  : Shell.SU.run("reboot");break;
-                    case "recov"   : Shell.SU.run("reboot recovery");break;
-                    case "shutdown": Shell.SU.run("reboot -p");break;
+                    //case "reboot"  : Shell.SU.run("reboot");break;
+                    //case "recov"   : Shell.SU.run("reboot recovery");break;
+                    //case "shutdown": Shell.SU.run("reboot -p");break;
                     //case "sysui"   : Shell.SU.run("am startservice -n com.android.systemui/.SystemUIService");break;
-                    case "sysui"   : Shell.SU.run("pkill com.android.systemui");break;
+                    //case "sysui"   : Shell.SU.run("pkill com.android.systemui");break;
+                    case "rootTest" : runOnUiThread(new Runnable() {
+                        public void run() {
+
+                            Toast.makeText(getApplicationContext(),"Phone Is Rooted",Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
             else{
                 runOnUiThread(new Runnable() {
                     public void run() {
 
-                        Toast.makeText(getApplicationContext(),"Phone not Rooted",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Phone Not Rooted",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -204,18 +358,51 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        reboot = (Button) findViewById(R.id.btn_reb);
-        recv = (Button) findViewById(R.id.btn_rec);
-        shut = (Button) findViewById(R.id.shut);
-        sysui = (Button) findViewById(R.id.SysUi);
-        reboot.setOnClickListener(new View.OnClickListener() {
+        /** Arduino Connection Stuff */
+        if(usbConnection!=null){
+            UsbSerialDevice serial = UsbSerialDevice.createUsbSerialDevice(device, usbConnection);
+        };
 
+        usbManager = (UsbManager) getSystemService(this.USB_SERVICE);
+        startButton = (Button) findViewById(R.id.buttonStart);
+        sendButton = (Button) findViewById(R.id.buttonSend);
+        clearButton = (Button) findViewById(R.id.buttonClear);
+        stopButton = (Button) findViewById(R.id.buttonStop);
+        editText = (EditText) findViewById(R.id.editText);
+        textView = (TextView) findViewById(R.id.textView);
+        setUiEnabled(false);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_USB_PERMISSION);
+        filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+        registerReceiver(broadcastReceiver, filter);
+
+
+
+        /** Root Actions */
+        rootTest = (Button) findViewById(R.id.rootTest);
+
+        //reboot = (Button) findViewById(R.id.btn_reb);
+        //recv = (Button) findViewById(R.id.btn_rec);
+        //shut = (Button) findViewById(R.id.shut);
+        //sysui = (Button) findViewById(R.id.SysUi);
+
+        rootTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                (new MainActivity.StartUp()).setContext(v.getContext()).execute("rootTest");
+            }
+        });
+
+      /**  reboot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 (new MainActivity.StartUp()).setContext(v.getContext()).execute("reboot");
             }
         });
+
         recv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,6 +410,7 @@ public class MainActivity extends AppCompatActivity implements
                 (new MainActivity.StartUp()).setContext(v.getContext()).execute("recov");
             }
         });
+
         shut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,6 +418,7 @@ public class MainActivity extends AppCompatActivity implements
                 (new MainActivity.StartUp()).setContext(v.getContext()).execute("shutdown");
             }
         });
+
         sysui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -237,10 +426,10 @@ public class MainActivity extends AppCompatActivity implements
                 (new MainActivity.StartUp()).setContext(v.getContext()).execute("sysui");
 
             }
-        });
+        }); */
 
 
-        //gets sensors and checks for permissions
+        /** gets sensors and checks for permissions */
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -313,7 +502,6 @@ public class MainActivity extends AppCompatActivity implements
                 //do nothing
             }
         };
-
         humidityListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -326,7 +514,6 @@ public class MainActivity extends AppCompatActivity implements
                 //do nothing
             }
         };
-
         rotationListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -341,7 +528,6 @@ public class MainActivity extends AppCompatActivity implements
                 //do nothing
             }
         };
-
         gravityListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -356,7 +542,6 @@ public class MainActivity extends AppCompatActivity implements
                 //do nothing
             }
         };
-
         temperatureListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -472,6 +657,7 @@ public class MainActivity extends AppCompatActivity implements
     protected void onStart() {
         super.onStart();
         mGoogleApiClient.connect();
+        //TODO add null checks to allow testing on certain phone models
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(pressureListener, pressure, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(magnetListener, magnet, SensorManager.SENSOR_DELAY_NORMAL);
