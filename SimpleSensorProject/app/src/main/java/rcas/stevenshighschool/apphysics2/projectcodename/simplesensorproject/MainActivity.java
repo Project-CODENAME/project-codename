@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.SurfaceTexture;
+import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -22,6 +24,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -41,6 +44,7 @@ import com.google.android.gms.location.LocationServices;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements
     /** Main loops for the sensors */
     final Handler h = new Handler();
     Runnable r;
+    Runnable rCamera;
 
     /** Data values */
     float t;
@@ -449,6 +454,17 @@ public class MainActivity extends AppCompatActivity implements
 
         }
 
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    23);
+
+        }
+
         /** Initializes sensors and their listeners */
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
@@ -598,6 +614,7 @@ public class MainActivity extends AppCompatActivity implements
      */
     public void record(View view) {
         final int delay = 1000; //milliseconds
+        final int delayCamera = 1000*15; //milliseconds
 
         /** Initializes and starts Runnable */
         r = new Runnable() {
@@ -641,13 +658,53 @@ public class MainActivity extends AppCompatActivity implements
                 h.postDelayed(this, delay);
             }
         };
-
+        rCamera = new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "PHOTO!");
+                Camera camera= openCamera();
+                SurfaceView surface = new SurfaceView(getBaseContext());
+                try {
+                    camera.setPreviewTexture(new SurfaceTexture(0));
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                camera.startPreview();
+                final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/";
+                final File file = new File(path);
+                file.mkdirs();
+                Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
+                    public void onPictureTaken(byte[] data, Camera camera)
+                    {
+                        FileOutputStream outStream = null;
+                        try {
+                            String finalPath = path+new Date()+".jpg";// set your directory path here
+                            outStream = new FileOutputStream(finalPath);
+                            outStream.write(data);
+                            outStream.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally
+                        {
+                            camera.stopPreview();
+                            camera.release();
+                            camera = null;
+                        }
+                    }
+                };
+                camera.takePicture(null,null,jpegCallback);
+                h.postDelayed(this, delayCamera);
+            }
+        };
         //schedules the first job
         h.postDelayed(r, delay);
+        h.postDelayed(rCamera,delay);
     }
 
     public void stopRecord(View view) {
         h.removeCallbacks(r);
+        h.removeCallbacks(rCamera);
     }
 
     /**
@@ -714,7 +771,24 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    private Camera openCamera() {
+        int cameraCount = 0;
+        Camera cam = null;
+        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+        cameraCount = Camera.getNumberOfCameras();
+        for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
+            Camera.getCameraInfo(camIdx, cameraInfo);
+            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                try {
+                    cam = Camera.open(camIdx);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
+        return cam;
+    }
 
 
 
