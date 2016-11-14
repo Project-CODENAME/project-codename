@@ -140,14 +140,6 @@ public class MainActivity extends AppCompatActivity implements
      */
     private final String TAG = "SENSORS:";
 
-    /**
-     * Arduino connection code will be inserted below
-     *
-     * NOTE: SENSOR DATA COLLECTED BY THE ARDUINO WILL BE WRITTEN TO ext_t, ext_p, and ard_alt
-     *
-     * BluetoothAndroid mRobot = BluetoothArduino.getInstance("ExtSensorsRobot");
-     * */
-
 
     /**
      * Runs when a GoogleApiClient object successfully connects.
@@ -166,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
     /** ARDUINO CONNECTION CODE */
+    //TODO variables taken from TrackSoar be written to ext_p, ext_t, lat, long, and alt
 
         UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
             @Override
@@ -589,9 +582,7 @@ public class MainActivity extends AppCompatActivity implements
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        /**
-         * mRobot.Connect();
-         */
+
     }
 
     protected void startLocationUpdates() {
@@ -630,13 +621,6 @@ public class MainActivity extends AppCompatActivity implements
                     point.lon = mLastLocation.getLongitude();
                 }
 
-                /**
-                 * String msg = mRobot.getLastMessage();
-                 * String[] parts = msg.split("-");
-                 * point.ext_p=Float.parseFloat(parts[0]);
-                 * point.ext_t=Float.parseFloat(parts[1]);
-                 * point.ard_alt=Float.parseFloat(parts[2]);
-                 */
 
                 dataPointArrayList.add(point);
 
@@ -770,6 +754,10 @@ public class MainActivity extends AppCompatActivity implements
             // permissions this app might request
         }
     }
+
+
+    /** Code that runs camera and takes a photograph every 15 seconds*/
+    //TODO add video capabilities, even if they are commented out
 
     private Camera openCamera() {
         int cameraCount = 0;
