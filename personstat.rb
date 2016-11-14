@@ -3,7 +3,7 @@ impact = Hash.new(0)
 IO.popen("git log --pretty=format:\"%an\" --shortstat #{ARGV.join(' ')}") do |f|
   prev_line = ''
   while line = f.gets
-    changes = /(\d+) insertions.*(\d+) deletions/.match(line)
+    changes = /(\d+) insertion.*(\d+) deletion/.match(line)
 
     if changes
       impact[prev_line] += changes[1].to_i + changes[2].to_i
