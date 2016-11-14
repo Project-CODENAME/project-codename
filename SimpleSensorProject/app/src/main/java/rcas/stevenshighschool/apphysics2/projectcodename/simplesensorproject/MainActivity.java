@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
     /** Root Access variables */
-    Button rootTest; //reboot,recv,shut,sysui;
+    Button rootTest, reboot, sysui;
 
     /** Arduino USB connection variables */
     UsbDevice device;
@@ -322,10 +322,6 @@ public class MainActivity extends AppCompatActivity implements
                 // suResult = Shell.SU.run(new String[] {"cd data; ls"}); Shell.SU.run("reboot");
                 switch (params[0]){
                     //case "reboot"  : Shell.SU.run("reboot");break;
-                    //case "recov"   : Shell.SU.run("reboot recovery");break;
-                    //case "shutdown": Shell.SU.run("reboot -p");break;
-                    //case "sysui"   : Shell.SU.run("am startservice -n com.android.systemui/.SystemUIService");break;
-                    //case "sysui"   : Shell.SU.run("pkill com.android.systemui");break;
                     case "rootTest" : runOnUiThread(new Runnable() {
                         public void run() {
 
@@ -379,11 +375,8 @@ public class MainActivity extends AppCompatActivity implements
 
         /** Root Actions */
         rootTest = (Button) findViewById(R.id.rootTest);
-
-        //reboot = (Button) findViewById(R.id.btn_reb);
-        //recv = (Button) findViewById(R.id.btn_rec);
-        //shut = (Button) findViewById(R.id.shut);
-        //sysui = (Button) findViewById(R.id.SysUi);
+        reboot = (Button) findViewById(R.id.btn_reb);
+        sysui = (Button) findViewById(R.id.SysUi);
 
         rootTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -393,27 +386,11 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
-      /**  reboot.setOnClickListener(new View.OnClickListener() {
+        reboot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 (new MainActivity.StartUp()).setContext(v.getContext()).execute("reboot");
-            }
-        });
-
-        recv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                (new MainActivity.StartUp()).setContext(v.getContext()).execute("recov");
-            }
-        });
-
-        shut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                (new MainActivity.StartUp()).setContext(v.getContext()).execute("shutdown");
             }
         });
 
@@ -424,7 +401,7 @@ public class MainActivity extends AppCompatActivity implements
                 (new MainActivity.StartUp()).setContext(v.getContext()).execute("sysui");
 
             }
-        }); */
+        });
 
 
         /** gets sensors and checks for permissions */

@@ -112,37 +112,47 @@
             android:onClick="onClickClear"
             android:layout_toRightOf="@+id/buttonStop" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Restart SystemUI"
+            android:id="@+id/SysUi"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <!--
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reboot Recovery"
+            android:id="@+id/btn_reb"
+            android:layout_below="@+id/buttonStart"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="59dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Reboot Recovery"
-        android:id="@+id/btn_rec"
-        android:layout_below="@+id/buttonStart"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="59dp" />
+        <!--
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reboot Recovery"
+            android:id="@+id/btn_rec"
+            android:layout_below="@+id/buttonStart"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="59dp" />
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Restart SystemUI"
-        android:id="@+id/SysUi"
-        android:layout_above="@+id/btn_rec"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Shutdown Phone"
-        android:id="@+id/shut"
-        android:layout_above="@+id/SysUi"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" /> -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shutdown Phone"
+            android:id="@+id/shut"
+            android:layout_above="@+id/SysUi"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" /> -->
 
         -->
 
