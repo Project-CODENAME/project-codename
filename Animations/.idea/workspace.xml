@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf986fe4-e63c-4ad1-bec2-3f7a1213db10" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Data Vis/accelerationtime.png" afterPath="$PROJECT_DIR$/../Data Vis/accelerationtime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Data Vis/gravitytime.png" afterPath="$PROJECT_DIR$/../Data Vis/gravitytime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Data Vis/magnetictime.png" afterPath="$PROJECT_DIR$/../Data Vis/magnetictime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Data Vis/rotationtime.png" afterPath="$PROJECT_DIR$/../Data Vis/rotationtime.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Animations.iml" afterPath="$PROJECT_DIR$/.idea/Animations.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data.csv" afterPath="$PROJECT_DIR$/data.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.html" afterPath="$PROJECT_DIR$/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Data Vis/data.csv" afterPath="$PROJECT_DIR$/../Data Vis/data.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.csv" afterPath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.kml" afterPath="$PROJECT_DIR$/../Decoder/production/simplesensorproject/data.kml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../OUTPUTS/AZDATA2/data.csv" afterPath="$PROJECT_DIR$/../OUTPUTS/AZDATA2/data.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SimpleSensorProject/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../SimpleSensorProject/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SimpleSensorProject/.idea/misc.xml" afterPath="$PROJECT_DIR$/../SimpleSensorProject/.idea/misc.xml" />
     </list>
     <ignored path="Animations.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +36,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="154" column="26" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+            <state relative-caret-position="898">
+              <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="138" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="308" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainvr.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainvr.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="14" selection-end-column="122" />
               <folding />
             </state>
           </provider>
@@ -75,6 +102,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.html" />
+        <option value="$PROJECT_DIR$/mainvr.html" />
+        <option value="$PROJECT_DIR$/index.html___jb_tmp___" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -126,20 +156,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Animations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MTLLoader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -249,17 +265,18 @@
       <updated>1478752992650</updated>
       <workItem from="1478752999491" duration="8115000" />
       <workItem from="1478811710050" duration="947000" />
+      <workItem from="1479092221662" duration="5110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9062000" />
+    <option name="totallyTimeSpent" value="14172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="120" y="-8" width="1808" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22879465" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06305803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -310,14 +327,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Three.js" />
-    <entry file="file://$PROJECT_DIR$/data.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="134" selection-start-line="2" selection-start-column="134" selection-end-line="2" selection-end-column="134" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_threejs.org_examples_js_loaders_MTLLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -326,10 +335,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="134" selection-start-line="2" selection-start-column="134" selection-end-line="2" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="154" column="26" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+        <state relative-caret-position="898">
+          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainvr.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="14" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html___jb_tmp___">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="138" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="308" selection-end-column="7" />
           <folding />
         </state>
       </provider>

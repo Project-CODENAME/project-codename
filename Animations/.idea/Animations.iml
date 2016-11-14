@@ -8,5 +8,8 @@
     <orderEntry type="library" name="MTLLoader" level="application" />
     <orderEntry type="library" name="OBJLoader" level="application" />
     <orderEntry type="library" name="Tween" level="application" />
+    <orderEntry type="library" name="OrbitControls" level="application" />
+    <orderEntry type="library" name="StereoEffect" level="application" />
+    <orderEntry type="library" name="DeviceOrientationControls" level="application" />
   </component>
 </module>
