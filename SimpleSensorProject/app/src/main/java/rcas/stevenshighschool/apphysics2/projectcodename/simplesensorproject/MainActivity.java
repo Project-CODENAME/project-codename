@@ -16,6 +16,8 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.location.Location;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
@@ -24,6 +26,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
@@ -56,6 +59,7 @@ import java.util.Map;
 
 import eu.chainfire.libsuperuser.Shell;
 
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 
 
 public class MainActivity extends AppCompatActivity implements
@@ -122,6 +126,9 @@ public class MainActivity extends AppCompatActivity implements
     UsbSerialDevice serialPort;
     UsbDeviceConnection connection;
 
+    Camera mVideoCamera;
+    MediaRecorder mMediaRecorder;
+    private boolean isRecording = false;
 
 
     /**
@@ -755,9 +762,70 @@ public class MainActivity extends AppCompatActivity implements
         return cam;
     }
 
+    private boolean prepareVideoRecorder() {
 
+        mVideoCamera = openCamera();
+        mMediaRecorder = new MediaRecorder();
 
+        // Step 1: Unlock and set camera to MediaRecorder
+        mVideoCamera.unlock();
+        mMediaRecorder.setCamera(mVideoCamera);
 
+        // Step 2: Set sources
+        mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+        mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+
+        // Step 3: Set a CamcorderProfile (requires API Level 8 or higher)
+        mMediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH));
+
+        // Step 4: Set output file
+        final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Videos/";
+        final File file = new File(path);
+        file.mkdirs();
+        mMediaRecorder.setOutputFile(path + new Date() + ".mp4");
+
+        // Step 5: Set the preview output - nothing in this case
+        Surface surface = new Surface(new SurfaceTexture(0));
+        mMediaRecorder.setPreviewDisplay(surface);
+
+        // Step 6: Prepare configured MediaRecorder
+        try {
+            mMediaRecorder.prepare();
+        } catch (IllegalStateException e) {
+            Log.d(TAG, "IllegalStateException preparing MediaRecorder: " + e.getMessage());
+            releaseMediaRecorder();
+            return false;
+        } catch (IOException e) {
+            Log.d(TAG, "IOException preparing MediaRecorder: " + e.getMessage());
+            releaseMediaRecorder();
+            return false;
+        }
+        return true;
+    }
+        private void releaseMediaRecorder(){
+            if (mMediaRecorder != null) {
+                mMediaRecorder.reset();   // clear recorder configuration
+                mMediaRecorder.release(); // release the recorder object
+                mMediaRecorder = null;
+                mVideoCamera.release();
+            }
+        }
+
+    //this can be called to start and stop recording - it currently isn't at all
+    public void recordButton(){
+        if(isRecording){
+            mMediaRecorder.stop();
+            releaseMediaRecorder();
+            isRecording=false;
+        } else {
+            if (prepareVideoRecorder()){
+                mMediaRecorder.start();
+                isRecording=true;
+            } else {
+                releaseMediaRecorder();
+            }
+        }
+    }
 
 }
 
