@@ -1,4 +1,5 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
+
 import android.Manifest;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -38,6 +39,7 @@ import android.widget.Toast;
 
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -65,15 +67,21 @@ import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    /** Sensor manager */
+    /**
+     * Sensor manager
+     */
     private SensorManager sensorManager;
 
-    /** Main loops for the sensors */
+    /**
+     * Main loops for the sensors
+     */
     final Handler h = new Handler();
     Runnable r;
     Runnable rCamera;
 
-    /** Data values */
+    /**
+     * Data values
+     */
     float t;
     float a_y;
     float a_x;
@@ -112,10 +120,14 @@ public class MainActivity extends AppCompatActivity implements
     SensorEventListener temperatureListener;
 
 
-    /** Root Access variables */
+    /**
+     * Root Access variables
+     */
     Button rootTest, reboot, sysui;
 
-    /** Arduino USB connection variables */
+    /**
+     * Arduino USB connection variables
+     */
     UsbDevice device;
     UsbDeviceConnection usbConnection;
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
@@ -163,64 +175,65 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-
-    /** ARDUINO CONNECTION CODE */
+    /**
+     * ARDUINO CONNECTION CODE
+     */
     //TODO variables taken from TrackSoar be written to ext_p, ext_t, lat, long, and alt
 
-        UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
-            @Override
-            public void onReceivedData(byte[] arg0) {
-                String data = null;
-                try {
-                    data = new String(arg0, "UTF-8");
-                    data.concat("/n");
-                    tvAppend(textView, data);
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-
-
+    UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
+        @Override
+        public void onReceivedData(byte[] arg0) {
+            String data = null;
+            try {
+                data = new String(arg0, "UTF-8");
+                data.concat("/n");
+                tvAppend(textView, data);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
-        };
 
-        private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
-                    boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
-                    if (granted) {
-                        connection = usbManager.openDevice(device);
-                        serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
-                        if (serialPort != null) {
-                            if (serialPort.open()) { //Set Serial Connection Parameters.
-                                setUiEnabled(true);
-                                serialPort.setBaudRate(9600);
-                                serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
-                                serialPort.setStopBits(UsbSerialInterface.STOP_BITS_1);
-                                serialPort.setParity(UsbSerialInterface.PARITY_NONE);
-                                serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
-                                serialPort.read(mCallback);
-                                tvAppend(textView, "Serial Connection Opened!\n");
 
-                            } else {
-                                Log.d("SERIAL", "PORT NOT OPEN");
-                            }
+        }
+    };
+
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
+                boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
+                if (granted) {
+                    connection = usbManager.openDevice(device);
+                    serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
+                    if (serialPort != null) {
+                        if (serialPort.open()) { //Set Serial Connection Parameters.
+                            setUiEnabled(true);
+                            serialPort.setBaudRate(9600);
+                            serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
+                            serialPort.setStopBits(UsbSerialInterface.STOP_BITS_1);
+                            serialPort.setParity(UsbSerialInterface.PARITY_NONE);
+                            serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
+                            serialPort.read(mCallback);
+                            tvAppend(textView, "Serial Connection Opened!\n");
+
                         } else {
-                            Log.d("SERIAL", "PORT IS NULL");
+                            Log.d("SERIAL", "PORT NOT OPEN");
                         }
                     } else {
-                        Log.d("SERIAL", "PERM NOT GRANTED");
+                        Log.d("SERIAL", "PORT IS NULL");
                     }
-                } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
-                    onClickStart(startButton);
-                } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
-                    onClickStop(stopButton);
-
+                } else {
+                    Log.d("SERIAL", "PERM NOT GRANTED");
                 }
-            }
+            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
+                onClickStart(startButton);
+            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
+                onClickStop(stopButton);
 
-            ;
-        };
+            }
+        }
+
+        ;
+    };
 
     public void setUiEnabled(boolean bool) {
         startButton.setEnabled(!bool);
@@ -288,11 +301,10 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-    /** ------------------------------------- END ARDUINO CONNECTION CODE ------------------------------------- */
-
-
-
-
+    /**
+     * ------------------------------------- END ARDUINO CONNECTION CODE
+     * -------------------------------------
+     */
 
 
     @Override
@@ -313,9 +325,10 @@ public class MainActivity extends AppCompatActivity implements
     //Initialization of the activity
 
 
-    public class StartUp extends AsyncTask<String,Void,Void> {
+    public class StartUp extends AsyncTask<String, Void, Void> {
         public Context context = null;
         boolean suAvailable = false;
+
         public MainActivity.StartUp setContext(Context context) {
             this.context = context;
             return this;
@@ -327,21 +340,21 @@ public class MainActivity extends AppCompatActivity implements
             if (suAvailable) {
 
                 // suResult = Shell.SU.run(new String[] {"cd data; ls"}); Shell.SU.run("reboot");
-                switch (params[0]){
+                switch (params[0]) {
                     //case "reboot"  : Shell.SU.run("reboot");break;
-                    case "rootTest" : runOnUiThread(new Runnable() {
-                        public void run() {
+                    case "rootTest":
+                        runOnUiThread(new Runnable() {
+                            public void run() {
 
-                            Toast.makeText(getApplicationContext(),"Your Phone Is Rooted, Begin The Asian Invasion",Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                                Toast.makeText(getApplicationContext(), "Your Phone Is Rooted, Begin The Asian Invasion", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                 }
-            }
-            else{
+            } else {
                 runOnUiThread(new Runnable() {
                     public void run() {
 
-                        Toast.makeText(getApplicationContext(),"The Asian Invasion Cannot Begin, Your Phone Is Not Rooted",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "The Asian Invasion Cannot Begin, Your Phone Is Not Rooted", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -351,8 +364,6 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //starts things
@@ -360,9 +371,10 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         /** Arduino Connection Stuff */
-        if(usbConnection!=null){
+        if (usbConnection != null) {
             UsbSerialDevice serial = UsbSerialDevice.createUsbSerialDevice(device, usbConnection);
-        };
+        }
+        ;
 
         usbManager = (UsbManager) getSystemService(this.USB_SERVICE);
         startButton = (Button) findViewById(R.id.buttonStart);
@@ -377,7 +389,6 @@ public class MainActivity extends AppCompatActivity implements
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(broadcastReceiver, filter);
-
 
 
         /** Root Actions */
@@ -589,7 +600,7 @@ public class MainActivity extends AppCompatActivity implements
      */
     public void record(View view) {
         final int delay = 1000; //milliseconds
-        final int delayCamera = 1000*15; //milliseconds
+        final int delayCamera = 1000 * 15; //milliseconds
 
         /** Initializes and starts Runnable */
         r = new Runnable() {
@@ -630,7 +641,7 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public void run() {
                 Log.d(TAG, "PHOTO!");
-                Camera camera= openCamera();
+                Camera camera = openCamera();
                 SurfaceView surface = new SurfaceView(getBaseContext());
                 try {
                     camera.setPreviewTexture(new SurfaceTexture(0));
@@ -643,31 +654,29 @@ public class MainActivity extends AppCompatActivity implements
                 final File file = new File(path);
                 file.mkdirs();
                 Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
-                    public void onPictureTaken(byte[] data, Camera camera)
-                    {
+                    public void onPictureTaken(byte[] data, Camera camera) {
                         FileOutputStream outStream = null;
                         try {
-                            String finalPath = path+new Date()+".jpg";// set your directory path here
+                            String finalPath = path + new Date() + ".jpg";// set your directory path here
                             outStream = new FileOutputStream(finalPath);
                             outStream.write(data);
                             outStream.close();
                         } catch (Exception e) {
                             e.printStackTrace();
-                        } finally
-                        {
+                        } finally {
                             camera.stopPreview();
                             camera.release();
                             camera = null;
                         }
                     }
                 };
-                camera.takePicture(null,null,jpegCallback);
+                camera.takePicture(null, null, jpegCallback);
                 h.postDelayed(this, delayCamera);
             }
         };
         //schedules the first job
         h.postDelayed(r, delay);
-        h.postDelayed(rCamera,delay);
+        h.postDelayed(rCamera, delay);
     }
 
     public void stopRecord(View view) {
@@ -740,9 +749,10 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-    /** Code that runs camera and takes a photograph every 15 seconds*/
+    /**
+     * Code that runs camera and takes a photograph every 15 seconds
+     */
     //TODO add video capabilities, even if they are commented out
-
     private Camera openCamera() {
         int cameraCount = 0;
         Camera cam = null;
@@ -802,25 +812,26 @@ public class MainActivity extends AppCompatActivity implements
         }
         return true;
     }
-        private void releaseMediaRecorder(){
-            if (mMediaRecorder != null) {
-                mMediaRecorder.reset();   // clear recorder configuration
-                mMediaRecorder.release(); // release the recorder object
-                mMediaRecorder = null;
-                mVideoCamera.release();
-            }
+
+    private void releaseMediaRecorder() {
+        if (mMediaRecorder != null) {
+            mMediaRecorder.reset();   // clear recorder configuration
+            mMediaRecorder.release(); // release the recorder object
+            mMediaRecorder = null;
+            mVideoCamera.release();
         }
+    }
 
     //this can be called to start and stop recording - it currently isn't at all
-    public void recordButton(){
-        if(isRecording){
+    public void recordButton() {
+        if (isRecording) {
             mMediaRecorder.stop();
             releaseMediaRecorder();
-            isRecording=false;
+            isRecording = false;
         } else {
-            if (prepareVideoRecorder()){
+            if (prepareVideoRecorder()) {
                 mMediaRecorder.start();
-                isRecording=true;
+                isRecording = true;
             } else {
                 releaseMediaRecorder();
             }
