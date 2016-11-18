@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements
      */
     UsbDevice device;
     UsbDeviceConnection usbConnection;
-    public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
+    public static final String ACTION_USB_PERMISSION = "rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject.USB_PERMISSION";
     Button startButton, sendButton, clearButton, stopButton;
     TextView textView;
     EditText editText;
@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements
         @Override
         public void onReceivedData(byte[] arg0) {
             String data = null;
+            Log.d(TAG, "receive");
             try {
                 data = new String(arg0, "UTF-8");
                 data.concat("/n");
@@ -193,13 +194,14 @@ public class MainActivity extends AppCompatActivity implements
             }
 
 
-        }
+       }
     };
 
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
+                Log.d(TAG, "TEST!");
                 boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
                 if (granted) {
                     connection = usbManager.openDevice(device);
@@ -244,15 +246,18 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     public void onClickStart(View view) {
-
+        Log.d(TAG, "clickstart1");
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
         if (!usbDevices.isEmpty()) {
+            Log.d(TAG, "clickstart2");
             boolean keep = true;
             for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
-                if (deviceVID == 0x2341)//Arduino Vendor ID
+                Log.d(TAG, deviceVID+"");
+                if (deviceVID == 10755)//Arduino Vendor ID
                 {
+
                     PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
                     usbManager.requestPermission(device, pi);
                     keep = false;
@@ -371,12 +376,8 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         /** Arduino Connection Stuff */
-        if (usbConnection != null) {
-            UsbSerialDevice serial = UsbSerialDevice.createUsbSerialDevice(device, usbConnection);
-        }
-        ;
 
-        usbManager = (UsbManager) getSystemService(this.USB_SERVICE);
+        usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
         startButton = (Button) findViewById(R.id.buttonStart);
         sendButton = (Button) findViewById(R.id.buttonSend);
         clearButton = (Button) findViewById(R.id.buttonClear);

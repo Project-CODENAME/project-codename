@@ -1,10 +1,15 @@
 void setup()  
  {  
   Serial.begin(9600);  
+  pinMode(LED_BUILTIN, OUTPUT);
  }  
  void loop()  
  {  
   char c;
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); 
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
   if(Serial.available())  
   {  
    //random numbers for now 
@@ -17,10 +22,9 @@ void setup()
    float ST21tem = (rand() % 40)-20.1;
    float rh = rand()%20+0.1;
    
-   Serial.write(makeMessage(lat,lon,alt,p,BMP180tem,BMP180altEST,ST21tem,rh);
-
+   Serial.print(makeMessage(lat,lon,alt,p,BMP180tem,BMP180altEST,ST21tem,rh));
+   Serial.print("test");
    //determine how much time should pass before we pass on the information
-   delay(5000); 
   }  
  }
 
