@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimpleSensorProject.iml" filepath="$PROJECT_DIR$/SimpleSensorProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project CODENAME.iml" filepath="$PROJECT_DIR$/Project CODENAME.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -115,7 +115,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Restart SystemUI"
+            android:text="Restart System UI"
             android:id="@+id/SysUi"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:text="Reboot Recovery"
             android:id="@+id/btn_reb"
-            android:layout_below="@+id/buttonStart"
+            android:layout_below="@+id/SysUi"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="59dp" />
