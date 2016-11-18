@@ -47,6 +47,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -55,6 +56,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 //import java.util.List;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,8 +99,14 @@ public class MainActivity extends AppCompatActivity implements
     float g_x;
     float g_y;
     float g_z;
-    //float ext_t;
-    //float ext_p;
+    float ext_lat;
+    float ext_lon;
+    float ext_alt;
+    float ext_p;
+    float ext_BMP180temp;
+    float ext_BMP180altEst;
+    float ext_ST21temp;
+    float ext_rh;
     Location mLastLocation;
 
     /**
@@ -141,6 +149,10 @@ public class MainActivity extends AppCompatActivity implements
     Camera mVideoCamera;
     MediaRecorder mMediaRecorder;
     private boolean isRecording = false;
+
+    byte ch, buffer[] = new byte[1024];
+    int iterReading = 0;
+    String arduinoInRecent;
 
 
     /**
@@ -185,17 +197,74 @@ public class MainActivity extends AppCompatActivity implements
         public void onReceivedData(byte[] arg0) {
             String data = null;
             Log.d(TAG, "receive");
+            ByteArrayInputStream mIn = new ByteArrayInputStream(arg0);
             try {
-                data = new String(arg0, "UTF-8");
-                data.concat("/n");
+                while((ch=(byte)mIn.read())!=-1){
+                    if (ch != '#') {
+                        buffer[iterReading++] = ch;
+                    } else {
+                        buffer[iterReading] = '\0';
+                        arduinoInRecent = new String(buffer);
+                        buffer = new byte[1024];
+                        iterReading = 0;
+                        processMessage();
+                    }
+                }
+
                 tvAppend(textView, data);
-            } catch (UnsupportedEncodingException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
 
        }
     };
+
+    private void processMessage() {
+        if(arduinoInRecent != null) {
+            String[] parts = arduinoInRecent.split("-");
+            int i=0;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_lat = Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_lon=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_alt=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_p=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_BMP180temp=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_BMP180altEst=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_ST21temp=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            ext_rh = Float.parseFloat(parts[i]);
+        }
+    }
 
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
         @Override
@@ -296,11 +365,12 @@ public class MainActivity extends AppCompatActivity implements
     private void tvAppend(TextView tv, CharSequence text) {
         final TextView ftv = tv;
         final CharSequence ftext = text;
-
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                ftv.append(ftext);
+                if(ftext!=null) {
+                    ftv.append(ftext);
+                }
             }
         });
     }
@@ -617,6 +687,14 @@ public class MainActivity extends AppCompatActivity implements
                     point.lon = mLastLocation.getLongitude();
                 }
 
+                point.ext_alt = ext_alt;
+                point.ext_lon = ext_lon;
+                point.ext_lat = ext_lat;
+                point.ext_BMP180altEst = ext_BMP180altEst;
+                point.ext_BMP180temp = ext_BMP180temp;
+                point.ext_p = ext_p;
+                point.ext_rh = ext_rh;
+                point.ext_ST21temp = ext_ST21temp;
 
                 dataPointArrayList.add(point);
 

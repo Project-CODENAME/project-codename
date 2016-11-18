@@ -3,6 +3,14 @@ void setup()
   Serial.begin(9600);  
   pinMode(LED_BUILTIN, OUTPUT);
  }  
+ float lat = 0.0;
+ float lon = 0.0;
+ float alt = 0.0;
+ float p = 0.0;
+ float BMP180temp = 0.0;
+ float BMP180altEST = 0.0;
+ float ST21temp = 0.0;
+ float rh = 0.0;
  void loop()  
  {  
   char c;
@@ -13,37 +21,37 @@ void setup()
   if(Serial.available())  
   {  
    //random numbers for now 
-   float lat = (rand() % 10)+44.1;
-   float lon = (rand() % 10)+144.1;
-   float alt = (rand() % 100)+1087.1;
-   float p = (rand() % 400)+500.1;
-   float BMP180tem = (rand() % 40)-20.1;
-   float BMP180altEST = pressureToAltitude(p);
-   float ST21tem = (rand() % 40)-20.1;
-   float rh = rand()%20+0.1;
-   
-   Serial.print(makeMessage(lat,lon,alt,p,BMP180tem,BMP180altEST,ST21tem,rh));
-   Serial.print("test");
+   lat = (rand() % 10)+44.1;
+   lon = (rand() % 10)+144.1;
+   alt = (rand() % 100)+1087.1;
+   p = (rand() % 400)+500.1;
+   BMP180temp = (rand() % 40)-20.1;
+   BMP180altEST = pressureToAltitude(p);
+   ST21temp = (rand() % 40)-20.1;
+   rh = rand()%20+0.1;
+   Serial.print(makeMessage()+"\n");
    //determine how much time should pass before we pass on the information
   }  
  }
 
-String makeMessage(float lat, float lon, float alt, float p, float BMP180tem, float BMP180altEST, float ST21tem, float rh){
-    String messageToBe = "";
-    messageToBe = messageToBe + lat;
-    messageToBe = messageToBe+"-";
-    messageToBe = messageToBe+lon;
-    messageToBe = messageToBe+"-";
-    messageToBe = messageToBe+alt;
-    messageToBe = messageToBe + p;
-    messageToBe = messageToBe+"-";
-    messageToBe = messageToBe + BMP180tem;
-    messageToBe = messageToBe+"-";
-    messageToBe = messageToBe + BMP180altEST;
-    messageToBe = messageToBe+"-";
-    messageToBe = messageToBe + ST21tem;
-    messageToBe = messageToBe+"-";
-    messageToBe = messageToBe + rh;
+String makeMessage(){
+    String messageToBe = String("");
+    messageToBe += lat;
+    messageToBe += "-";
+    messageToBe += lon;
+    messageToBe += "-";
+    messageToBe += alt;
+    messageToBe += "-";
+    messageToBe += p;
+    messageToBe += "-";
+    messageToBe += BMP180temp;
+    messageToBe += "-";
+    messageToBe += BMP180altEST;
+    messageToBe += "-";
+    messageToBe += ST21temp;
+    messageToBe += "-";
+    messageToBe += rh;
+    messageToBe +="#";
     return messageToBe;
 }
 float pressureToAltitude(float atmospheric)

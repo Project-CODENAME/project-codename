@@ -69,13 +69,34 @@ public class Main {
             sb.append("mag_y");
             sb.append(',');
             sb.append("mag_z");
+            sb.append(',');
+            sb.append("ext_lat");
+            sb.append(',');
+            sb.append("ext_lon");
+            sb.append(',');
+            sb.append("ext_alt");
+            sb.append(',');
+            sb.append("ext_p");
+            sb.append(',');
+            sb.append("ext_BMP180temp");
+            sb.append(',');
+            sb.append("ext_BMP180altEst");
+            sb.append(',');
+            sb.append("ext_ST21temp");
+            sb.append(',');
+            sb.append("ext_rh");
             sb.append('\n');
             Namespace ns = Namespace.getNamespace("http://www.opengis.net/kml/2.2");
             Document kml = new Document();
+            //Document ext_kml = new Document();
             Element root = new Element("kml", ns);
+            //Document ext_root = new Element("kml", ns);
             kml.setRootElement(root);
+            //Document ext_kml.setRootElement(ext_root);
             root.addNamespaceDeclaration(ns);
+            //Document ext_root.addNamespaceDeclaration(ns);
             Element doc = new Element("Document");
+            //Element ext_doc = new Element("Document");
             int iter = 0;
             for (DataPoint pnt : dataPoint) {
                 //also prints it to command line, not necessary in production
@@ -117,6 +138,22 @@ public class Main {
                 sb.append(pnt.mag_y);
                 sb.append(',');
                 sb.append(pnt.mag_z);
+                sb.append(',');
+                sb.append(pnt.ext_lat);
+                sb.append(',');
+                sb.append(pnt.ext_lon);
+                sb.append(',');
+                sb.append(pnt.ext_alt);
+                sb.append(',');
+                sb.append(pnt.ext_p);
+                sb.append(',');
+                sb.append(pnt.ext_BMP180temp);
+                sb.append(',');
+                sb.append(pnt.ext_BMP180altEst);
+                sb.append(',');
+                sb.append(pnt.ext_ST21temp);
+                sb.append(',');
+                sb.append(pnt.ext_rh);
                 sb.append('\n');
                 Element child = new Element("Placemark");
                 child.addContent(new Element("name").addContent(dataPoint.indexOf(pnt)+""));
@@ -126,13 +163,30 @@ public class Main {
                 point.addContent(new Element("altitudeMode").addContent("absolute"));
                 child.addContent(point);
                 doc.addContent(child);
+                /**
+                 Element ext_child = new Element("Placemark");
+                 ext_child.addContent(new Element("name").addContent(dataPoint.indexOf(pnt)+""));
+                 ext_child.addContent(new Element("description").addContent(pnt.time+""));
+                 ext_Element point = new Element("Point");
+                 ext_point.addContent(new Element("coordinates").addContent(pnt.ext_lon+","+pnt.ext_lat+","+pnt.ext_alt));
+                 ext_point.addContent(new Element("altitudeMode").addContent("absolute"));
+                 ext_child.addContent(ext_point);
+                 ext_doc.addContent(ext_child);
+                 */
             }
             pw.write(sb.toString());
             pw.close();
+
             root.addContent(doc);
             XMLOutputter outter = new XMLOutputter();
             outter.setFormat(Format.getPrettyFormat());
             outter.output(kml, new FileWriter(new File("data.kml")));
+            /**
+            ext_root.addContent(doc);
+            XMLOutputter ext_outter = new XMLOutputter();
+            ext_outter.setFormat(Format.getPrettyFormat());
+            ext_outter.output(ext_kml, new FileWriter(new File("dataext.kml")));
+            */
         } catch (Exception e){
             e.printStackTrace();
         }

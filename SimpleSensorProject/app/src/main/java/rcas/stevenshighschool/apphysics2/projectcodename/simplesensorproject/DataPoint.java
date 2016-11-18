@@ -23,6 +23,14 @@ class DataPoint implements java.io.Serializable{
     public float g_x;
     public float g_y;
     public float g_z;
+    public float ext_lat;
+    public float ext_lon;
+    public float ext_alt;
+    public float ext_p;
+    public float ext_BMP180temp;
+    public float ext_BMP180altEst;
+    public float ext_ST21temp;
+    public float ext_rh;
 
     /** Declares each variable that takes a value from an external sensor */
     //public float ext_p;

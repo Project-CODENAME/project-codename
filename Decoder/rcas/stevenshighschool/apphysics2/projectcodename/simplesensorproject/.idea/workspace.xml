@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../AZDATA2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../AZDATA3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../AZDATAFirst.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../DATAJOSH.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../DATAJOSH1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../DATAJOSH2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../SENSORDATA.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../SENSORDATA2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../../SENSORDATA3.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Arduino code/comthrough/comthrough.ino" afterPath="$PROJECT_DIR$/../../../../../../Arduino code/comthrough/comthrough.ino" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Arduino code/python-for-testing/serial test.py" afterPath="$PROJECT_DIR$/../../../../../../Arduino code/python-for-testing/serial test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" afterPath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" afterPath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../SimpleSensorProject/.idea/gradle.xml" afterPath="$PROJECT_DIR$/../../../../../../SimpleSensorProject/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../SimpleSensorProject/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" afterPath="$PROJECT_DIR$/../../../../../../SimpleSensorProject/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../SimpleSensorProject/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" afterPath="$PROJECT_DIR$/../../../../../../SimpleSensorProject/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" />
     </list>
     <ignored path="simplesensorproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +33,8 @@
       <file leaf-file-name="DataPoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1488">
-              <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="50" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +43,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="139" column="1" selection-start-line="139" selection-start-column="1" selection-end-line="139" selection-end-column="1" />
+            <state relative-caret-position="612">
+              <caret line="187" column="71" selection-start-line="187" selection-start-column="71" selection-end-line="187" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -535,23 +528,25 @@
       <workItem from="1478737772252" duration="5022000" />
       <workItem from="1478750171886" duration="729000" />
       <workItem from="1478751569248" duration="597000" />
+      <workItem from="1479437618485" duration="788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8969000" />
+    <option name="totallyTimeSpent" value="9757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="120" y="-8" width="1808" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32337245" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14530893" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -560,14 +555,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -615,6 +609,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1488">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="50" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1488">
@@ -726,16 +738,16 @@
     <entry file="jar://$PROJECT_DIR$/lib/JavaAPIforKml-2.2.0.jar!/de/micromata/opengis/kml/v_2_2_0/Geometry.class" />
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="50" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="139" column="1" selection-start-line="139" selection-start-column="1" selection-end-line="139" selection-end-column="1" />
+        <state relative-caret-position="612">
+          <caret line="187" column="71" selection-start-line="187" selection-start-column="71" selection-end-line="187" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
