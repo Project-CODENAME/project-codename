@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
                 Log.d(TAG, deviceVID+"");
-                if (deviceVID == 10755)//Arduino Vendor ID
+                if (deviceVID == 9025)//Arduino Vendor ID
                 {
 
                     PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
