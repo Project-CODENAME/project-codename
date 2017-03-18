@@ -68,7 +68,7 @@
 	#define APRS_COMMENT    "Tracksoar v1.1"
 #endif
 #ifdef TRACKSOAR_12
-	#define APRS_COMMENT    "Tracksoar v1.2"
+	#define APRS_COMMENT    "SHS CPMB"
 #endif
 
 

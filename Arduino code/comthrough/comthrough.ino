@@ -1,16 +1,22 @@
+#include <Wire.h>
+
 void setup()  
  {  
   Serial.begin(9600);  
   pinMode(LED_BUILTIN, OUTPUT);
+  Wire.begin(233);                // join i2c bus with address #8
+  Wire.onReceive(receiveEvent); // register event
+  
  }  
  float lat = 0.0;
  float lon = 0.0;
  float alt = 0.0;
  float p = 0.0;
- float BMP180temp = 0.0;
- float BMP180altEST = 0.0;
- float ST21temp = 0.0;
+ float temp = 0.0;
+ float altEST = 0.0;
  float rh = 0.0;
+ float course = 0.0;
+ float gps_speed = 0.0;
  void loop()  
  {  
   char c;
@@ -18,17 +24,14 @@ void setup()
   delay(1000); 
   digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
+  Wire.requestFrom(8, 6);    // request 6 bytes from slave device #8
+
+  while (Wire.available()) { // slave may send less than requested
+    char c = Wire.read(); // receive a byte as character
+    Serial.print(c);         // print the character
+  }
   if(Serial.available())  
   {  
-   //random numbers for now 
-   lat = (rand() % 10)+44.1;
-   lon = (rand() % 10)+144.1;
-   alt = (rand() % 100)+1087.1;
-   p = (rand() % 400)+500.1;
-   BMP180temp = (rand() % 40)-20.1;
-   BMP180altEST = pressureToAltitude(p);
-   ST21temp = (rand() % 40)-20.1;
-   rh = rand()%20+0.1;
    Serial.print(makeMessage()+"\n");
    //determine how much time should pass before we pass on the information
   }  
@@ -44,13 +47,15 @@ String makeMessage(){
     messageToBe += "-";
     messageToBe += p;
     messageToBe += "-";
-    messageToBe += BMP180temp;
+    messageToBe += temp;
     messageToBe += "-";
-    messageToBe += BMP180altEST;
-    messageToBe += "-";
-    messageToBe += ST21temp;
+    messageToBe += altEST;
     messageToBe += "-";
     messageToBe += rh;
+    messageToBe += "-";
+    messageToBe += course;
+    messageToBe += "-";
+    messageToBe += gps_speed;
     messageToBe +="#";
     return messageToBe;
 }
@@ -65,4 +70,16 @@ float pressureToAltitude(float atmospheric)
 
   //TODO change 101325 to the sea level pressure on day of launch!
   return 44330.0 * (1.0 - pow(atmospheric / 101325, 0.1903));
+}
+
+void receiveEvent(int howMany) {
+  lat = Wire.read();
+  lon = Wire.read();
+  course = Wire.read();
+  gps_speed = Wire.read();
+  alt = Wire.read();
+  p = Wire.read();
+  rh = Wire.read();
+  temp = Wire.read();
+  altEST = pressureToAltitude(p);  
 }
