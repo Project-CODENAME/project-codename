@@ -53,18 +53,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 //import java.util.List;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import eu.chainfire.libsuperuser.Shell;
-
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
-
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -103,10 +98,12 @@ public class MainActivity extends AppCompatActivity implements
     float ext_lon;
     float ext_alt;
     float ext_p;
-    float ext_BMP180temp;
-    float ext_BMP180altEst;
-    float ext_ST21temp;
+    float ext_temp;
+    float ext_altEST;
     float ext_rh;
+    float course;
+    float gps_speed;
+
     Location mLastLocation;
 
     /**
@@ -247,22 +244,27 @@ public class MainActivity extends AppCompatActivity implements
             while(parts[i].equals("")){
                 i++;
             }
-            ext_BMP180temp=Float.parseFloat(parts[i]);
+            ext_temp=Float.parseFloat(parts[i]);
             i++;
             while(parts[i].equals("")){
                 i++;
             }
-            ext_BMP180altEst=Float.parseFloat(parts[i]);
-            i++;
-            while(parts[i].equals("")){
-                i++;
-            }
-            ext_ST21temp=Float.parseFloat(parts[i]);
+            ext_altEST=Float.parseFloat(parts[i]);
             i++;
             while(parts[i].equals("")){
                 i++;
             }
             ext_rh = Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            course=Float.parseFloat(parts[i]);
+            i++;
+            while(parts[i].equals("")){
+                i++;
+            }
+            gps_speed=Float.parseFloat(parts[i]);
         }
     }
 
@@ -302,8 +304,6 @@ public class MainActivity extends AppCompatActivity implements
 
             }
         }
-
-        ;
     };
 
     public void setUiEnabled(boolean bool) {
@@ -690,15 +690,16 @@ public class MainActivity extends AppCompatActivity implements
                 point.ext_alt = ext_alt;
                 point.ext_lon = ext_lon;
                 point.ext_lat = ext_lat;
-                point.ext_BMP180altEst = ext_BMP180altEst;
-                point.ext_BMP180temp = ext_BMP180temp;
+                point.ext_altEST = ext_altEST;
+                point.ext_temp = ext_temp;
                 point.ext_p = ext_p;
                 point.ext_rh = ext_rh;
-                point.ext_ST21temp = ext_ST21temp;
+                point.course = course;
+                point.gps_speed = gps_speed;
 
                 dataPointArrayList.add(point);
 
-                /** Object is serialized here, and the datafile is saved to the documents folder */
+                // Object is serialized here, and the datafile is saved to the documents folder */
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 File file = new File(path, "SENSORDATA.txt");
                 try {

@@ -27,10 +27,11 @@ class DataPoint implements java.io.Serializable{
     public float ext_lon;
     public float ext_alt;
     public float ext_p;
-    public float ext_BMP180temp;
-    public float ext_BMP180altEst;
-    public float ext_ST21temp;
+    public float ext_temp;
+    public float ext_altEST;
     public float ext_rh;
+    public float course;
+    public float gps_speed;
 
     /** Declares each variable that takes a value from an external sensor */
     //public float ext_p;
@@ -43,8 +44,7 @@ class DataPoint implements java.io.Serializable{
     private static final long serialVersionUID= 862329458582895689L;
 
     /** Initializer.  Each variable must be listed twice, in the row of variables and in the column that begins with this. */
-    public DataPoint(float t, float g_x, float g_y, float g_z, float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time){
-        this.t = t;
+    public DataPoint(float t, float g_x, float g_y, float g_z, float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time){        this.t = t;
         this.g_x = g_x;
         this.g_y = g_y;
         this.g_z = g_z;
