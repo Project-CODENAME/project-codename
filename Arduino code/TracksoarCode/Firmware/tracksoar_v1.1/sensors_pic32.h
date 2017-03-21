@@ -15,14 +15,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifdef AVR
-#ifndef __SENSORS_AVR_H__
-#define __SENSORS_AVR_H__
+#ifdef PIC32MX
+#ifndef __SENSORS_PIC32_H__
+#define __SENSORS_PIC32_H__
 
 void sensors_setup();
-float sensors_temperature();
-int32_t sensors_pressure();
-float sensors_humidity();
+unsigned long sensors_aref();
+long sensors_internal_temp();
+int sensors_int_lm60();
+int sensors_ext_lm60();
+int sensors_vin();
 
-#endif // ifndef __SENSORS_AVR_H__
-#endif // ifdef AVR
+#endif // ifndef __SENSORS_PIC32_H__
+#endif // ifdef PIC32MX

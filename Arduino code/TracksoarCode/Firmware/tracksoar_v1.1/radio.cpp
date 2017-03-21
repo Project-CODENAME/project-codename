@@ -15,14 +15,5 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifdef AVR
-#ifndef __SENSORS_AVR_H__
-#define __SENSORS_AVR_H__
 
-void sensors_setup();
-float sensors_temperature();
-int32_t sensors_pressure();
-float sensors_humidity();
-
-#endif // ifndef __SENSORS_AVR_H__
-#endif // ifdef AVR
+#include "radio.h"

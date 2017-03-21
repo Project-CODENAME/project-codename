@@ -14,15 +14,18 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#ifdef PIC32MX
 
-#ifdef AVR
-#ifndef __SENSORS_AVR_H__
-#define __SENSORS_AVR_H__
+#include <plib.h>
+#include <WProgram.h>
+#include "config.h"
+#include "pin.h"
 
-void sensors_setup();
-float sensors_temperature();
-int32_t sensors_pressure();
-float sensors_humidity();
+void power_save()
+{
+  pin_write(LED_PIN, LOW);
+  PowerSaveIdle();
+  pin_write(LED_PIN, HIGH);
+}
 
-#endif // ifndef __SENSORS_AVR_H__
-#endif // ifdef AVR
+#endif // #ifdef PIC32MX

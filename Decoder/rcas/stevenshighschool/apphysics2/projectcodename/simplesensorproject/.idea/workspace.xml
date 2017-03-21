@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" afterPath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" afterPath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/build.gradle" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/build.gradle" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/gradle/wrapper/gradle-wrapper.properties" />
-    </list>
+    <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="" />
     <ignored path="simplesensorproject.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -527,16 +519,16 @@
       <workItem from="1478750171886" duration="729000" />
       <workItem from="1478751569248" duration="597000" />
       <workItem from="1479437618485" duration="920000" />
-      <workItem from="1489872888702" duration="185000" />
+      <workItem from="1489872888702" duration="278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10074000" />
+    <option name="totallyTimeSpent" value="10167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="128" y="0" width="896" height="1080" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

@@ -32,7 +32,6 @@
 
 #endif
 
-
 // Trackuino custom libs
 #include "config.h"
 #include "afsk_avr.h"
@@ -57,6 +56,8 @@ static const uint32_t VALID_POS_TIMEOUT = 2000;  // ms
 
 // Though not used here, we need to include Wire.h in this file for other code:
 #include <Wire.h>
+// Same is true for SPI.h
+#include <SPI.h>
 
 // Module variables
 static int32_t next_aprs = 0;
@@ -105,8 +106,7 @@ void setup()
   else {
     next_aprs = millis();
   }  
-  // TODO: beep while we get a fix, maybe indicating the number of
-  // visible satellites by a series of short beeps?
+  Wire.begin();
 }
 
 void get_pos()
@@ -134,6 +134,23 @@ void loop()
   if ((int32_t) (millis() - next_aprs) >= 0) {
     get_pos();
     aprs_send();
+    char temp[12];
+    Wire.beginTransmission(233);
+    Wire.write(gps_aprs_lat);     // Lat: 38deg and 22.20 min (.20 are NOT seconds, but 1/100th of minutes)
+    Wire.write(gps_aprs_lon);     // Lon: 000deg and 25.80 min
+  snprintf(temp, 4, "%03d", (int)(gps_course + 0.5)); 
+    Wire.write(temp);             // Course (degrees)
+  snprintf(temp, 4, "%03d", (int)(gps_speed + 0.5));
+    Wire.write(temp);             // speed (knots)
+  snprintf(temp, 7, "%06ld", (long)(gps_altitude + 0.5));
+    Wire.write(temp); //alt
+  snprintf(temp, 6, "%ld", sensors_pressure());
+    Wire.write(temp); //p
+  dtostrf(sensors_humidity(), -1, 2, temp);
+    Wire.write(temp); //rh
+  dtostrf(sensors_temperature(), -1, 2, temp);
+    Wire.write(temp); //temp
+    Wire.endTransmission();
     next_aprs += APRS_PERIOD * 1000L;
     while (afsk_flush()) {
       power_save();
@@ -144,6 +161,7 @@ void loop()
     afsk_debug();
 #endif
   }
-
   power_save(); // Incoming GPS data or interrupts will wake us up
 }
+
+

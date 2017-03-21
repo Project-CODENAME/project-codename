@@ -15,14 +15,31 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifdef AVR
-#ifndef __SENSORS_AVR_H__
-#define __SENSORS_AVR_H__
+#ifndef __GPS_H__
+#define __GPS_H__
 
-void sensors_setup();
-float sensors_temperature();
-int32_t sensors_pressure();
-float sensors_humidity();
+#include <stdint.h>
 
-#endif // ifndef __SENSORS_AVR_H__
-#endif // ifdef AVR
+#if defined(__AVR_ATmega32U4__)
+#define GPS_SERIAL Serial1
+#else
+#define GPS_SERIAL Serial
+#endif
+
+extern char gps_time[7];       // HHMMSS
+extern uint32_t gps_seconds;   // seconds after midnight
+extern char gps_date[7];       // DDMMYY
+extern float gps_lat;
+extern float gps_lon;
+extern char gps_aprs_lat[9];
+extern char gps_aprs_lon[10];
+extern float gps_course;
+extern float gps_speed;
+extern float gps_altitude;
+extern uint8_t gps_num_sats;
+extern bool gps_low_power_mode;
+
+void gps_setup();
+bool gps_decode(char c);
+
+#endif

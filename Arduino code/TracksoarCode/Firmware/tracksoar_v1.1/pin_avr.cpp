@@ -16,13 +16,39 @@
  */
 
 #ifdef AVR
-#ifndef __SENSORS_AVR_H__
-#define __SENSORS_AVR_H__
 
-void sensors_setup();
-float sensors_temperature();
-int32_t sensors_pressure();
-float sensors_humidity();
+#include "pin.h"
+#include <stdint.h>
+#include <pins_arduino.h>
+#if (ARDUINO + 1) >= 100
+#  include <Arduino.h>
+#else
+#  include <WProgram.h>
+#endif
 
-#endif // ifndef __SENSORS_AVR_H__
-#endif // ifdef AVR
+// This is a digitalWrite() replacement that does not disrupt
+// timer 2.
+void pin_write(uint8_t pin, uint8_t val)
+{
+  uint8_t bit = digitalPinToBitMask(pin);
+  uint8_t port = digitalPinToPort(pin);
+  volatile uint8_t *out;
+
+  if (port == NOT_A_PIN) return;
+
+  out = portOutputRegister(port);
+
+  if (val == LOW) {
+    uint8_t oldSREG = SREG;
+    cli();
+    *out &= ~bit;
+    SREG = oldSREG;
+  } else {
+    uint8_t oldSREG = SREG;
+    cli();
+    *out |= bit;
+    SREG = oldSREG;
+  }
+}
+
+#endif  // AVR

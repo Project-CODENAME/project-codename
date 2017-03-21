@@ -721,7 +721,7 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public void run() {
                 Log.d(TAG, "PHOTO!");
-                Camera camera = openCamera();
+                Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
                 SurfaceView surface = new SurfaceView(getBaseContext());
                 try {
                     camera.setPreviewTexture(new SurfaceTexture(0));
@@ -730,7 +730,7 @@ public class MainActivity extends AppCompatActivity implements
                     e.printStackTrace();
                 }
                 camera.startPreview();
-                final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/";
+                final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
                 final File file = new File(path);
                 file.mkdirs();
                 Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
@@ -751,6 +751,38 @@ public class MainActivity extends AppCompatActivity implements
                     }
                 };
                 camera.takePicture(null, null, jpegCallback);
+
+                Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                SurfaceView surface2 = new SurfaceView(getBaseContext());
+                try {
+                    camera2.setPreviewTexture(new SurfaceTexture(0));
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                camera2.startPreview();
+                final String path2 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Front/";
+                final File file2 = new File(path);
+                file2.mkdirs();
+                Camera.PictureCallback jpegCallback2 = new Camera.PictureCallback() {
+                    public void onPictureTaken(byte[] data, Camera camera) {
+                        FileOutputStream outStream = null;
+                        try {
+                            String finalPath = path2 + new Date() + ".jpg";// set your directory path here
+                            outStream = new FileOutputStream(finalPath);
+                            outStream.write(data);
+                            outStream.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            camera.stopPreview();
+                            camera.release();
+                            camera = null;
+                        }
+                    }
+                };
+                camera2.takePicture(null, null, jpegCallback2);
+
                 h.postDelayed(this, delayCamera);
             }
         };
@@ -833,14 +865,14 @@ public class MainActivity extends AppCompatActivity implements
      * Code that runs camera and takes a photograph every 15 seconds
      */
     //TODO add video capabilities, even if they are commented out
-    private Camera openCamera() {
+    private Camera openCamera(int n) {
         int cameraCount = 0;
         Camera cam = null;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         cameraCount = Camera.getNumberOfCameras();
         for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
             Camera.getCameraInfo(camIdx, cameraInfo);
-            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+            if (cameraInfo.facing == n) {
                 try {
                     cam = Camera.open(camIdx);
                 } catch (RuntimeException e) {
@@ -854,7 +886,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private boolean prepareVideoRecorder() {
 
-        mVideoCamera = openCamera();
+        mVideoCamera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
         mMediaRecorder = new MediaRecorder();
 
         // Step 1: Unlock and set camera to MediaRecorder
