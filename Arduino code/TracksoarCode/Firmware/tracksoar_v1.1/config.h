@@ -27,7 +27,12 @@
 // http://www.arduino.cc/en/Hacking/PinMapping
 // --------------------------------------------------------------------------
 
-
+// Uncomment your Tracksoar hardware version here
+//
+// #define TRACKSOAR_10
+ //#define TRACKSOAR_11
+ #define TRACKSOAR_12
+ 
 // --------------------------------------------------------------------------
 // APRS config (aprs.c)
 // --------------------------------------------------------------------------
@@ -56,7 +61,15 @@
 // APRS comment: this goes in the comment portion of the APRS message. You
 // might want to keep this short. The longer the packet, the more vulnerable
 // it is to noise. 
-#define APRS_COMMENT    "SHS CPMB"
+#ifdef TRACKSOAR_10 
+	#define APRS_COMMENT    "Tracksoar v1.0 Beta"
+#endif
+#ifdef TRACKSOAR_11
+	#define APRS_COMMENT    "Tracksoar v1.1"
+#endif
+#ifdef TRACKSOAR_12
+	#define APRS_COMMENT    "Tracksoar v1.2"
+#endif
 
 
 // --------------------------------------------------------------------------
@@ -217,10 +230,10 @@
 
  #define DEBUG_GPS    // GPS sentence dump and checksum validation
  #define DEBUG_AX25   // AX.25 frame dump
-// #define DEBUG_MODEM  // Modem ISR overrun and profiling
-// #define DEBUG_AFSK   // AFSK (modulation) output
-// #define DEBUG_RESET  // AVR reset
-// #define DEBUG_SENS   // Sensors
+#define DEBUG_MODEM  // Modem ISR overrun and profiling
+#define DEBUG_AFSK   // AFSK (modulation) output
+#define DEBUG_RESET  // AVR reset
+//#define DEBUG_SENS   // Sensors
 
 
 #endif

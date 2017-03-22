@@ -22,14 +22,6 @@ void setup()
   char c;
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000); 
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
-  Wire.requestFrom(8, 6);    // request 6 bytes from slave device #8
-
-  while (Wire.available()) { // slave may send less than requested
-    char c = Wire.read(); // receive a byte as character
-    Serial.print(c);         // print the character
-  }
   if(Serial.available())  
   {  
    Serial.print(makeMessage()+"\n");
@@ -82,4 +74,5 @@ void receiveEvent(int howMany) {
   rh = Wire.read();
   temp = Wire.read();
   altEST = pressureToAltitude(p);  
+  digitalWrite(LED_BUILTIN, HIGH);
 }
