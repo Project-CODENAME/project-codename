@@ -4,7 +4,7 @@ void setup()
  {  
   Serial.begin(9600);  
   pinMode(LED_BUILTIN, OUTPUT);
-  Wire.begin(233);                // join i2c bus with address #8
+  Wire.begin(91);                // join i2c bus with address #8
   Wire.onReceive(receiveEvent); // register event
   
  }  
@@ -19,12 +19,11 @@ void setup()
  float gps_speed = 0.0;
  void loop()  
  {  
-  char c;
   digitalWrite(LED_BUILTIN, LOW);
-  delay(1000); 
+  delay(10000); 
   if(Serial.available())  
   {  
-   Serial.print(makeMessage()+"\n");
+   Serial.print("non");
    //determine how much time should pass before we pass on the information
   }  
  }
@@ -75,4 +74,9 @@ void receiveEvent(int howMany) {
   temp = Wire.read();
   altEST = pressureToAltitude(p);  
   digitalWrite(LED_BUILTIN, HIGH);
+  if(Serial.available())  
+  {  
+   Serial.print(makeMessage()+"\n");
+   //determine how much time should pass before we pass on the information
+  }
 }

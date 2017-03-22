@@ -27,7 +27,12 @@
 // http://www.arduino.cc/en/Hacking/PinMapping
 // --------------------------------------------------------------------------
 
-
+// Uncomment your Tracksoar hardware version here
+//
+// #define TRACKSOAR_10
+// #define TRACKSOAR_11
+#define TRACKSOAR_12
+ 
 // --------------------------------------------------------------------------
 // APRS config (aprs.c)
 // --------------------------------------------------------------------------
@@ -39,7 +44,7 @@
 // - Cars:       9
 // - Home:       0
 // - IGate:      5
-#define S_CALLSIGN      "KI6VBK"
+#define S_CALLSIGN      "K0DNM"
 #define S_CALLSIGN_ID   11
 
 // Destination callsign: APRS (with SSID=0) is usually okay.
@@ -56,7 +61,15 @@
 // APRS comment: this goes in the comment portion of the APRS message. You
 // might want to keep this short. The longer the packet, the more vulnerable
 // it is to noise. 
-#define APRS_COMMENT    "Tracksoar v1 Beta"
+#ifdef TRACKSOAR_10 
+	#define APRS_COMMENT    "Tracksoar v1.0 Beta"
+#endif
+#ifdef TRACKSOAR_11
+	#define APRS_COMMENT    "Tracksoar v1.1"
+#endif
+#ifdef TRACKSOAR_12
+	#define APRS_COMMENT    "Tracksoar v1.2"
+#endif
 
 
 // --------------------------------------------------------------------------
