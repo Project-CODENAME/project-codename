@@ -752,7 +752,7 @@ public class MainActivity extends AppCompatActivity implements
                 };
                 camera.takePicture(null, null, jpegCallback);
 
-                Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
+               /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
                 SurfaceView surface2 = new SurfaceView(getBaseContext());
                 try {
                     camera2.setPreviewTexture(new SurfaceTexture(0));
@@ -781,7 +781,7 @@ public class MainActivity extends AppCompatActivity implements
                         }
                     }
                 };
-                camera2.takePicture(null, null, jpegCallback2);
+                camera2.takePicture(null, null, jpegCallback2);*/
 
                 h.postDelayed(this, delayCamera);
             }

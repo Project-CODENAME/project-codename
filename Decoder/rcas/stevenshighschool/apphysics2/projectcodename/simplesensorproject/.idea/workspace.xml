@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="" />
+    <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/accelerationtime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/accelerationtime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/gravitytime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/gravitytime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/magnetictime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/magnetictime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/rotationtime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/rotationtime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.class" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Animations/data.csv" afterPath="$PROJECT_DIR$/../../../../../../Animations/data.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/data.csv" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/data.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../../../../.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" />
+    </list>
     <ignored path="simplesensorproject.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -21,21 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DataPoint.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataPoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-837">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="2170">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="157" column="36" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
+            <state relative-caret-position="31">
+              <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,9 +90,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="128" />
-    <option name="width" value="896" />
-    <option name="height" value="1080" />
+    <option name="x" value="120" />
+    <option name="y" value="-8" />
+    <option name="width" value="1808" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -90,7 +106,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -103,23 +119,14 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-      </pane>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="settings.editor.splitter.proportion" value="0.20698577" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jaxb-xjc-2.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -520,14 +527,16 @@
       <workItem from="1478751569248" duration="597000" />
       <workItem from="1479437618485" duration="920000" />
       <workItem from="1489872888702" duration="278000" />
+      <workItem from="1490210087124" duration="631000" />
+      <workItem from="1490313622229" duration="39000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10167000" />
+    <option name="totallyTimeSpent" value="10837000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="128" y="0" width="896" height="1080" extended-state="0" />
+    <frame x="120" y="-8" width="1808" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -600,6 +609,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2170">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4681">
+          <caret line="157" column="36" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -745,21 +790,21 @@
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/JavaAPIforKml-2.2.0.jar!/de/micromata/opengis/kml/v_2_2_0/Geometry.class" />
-    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="157" column="36" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="2170">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-837">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="31">
+          <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
