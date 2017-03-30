@@ -4,19 +4,18 @@ void setup()
  {  
   Serial.begin(9600);  
   pinMode(LED_BUILTIN, OUTPUT);
-  Wire.begin(91);                // join i2c bus with address #8
+  Wire.begin(0x21);                // join i2c bus with address #8
   Wire.onReceive(receiveEvent); // register event
-  
  }  
- float lat = 0.0;
- float lon = 0.0;
- float alt = 0.0;
- float p = 0.0;
- float temp = 0.0;
- float altEST = 0.0;
- float rh = 0.0;
- float course = 0.0;
- float gps_speed = 0.0;
+ String lat = "";
+ String lon = "";
+ String alt = "";
+ String p = "";
+ String temp = "";
+ String altEST = "";
+ String rh = "";
+ String course = "";
+ String gps_speed = "";
  void loop()  
  {  
   digitalWrite(LED_BUILTIN, LOW);
@@ -64,6 +63,7 @@ float pressureToAltitude(float atmospheric)
 }
 
 void receiveEvent(int howMany) {
+  Serial.print("test");
   lat = Wire.read();
   lon = Wire.read();
   course = Wire.read();
@@ -72,7 +72,7 @@ void receiveEvent(int howMany) {
   p = Wire.read();
   rh = Wire.read();
   temp = Wire.read();
-  altEST = pressureToAltitude(p);  
+//  altEST = pressureToAltitude(p);  
   digitalWrite(LED_BUILTIN, HIGH);
   if(Serial.available())  
   {  

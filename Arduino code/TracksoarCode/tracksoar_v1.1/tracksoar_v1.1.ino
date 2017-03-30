@@ -62,7 +62,6 @@ static const uint32_t VALID_POS_TIMEOUT = 2000;  // ms
 // Module variables
 static int32_t next_aprs = 0;
 
-
 void setup()
 {
   pinMode(LED_PIN, OUTPUT);
@@ -137,7 +136,7 @@ void loop()
     aprs_send();
     next_aprs += APRS_PERIOD * 1000L;
     char temp[12];
-    Wire.beginTransmission(91);
+    Wire.beginTransmission(0x21);
     Wire.write(gps_aprs_lat);     // Lat: 38deg and 22.20 min (.20 are NOT seconds, but 1/100th of minutes)
     Wire.write(gps_aprs_lon);     // Lon: 000deg and 25.80 min
   snprintf(temp, 4, "%03d", (int)(gps_course + 0.5)); 
@@ -156,7 +155,6 @@ void loop()
     while (afsk_flush()) {
       power_save();
     }
-
 #ifdef DEBUG_MODEM
     // Show modem ISR stats from the previous transmission
     afsk_debug();
