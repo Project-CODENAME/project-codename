@@ -93,50 +93,7 @@ void aprs_send()
 //  snprintf(temp, 6, "%d", sensors_vin());
 //  ax25_send_string(temp);
   ax25_send_byte(' ');
-  String send_as_well = " ";
-  byte error, address;
-  int nDevices;
- 
-  Serial.println("Scanning...");
- 
-  nDevices = 0;
-  for(address = 1; address < 127; address++ )
-  {
-    // The i2c_scanner uses the return value of
-    // the Write.endTransmisstion to see if
-    // a device did acknowledge to the address.
-    Wire.beginTransmission(address);
-    error = Wire.endTransmission();
- 
-    if (error == 0)
-    {
-      Serial.print("I2C device found at address 0x");
-      if (address<16)
-        Serial.print("0");
-      Serial.print(address,HEX);
-      Serial.println("  !");
-      send_as_well += address;
-      send_as_well += " ";
-      nDevices++;
-    }
-    else if (error==4)
-    {
-      Serial.print("Unknown error at address 0x");
-      if (address<16)
-        Serial.print("0");
-      Serial.println(address,HEX);
-    }    
-  }
-  if (nDevices == 0){
-    Serial.println("No I2C devices found\n");
-    send_as_well += " ";
-  }
-  else{
-    Serial.println("done\n");
-  }
-  char __dataaswell[sizeof(send_as_well)];
-  send_as_well.toCharArray(__dataaswell, sizeof(__dataaswell));
-  ax25_send_string(__dataaswell);     // Comment
+  ax25_send_string(APRS_COMMENT);     // Comment
   ax25_send_footer();
 
   ax25_flush_frame();                 // Tell the modem to go
