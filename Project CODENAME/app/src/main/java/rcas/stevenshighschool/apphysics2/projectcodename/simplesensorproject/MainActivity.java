@@ -16,19 +16,17 @@ import android.hardware.SensorManager;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
-import android.location.Location;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -36,16 +34,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
-
+import eu.chainfire.libsuperuser.Shell;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -54,15 +46,14 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-//import java.util.List;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import eu.chainfire.libsuperuser.Shell;
+//import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+@SuppressWarnings("deprecation")
+public class MainActivity extends AppCompatActivity{
 
     /**
      * Sensor manager
@@ -94,17 +85,15 @@ public class MainActivity extends AppCompatActivity implements
     float g_x;
     float g_y;
     float g_z;
-    float ext_lat;
-    float ext_lon;
-    float ext_alt;
-    float ext_p;
-    float ext_temp;
-    float ext_altEST;
-    float ext_rh;
-    float course;
-    float gps_speed;
-
-    Location mLastLocation;
+    float ext_lat = -1;
+    float ext_lon = -1;
+    float ext_alt = -1;
+    float ext_p = -1;
+    float ext_temp = -1;
+    float ext_altEST = -1;
+    float ext_rh = -1;
+    float course = -1;
+    float gps_speed = -1;
 
     /**
      * Sensors and their listeners
@@ -134,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements
      * Arduino USB connection variables
      */
     UsbDevice device;
-    UsbDeviceConnection usbConnection;
     public static final String ACTION_USB_PERMISSION = "rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject.USB_PERMISSION";
     Button startButton, sendButton, clearButton, stopButton;
     TextView textView;
@@ -158,31 +146,9 @@ public class MainActivity extends AppCompatActivity implements
     ArrayList<DataPoint> dataPointArrayList;
 
     /**
-     * Google Location things
-     */
-    GoogleApiClient mGoogleApiClient;
-    LocationRequest mLocationRequest;
-
-    /**
      * Logging TAG
      */
     private final String TAG = "SENSORS:";
-
-
-    /**
-     * Runs when a GoogleApiClient object successfully connects.
-     */
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        // Starts by getting the location and requesting location updates
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-            startLocationUpdates();
-        }
-    }
-
 
     /**
      * ARDUINO CONNECTION CODE
@@ -192,7 +158,6 @@ public class MainActivity extends AppCompatActivity implements
     UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
         @Override
         public void onReceivedData(byte[] arg0) {
-            String data = null;
             Log.d(TAG, "receive");
             ByteArrayInputStream mIn = new ByteArrayInputStream(arg0);
             try {
@@ -207,8 +172,6 @@ public class MainActivity extends AppCompatActivity implements
                         processMessage();
                     }
                 }
-
-                tvAppend(textView, data);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -287,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements
                             serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
                             serialPort.read(mCallback);
                             tvAppend(textView, "Serial Connection Opened!\n");
-
+                            serialPort.write("hi".getBytes());
                         } else {
                             Log.d("SERIAL", "PORT NOT OPEN");
                         }
@@ -381,30 +344,14 @@ public class MainActivity extends AppCompatActivity implements
      * -------------------------------------
      */
 
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        // In case the connection fails
-        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
-    }
-
-
-    @Override
-    public void onConnectionSuspended(int cause) {
-        // The connection to Google Play services was lost for some reason. We call connect() to
-        // attempt to re-establish the connection.
-        Log.i(TAG, "Connection suspended");
-        mGoogleApiClient.connect();
-    }
-
     //Initialization of the activity
 
 
-    public class StartUp extends AsyncTask<String, Void, Void> {
-        public Context context = null;
+    private class StartUp extends AsyncTask<String, Void, Void> {
+        Context context = null;
         boolean suAvailable = false;
 
-        public MainActivity.StartUp setContext(Context context) {
+        MainActivity.StartUp setContext(Context context) {
             this.context = context;
             return this;
         }
@@ -438,14 +385,13 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //starts things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /** Arduino Connection Stuff */
+        // Arduino Connection Stuff
 
         usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
         startButton = (Button) findViewById(R.id.buttonStart);
@@ -462,7 +408,7 @@ public class MainActivity extends AppCompatActivity implements
         registerReceiver(broadcastReceiver, filter);
 
 
-        /** Root Actions */
+        // Root Actions
         rootTest = (Button) findViewById(R.id.rootTest);
         reboot = (Button) findViewById(R.id.btn_reb);
         sysui = (Button) findViewById(R.id.SysUi);
@@ -493,7 +439,7 @@ public class MainActivity extends AppCompatActivity implements
         });
 
 
-        /** gets sensors and checks for permissions */
+        //gets sensors and checks for permissions
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -524,7 +470,7 @@ public class MainActivity extends AppCompatActivity implements
 
         }
 
-        /** Initializes sensors and their listeners */
+        //Initializes sensors and their listeners
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
         pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         magnet = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -532,7 +478,7 @@ public class MainActivity extends AppCompatActivity implements
         rotation = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         temperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        /** TODO incorporate low-power mode for payload in emergency low-power situation */
+        // TODO incorporate low-power mode for payload in emergency low-power situation
 
 
         accelerometerListener = new SensorEventListener() {
@@ -631,39 +577,12 @@ public class MainActivity extends AppCompatActivity implements
         };
 
 
-        /** Initializes Array */
+        //Initializes Array
         dataPointArrayList = new ArrayList<DataPoint>();
-
-        /** Initializes Google Location Things */
-        if (mGoogleApiClient == null) {
-            mGoogleApiClient = new GoogleApiClient.Builder(this)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .addApi(LocationServices.API)
-                    .build();
-        }
-        mLocationRequest = LocationRequest.create();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(10);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
-    }
-
-    protected void startLocationUpdates() {
-        //Starts location updates
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            LocationServices.FusedLocationApi.requestLocationUpdates(
-                    mGoogleApiClient, mLocationRequest, this);
-        }
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        mLastLocation = location;
     }
 
     /**
@@ -673,19 +592,14 @@ public class MainActivity extends AppCompatActivity implements
         final int delay = 1000; //milliseconds
         final int delayCamera = 1000 * 15; //milliseconds
 
-        /** Initializes and starts Runnable */
+        //Initializes and starts Runnable
         r = new Runnable() {
             public void run() {
                 Log.d(TAG, "RUN!");
 
-                /** Initializes the data point class */
-                /** TODO decide on preferred order order of variables - not hugely important but deserves some consideration */
+                // Initializes the data point class
+                // TODO decide on preferred order order of variables - not hugely important but deserves some consideration
                 DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
-                if (mLastLocation != null) {
-                    point.lat = mLastLocation.getLatitude();
-                    point.alt = mLastLocation.getAltitude();
-                    point.lon = mLastLocation.getLongitude();
-                }
 
                 point.ext_alt = ext_alt;
                 point.ext_lon = ext_lon;
@@ -703,6 +617,7 @@ public class MainActivity extends AppCompatActivity implements
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 File file = new File(path, "SENSORDATA.txt");
                 try {
+                    //noinspection ResultOfMethodCallIgnored
                     path.mkdirs();
                     OutputStream os = new FileOutputStream(file);
                     ObjectOutputStream out = new ObjectOutputStream(os);
@@ -712,7 +627,6 @@ public class MainActivity extends AppCompatActivity implements
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Log.d(TAG, mGoogleApiClient.isConnected() + "");
                 //schedules the next job
                 h.postDelayed(this, delay);
             }
@@ -722,7 +636,6 @@ public class MainActivity extends AppCompatActivity implements
             public void run() {
                 Log.d(TAG, "PHOTO!");
                 Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
-                SurfaceView surface = new SurfaceView(getBaseContext());
                 try {
                     camera.setPreviewTexture(new SurfaceTexture(0));
                 } catch (IOException e) {
@@ -732,10 +645,11 @@ public class MainActivity extends AppCompatActivity implements
                 camera.startPreview();
                 final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
                 final File file = new File(path);
+                //noinspection ResultOfMethodCallIgnored
                 file.mkdirs();
                 Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
                     public void onPictureTaken(byte[] data, Camera camera) {
-                        FileOutputStream outStream = null;
+                        FileOutputStream outStream;
                         try {
                             String finalPath = path + new Date() + ".jpg";// set your directory path here
                             outStream = new FileOutputStream(finalPath);
@@ -802,7 +716,6 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onStart() {
         super.onStart();
-        mGoogleApiClient.connect();
         //TODO add null checks to allow testing on certain phone models
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(pressureListener, pressure, SensorManager.SENSOR_DELAY_NORMAL);
@@ -811,9 +724,7 @@ public class MainActivity extends AppCompatActivity implements
         sensorManager.registerListener(rotationListener, rotation, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(gravityListener, gravity, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(temperatureListener, temperature, SensorManager.SENSOR_DELAY_NORMAL);
-        if (mGoogleApiClient.isConnected()) {
-            startLocationUpdates();
-        }
+        record(null);
     }
 
     /**
@@ -822,7 +733,6 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onStop() {
         super.onStop();
-        mGoogleApiClient.disconnect();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
         sensorManager.unregisterListener(magnetListener);
@@ -830,43 +740,14 @@ public class MainActivity extends AppCompatActivity implements
         sensorManager.unregisterListener(rotationListener);
         sensorManager.unregisterListener(gravityListener);
         sensorManager.unregisterListener(temperatureListener);
-        if (mGoogleApiClient.isConnected()) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(
-                    mGoogleApiClient, this);
-        }
     }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case 251: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (mGoogleApiClient.isConnected()) {
-                        /** TODO fix permission issues...several possible solutions to entertain */
-                        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                        startLocationUpdates();
-                    }
-                } else {
-
-                }
-                return;
-            }
-
-            // other 'case' lines to check for other
-            // permissions this app might request
-        }
-    }
-
 
     /**
      * Code that runs camera and takes a photograph every 15 seconds
      */
     //TODO add video capabilities, even if they are commented out
     private Camera openCamera(int n) {
-        int cameraCount = 0;
+        int cameraCount;
         Camera cam = null;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         cameraCount = Camera.getNumberOfCameras();
@@ -903,6 +784,7 @@ public class MainActivity extends AppCompatActivity implements
         // Step 4: Set output file
         final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Videos/";
         final File file = new File(path);
+        //noinspection ResultOfMethodCallIgnored
         file.mkdirs();
         mMediaRecorder.setOutputFile(path + new Date() + ".mp4");
 
