@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity{
     UsbDeviceConnection connection;
 
     Camera mVideoCamera;
+    Camera flash;
     MediaRecorder mMediaRecorder;
     private boolean isRecording = false;
 
@@ -139,6 +140,38 @@ public class MainActivity extends AppCompatActivity{
     int iterReading = 0;
     String arduinoInRecent;
 
+    public void flashLightOn(View view) {
+
+        try {
+            if (getPackageManager().hasSystemFeature(
+                    PackageManager.FEATURE_CAMERA_FLASH)) {
+                flash = Camera.open();
+                Camera.Parameters p = flash.getParameters();
+                p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                flash.setParameters(p);
+                flash.startPreview();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getBaseContext(), "Exception flashLightOn()",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void flashLightOff(View view) {
+        try {
+            if (getPackageManager().hasSystemFeature(
+                    PackageManager.FEATURE_CAMERA_FLASH)) {
+                flash.stopPreview();
+                flash.release();
+                flash = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getBaseContext(), "Exception flashLightOff",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
 
     /**
      * Array list of datapoints
@@ -155,7 +188,7 @@ public class MainActivity extends AppCompatActivity{
      */
     //TODO variables taken from TrackSoar be written to ext_p, ext_t, lat, long, and alt
 
-    UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
+    /*UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
         @Override
         public void onReceivedData(byte[] arg0) {
             Log.d(TAG, "receive");
@@ -267,7 +300,7 @@ public class MainActivity extends AppCompatActivity{
 
             }
         }
-    };
+    }; */
 
     public void setUiEnabled(boolean bool) {
         startButton.setEnabled(!bool);
@@ -276,7 +309,7 @@ public class MainActivity extends AppCompatActivity{
         textView.setEnabled(bool);
 
     }
-
+    /*
     public void onClickStart(View view) {
         Log.d(TAG, "clickstart1");
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
@@ -318,7 +351,7 @@ public class MainActivity extends AppCompatActivity{
         serialPort.close();
         tvAppend(textView, "\nSerial Connection Closed! \n");
 
-    }
+    } */
 
     public void onClickClear(View view) {
         textView.setText(" ");
@@ -405,7 +438,7 @@ public class MainActivity extends AppCompatActivity{
         filter.addAction(ACTION_USB_PERMISSION);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        registerReceiver(broadcastReceiver, filter);
+        //registerReceiver(broadcastReceiver, filter);
 
 
         // Root Actions
@@ -590,7 +623,7 @@ public class MainActivity extends AppCompatActivity{
      */
     public void record(View view) {
         final int delay = 1000; //milliseconds
-        final int delayCamera = 1000 * 15; //milliseconds
+        final int delayCamera = 1000 * 30; //milliseconds
 
         //Initializes and starts Runnable
         r = new Runnable() {
@@ -702,7 +735,15 @@ public class MainActivity extends AppCompatActivity{
         };
         //schedules the first job
         h.postDelayed(r, delay);
-        h.postDelayed(rCamera, delay);
+        h.postDelayed(rCamera, delayCamera);
+        flashLightOn(null);
+        Runnable once = new Runnable() {
+            @Override
+            public void run() {
+                flashLightOff(null);
+            }
+        };
+        h.postDelayed(once, 1000*10);
     }
 
     public void stopRecord(View view) {
