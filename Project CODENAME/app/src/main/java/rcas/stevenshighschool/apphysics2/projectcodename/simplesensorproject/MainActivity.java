@@ -19,6 +19,7 @@ import android.hardware.usb.UsbManager;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -729,8 +730,10 @@ public class MainActivity extends AppCompatActivity{
                     }
                 };
                 camera2.takePicture(null, null, jpegCallback2);*/
-
                 h.postDelayed(this, delayCamera);
+                if(getBatteryPercentage(getApplication())<30){
+                    batterysave();
+                }
             }
         };
         //schedules the first job
@@ -749,6 +752,137 @@ public class MainActivity extends AppCompatActivity{
     public void stopRecord(View view) {
         h.removeCallbacks(r);
         h.removeCallbacks(rCamera);
+    }
+
+    public void batterysave(){
+        h.removeCallbacks(r);
+        h.removeCallbacks(rCamera);
+        final int delay = 1000*10; //milliseconds
+        final int delayCamera = 1000 * 120; //milliseconds
+
+        //Initializes and starts Runnable
+        r = new Runnable() {
+            public void run() {
+                Log.d(TAG, "RUN!");
+
+                // Initializes the data point class
+                // TODO decide on preferred order order of variables - not hugely important but deserves some consideration
+                DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
+
+                point.ext_alt = ext_alt;
+                point.ext_lon = ext_lon;
+                point.ext_lat = ext_lat;
+                point.ext_altEST = ext_altEST;
+                point.ext_temp = ext_temp;
+                point.ext_p = ext_p;
+                point.ext_rh = ext_rh;
+                point.course = course;
+                point.gps_speed = gps_speed;
+
+                dataPointArrayList.add(point);
+
+                // Object is serialized here, and the datafile is saved to the documents folder */
+                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                File file = new File(path, "SENSORDATA.txt");
+                try {
+                    //noinspection ResultOfMethodCallIgnored
+                    path.mkdirs();
+                    OutputStream os = new FileOutputStream(file);
+                    ObjectOutputStream out = new ObjectOutputStream(os);
+                    out.writeObject(dataPointArrayList);
+                    out.close();
+                    os.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //schedules the next job
+                h.postDelayed(this, delay);
+            }
+        };
+        rCamera = new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "PHOTO!");
+                Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
+                try {
+                    camera.setPreviewTexture(new SurfaceTexture(0));
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                camera.startPreview();
+                final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
+                final File file = new File(path);
+                //noinspection ResultOfMethodCallIgnored
+                file.mkdirs();
+                Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
+                    public void onPictureTaken(byte[] data, Camera camera) {
+                        FileOutputStream outStream;
+                        try {
+                            String finalPath = path + new Date() + ".jpg";// set your directory path here
+                            outStream = new FileOutputStream(finalPath);
+                            outStream.write(data);
+                            outStream.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            camera.stopPreview();
+                            camera.release();
+                            camera = null;
+                        }
+                    }
+                };
+                camera.takePicture(null, null, jpegCallback);
+
+               /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
+                SurfaceView surface2 = new SurfaceView(getBaseContext());
+                try {
+                    camera2.setPreviewTexture(new SurfaceTexture(0));
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                camera2.startPreview();
+                final String path2 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Front/";
+                final File file2 = new File(path);
+                file2.mkdirs();
+                Camera.PictureCallback jpegCallback2 = new Camera.PictureCallback() {
+                    public void onPictureTaken(byte[] data, Camera camera) {
+                        FileOutputStream outStream = null;
+                        try {
+                            String finalPath = path2 + new Date() + ".jpg";// set your directory path here
+                            outStream = new FileOutputStream(finalPath);
+                            outStream.write(data);
+                            outStream.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            camera.stopPreview();
+                            camera.release();
+                            camera = null;
+                        }
+                    }
+                };
+                camera2.takePicture(null, null, jpegCallback2);*/
+                h.postDelayed(this, delayCamera);
+            }
+        };
+        //schedules the first job
+        h.postDelayed(r, delay);
+        h.postDelayed(rCamera, delayCamera);
+    }
+
+    public static int getBatteryPercentage(Context context) {
+
+        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = context.registerReceiver(null, iFilter);
+
+        int level = batteryStatus != null ? batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
+        int scale = batteryStatus != null ? batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
+
+        float batteryPct = level / (float) scale;
+
+        return (int) (batteryPct * 100);
     }
 
     /**
