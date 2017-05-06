@@ -54,7 +54,7 @@ import java.util.Map;
 //import java.util.List;
 
 @SuppressWarnings("deprecation")
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     /**
      * Sensor manager
@@ -95,11 +95,17 @@ public class MainActivity extends AppCompatActivity{
     float ext_rh = -1;
     float course = -1;
     float gps_speed = -1;
+    float a2_x;
+    float a2_y;
+    float a2_z;
+
+    int stoppedN = 0;
 
     /**
      * Sensors and their listeners
      */
     Sensor accelerometer;
+    Sensor accelerometer2;
     Sensor pressure;
     Sensor magnet;
     Sensor humidity;
@@ -113,6 +119,7 @@ public class MainActivity extends AppCompatActivity{
     SensorEventListener rotationListener;
     SensorEventListener gravityListener;
     SensorEventListener temperatureListener;
+    SensorEventListener accelerometer2Listener;
 
 
     /**
@@ -146,7 +153,18 @@ public class MainActivity extends AppCompatActivity{
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH)) {
-                flash = Camera.open();
+                int cameraId = 0;
+                int numberOfCameras = Camera.getNumberOfCameras();
+                Log.d("Hey", "" + numberOfCameras);
+                for (int i = 0; i < numberOfCameras; i++) {
+                    Camera.CameraInfo info = new Camera.CameraInfo();
+                    Camera.getCameraInfo(i, info);
+                    if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                        cameraId = i;
+                        break;
+                    }
+                }
+                flash = Camera.open(cameraId);
                 Camera.Parameters p = flash.getParameters();
                 p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 flash.setParameters(p);
@@ -302,7 +320,6 @@ public class MainActivity extends AppCompatActivity{
             }
         }
     }; */
-
     public void setUiEnabled(boolean bool) {
         startButton.setEnabled(!bool);
         sendButton.setEnabled(bool);
@@ -365,7 +382,7 @@ public class MainActivity extends AppCompatActivity{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(ftext!=null) {
+                if (ftext != null) {
                     ftv.append(ftext);
                 }
             }
@@ -512,6 +529,7 @@ public class MainActivity extends AppCompatActivity{
         rotation = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         temperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        accelerometer2 = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         // TODO incorporate low-power mode for payload in emergency low-power situation
 
 
@@ -522,6 +540,21 @@ public class MainActivity extends AppCompatActivity{
                 a_x = sensorEvent.values[0];
                 a_y = sensorEvent.values[1];
                 a_z = sensorEvent.values[2];
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int i) {
+                //do nothing
+            }
+        };
+
+        accelerometer2Listener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                //changes a to most recent value
+                a2_x = sensorEvent.values[0];
+                a2_y = sensorEvent.values[1];
+                a2_z = sensorEvent.values[2];
             }
 
             @Override
@@ -644,6 +677,19 @@ public class MainActivity extends AppCompatActivity{
                 point.ext_rh = ext_rh;
                 point.course = course;
                 point.gps_speed = gps_speed;
+                Log.d(TAG, ""+Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y,2) + Math.pow(a2_z, 2)));
+                if(Math.abs(Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y,2) + Math.pow(a2_z, 2))-9.81)<0.4){
+                    Log.d("HEY!", "stopped: " + stoppedN);
+                    stoppedN++;
+                } else {
+                    stoppedN = 0;
+                }
+
+                if(stoppedN > 1000){
+                    flashLightOn(null);
+                } else if(flash != null) {
+                    flashLightOff(null);
+                }
 
                 dataPointArrayList.add(point);
 
@@ -668,38 +714,58 @@ public class MainActivity extends AppCompatActivity{
         rCamera = new Runnable() {
             @Override
             public void run() {
-                Log.d(TAG, "PHOTO!");
-                Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
-                try {
-                    camera.setPreviewTexture(new SurfaceTexture(0));
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                camera.startPreview();
-                final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
-                final File file = new File(path);
-                //noinspection ResultOfMethodCallIgnored
-                file.mkdirs();
-                Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
-                    public void onPictureTaken(byte[] data, Camera camera) {
-                        FileOutputStream outStream;
-                        try {
-                            String finalPath = path + new Date() + ".jpg";// set your directory path here
-                            outStream = new FileOutputStream(finalPath);
-                            outStream.write(data);
-                            outStream.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            camera.stopPreview();
-                            camera.release();
-                            camera = null;
-                        }
+                if(flash == null) {
+                    Log.d(TAG, "PHOTO!");
+                    Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
+                    try {
+                        camera.setPreviewTexture(new SurfaceTexture(0));
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
-                };
-                camera.takePicture(null, null, jpegCallback);
+                    camera.startPreview();
+                    final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
 
+                    final File file = new File(path);
+                    //noinspection ResultOfMethodCallIgnored
+                    file.mkdirs();
+                    Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
+                        public void onPictureTaken(byte[] data, Camera camera) {
+                            FileOutputStream outStream;
+                            try {
+                                String finalPath = path + new Date() + ".jpg";// set your directory path here
+                                outStream = new FileOutputStream(finalPath);
+                                outStream.write(data);
+                                outStream.close();
+                                Runtime.getRuntime().exec("su");
+                                String mExternalDirectory = Environment.getExternalStorageDirectory()
+                                        .getAbsolutePath();
+                                File f = new File(Environment.getExternalStorageDirectory()
+                                        .getParent() + "/extSdCard" + "/myDirectory");
+                                if (f.exists() && f.isDirectory()) {
+                                    mExternalDirectory = Environment.getExternalStorageDirectory()
+                                            .getParent() + "/extSdCard";
+                                } else {
+                                    f = new File(Environment.getExternalStorageDirectory()
+                                            .getAbsolutePath() + "/external_sd" + "/myDirectory");
+                                    if (f.exists() && f.isDirectory()) {
+                                        mExternalDirectory = Environment
+                                                .getExternalStorageDirectory().getAbsolutePath()
+                                                + "/external_sd";
+                                    }
+                                }
+                                Runtime.getRuntime().exec("cp \""+finalPath+"\" \""+mExternalDirectory+"/High Altitude Photos/Back/"+new Date() + ".jpg\"");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            } finally {
+                                camera.stopPreview();
+                                camera.release();
+                                camera = null;
+                            }
+                        }
+                    };
+                    camera.takePicture(null, null, jpegCallback);
+                }
                /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
                 SurfaceView surface2 = new SurfaceView(getBaseContext());
                 try {
@@ -731,7 +797,7 @@ public class MainActivity extends AppCompatActivity{
                 };
                 camera2.takePicture(null, null, jpegCallback2);*/
                 h.postDelayed(this, delayCamera);
-                if(getBatteryPercentage(getApplication())<30){
+                if (getBatteryPercentage(getApplication()) < 30) {
                     batterysave();
                 }
             }
@@ -746,7 +812,7 @@ public class MainActivity extends AppCompatActivity{
                 flashLightOff(null);
             }
         };
-        h.postDelayed(once, 1000*10);
+        h.postDelayed(once, 1000 * 10);
     }
 
     public void stopRecord(View view) {
@@ -754,10 +820,10 @@ public class MainActivity extends AppCompatActivity{
         h.removeCallbacks(rCamera);
     }
 
-    public void batterysave(){
+    public void batterysave() {
         h.removeCallbacks(r);
         h.removeCallbacks(rCamera);
-        final int delay = 1000*10; //milliseconds
+        final int delay = 1000 * 10; //milliseconds
         final int delayCamera = 1000 * 120; //milliseconds
 
         //Initializes and starts Runnable
@@ -893,6 +959,7 @@ public class MainActivity extends AppCompatActivity{
         super.onStart();
         //TODO add null checks to allow testing on certain phone models
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(accelerometer2Listener, accelerometer2, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(pressureListener, pressure, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(magnetListener, magnet, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(humidityListener, humidity, SensorManager.SENSOR_DELAY_NORMAL);
