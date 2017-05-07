@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
     Camera flash;
     MediaRecorder mMediaRecorder;
     private boolean isRecording = false;
+    private boolean cameraTaken = false;
 
     byte ch, buffer[] = new byte[1024];
     int iterReading = 0;
@@ -150,6 +151,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void flashLightOn(View view) {
         Log.d(TAG, "flashLightOn");
+        if(cameraTaken){
+          return;
+        }
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH)) {
@@ -169,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 flash.setParameters(p);
                 flash.startPreview();
+                cameraTaken = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -186,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 flash.release();
                 flash = null;
                 Log.d(TAG,"cameraCLOSED");
+                cameraTaken = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -202,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Logging TAG
      */
-    private final String TAG = "AP2 SENSORS: ";
+    private final String TAG = "SENSORS v0: ";
 
     /**
      * ARDUINO CONNECTION CODE
@@ -440,6 +446,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "CREATE");
         //starts things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -716,9 +723,13 @@ public class MainActivity extends AppCompatActivity {
         rCamera = new Runnable() {
             @Override
             public void run() {
-                if(flash == null) {
+                if(flash == null && !cameraTaken) {
                     Log.d(TAG, "PHOTO!");
                     Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
+                    cameraTaken = true;
+                    if(camera == null){
+                      return;
+                    }
                     try {
                         camera.setPreviewTexture(new SurfaceTexture(0));
                     } catch (IOException e) {
@@ -767,6 +778,7 @@ public class MainActivity extends AppCompatActivity {
                                 camera.release();
                                 camera = null;
                                 Log.d(TAG,"cameraCLOSED");
+                                cameraTaken = false;
                             }
                         }
                     };
@@ -980,6 +992,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     protected void onStop() {
+      Log.d(TAG, "STOP");
         super.onStop();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
