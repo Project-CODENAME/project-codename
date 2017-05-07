@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     String arduinoInRecent;
 
     public void flashLightOn(View view) {
-
+        Log.d(TAG, "flashLightOn");
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH)) {
@@ -178,12 +178,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void flashLightOff(View view) {
+      Log.d(TAG, "flashLightOff");
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH) && flash != null) {
                 flash.stopPreview();
                 flash.release();
                 flash = null;
+                Log.d(TAG,"cameraCLOSED");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -200,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Logging TAG
      */
-    private final String TAG = "SENSORS:";
+    private final String TAG = "AP2 SENSORS: ";
 
     /**
      * ARDUINO CONNECTION CODE
@@ -732,11 +734,13 @@ public class MainActivity extends AppCompatActivity {
                     Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
                         public void onPictureTaken(byte[] data, Camera camera) {
                             FileOutputStream outStream;
+                            Log.d(TAG,"picDONE");
                             try {
                                 String finalPath = path + new Date() + ".jpg";// set your directory path here
                                 outStream = new FileOutputStream(finalPath);
                                 outStream.write(data);
                                 outStream.close();
+                                Log.d(TAG,"saveINT");
                                 String mExternalDirectory = Environment.getExternalStorageDirectory()
                                         .getAbsolutePath();
                                 File f = new File(Environment.getExternalStorageDirectory()
@@ -753,13 +757,16 @@ public class MainActivity extends AppCompatActivity {
                                                 + "/external_sd";
                                     }
                                 }
+                                Log.d(TAG,"suSTART");
                                 Shell.SU.run("cp \""+finalPath+"\" \""+mExternalDirectory+"/High Altitude Photos/Back/"+new Date() + ".jpg\"");
+                                Log.d(TAG,"suEND");
                             } catch (Exception e) {
                                 e.printStackTrace();
                             } finally {
                                 camera.stopPreview();
                                 camera.release();
                                 camera = null;
+                                Log.d(TAG,"cameraCLOSED");
                             }
                         }
                     };
@@ -988,6 +995,7 @@ public class MainActivity extends AppCompatActivity {
      */
     //TODO add video capabilities, even if they are commented out
     private Camera openCamera(int n) {
+      Log.d(TAG, "cameraOPENED");
         int cameraCount;
         Camera cam = null;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
@@ -1074,4 +1082,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
