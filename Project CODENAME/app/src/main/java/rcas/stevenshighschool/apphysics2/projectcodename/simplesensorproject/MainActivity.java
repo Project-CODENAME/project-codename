@@ -737,7 +737,6 @@ public class MainActivity extends AppCompatActivity {
                                 outStream = new FileOutputStream(finalPath);
                                 outStream.write(data);
                                 outStream.close();
-                                Runtime.getRuntime().exec("su");
                                 String mExternalDirectory = Environment.getExternalStorageDirectory()
                                         .getAbsolutePath();
                                 File f = new File(Environment.getExternalStorageDirectory()
@@ -754,7 +753,7 @@ public class MainActivity extends AppCompatActivity {
                                                 + "/external_sd";
                                     }
                                 }
-                                Runtime.getRuntime().exec("cp \""+finalPath+"\" \""+mExternalDirectory+"/High Altitude Photos/Back/"+new Date() + ".jpg\"");
+                                Shell.SU.run("cp \""+finalPath+"\" \""+mExternalDirectory+"/High Altitude Photos/Back/"+new Date() + ".jpg\"");
                             } catch (Exception e) {
                                 e.printStackTrace();
                             } finally {
