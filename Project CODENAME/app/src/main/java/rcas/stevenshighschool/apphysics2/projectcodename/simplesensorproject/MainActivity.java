@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
     public void flashLightOff(View view) {
         try {
             if (getPackageManager().hasSystemFeature(
-                    PackageManager.FEATURE_CAMERA_FLASH)) {
+                    PackageManager.FEATURE_CAMERA_FLASH) && flash != null) {
                 flash.stopPreview();
                 flash.release();
                 flash = null;
