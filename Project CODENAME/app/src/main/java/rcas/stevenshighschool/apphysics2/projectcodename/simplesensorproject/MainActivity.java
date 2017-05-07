@@ -984,7 +984,10 @@ public class MainActivity extends AppCompatActivity {
         sensorManager.registerListener(rotationListener, rotation, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(gravityListener, gravity, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(temperatureListener, temperature, SensorManager.SENSOR_DELAY_NORMAL);
-        record(null);
+        if(!isRecording){
+          isRecording = true;
+          record(null);
+        }
     }
 
     /**
@@ -1001,6 +1004,8 @@ public class MainActivity extends AppCompatActivity {
         sensorManager.unregisterListener(rotationListener);
         sensorManager.unregisterListener(gravityListener);
         sensorManager.unregisterListener(temperatureListener);
+        stopRecord(null);
+        isRecording = false;
     }
 
     /**
