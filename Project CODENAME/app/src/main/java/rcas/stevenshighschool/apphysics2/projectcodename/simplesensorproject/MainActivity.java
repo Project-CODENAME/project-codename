@@ -25,6 +25,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Surface;
@@ -46,7 +47,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -141,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
     Camera mVideoCamera;
     Camera flash;
+    Camera mainCamera;
     MediaRecorder mMediaRecorder;
     private boolean isRecording = false;
     private boolean cameraTaken = false;
@@ -148,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
     byte ch, buffer[] = new byte[1024];
     int iterReading = 0;
     String arduinoInRecent;
+
+    Date sensorFileName;
 
     public void flashLightOn(View view) {
         Log.d(TAG, "flashLightOn");
@@ -157,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH)) {
+                takeCameraFromOtherThread();
                 int cameraId = 0;
                 int numberOfCameras = Camera.getNumberOfCameras();
                 Log.d("Hey", "" + numberOfCameras);
@@ -182,6 +189,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void takeCameraFromOtherThread(){
+        if(mainCamera!= null) {
+            h.removeCallbacks(rCamera);
+            mainCamera.stopPreview();
+            mainCamera.release();
+            mainCamera = null;
+            Log.d(TAG, "cameraCLOSED");
+            cameraTaken = false;
+        }
+    }
+
+    public void giveCameraBackToOtherThread(){
+        if(flash == null && !cameraTaken) {
+            mainCamera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
+            cameraTaken = true;
+            if(mainCamera == null){
+                h.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, "no Camera for now");
+                        giveCameraBackToOtherThread();
+                    }
+                }, 10000);
+            }
+            useThisOne = new SurfaceTexture(hackInt());
+            try {
+                mainCamera.setPreviewTexture(useThisOne);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            mainCamera.startPreview();
+        }
+        h.post(rCamera);
+    }
+
     public void flashLightOff(View view) {
       Log.d(TAG, "flashLightOff");
         try {
@@ -192,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
                 flash = null;
                 Log.d(TAG,"cameraCLOSED");
                 cameraTaken = false;
+                giveCameraBackToOtherThread();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -657,18 +701,38 @@ public class MainActivity extends AppCompatActivity {
         dataPointArrayList = new ArrayList<DataPoint>();
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 
+    }
+    Camera.PictureCallback captureCallback;
+    SurfaceTexture useThisOne;
+
+    int nTexture = 0;
+    public int hackInt(){
+        nTexture++;
+        if(nTexture>100){
+            nTexture = 0;
+        }
+        return nTexture;
     }
 
     /**
      * Recording function that starts running things
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public void record(View view) {
         final int delay = 1000; //milliseconds
         final int delayCamera = 1000 * 30; //milliseconds
 
+        File[] aDirArray = ContextCompat.getExternalFilesDirs(this, null);
+        File aExtDcimDir = new File(aDirArray[1], Environment.DIRECTORY_DCIM);
+        File aExtDocsDir = new File(aDirArray[1], Environment.DIRECTORY_DOCUMENTS);
+
+        final String docsPath = aExtDocsDir.getAbsolutePath()  + "/High Altitude DATA";
+        new File(docsPath).mkdirs();
         //Initializes and starts Runnable
+        final Context context = this;
         r = new Runnable() {
             public void run() {
                 Log.d(TAG, "RUN!");
@@ -686,6 +750,11 @@ public class MainActivity extends AppCompatActivity {
                 point.ext_rh = ext_rh;
                 point.course = course;
                 point.gps_speed = gps_speed;
+                point.a_actual_x=a2_x;
+                point.a_actual_y=a2_y;
+                point.a_actual_z=a2_z;
+                point.battery_percent = getBatteryPercentage(context);
+                point.battery_temp = getBatteryTemp(context);
                 Log.d(TAG, ""+Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y,2) + Math.pow(a2_z, 2)));
                 if(Math.abs(Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y,2) + Math.pow(a2_z, 2))-9.81)<0.4){
                     Log.d("HEY!", "stopped: " + stoppedN);
@@ -703,16 +772,24 @@ public class MainActivity extends AppCompatActivity {
                 dataPointArrayList.add(point);
 
                 // Object is serialized here, and the datafile is saved to the documents folder */
+                SimpleDateFormat sdfDate = new SimpleDateFormat("HHmmss");
+                String strDate = sdfDate.format(sensorFileName);
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-                File file = new File(path, "SENSORDATA.txt");
+                File file = new File(path, "SENSORDATA" + strDate + ".txt");
+                File file2 = new File(docsPath, "SENSORDATA" + strDate +".txt");
                 try {
                     //noinspection ResultOfMethodCallIgnored
                     path.mkdirs();
                     OutputStream os = new FileOutputStream(file);
                     ObjectOutputStream out = new ObjectOutputStream(os);
                     out.writeObject(dataPointArrayList);
+                    OutputStream os2 = new FileOutputStream(file2);
+                    ObjectOutputStream out2 = new ObjectOutputStream(os2);
+                    out2.writeObject(dataPointArrayList);
                     out.close();
+                    out2.close();
                     os.close();
+                    os2.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -720,70 +797,51 @@ public class MainActivity extends AppCompatActivity {
                 h.postDelayed(this, delay);
             }
         };
+
+        final String path = aExtDcimDir.getAbsolutePath()  + "/High Altitude Photos";
+        new File(path).mkdirs();
+        captureCallback = new Camera.PictureCallback() {
+            public void onPictureTaken(byte[] data, Camera camera) {
+                FileOutputStream outStream;
+                Log.d(TAG,"picDONE");
+                try {
+                    SimpleDateFormat sdfDate = new SimpleDateFormat("HHmmss");
+                    Date now = new Date();
+                    String strDate = sdfDate.format(now);
+                    File output = new File(path, strDate + ".jpg");
+                    outStream = new FileOutputStream(output);
+                    outStream.write(data);
+                    outStream.close();
+                    Log.d(TAG,"saveINT");
+                    String removableStoragePath = Environment.getExternalStorageDirectory()
+                            .getAbsolutePath();
+                    File fileList[] = new File("/storage/").listFiles();
+                    for (File file : fileList)
+                    {     if(!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) && file.isDirectory() && file.canRead() && file.getAbsolutePath().length() == 18)
+                        removableStoragePath = file.getAbsolutePath();  }
+                    String finalPath2 = removableStoragePath + "/High Altitude Photos/Back";// set your directory path here
+                    final File file = new File(finalPath2);
+                    //noinspection ResultOfMethodCallIgnored
+                    Log.d(TAG, file.mkdirs()+"");
+                    finalPath2 += new Date() + ".jpg";
+                    //outStream = new FileOutputStream(finalPath2);
+                    //outStream.write(data);
+                    //outStream.close();
+                    //Log.d(TAG,"suSTART " + finalPath);
+                    //Shell.SU.run("cp \""+finalPath+"\" \""+removableStoragePath+"/High Altitude Photos/Back/"+new Date() + ".jpg\"");
+                    //Log.d(TAG,"suEND");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                mainCamera.startPreview();
+            }
+        };
         rCamera = new Runnable() {
             @Override
             public void run() {
-                if(flash == null && !cameraTaken) {
-                    Log.d(TAG, "PHOTO!");
-                    Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
-                    cameraTaken = true;
-                    if(camera == null){
-                      return;
-                    }
-                    try {
-                        camera.setPreviewTexture(new SurfaceTexture(0));
-                    } catch (IOException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                    camera.startPreview();
-                    final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
-
-                    final File file = new File(path);
-                    //noinspection ResultOfMethodCallIgnored
-                    file.mkdirs();
-                    Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
-                        public void onPictureTaken(byte[] data, Camera camera) {
-                            FileOutputStream outStream;
-                            Log.d(TAG,"picDONE");
-                            try {
-                                String finalPath = path + new Date() + ".jpg";// set your directory path here
-                                outStream = new FileOutputStream(finalPath);
-                                outStream.write(data);
-                                outStream.close();
-                                Log.d(TAG,"saveINT");
-                                String mExternalDirectory = Environment.getExternalStorageDirectory()
-                                        .getAbsolutePath();
-                                File f = new File(Environment.getExternalStorageDirectory()
-                                        .getParent() + "/extSdCard" + "/myDirectory");
-                                if (f.exists() && f.isDirectory()) {
-                                    mExternalDirectory = Environment.getExternalStorageDirectory()
-                                            .getParent() + "/extSdCard";
-                                } else {
-                                    f = new File(Environment.getExternalStorageDirectory()
-                                            .getAbsolutePath() + "/external_sd" + "/myDirectory");
-                                    if (f.exists() && f.isDirectory()) {
-                                        mExternalDirectory = Environment
-                                                .getExternalStorageDirectory().getAbsolutePath()
-                                                + "/external_sd";
-                                    }
-                                }
-                                Log.d(TAG,"suSTART");
-                                Shell.SU.run("cp \""+finalPath+"\" \""+mExternalDirectory+"/High Altitude Photos/Back/"+new Date() + ".jpg\"");
-                                Log.d(TAG,"suEND");
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            } finally {
-                                camera.stopPreview();
-                                camera.release();
-                                camera = null;
-                                Log.d(TAG,"cameraCLOSED");
-                                cameraTaken = false;
-                            }
-                        }
-                    };
-                    camera.takePicture(null, null, jpegCallback);
-                }
+                h.postDelayed(this, delayCamera);
+                mainCamera.takePicture(null, null, captureCallback);
+                Log.d(TAG, "PHOTO!");
                /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
                 SurfaceView surface2 = new SurfaceView(getBaseContext());
                 try {
@@ -814,7 +872,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
                 camera2.takePicture(null, null, jpegCallback2);*/
-                h.postDelayed(this, delayCamera);
                 if (getBatteryPercentage(getApplication()) < 30) {
                     batterysave();
                 }
@@ -822,7 +879,6 @@ public class MainActivity extends AppCompatActivity {
         };
         //schedules the first job
         h.postDelayed(r, delay);
-        h.postDelayed(rCamera, delayCamera);
         flashLightOn(null);
         Runnable once = new Runnable() {
             @Override
@@ -969,12 +1025,23 @@ public class MainActivity extends AppCompatActivity {
         return (int) (batteryPct * 100);
     }
 
+    public static int getBatteryTemp(Context context) {
+
+        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = context.registerReceiver(null, iFilter);
+
+        int level = batteryStatus != null ? batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1) : -1;
+
+        return level;
+    }
+
     /**
      * Initializes sensors that should not be done in onCreate
      */
     @Override
     protected void onStart() {
         super.onStart();
+        sensorFileName = new Date();
         //TODO add null checks to allow testing on certain phone models
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(accelerometer2Listener, accelerometer2, SensorManager.SENSOR_DELAY_NORMAL);
