@@ -32,6 +32,11 @@ class DataPoint implements java.io.Serializable{
     public float ext_rh;
     public float course;
     public float gps_speed;
+    public int battery_percent;
+    public int battery_temp;
+    public float a_actual_x;
+    public float a_actual_y;
+    public float a_actual_z;
 
     /** Declares each variable that takes a value from an external sensor */
     //public float ext_p;
