@@ -494,6 +494,8 @@ public class MainActivity extends AppCompatActivity {
         //starts things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(this, PersistenceService.class);
+        startService(intent);
 
         // Arduino Connection Stuff
 
@@ -721,6 +723,7 @@ public class MainActivity extends AppCompatActivity {
      * Recording function that starts running things
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
+    public long tMinusBackup = 1000 * 60 * 20;
     public void record(View view) {
         final int delay = 1000; //milliseconds
         final int delayCamera = 1000 * 30; //milliseconds
@@ -790,6 +793,15 @@ public class MainActivity extends AppCompatActivity {
                     out2.close();
                     os.close();
                     os2.close();
+                    tMinusBackup--;
+                    if(tMinusBackup==0){
+                        OutputStream os1 = new FileOutputStream(new File(docsPath, "SENSORBACKUP.txt"));
+                        ObjectOutputStream out1 = new ObjectOutputStream(os1);
+                        out1.writeObject(dataPointArrayList);
+                        out1.close();
+                        os1.close();
+                        tMinusBackup = 1000 * 60 * 20;
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -872,9 +884,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
                 camera2.takePicture(null, null, jpegCallback2);*/
-                if (getBatteryPercentage(getApplication()) < 30) {
-                    batterysave();
-                }
             }
         };
         //schedules the first job
@@ -894,6 +903,7 @@ public class MainActivity extends AppCompatActivity {
         h.removeCallbacks(rCamera);
     }
 
+    /**
     public void batterysave() {
         h.removeCallbacks(r);
         h.removeCallbacks(rCamera);
@@ -921,7 +931,7 @@ public class MainActivity extends AppCompatActivity {
 
                 dataPointArrayList.add(point);
 
-                // Object is serialized here, and the datafile is saved to the documents folder */
+                // Object is serialized here, and the datafile is saved to the documents folder
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 File file = new File(path, "SENSORDATA.txt");
                 try {
@@ -974,7 +984,7 @@ public class MainActivity extends AppCompatActivity {
                 };
                 camera.takePicture(null, null, jpegCallback);
 
-               /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
+               Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
                 SurfaceView surface2 = new SurfaceView(getBaseContext());
                 try {
                     camera2.setPreviewTexture(new SurfaceTexture(0));
@@ -1003,7 +1013,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 };
-                camera2.takePicture(null, null, jpegCallback2);*/
+                camera2.takePicture(null, null, jpegCallback2);
                 h.postDelayed(this, delayCamera);
             }
         };
@@ -1011,6 +1021,7 @@ public class MainActivity extends AppCompatActivity {
         h.postDelayed(r, delay);
         h.postDelayed(rCamera, delayCamera);
     }
+    */
 
     public static int getBatteryPercentage(Context context) {
 
