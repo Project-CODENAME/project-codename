@@ -726,7 +726,7 @@ public class MainActivity extends AppCompatActivity {
      * Recording function that starts running things
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public long tMinusBackup = 1000 * 60 * 20;
+    public long tMinusBackup = 60 * 20;
     public void record(View view) {
         final int delay = 1000; //milliseconds
         final int delayCamera = 1000 * 30; //milliseconds
@@ -803,7 +803,7 @@ public class MainActivity extends AppCompatActivity {
                         out1.writeObject(dataPointArrayList);
                         out1.close();
                         os1.close();
-                        tMinusBackup = 1000 * 60 * 20;
+                        tMinusBackup = 60 * 20;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
