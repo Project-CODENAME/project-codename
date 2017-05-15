@@ -891,13 +891,13 @@ public class MainActivity extends AppCompatActivity {
         };
         //schedules the first job
         h.postDelayed(r, delay);
-        flashLightOn(null);
-        Runnable once = new Runnable() {
-            @Override
-            public void run() {
-                flashLightOff(null);
-            }
-        };
+        //flashLightOn(null);
+        //Runnable once = new Runnable() {
+        //  @Override
+        //    public void run() {
+        //        flashLightOff(null);
+        //    }
+        //};
         h.postDelayed(once, 1000 * 10);
     }
 
