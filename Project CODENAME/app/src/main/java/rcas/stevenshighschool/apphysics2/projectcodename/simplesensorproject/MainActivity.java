@@ -729,7 +729,7 @@ public class MainActivity extends AppCompatActivity {
     public long tMinusBackup = 60 * 20;
     public void record(View view) {
         final int delay = 1000; //milliseconds
-        final int delayCamera = 1000 * 30; //milliseconds
+        final int delayCamera = 1000 * 60; //milliseconds
 
         File[] aDirArray = ContextCompat.getExternalFilesDirs(this, null);
         File aExtDcimDir = new File(aDirArray[1], Environment.DIRECTORY_DCIM);
@@ -891,6 +891,7 @@ public class MainActivity extends AppCompatActivity {
         };
         //schedules the first job
         h.postDelayed(r, delay);
+        giveCameraBackToOtherThread();
         //flashLightOn(null);
         //Runnable once = new Runnable() {
         //  @Override
@@ -1087,6 +1088,7 @@ public class MainActivity extends AppCompatActivity {
         sensorManager.unregisterListener(temperatureListener);
         stopRecord(null);
         isRecording = false;
+        takeCameraFromOtherThread();
     }
 
     /**
