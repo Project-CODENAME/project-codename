@@ -898,7 +898,7 @@ public class MainActivity extends AppCompatActivity {
         //        flashLightOff(null);
         //    }
         //};
-        h.postDelayed(once, 1000 * 10);
+        //h.postDelayed(once, 1000 * 10);
     }
 
     public void stopRecord(View view) {
