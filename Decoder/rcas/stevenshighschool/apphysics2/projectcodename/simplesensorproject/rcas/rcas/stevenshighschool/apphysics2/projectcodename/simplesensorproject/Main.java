@@ -1,7 +1,10 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
@@ -34,6 +37,7 @@ public class Main {
         }
         try {
             //prints to csv--don't worry about this stuff
+            SimpleDateFormat sdf = new SimpleDateFormat("hhmmddMM");
             PrintWriter pw = new PrintWriter(new File("data.csv"));
             StringBuilder sb = new StringBuilder();
             sb.append("n");

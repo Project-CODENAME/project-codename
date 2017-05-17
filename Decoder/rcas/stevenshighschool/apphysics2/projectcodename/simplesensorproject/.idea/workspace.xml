@@ -2,20 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/rotationtime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/rotationtime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/gravitytime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/gravitytime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/data.csv" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/data.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.class" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/accelerationtime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/accelerationtime.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/gravitytime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/gravitytime.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Animations/data.csv" afterPath="$PROJECT_DIR$/../../../../../../Animations/data.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.kml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/magnetictime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/magnetictime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/app/src/main/java/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/rotationtime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/rotationtime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Animations/data.csv" afterPath="$PROJECT_DIR$/../../../../../../Animations/data.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../../../../.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Project CODENAME/.idea/misc.xml" afterPath="$PROJECT_DIR$/../../../../../../Project CODENAME/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" afterPath="$PROJECT_DIR$/../../../../../production/simplesensorproject/data.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/magnetictime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/magnetictime.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../../../Data Vis/accelerationtime.png" afterPath="$PROJECT_DIR$/../../../../../../Data Vis/accelerationtime.png" />
     </list>
     <ignored path="simplesensorproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +39,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="184" column="31" lean-forward="true" selection-start-line="184" selection-start-column="31" selection-end-line="184" selection-end-column="31" />
+            <state relative-caret-position="155">
+              <caret line="40" column="59" lean-forward="false" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,8 +51,8 @@
       <file leaf-file-name="DataPoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+            <state relative-caret-position="992">
+              <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -90,10 +90,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="120" />
-    <option name="y" value="-8" />
-    <option name="width" value="1808" />
-    <option name="height" value="1096" />
+    <option name="x" value="128" />
+    <option name="width" value="736" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -112,6 +111,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -173,7 +173,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,33 +554,34 @@
       <workItem from="1490210087124" duration="631000" />
       <workItem from="1490313622229" duration="39000" />
       <workItem from="1494212267281" duration="877000" />
+      <workItem from="1494984949923" duration="141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11714000" />
+    <option name="totallyTimeSpent" value="11855000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="120" y="-8" width="1808" height="1096" extended-state="6" />
+    <frame x="128" y="0" width="736" height="900" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32337245" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14530893" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09171598" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -637,6 +637,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="992">
+          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2170">
@@ -820,16 +838,16 @@
     <entry file="jar://$PROJECT_DIR$/lib/JavaAPIforKml-2.2.0.jar!/de/micromata/opengis/kml/v_2_2_0/Geometry.class" />
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        <state relative-caret-position="992">
+          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="184" column="31" lean-forward="true" selection-start-line="184" selection-start-column="31" selection-end-line="184" selection-end-column="31" />
+        <state relative-caret-position="155">
+          <caret line="40" column="59" lean-forward="false" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
