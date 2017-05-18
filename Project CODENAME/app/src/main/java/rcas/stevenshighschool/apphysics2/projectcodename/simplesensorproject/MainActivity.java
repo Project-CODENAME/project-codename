@@ -730,6 +730,8 @@ public class MainActivity extends AppCompatActivity {
     public void record(View view) {
         final int delay = 1000; //milliseconds
         final int delayCamera = 1000 * 60; //milliseconds
+        final int delayCameraWarm = 1000*60*2;
+        final int delayCameraHOT = 1000*60*5;
 
         File[] aDirArray = ContextCompat.getExternalFilesDirs(this, null);
         File aExtDcimDir = new File(aDirArray[1], Environment.DIRECTORY_DCIM);
@@ -854,7 +856,13 @@ public class MainActivity extends AppCompatActivity {
         rCamera = new Runnable() {
             @Override
             public void run() {
-                h.postDelayed(this, delayCamera);
+                if(getBatteryPercentage(context) >  394){
+                    h.postDelayed(rCamera, delayCameraHOT);
+                } else if(getBatteryPercentage(context) > 366){
+                    h.postDelayed(rCamera, delayCameraWarm);
+                } else {
+                    h.postDelayed(rCamera, delayCamera);
+                }
                 mainCamera.takePicture(null, null, captureCallback);
                 Log.d(TAG, "PHOTO!");
                /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
