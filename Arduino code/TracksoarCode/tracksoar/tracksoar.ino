@@ -166,5 +166,6 @@ void loop()
 #endif
   }
 
-  power_save(); // Incoming GPS data or interrupts will wake us up
+  power_save();
+  wdt_reset();// Incoming GPS data or interrupts will wake us up
 }
