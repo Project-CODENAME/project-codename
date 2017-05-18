@@ -43,6 +43,7 @@
 #include "power.h"
 #include "sensors_avr.h"
 #include "sensors_pic32.h"
+#include <avr/wdt.h>
 
 // Arduino/AVR libs
 #if (ARDUINO + 1) >= 100
