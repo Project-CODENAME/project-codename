@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1494959313 "finalproject.tex" "finalproject.pdf" "finalproject" 1494959314
+["pdflatex"] 1495123253 "finalproject.tex" "finalproject.pdf" "finalproject" 1495123254
   "/opt/local/etc/texmf/texmf.cnf" 1481602374 30215 f2bec1a7961186da34651e4b9839d7bd ""
   "/opt/local/share/texmf-texlive/fonts/map/fontname/texfonts.map" 1467164581 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/opt/local/share/texmf-texlive/fonts/tfm/public/cm/cmmi12.tfm" 1467164723 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -25,6 +25,7 @@
   "/opt/local/share/texmf-texlive/fonts/tfm/public/cm/cmtt9.tfm" 1467164723 764 c98a2af25c99b73a368cf7336e255190 ""
   "/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1467164862 35752 024fb6c41858982481f6968b5fc26508 ""
   "/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1467164862 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1467164862 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1467164862 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1467164862 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
   "/opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.pfb" 1467164862 24373 a91d375736817a75026663adcb2190c1 ""
@@ -48,6 +49,7 @@
   "/opt/local/share/texmf-texlive/tex/latex/beamer/translator/dicts/translator-basic-dictionary/translator-basic-dictionary-English.dict" 1467165123 3435 0a4d096dde3f8fe682c2aedd33b8137d ""
   "/opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator-language-mappings.tex" 1467165123 5067 f1bb98f63e0761f897f48a159127fbb6 ""
   "/opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator.sty" 1467165123 3824 9ccc2efa439cf13750315a0f20d4f691 ""
+  "/opt/local/share/texmf-texlive/tex/latex/booktabs/booktabs.sty" 1467165126 5869 94335281ffcab47f341cf07ea8220e30 ""
   "/opt/local/share/texmf-texlive/tex/latex/graphics-cfg/graphics.cfg" 1467245784 3103 f32642b1cd56c010cdfb6545539b7f0b ""
   "/opt/local/share/texmf-texlive/tex/latex/graphics/graphics.sty" 1467245784 14391 bd64a9e5d07473b936423b5f3280ed2c ""
   "/opt/local/share/texmf-texlive/tex/latex/graphics/graphicx.sty" 1467165140 8125 557ab9f1bfa80d369fb45a914aa8a3b4 ""
@@ -70,10 +72,10 @@
   "/opt/local/share/texmf-texlive/tex/latex/tools/array.sty" 1467165165 12398 bd782945c489f84ff012bcea4a712d25 ""
   "/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map" 1480703933 335750 8bec5fdb75811c3af6452509841706a1 ""
   "/opt/local/var/db/texmf/web2c/pdftex/pdflatex.fmt" 1476751674 3275809 31e3960b260c8b2ea98cb92c0c5396a4 ""
-  "finalproject.aux" 1494959314 582 fc95972756c4d22f6f8d700593ac2e8a ""
-  "finalproject.tex" 1494959310 871 14580ca3c2a751f6d188a4683a0df224 ""
+  "finalproject.aux" 1495123254 721 d341b37850592fa0d8d5d4f10cb5a4f2 ""
+  "finalproject.tex" 1495123251 6782 e41ab151bc22a764732863cd8d5a35ce ""
   "josh-images/figure1.pdf" 1494950260 21494 81ea519049e83cd4e516ccff1b675349 ""
   (generated)
-  "finalproject.aux"
   "finalproject.pdf"
   "finalproject.log"
+  "finalproject.aux"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_4) (preloaded format=pdflatex 2016.10.17)  16 MAY 2017 12:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_4) (preloaded format=pdflatex 2016.10.17)  18 MAY 2017 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -369,34 +369,55 @@ Package: l3keys2e 2016/05/18 v6512 LaTeX2e option processing using LaTeX3 keys
 Package: translator 2010/06/12 ver 1.10
 
 (/opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator-language
--mappings.tex))) (./finalproject.aux)
+-mappings.tex)))
+(/opt/local/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen151
+\lightrulewidth=\dimen152
+\cmidrulewidth=\dimen153
+\belowrulesep=\dimen154
+\belowbottomsep=\dimen155
+\aboverulesep=\dimen156
+\abovetopsep=\dimen157
+\cmidrulesep=\dimen158
+\cmidrulekern=\dimen159
+\defaultaddspace=\dimen160
+\@cmidla=\count135
+\@cmidlb=\count136
+\@aboverulesep=\dimen161
+\@belowrulesep=\dimen162
+\@thisruleclass=\count137
+\@lastruleclass=\count138
+\@thisrulewidth=\dimen163
+)
+(./finalproject.aux)
 \openout1 = `finalproject.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 
 (/opt/local/share/texmf-texlive/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count135
-\scratchdimen=\dimen151
+\scratchcounter=\count139
+\scratchdimen=\dimen164
 \scratchbox=\box49
-\nofMPsegments=\count136
-\nofMParguments=\count137
+\nofMPsegments=\count140
+\nofMParguments=\count141
 \everyMPshowfont=\toks17
-\MPscratchCnt=\count138
-\MPscratchDim=\dimen152
-\MPnumerator=\count139
-\makeMPintoPDFobject=\count140
+\MPscratchCnt=\count142
+\MPscratchDim=\dimen165
+\MPnumerator=\count143
+\makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks18
 ) (/opt/local/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -452,59 +473,67 @@ Dictionary: translator-basic-dictionary, Language: English
 (/opt/local/share/texmf-texlive/tex/latex/siunitx/siunitx-abbreviations.cfg
 File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
 )
-\c__siunitx_mathsf_int=\count141
+\c__siunitx_mathsf_int=\count145
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 6.
-\c__siunitx_mathtt_int=\count142
+(Font)              <5> on input line 8.
+\c__siunitx_mathtt_int=\count146
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 11.
+(Font)              <14.4> on input line 13.
 
-Overfull \hbox (39.19171pt too wide) in paragraph at lines 11--11
+Overfull \hbox (39.19171pt too wide) in paragraph at lines 13--13
 [][]  
  []
 
 Article: 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 14.
+(Font)              <9> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <6> on input line 16.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 33.
+
+
+LaTeX Warning: Float too large for page by 225.03046pt on input line 102.
+
 <josh-images/figure1.pdf, id=1, 361.35pt x 216.81pt>
 File: josh-images/figure1.pdf Graphic file (type pdf)
 
 <use josh-images/figure1.pdf>
-Package pdftex.def Info: josh-images/figure1.pdf used on input line 24.
+Package pdftex.def Info: josh-images/figure1.pdf used on input line 106.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
-Overfull \hbox (16.34912pt too wide) in paragraph at lines 24--25
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 106--108
  [][] 
  []
 
 [1
 
 
-{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map} <./josh-images/fig
-ure1.pdf>] [2] (./finalproject.aux) ) 
+{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3 <./josh-im
+ages/figure1.pdf>] (./finalproject.aux) ) 
 Here is how much of TeX's memory you used:
- 11116 strings out of 494114
- 236925 string characters out of 6155600
- 237133 words of memory out of 5000000
- 14433 multiletter control sequences out of 15000+600000
+ 11176 strings out of 494114
+ 237709 string characters out of 6155600
+ 253909 words of memory out of 5000000
+ 14489 multiletter control sequences out of 15000+600000
  10754 words of font info for 40 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 38i,7n,42p,10363b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
-</opt/local/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsf
-onts/cm/cmr9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmss10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss
-9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.p
-fb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
-Output written on finalproject.pdf (2 pages, 92993 bytes).
+ 38i,7n,42p,10384b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
+</opt/local/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmr6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmr9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+ss10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.p
+fb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
+Output written on finalproject.pdf (3 pages, 110609 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -51,6 +51,8 @@ INPUT /opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator.sty
 INPUT /opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator.sty
 INPUT /opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator-language-mappings.tex
 INPUT /opt/local/share/texmf-texlive/tex/latex/beamer/translator/translator-language-mappings.tex
+INPUT /opt/local/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
+INPUT /opt/local/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
 INPUT finalproject.aux
 INPUT finalproject.aux
 OUTPUT finalproject.aux
@@ -115,6 +117,7 @@ INPUT /opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT finalproject.aux
 INPUT /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.pfb
