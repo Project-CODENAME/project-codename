@@ -1,0 +1,4021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document xmlns="">
+    <Placemark>
+      <name>0</name>
+      <description>Wed May 17 20:57:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>1</name>
+      <description>Wed May 17 20:57:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>2</name>
+      <description>Wed May 17 20:57:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>3</name>
+      <description>Wed May 17 20:57:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>4</name>
+      <description>Wed May 17 20:57:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>5</name>
+      <description>Wed May 17 20:57:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>6</name>
+      <description>Wed May 17 20:57:59 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>7</name>
+      <description>Wed May 17 20:58:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>8</name>
+      <description>Wed May 17 20:58:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>9</name>
+      <description>Wed May 17 20:58:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10</name>
+      <description>Wed May 17 20:58:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11</name>
+      <description>Wed May 17 20:58:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>12</name>
+      <description>Wed May 17 20:58:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>13</name>
+      <description>Wed May 17 20:58:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>14</name>
+      <description>Wed May 17 20:58:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>15</name>
+      <description>Wed May 17 20:58:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>16</name>
+      <description>Wed May 17 20:58:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>17</name>
+      <description>Wed May 17 20:58:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>18</name>
+      <description>Wed May 17 20:58:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>19</name>
+      <description>Wed May 17 20:58:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>20</name>
+      <description>Wed May 17 20:58:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>21</name>
+      <description>Wed May 17 20:58:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>22</name>
+      <description>Wed May 17 20:58:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>23</name>
+      <description>Wed May 17 20:58:18 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>24</name>
+      <description>Wed May 17 20:58:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>25</name>
+      <description>Wed May 17 20:58:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>26</name>
+      <description>Wed May 17 20:58:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>27</name>
+      <description>Wed May 17 20:58:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>28</name>
+      <description>Wed May 17 20:58:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>29</name>
+      <description>Wed May 17 20:58:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>30</name>
+      <description>Wed May 17 20:58:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>31</name>
+      <description>Wed May 17 20:58:27 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>32</name>
+      <description>Wed May 17 20:58:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>33</name>
+      <description>Wed May 17 20:58:29 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>34</name>
+      <description>Wed May 17 20:58:31 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>35</name>
+      <description>Wed May 17 20:58:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>36</name>
+      <description>Wed May 17 20:58:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>37</name>
+      <description>Wed May 17 20:58:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>38</name>
+      <description>Wed May 17 20:58:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>39</name>
+      <description>Wed May 17 20:58:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>40</name>
+      <description>Wed May 17 20:58:38 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>41</name>
+      <description>Wed May 17 20:58:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>42</name>
+      <description>Wed May 17 20:58:40 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>43</name>
+      <description>Wed May 17 20:58:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>44</name>
+      <description>Wed May 17 20:58:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>45</name>
+      <description>Wed May 17 20:58:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>46</name>
+      <description>Wed May 17 20:58:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>47</name>
+      <description>Wed May 17 20:58:46 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>48</name>
+      <description>Wed May 17 20:58:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>49</name>
+      <description>Wed May 17 20:58:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>50</name>
+      <description>Wed May 17 20:58:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>51</name>
+      <description>Wed May 17 20:58:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>52</name>
+      <description>Wed May 17 20:58:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>53</name>
+      <description>Wed May 17 20:58:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>54</name>
+      <description>Wed May 17 20:58:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>55</name>
+      <description>Wed May 17 20:58:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>56</name>
+      <description>Wed May 17 20:58:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>57</name>
+      <description>Wed May 17 20:58:59 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>58</name>
+      <description>Wed May 17 20:59:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>59</name>
+      <description>Wed May 17 20:59:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>60</name>
+      <description>Wed May 17 20:59:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>61</name>
+      <description>Wed May 17 20:59:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>62</name>
+      <description>Wed May 17 20:59:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>63</name>
+      <description>Wed May 17 20:59:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>64</name>
+      <description>Wed May 17 20:59:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>65</name>
+      <description>Wed May 17 20:59:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>66</name>
+      <description>Wed May 17 20:59:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>67</name>
+      <description>Wed May 17 20:59:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>68</name>
+      <description>Wed May 17 20:59:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>69</name>
+      <description>Wed May 17 20:59:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>70</name>
+      <description>Wed May 17 20:59:16 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>71</name>
+      <description>Wed May 17 20:59:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>72</name>
+      <description>Wed May 17 20:59:18 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>73</name>
+      <description>Wed May 17 20:59:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>74</name>
+      <description>Wed May 17 20:59:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>75</name>
+      <description>Wed May 17 20:59:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>76</name>
+      <description>Wed May 17 20:59:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>77</name>
+      <description>Wed May 17 20:59:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>78</name>
+      <description>Wed May 17 20:59:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>79</name>
+      <description>Wed May 17 20:59:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>80</name>
+      <description>Wed May 17 20:59:29 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>81</name>
+      <description>Wed May 17 20:59:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>82</name>
+      <description>Wed May 17 20:59:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>83</name>
+      <description>Wed May 17 20:59:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>84</name>
+      <description>Wed May 17 20:59:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>85</name>
+      <description>Wed May 17 20:59:36 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>86</name>
+      <description>Wed May 17 20:59:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>87</name>
+      <description>Wed May 17 20:59:38 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>88</name>
+      <description>Wed May 17 20:59:40 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>89</name>
+      <description>Wed May 17 20:59:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>90</name>
+      <description>Wed May 17 20:59:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>91</name>
+      <description>Wed May 17 20:59:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>92</name>
+      <description>Wed May 17 20:59:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>93</name>
+      <description>Wed May 17 20:59:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>94</name>
+      <description>Wed May 17 20:59:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>95</name>
+      <description>Wed May 17 20:59:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>96</name>
+      <description>Wed May 17 20:59:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>97</name>
+      <description>Wed May 17 20:59:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>98</name>
+      <description>Wed May 17 20:59:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>99</name>
+      <description>Wed May 17 20:59:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>100</name>
+      <description>Wed May 17 20:59:57 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>101</name>
+      <description>Wed May 17 20:59:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>102</name>
+      <description>Wed May 17 21:00:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>103</name>
+      <description>Wed May 17 21:00:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>104</name>
+      <description>Wed May 17 21:00:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>105</name>
+      <description>Wed May 17 21:00:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>106</name>
+      <description>Wed May 17 21:00:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>107</name>
+      <description>Wed May 17 21:00:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>108</name>
+      <description>Wed May 17 21:00:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>109</name>
+      <description>Wed May 17 21:00:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>110</name>
+      <description>Wed May 17 21:00:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>111</name>
+      <description>Wed May 17 21:00:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>112</name>
+      <description>Wed May 17 21:00:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>113</name>
+      <description>Wed May 17 21:00:16 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>114</name>
+      <description>Wed May 17 21:00:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>115</name>
+      <description>Wed May 17 21:00:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>116</name>
+      <description>Wed May 17 21:00:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>117</name>
+      <description>Wed May 17 21:00:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>118</name>
+      <description>Wed May 17 21:00:23 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>119</name>
+      <description>Wed May 17 21:00:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>120</name>
+      <description>Wed May 17 21:00:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>121</name>
+      <description>Wed May 17 21:00:27 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>122</name>
+      <description>Wed May 17 21:00:29 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>123</name>
+      <description>Wed May 17 21:00:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>124</name>
+      <description>Wed May 17 21:00:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>125</name>
+      <description>Wed May 17 21:00:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>126</name>
+      <description>Wed May 17 21:00:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>127</name>
+      <description>Wed May 17 21:00:36 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>128</name>
+      <description>Wed May 17 21:00:38 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>129</name>
+      <description>Wed May 17 21:00:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>130</name>
+      <description>Wed May 17 21:00:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>131</name>
+      <description>Wed May 17 21:00:42 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>132</name>
+      <description>Wed May 17 21:00:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>133</name>
+      <description>Wed May 17 21:00:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>134</name>
+      <description>Wed May 17 21:00:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>135</name>
+      <description>Wed May 17 21:00:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>136</name>
+      <description>Wed May 17 21:00:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>137</name>
+      <description>Wed May 17 21:00:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>138</name>
+      <description>Wed May 17 21:00:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>139</name>
+      <description>Wed May 17 21:00:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>140</name>
+      <description>Wed May 17 21:00:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>141</name>
+      <description>Wed May 17 21:00:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>142</name>
+      <description>Wed May 17 21:01:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>143</name>
+      <description>Wed May 17 21:01:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>144</name>
+      <description>Wed May 17 21:01:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>145</name>
+      <description>Wed May 17 21:01:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>146</name>
+      <description>Wed May 17 21:01:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>147</name>
+      <description>Wed May 17 21:01:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>148</name>
+      <description>Wed May 17 21:01:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>149</name>
+      <description>Wed May 17 21:01:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>150</name>
+      <description>Wed May 17 21:01:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>151</name>
+      <description>Wed May 17 21:01:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>152</name>
+      <description>Wed May 17 21:01:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>153</name>
+      <description>Wed May 17 21:01:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>154</name>
+      <description>Wed May 17 21:01:18 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>155</name>
+      <description>Wed May 17 21:01:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>156</name>
+      <description>Wed May 17 21:01:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>157</name>
+      <description>Wed May 17 21:01:23 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>158</name>
+      <description>Wed May 17 21:01:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>159</name>
+      <description>Wed May 17 21:01:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>160</name>
+      <description>Wed May 17 21:01:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>161</name>
+      <description>Wed May 17 21:01:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>162</name>
+      <description>Wed May 17 21:01:31 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>163</name>
+      <description>Wed May 17 21:01:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>164</name>
+      <description>Wed May 17 21:01:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>165</name>
+      <description>Wed May 17 21:01:36 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>166</name>
+      <description>Wed May 17 21:01:38 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>167</name>
+      <description>Wed May 17 21:01:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>168</name>
+      <description>Wed May 17 21:01:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>169</name>
+      <description>Wed May 17 21:01:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>170</name>
+      <description>Wed May 17 21:01:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>171</name>
+      <description>Wed May 17 21:01:46 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>172</name>
+      <description>Wed May 17 21:01:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>173</name>
+      <description>Wed May 17 21:01:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>174</name>
+      <description>Wed May 17 21:01:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>175</name>
+      <description>Wed May 17 21:01:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>176</name>
+      <description>Wed May 17 21:01:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>177</name>
+      <description>Wed May 17 21:01:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>178</name>
+      <description>Wed May 17 21:01:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>179</name>
+      <description>Wed May 17 21:01:59 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>180</name>
+      <description>Wed May 17 21:02:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>181</name>
+      <description>Wed May 17 21:02:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>182</name>
+      <description>Wed May 17 21:02:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>183</name>
+      <description>Wed May 17 21:02:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>184</name>
+      <description>Wed May 17 21:02:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>185</name>
+      <description>Wed May 17 21:02:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>186</name>
+      <description>Wed May 17 21:02:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>187</name>
+      <description>Wed May 17 21:02:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>188</name>
+      <description>Wed May 17 21:02:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>189</name>
+      <description>Wed May 17 21:02:16 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>190</name>
+      <description>Wed May 17 21:02:18 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>191</name>
+      <description>Wed May 17 21:02:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>192</name>
+      <description>Wed May 17 21:02:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>193</name>
+      <description>Wed May 17 21:02:23 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>194</name>
+      <description>Wed May 17 21:02:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>195</name>
+      <description>Wed May 17 21:02:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>196</name>
+      <description>Wed May 17 21:02:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>197</name>
+      <description>Wed May 17 21:02:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>198</name>
+      <description>Wed May 17 21:02:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>199</name>
+      <description>Wed May 17 21:02:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>200</name>
+      <description>Wed May 17 21:02:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>201</name>
+      <description>Wed May 17 21:02:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>202</name>
+      <description>Wed May 17 21:02:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>203</name>
+      <description>Wed May 17 21:02:40 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>204</name>
+      <description>Wed May 17 21:02:42 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>205</name>
+      <description>Wed May 17 21:02:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>206</name>
+      <description>Wed May 17 21:02:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>207</name>
+      <description>Wed May 17 21:02:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>208</name>
+      <description>Wed May 17 21:02:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>209</name>
+      <description>Wed May 17 21:02:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>210</name>
+      <description>Wed May 17 21:02:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>211</name>
+      <description>Wed May 17 21:02:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>212</name>
+      <description>Wed May 17 21:02:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>213</name>
+      <description>Wed May 17 21:02:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>214</name>
+      <description>Wed May 17 21:03:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>215</name>
+      <description>Wed May 17 21:03:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>216</name>
+      <description>Wed May 17 21:03:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>217</name>
+      <description>Wed May 17 21:03:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>218</name>
+      <description>Wed May 17 21:03:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>219</name>
+      <description>Wed May 17 21:03:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>220</name>
+      <description>Wed May 17 21:03:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>221</name>
+      <description>Wed May 17 21:03:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>222</name>
+      <description>Wed May 17 21:03:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>223</name>
+      <description>Wed May 17 21:03:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>224</name>
+      <description>Wed May 17 21:03:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>225</name>
+      <description>Wed May 17 21:03:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>226</name>
+      <description>Wed May 17 21:03:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>227</name>
+      <description>Wed May 17 21:03:23 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>228</name>
+      <description>Wed May 17 21:03:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>229</name>
+      <description>Wed May 17 21:03:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>230</name>
+      <description>Wed May 17 21:03:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>231</name>
+      <description>Wed May 17 21:03:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>232</name>
+      <description>Wed May 17 21:03:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>233</name>
+      <description>Wed May 17 21:03:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>234</name>
+      <description>Wed May 17 21:03:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>235</name>
+      <description>Wed May 17 21:03:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>236</name>
+      <description>Wed May 17 21:03:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>237</name>
+      <description>Wed May 17 21:03:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>238</name>
+      <description>Wed May 17 21:03:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>239</name>
+      <description>Wed May 17 21:03:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>240</name>
+      <description>Wed May 17 21:03:46 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>241</name>
+      <description>Wed May 17 21:03:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>242</name>
+      <description>Wed May 17 21:03:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>243</name>
+      <description>Wed May 17 21:03:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>244</name>
+      <description>Wed May 17 21:03:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>245</name>
+      <description>Wed May 17 21:03:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>246</name>
+      <description>Wed May 17 21:03:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>247</name>
+      <description>Wed May 17 21:04:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>248</name>
+      <description>Wed May 17 21:04:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>249</name>
+      <description>Wed May 17 21:04:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>250</name>
+      <description>Wed May 17 21:04:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>251</name>
+      <description>Wed May 17 21:04:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>252</name>
+      <description>Wed May 17 21:04:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>253</name>
+      <description>Wed May 17 21:04:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>254</name>
+      <description>Wed May 17 21:04:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>255</name>
+      <description>Wed May 17 21:04:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>256</name>
+      <description>Wed May 17 21:04:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>257</name>
+      <description>Wed May 17 21:04:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>258</name>
+      <description>Wed May 17 21:04:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>259</name>
+      <description>Wed May 17 21:04:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>260</name>
+      <description>Wed May 17 21:04:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>261</name>
+      <description>Wed May 17 21:04:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>262</name>
+      <description>Wed May 17 21:04:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>263</name>
+      <description>Wed May 17 21:04:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>264</name>
+      <description>Wed May 17 21:04:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>265</name>
+      <description>Wed May 17 21:04:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>266</name>
+      <description>Wed May 17 21:04:36 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>267</name>
+      <description>Wed May 17 21:04:38 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>268</name>
+      <description>Wed May 17 21:04:40 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>269</name>
+      <description>Wed May 17 21:04:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>270</name>
+      <description>Wed May 17 21:04:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>271</name>
+      <description>Wed May 17 21:04:46 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>272</name>
+      <description>Wed May 17 21:04:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>273</name>
+      <description>Wed May 17 21:04:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>274</name>
+      <description>Wed May 17 21:04:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>275</name>
+      <description>Wed May 17 21:04:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>276</name>
+      <description>Wed May 17 21:04:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>277</name>
+      <description>Wed May 17 21:04:57 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>278</name>
+      <description>Wed May 17 21:04:59 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>279</name>
+      <description>Wed May 17 21:05:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>280</name>
+      <description>Wed May 17 21:05:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>281</name>
+      <description>Wed May 17 21:05:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>282</name>
+      <description>Wed May 17 21:05:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>283</name>
+      <description>Wed May 17 21:05:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>284</name>
+      <description>Wed May 17 21:05:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>285</name>
+      <description>Wed May 17 21:05:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>286</name>
+      <description>Wed May 17 21:05:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>287</name>
+      <description>Wed May 17 21:05:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>288</name>
+      <description>Wed May 17 21:05:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>289</name>
+      <description>Wed May 17 21:05:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>290</name>
+      <description>Wed May 17 21:05:23 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>291</name>
+      <description>Wed May 17 21:05:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>292</name>
+      <description>Wed May 17 21:05:27 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>293</name>
+      <description>Wed May 17 21:05:29 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>294</name>
+      <description>Wed May 17 21:05:31 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>295</name>
+      <description>Wed May 17 21:05:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>296</name>
+      <description>Wed May 17 21:05:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>297</name>
+      <description>Wed May 17 21:05:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>298</name>
+      <description>Wed May 17 21:05:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>299</name>
+      <description>Wed May 17 21:05:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>300</name>
+      <description>Wed May 17 21:05:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>301</name>
+      <description>Wed May 17 21:05:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>302</name>
+      <description>Wed May 17 21:05:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>303</name>
+      <description>Wed May 17 21:05:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>304</name>
+      <description>Wed May 17 21:05:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>305</name>
+      <description>Wed May 17 21:05:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>306</name>
+      <description>Wed May 17 21:05:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>307</name>
+      <description>Wed May 17 21:05:57 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>308</name>
+      <description>Wed May 17 21:05:59 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>309</name>
+      <description>Wed May 17 21:06:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>310</name>
+      <description>Wed May 17 21:06:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>311</name>
+      <description>Wed May 17 21:06:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>312</name>
+      <description>Wed May 17 21:06:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>313</name>
+      <description>Wed May 17 21:06:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>314</name>
+      <description>Wed May 17 21:06:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>315</name>
+      <description>Wed May 17 21:06:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>316</name>
+      <description>Wed May 17 21:06:16 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>317</name>
+      <description>Wed May 17 21:06:18 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>318</name>
+      <description>Wed May 17 21:06:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>319</name>
+      <description>Wed May 17 21:06:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>320</name>
+      <description>Wed May 17 21:06:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>321</name>
+      <description>Wed May 17 21:06:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>322</name>
+      <description>Wed May 17 21:06:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>323</name>
+      <description>Wed May 17 21:06:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>324</name>
+      <description>Wed May 17 21:06:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>325</name>
+      <description>Wed May 17 21:06:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>326</name>
+      <description>Wed May 17 21:06:36 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>327</name>
+      <description>Wed May 17 21:06:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>328</name>
+      <description>Wed May 17 21:06:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>329</name>
+      <description>Wed May 17 21:06:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>330</name>
+      <description>Wed May 17 21:06:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>331</name>
+      <description>Wed May 17 21:06:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>332</name>
+      <description>Wed May 17 21:06:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>333</name>
+      <description>Wed May 17 21:06:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>334</name>
+      <description>Wed May 17 21:06:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>335</name>
+      <description>Wed May 17 21:06:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>336</name>
+      <description>Wed May 17 21:06:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>337</name>
+      <description>Wed May 17 21:07:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>338</name>
+      <description>Wed May 17 21:07:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>339</name>
+      <description>Wed May 17 21:07:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>340</name>
+      <description>Wed May 17 21:07:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>341</name>
+      <description>Wed May 17 21:07:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>342</name>
+      <description>Wed May 17 21:07:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>343</name>
+      <description>Wed May 17 21:07:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>344</name>
+      <description>Wed May 17 21:07:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>345</name>
+      <description>Wed May 17 21:07:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>346</name>
+      <description>Wed May 17 21:07:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>347</name>
+      <description>Wed May 17 21:07:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>348</name>
+      <description>Wed May 17 21:07:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>349</name>
+      <description>Wed May 17 21:07:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>350</name>
+      <description>Wed May 17 21:07:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>351</name>
+      <description>Wed May 17 21:07:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>352</name>
+      <description>Wed May 17 21:07:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>353</name>
+      <description>Wed May 17 21:07:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>354</name>
+      <description>Wed May 17 21:07:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>355</name>
+      <description>Wed May 17 21:07:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>356</name>
+      <description>Wed May 17 21:07:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>357</name>
+      <description>Wed May 17 21:07:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>358</name>
+      <description>Wed May 17 21:07:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>359</name>
+      <description>Wed May 17 21:07:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>360</name>
+      <description>Wed May 17 21:07:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>361</name>
+      <description>Wed May 17 21:07:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>362</name>
+      <description>Wed May 17 21:07:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>363</name>
+      <description>Wed May 17 21:07:57 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>364</name>
+      <description>Wed May 17 21:07:59 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>365</name>
+      <description>Wed May 17 21:08:01 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>366</name>
+      <description>Wed May 17 21:08:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>367</name>
+      <description>Wed May 17 21:08:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>368</name>
+      <description>Wed May 17 21:08:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>369</name>
+      <description>Wed May 17 21:08:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>370</name>
+      <description>Wed May 17 21:08:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>371</name>
+      <description>Wed May 17 21:08:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>372</name>
+      <description>Wed May 17 21:08:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>373</name>
+      <description>Wed May 17 21:08:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>374</name>
+      <description>Wed May 17 21:08:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>375</name>
+      <description>Wed May 17 21:08:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>376</name>
+      <description>Wed May 17 21:08:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>377</name>
+      <description>Wed May 17 21:08:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>378</name>
+      <description>Wed May 17 21:08:31 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>379</name>
+      <description>Wed May 17 21:08:33 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>380</name>
+      <description>Wed May 17 21:08:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>381</name>
+      <description>Wed May 17 21:08:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>382</name>
+      <description>Wed May 17 21:08:40 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>383</name>
+      <description>Wed May 17 21:08:42 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>384</name>
+      <description>Wed May 17 21:08:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>385</name>
+      <description>Wed May 17 21:08:46 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>386</name>
+      <description>Wed May 17 21:08:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>387</name>
+      <description>Wed May 17 21:08:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>388</name>
+      <description>Wed May 17 21:08:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>389</name>
+      <description>Wed May 17 21:08:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>390</name>
+      <description>Wed May 17 21:08:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>391</name>
+      <description>Wed May 17 21:09:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>392</name>
+      <description>Wed May 17 21:09:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>393</name>
+      <description>Wed May 17 21:09:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>394</name>
+      <description>Wed May 17 21:09:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>395</name>
+      <description>Wed May 17 21:09:09 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>396</name>
+      <description>Wed May 17 21:09:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>397</name>
+      <description>Wed May 17 21:09:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>398</name>
+      <description>Wed May 17 21:09:16 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>399</name>
+      <description>Wed May 17 21:09:18 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>400</name>
+      <description>Wed May 17 21:09:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>401</name>
+      <description>Wed May 17 21:09:23 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>402</name>
+      <description>Wed May 17 21:09:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>403</name>
+      <description>Wed May 17 21:09:28 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>404</name>
+      <description>Wed May 17 21:09:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>405</name>
+      <description>Wed May 17 21:09:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>406</name>
+      <description>Wed May 17 21:09:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>407</name>
+      <description>Wed May 17 21:09:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>408</name>
+      <description>Wed May 17 21:09:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>409</name>
+      <description>Wed May 17 21:09:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>410</name>
+      <description>Wed May 17 21:09:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>411</name>
+      <description>Wed May 17 21:09:46 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>412</name>
+      <description>Wed May 17 21:09:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>413</name>
+      <description>Wed May 17 21:09:51 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>414</name>
+      <description>Wed May 17 21:09:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>415</name>
+      <description>Wed May 17 21:09:56 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>416</name>
+      <description>Wed May 17 21:09:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>417</name>
+      <description>Wed May 17 21:10:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>418</name>
+      <description>Wed May 17 21:10:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>419</name>
+      <description>Wed May 17 21:10:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>420</name>
+      <description>Wed May 17 21:10:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>421</name>
+      <description>Wed May 17 21:10:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>422</name>
+      <description>Wed May 17 21:10:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>423</name>
+      <description>Wed May 17 21:10:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>424</name>
+      <description>Wed May 17 21:10:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>425</name>
+      <description>Wed May 17 21:10:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>426</name>
+      <description>Wed May 17 21:10:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>427</name>
+      <description>Wed May 17 21:10:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>428</name>
+      <description>Wed May 17 21:10:26 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>429</name>
+      <description>Wed May 17 21:10:29 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>430</name>
+      <description>Wed May 17 21:10:31 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>431</name>
+      <description>Wed May 17 21:10:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>432</name>
+      <description>Wed May 17 21:10:36 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>433</name>
+      <description>Wed May 17 21:10:38 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>434</name>
+      <description>Wed May 17 21:10:41 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>435</name>
+      <description>Wed May 17 21:10:43 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>436</name>
+      <description>Wed May 17 21:10:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>437</name>
+      <description>Wed May 17 21:10:48 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>438</name>
+      <description>Wed May 17 21:10:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>439</name>
+      <description>Wed May 17 21:10:53 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>440</name>
+      <description>Wed May 17 21:10:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>441</name>
+      <description>Wed May 17 21:10:57 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>442</name>
+      <description>Wed May 17 21:11:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>443</name>
+      <description>Wed May 17 21:11:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>444</name>
+      <description>Wed May 17 21:11:05 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>445</name>
+      <description>Wed May 17 21:11:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>446</name>
+      <description>Wed May 17 21:11:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>447</name>
+      <description>Wed May 17 21:11:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>448</name>
+      <description>Wed May 17 21:11:15 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>449</name>
+      <description>Wed May 17 21:11:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>450</name>
+      <description>Wed May 17 21:11:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>451</name>
+      <description>Wed May 17 21:11:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>452</name>
+      <description>Wed May 17 21:11:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>453</name>
+      <description>Wed May 17 21:11:27 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>454</name>
+      <description>Wed May 17 21:11:29 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>455</name>
+      <description>Wed May 17 21:11:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>456</name>
+      <description>Wed May 17 21:11:34 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>457</name>
+      <description>Wed May 17 21:11:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>458</name>
+      <description>Wed May 17 21:11:39 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>459</name>
+      <description>Wed May 17 21:11:42 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>460</name>
+      <description>Wed May 17 21:11:44 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>461</name>
+      <description>Wed May 17 21:11:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>462</name>
+      <description>Wed May 17 21:11:49 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>463</name>
+      <description>Wed May 17 21:11:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>464</name>
+      <description>Wed May 17 21:11:54 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>465</name>
+      <description>Wed May 17 21:11:57 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>466</name>
+      <description>Wed May 17 21:12:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>467</name>
+      <description>Wed May 17 21:12:02 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>468</name>
+      <description>Wed May 17 21:12:04 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>469</name>
+      <description>Wed May 17 21:12:07 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>470</name>
+      <description>Wed May 17 21:12:10 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>471</name>
+      <description>Wed May 17 21:12:12 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>472</name>
+      <description>Wed May 17 21:12:14 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>473</name>
+      <description>Wed May 17 21:12:17 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>474</name>
+      <description>Wed May 17 21:12:20 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>475</name>
+      <description>Wed May 17 21:12:22 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>476</name>
+      <description>Wed May 17 21:12:25 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>477</name>
+      <description>Wed May 17 21:12:27 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>478</name>
+      <description>Wed May 17 21:12:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>479</name>
+      <description>Wed May 17 21:12:32 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>480</name>
+      <description>Wed May 17 21:12:35 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>481</name>
+      <description>Wed May 17 21:12:37 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>482</name>
+      <description>Wed May 17 21:12:40 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>483</name>
+      <description>Wed May 17 21:12:42 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>484</name>
+      <description>Wed May 17 21:12:45 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>485</name>
+      <description>Wed May 17 21:12:47 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>486</name>
+      <description>Wed May 17 21:12:50 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>487</name>
+      <description>Wed May 17 21:12:52 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>488</name>
+      <description>Wed May 17 21:12:55 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>489</name>
+      <description>Wed May 17 21:12:58 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>490</name>
+      <description>Wed May 17 21:13:00 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>491</name>
+      <description>Wed May 17 21:13:03 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>492</name>
+      <description>Wed May 17 21:13:06 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>493</name>
+      <description>Wed May 17 21:13:08 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>494</name>
+      <description>Wed May 17 21:13:11 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>495</name>
+      <description>Wed May 17 21:13:13 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>496</name>
+      <description>Wed May 17 21:13:16 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>497</name>
+      <description>Wed May 17 21:13:19 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>498</name>
+      <description>Wed May 17 21:13:21 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>499</name>
+      <description>Wed May 17 21:13:24 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>500</name>
+      <description>Wed May 17 21:13:27 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>501</name>
+      <description>Wed May 17 21:13:30 MDT 2017</description>
+      <Point>
+        <coordinates>-1.0,-1.0,-1.0</coordinates>
+        <altitudeMode>absolute</altitudeMode>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
