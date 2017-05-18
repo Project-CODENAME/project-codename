@@ -712,7 +712,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent2 = new Intent(this, PersistenceService.class);
         AlarmManager alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent2, 0);
         alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES, alarmIntent);
