@@ -51,6 +51,18 @@ import java.util.Date;
 
 //import java.util.List;
 
+/**
+ * The MainActivity class contains, you guessed it, the main part of the code.
+ * This does basically EVERYTHING! It provides a UI, but that isn't really functional
+ * anymore (I mean, you're not going up with your high altitude balloon). It's better
+ * explained in the chunks of code down below, because this whole thing is sort of an
+ * amalgamation of various bits of functionality and strokes of genius (maybe just strokes, idk).
+ *
+ * @author Alan Zhu
+ * @author Joshua Morin-Baxter
+ * @version honestly who knows?
+ * @since Fall 2016
+ */
 @SuppressWarnings("deprecation")
 public class MainActivity extends AppCompatActivity {
 
