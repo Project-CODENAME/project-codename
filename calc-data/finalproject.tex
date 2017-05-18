@@ -38,7 +38,7 @@ This data seems to have two points that are of great interest.
 \end{figure}
 
 \begin{flushleft}
-\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched.  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures are expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
+\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched.  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
 \end{flushleft}
 \part{Wind Velocity vs. Wind Angle}
 \begin{figure}[H]
@@ -73,5 +73,11 @@ The jet stream data can be fit by a normal distribution with $R = 0.536$.
   \caption{Plot of Wind Velocity vs. Wind Angle on the Interval $(10^{\circ}, 60^{\circ})$ Fit by a Normal Distribution}
 \end{figure}
 
+\appendix
+\begin{table}[H]
+\centering
+\includegraphics[width=5in]{PANDA.png}
+\caption{Numerical analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
+\end{table}
 
 \end{document}
