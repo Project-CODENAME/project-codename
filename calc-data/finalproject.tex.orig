@@ -73,18 +73,19 @@ The jet stream data can be fit by a normal distribution with $R = 0.536$.
   \caption{Plot of Wind Velocity vs. Wind Angle on the Interval $(10^{\circ}, 60^{\circ})$ Fit by a Normal Distribution}
 \end{figure}
 
-
+<<<<<<< HEAD
 The equation for the distribution is:
 \[
 wind(\theta) = \frac{1}{\sqrt{2*(11.18753)^2*\pi}}*e^{-\frac{(\theta-31.65742)^2}{2*(11.18753)^2}}*846
 \]
-
-This gives us that the mean direction of the jet stream occurs at 31.65742 degrees.
-
+=======
 \appendix
 \begin{table}[H]
 \centering
 \includegraphics[width=5in]{PANDA.png}
 \caption{Numerical analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
 \end{table}
+>>>>>>> origin/master
+
+This gives us that the mean direction of the jet stream occurs at 31.65742 degrees.
 \end{document}
