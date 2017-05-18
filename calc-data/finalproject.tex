@@ -55,15 +55,15 @@ The data can be analyzed on various intervals.
   \item $angle \in (29^{\circ}, 35^{\circ})$ Data is also almost consistently increasing.
   \item $angle \in (35^{\circ}, 37^{\circ})$ Data varies before reaching a critical point while being concave down (thus being a local maximum).
   \item $angle \in (37^{\circ}, 48^{\circ})$ Data slowly and inconsistently decreases.
-  \item $angle \in (48^{\circ}, 52^{\circ})$ Decreases before reaching a critical point and point of inflection (thus being a local minimum)
+  \item $angle \in (48^{\circ}, 52^{\circ})$ Decreases before reaching a critical point and point of inflection (thus being a local minimum).
   \item $angle \in (53^{\circ}, 80^{\circ})$ Data varies.
-  \item $angle \in (259^{\circ}, 260.2^{\circ})$ Data is increasing and concave up before reaching a point of inflection
+  \item $angle \in (259^{\circ}, 260.2^{\circ})$ Data is increasing and concave up before reaching a point of inflection.
   \item $angle \in (260.2^{\circ}, 261^{\circ})$ Data is varying, but is critical and has a varying second derivative, meaning the data has a local maximum in this area.
-  \item $angle \in (261^{\circ}, 271^{\circ})$ Data is decreasing, but second derivative goes from negative to positive, reaching a critical point where the second derivative is positive (thus being a local minimum)
+  \item $angle \in (261^{\circ}, 271^{\circ})$ Data is decreasing, but second derivative goes from negative to positive, reaching a critical point where the second derivative is positive (thus being a local minimum).
   \item $angle \in (290^{\circ}, 355^{\circ})$ Data is consistently increasing, reaching a maximum at the end of the data.
 \end{itemize}
 
-The critical point on the interval $(35^{\circ}, 37^{\circ})$ and the general clustering of data around it represents the jet stream, blowing towards the NEbN (Northeast by North), while the critical point near 260 degrees seems to be the surface wind, which blows towards WbS (West by South).
+The critical points on the interval $(26^{\circ}, 37^{\circ})$ and the general clustering of data around them represents the jet stream, blowing towards the NEbN (Northeast by North), while the critical point near 260 degrees seems to be the surface wind, which blows towards WbS (West by South).
 
 The jet stream data can be fit by a normal distribution with $R = 0.536$.
 
@@ -73,5 +73,10 @@ The jet stream data can be fit by a normal distribution with $R = 0.536$.
   \caption{Plot of Wind Velocity vs. Wind Angle on the Interval $(10^{\circ}, 60^{\circ})$ Fit by a Normal Distribution}
 \end{figure}
 
+The equation for the distribution is:
+\[
+wind(\theta) = \frac{1}{\sqrt{2*(11.18753)^2*\pi}}*e^{-\frac{(\theta-31.65742)^2}{2*(11.18753)^2}}*846
+\]
 
+This gives us that the mean direction of the jet stream occurs at 31.65742 degrees.
 \end{document}
