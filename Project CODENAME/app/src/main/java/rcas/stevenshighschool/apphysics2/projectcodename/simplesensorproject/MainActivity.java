@@ -3,7 +3,6 @@ package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
 import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -27,7 +26,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Surface;
@@ -39,11 +37,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.felhr.usbserial.UsbSerialDevice;
-import com.felhr.usbserial.UsbSerialInterface;
 
 import eu.chainfire.libsuperuser.Shell;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -51,10 +47,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 //import java.util.List;
 
@@ -159,8 +152,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void flashLightOn(View view) {
         Log.d(TAG, "flashLightOn");
-        if(cameraTaken){
-          return;
+        if (cameraTaken) {
+            return;
         }
         try {
             if (getPackageManager().hasSystemFeature(
@@ -191,8 +184,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void takeCameraFromOtherThread(){
-        if(mainCamera!= null) {
+    public void takeCameraFromOtherThread() {
+        if (mainCamera != null) {
             h.removeCallbacks(rCamera);
             mainCamera.stopPreview();
             mainCamera.release();
@@ -202,11 +195,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void giveCameraBackToOtherThread(){
-        if(flash == null && !cameraTaken) {
+    public void giveCameraBackToOtherThread() {
+        if (flash == null && !cameraTaken) {
             mainCamera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
             cameraTaken = true;
-            if(mainCamera == null){
+            if (mainCamera == null) {
                 h.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -228,14 +221,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void flashLightOff(View view) {
-      Log.d(TAG, "flashLightOff");
+        Log.d(TAG, "flashLightOff");
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH) && flash != null) {
                 flash.stopPreview();
                 flash.release();
                 flash = null;
-                Log.d(TAG,"cameraCLOSED");
+                Log.d(TAG, "cameraCLOSED");
                 cameraTaken = false;
                 giveCameraBackToOtherThread();
             }
@@ -717,13 +710,15 @@ public class MainActivity extends AppCompatActivity {
                 SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES, alarmIntent);
     }
+
     Camera.PictureCallback captureCallback;
     SurfaceTexture useThisOne;
 
     int nTexture = 0;
-    public int hackInt(){
+
+    public int hackInt() {
         nTexture++;
-        if(nTexture>100){
+        if (nTexture > 100) {
             nTexture = 0;
         }
         return nTexture;
@@ -734,17 +729,18 @@ public class MainActivity extends AppCompatActivity {
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public long tMinusBackup = 60 * 20;
+
     public void record(View view) {
         final int delay = 1000; //milliseconds
         final int delayCamera = 1000 * 60; //milliseconds
-        final int delayCameraWarm = 1000*60*2;
-        final int delayCameraHOT = 1000*60*5;
+        final int delayCameraWarm = 1000 * 60 * 2;
+        final int delayCameraHOT = 1000 * 60 * 5;
 
         File[] aDirArray = ContextCompat.getExternalFilesDirs(this, null);
         File aExtDcimDir = new File(aDirArray[1], Environment.DIRECTORY_DCIM);
         File aExtDocsDir = new File(aDirArray[1], Environment.DIRECTORY_DOCUMENTS);
 
-        final String docsPath = aExtDocsDir.getAbsolutePath()  + "/High Altitude DATA";
+        final String docsPath = aExtDocsDir.getAbsolutePath() + "/High Altitude DATA";
         new File(docsPath).mkdirs();
         //Initializes and starts Runnable
         final Context context = this;
@@ -765,13 +761,13 @@ public class MainActivity extends AppCompatActivity {
                 point.ext_rh = ext_rh;
                 point.course = course;
                 point.gps_speed = gps_speed;
-                point.a_actual_x=a2_x;
-                point.a_actual_y=a2_y;
-                point.a_actual_z=a2_z;
+                point.a_actual_x = a2_x;
+                point.a_actual_y = a2_y;
+                point.a_actual_z = a2_z;
                 point.battery_percent = getBatteryPercentage(context);
                 point.battery_temp = getBatteryTemp(context);
-                Log.d(TAG, ""+Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y,2) + Math.pow(a2_z, 2)));
-                if(Math.abs(Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y,2) + Math.pow(a2_z, 2))-9.81)<0.4){
+                Log.d(TAG, "" + Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y, 2) + Math.pow(a2_z, 2)));
+                if (Math.abs(Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y, 2) + Math.pow(a2_z, 2)) - 9.81) < 0.4) {
                     Log.d("HEY!", "stopped: " + stoppedN);
                     stoppedN++;
                 } else {
@@ -779,10 +775,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 /**if(stoppedN > 1000){
-                    flashLightOn(null);
-                } else if(flash != null) {
-                    flashLightOff(null);
-                }*/
+                 flashLightOn(null);
+                 } else if(flash != null) {
+                 flashLightOff(null);
+                 }*/
 
                 dataPointArrayList.add(point);
 
@@ -791,7 +787,7 @@ public class MainActivity extends AppCompatActivity {
                 String strDate = sdfDate.format(sensorFileName);
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 File file = new File(path, "SENSORDATA" + strDate + ".txt");
-                File file2 = new File(docsPath, "SENSORDATA" + strDate +".txt");
+                File file2 = new File(docsPath, "SENSORDATA" + strDate + ".txt");
                 try {
                     //noinspection ResultOfMethodCallIgnored
                     path.mkdirs();
@@ -806,7 +802,7 @@ public class MainActivity extends AppCompatActivity {
                     os.close();
                     os2.close();
                     tMinusBackup--;
-                    if(tMinusBackup==0){
+                    if (tMinusBackup == 0) {
                         OutputStream os1 = new FileOutputStream(new File(docsPath, "SENSORBACKUP.txt"));
                         ObjectOutputStream out1 = new ObjectOutputStream(os1);
                         out1.writeObject(dataPointArrayList);
@@ -822,12 +818,12 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        final String path = aExtDcimDir.getAbsolutePath()  + "/High Altitude Photos";
+        final String path = aExtDcimDir.getAbsolutePath() + "/High Altitude Photos";
         new File(path).mkdirs();
         captureCallback = new Camera.PictureCallback() {
             public void onPictureTaken(byte[] data, Camera camera) {
                 FileOutputStream outStream;
-                Log.d(TAG,"picDONE");
+                Log.d(TAG, "picDONE");
                 try {
                     SimpleDateFormat sdfDate = new SimpleDateFormat("HHmmss");
                     Date now = new Date();
@@ -836,17 +832,18 @@ public class MainActivity extends AppCompatActivity {
                     outStream = new FileOutputStream(output);
                     outStream.write(data);
                     outStream.close();
-                    Log.d(TAG,"saveINT");
+                    Log.d(TAG, "saveINT");
                     String removableStoragePath = Environment.getExternalStorageDirectory()
                             .getAbsolutePath();
                     File fileList[] = new File("/storage/").listFiles();
-                    for (File file : fileList)
-                    {     if(!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) && file.isDirectory() && file.canRead() && file.getAbsolutePath().length() == 18)
-                        removableStoragePath = file.getAbsolutePath();  }
+                    for (File file : fileList) {
+                        if (!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) && file.isDirectory() && file.canRead() && file.getAbsolutePath().length() == 18)
+                            removableStoragePath = file.getAbsolutePath();
+                    }
                     String finalPath2 = removableStoragePath + "/High Altitude Photos/Back";// set your directory path here
                     final File file = new File(finalPath2);
                     //noinspection ResultOfMethodCallIgnored
-                    Log.d(TAG, file.mkdirs()+"");
+                    Log.d(TAG, file.mkdirs() + "");
                     finalPath2 += new Date() + ".jpg";
                     //outStream = new FileOutputStream(finalPath2);
                     //outStream.write(data);
@@ -863,9 +860,9 @@ public class MainActivity extends AppCompatActivity {
         rCamera = new Runnable() {
             @Override
             public void run() {
-                if(getBatteryPercentage(context) >  394){
+                if (getBatteryPercentage(context) > 394) {
                     h.postDelayed(rCamera, delayCameraHOT);
-                } else if(getBatteryPercentage(context) > 366){
+                } else if (getBatteryPercentage(context) > 366) {
                     h.postDelayed(rCamera, delayCameraWarm);
                 } else {
                     h.postDelayed(rCamera, delayCamera);
@@ -923,124 +920,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-    public void batterysave() {
-        h.removeCallbacks(r);
-        h.removeCallbacks(rCamera);
-        final int delay = 1000 * 10; //milliseconds
-        final int delayCamera = 1000 * 120; //milliseconds
-
-        //Initializes and starts Runnable
-        r = new Runnable() {
-            public void run() {
-                Log.d(TAG, "RUN!");
-
-                // Initializes the data point class
-                // TODO decide on preferred order order of variables - not hugely important but deserves some consideration
-                DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
-
-                point.ext_alt = ext_alt;
-                point.ext_lon = ext_lon;
-                point.ext_lat = ext_lat;
-                point.ext_altEST = ext_altEST;
-                point.ext_temp = ext_temp;
-                point.ext_p = ext_p;
-                point.ext_rh = ext_rh;
-                point.course = course;
-                point.gps_speed = gps_speed;
-
-                dataPointArrayList.add(point);
-
-                // Object is serialized here, and the datafile is saved to the documents folder
-                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-                File file = new File(path, "SENSORDATA.txt");
-                try {
-                    //noinspection ResultOfMethodCallIgnored
-                    path.mkdirs();
-                    OutputStream os = new FileOutputStream(file);
-                    ObjectOutputStream out = new ObjectOutputStream(os);
-                    out.writeObject(dataPointArrayList);
-                    out.close();
-                    os.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                //schedules the next job
-                h.postDelayed(this, delay);
-            }
-        };
-        rCamera = new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "PHOTO!");
-                Camera camera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
-                try {
-                    camera.setPreviewTexture(new SurfaceTexture(0));
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                camera.startPreview();
-                final String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Back";
-                final File file = new File(path);
-                //noinspection ResultOfMethodCallIgnored
-                file.mkdirs();
-                Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
-                    public void onPictureTaken(byte[] data, Camera camera) {
-                        FileOutputStream outStream;
-                        try {
-                            String finalPath = path + new Date() + ".jpg";// set your directory path here
-                            outStream = new FileOutputStream(finalPath);
-                            outStream.write(data);
-                            outStream.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            camera.stopPreview();
-                            camera.release();
-                            camera = null;
-                        }
-                    }
-                };
-                camera.takePicture(null, null, jpegCallback);
-
-               Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
-                SurfaceView surface2 = new SurfaceView(getBaseContext());
-                try {
-                    camera2.setPreviewTexture(new SurfaceTexture(0));
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                camera2.startPreview();
-                final String path2 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High Altitude Photos/Front/";
-                final File file2 = new File(path);
-                file2.mkdirs();
-                Camera.PictureCallback jpegCallback2 = new Camera.PictureCallback() {
-                    public void onPictureTaken(byte[] data, Camera camera) {
-                        FileOutputStream outStream = null;
-                        try {
-                            String finalPath = path2 + new Date() + ".jpg";// set your directory path here
-                            outStream = new FileOutputStream(finalPath);
-                            outStream.write(data);
-                            outStream.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            camera.stopPreview();
-                            camera.release();
-                            camera = null;
-                        }
-                    }
-                };
-                camera2.takePicture(null, null, jpegCallback2);
-                h.postDelayed(this, delayCamera);
-            }
-        };
-        //schedules the first job
-        h.postDelayed(r, delay);
-        h.postDelayed(rCamera, delayCamera);
-    }
-    */
+     * public void batterysave() { h.removeCallbacks(r); h.removeCallbacks(rCamera); final int delay
+     * = 1000 * 10; //milliseconds final int delayCamera = 1000 * 120; //milliseconds
+     *
+     * //Initializes and starts Runnable r = new Runnable() { public void run() { Log.d(TAG,
+     * "RUN!");
+     *
+     * // Initializes the data point class // TODO decide on preferred order order of variables -
+     * not hugely important but deserves some consideration DataPoint point = new DataPoint(t, g_x,
+     * g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
+     *
+     * point.ext_alt = ext_alt; point.ext_lon = ext_lon; point.ext_lat = ext_lat; point.ext_altEST =
+     * ext_altEST; point.ext_temp = ext_temp; point.ext_p = ext_p; point.ext_rh = ext_rh;
+     * point.course = course; point.gps_speed = gps_speed;
+     *
+     * dataPointArrayList.add(point);
+     *
+     * // Object is serialized here, and the datafile is saved to the documents folder File path =
+     * Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS); File file =
+     * new File(path, "SENSORDATA.txt"); try { //noinspection ResultOfMethodCallIgnored
+     * path.mkdirs(); OutputStream os = new FileOutputStream(file); ObjectOutputStream out = new
+     * ObjectOutputStream(os); out.writeObject(dataPointArrayList); out.close(); os.close(); } catch
+     * (Exception e) { e.printStackTrace(); } //schedules the next job h.postDelayed(this, delay); }
+     * }; rCamera = new Runnable() {
+     *
+     * @Override public void run() { Log.d(TAG, "PHOTO!"); Camera camera =
+     * openCamera(Camera.CameraInfo.CAMERA_FACING_BACK); try { camera.setPreviewTexture(new
+     * SurfaceTexture(0)); } catch (IOException e) { // TODO Auto-generated catch block
+     * e.printStackTrace(); } camera.startPreview(); final String path =
+     * Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High
+     * Altitude Photos/Back"; final File file = new File(path); //noinspection
+     * ResultOfMethodCallIgnored file.mkdirs(); Camera.PictureCallback jpegCallback = new
+     * Camera.PictureCallback() { public void onPictureTaken(byte[] data, Camera camera) {
+     * FileOutputStream outStream; try { String finalPath = path + new Date() + ".jpg";// set your
+     * directory path here outStream = new FileOutputStream(finalPath); outStream.write(data);
+     * outStream.close(); } catch (Exception e) { e.printStackTrace(); } finally {
+     * camera.stopPreview(); camera.release(); camera = null; } } }; camera.takePicture(null, null,
+     * jpegCallback);
+     *
+     * Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); SurfaceView surface2 =
+     * new SurfaceView(getBaseContext()); try { camera2.setPreviewTexture(new SurfaceTexture(0)); }
+     * catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); }
+     * camera2.startPreview(); final String path2 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+     * + "/High Altitude Photos/Front/"; final File file2 = new File(path); file2.mkdirs();
+     * Camera.PictureCallback jpegCallback2 = new Camera.PictureCallback() { public void
+     * onPictureTaken(byte[] data, Camera camera) { FileOutputStream outStream = null; try { String
+     * finalPath = path2 + new Date() + ".jpg";// set your directory path here outStream = new
+     * FileOutputStream(finalPath); outStream.write(data); outStream.close(); } catch (Exception e)
+     * { e.printStackTrace(); } finally { camera.stopPreview(); camera.release(); camera = null; } }
+     * }; camera2.takePicture(null, null, jpegCallback2); h.postDelayed(this, delayCamera); } };
+     * //schedules the first job h.postDelayed(r, delay); h.postDelayed(rCamera, delayCamera); }
+     */
 
     public static int getBatteryPercentage(Context context) {
 
@@ -1081,9 +1011,9 @@ public class MainActivity extends AppCompatActivity {
         sensorManager.registerListener(rotationListener, rotation, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(gravityListener, gravity, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(temperatureListener, temperature, SensorManager.SENSOR_DELAY_NORMAL);
-        if(!isRecording){
-          isRecording = true;
-          record(null);
+        if (!isRecording) {
+            isRecording = true;
+            record(null);
         }
     }
 
@@ -1092,7 +1022,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     protected void onStop() {
-      Log.d(TAG, "STOP");
+        Log.d(TAG, "STOP");
         super.onStop();
         sensorManager.unregisterListener(accelerometerListener);
         sensorManager.unregisterListener(pressureListener);
@@ -1111,7 +1041,7 @@ public class MainActivity extends AppCompatActivity {
      */
     //TODO add video capabilities, even if they are commented out
     private Camera openCamera(int n) {
-      Log.d(TAG, "cameraOPENED");
+        Log.d(TAG, "cameraOPENED");
         int cameraCount;
         Camera cam = null;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
