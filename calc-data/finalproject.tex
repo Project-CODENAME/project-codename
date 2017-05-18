@@ -1,9 +1,14 @@
 \documentclass{journal}
 \usepackage{graphicx}
 \usepackage{siunitx}
+<<<<<<< HEAD
 \usepackage{booktabs}
 
 
+=======
+\usepackage{caption}
+\usepackage{float}
+>>>>>>> origin/master
 
 \begin{document}
 \title{AP Calculus Final Project}
@@ -113,9 +118,60 @@ AVG:         & 14.57059741      & 0.000699214      & -3.47E-06 & +    & DOWN    
 \part{Temperature Vs. Density}
 
 \part{Wind Velocity vs. Pressure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=5in]{IMG1CDATA.png}
+\caption{Plot of Wind Velocity vs. Pressure}
+\end{figure}
 
-\part{Wind Angle vs. Wind Velocity}
+\begin{flushleft}
+\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched.  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
+\end{flushleft}
+\part{Wind Velocity vs. Wind Angle}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{alan-data.png}
+  \caption{Plot of Wind Velocity vs. Wind Angle}
+\end{figure}
+
+Although the tendencies of the data tend to wary between points, some overarching trends can be noted by analyzing the sign of the first and second derivatives (especially where they change).
+The data can be analyzed on various intervals.
+\begin{itemize}
+  \item $angle \in (12^{\circ},16^{\circ})$: Data varies wildly.
+  \item $angle \in (20^{\circ}, 28^{\circ})$ Data is almost consistently increasing, before reaching a critical point while being concave down (thus being a local maximum).
+  \item $angle \in (29^{\circ}, 35^{\circ})$ Data is also almost consistently increasing.
+  \item $angle \in (35^{\circ}, 37^{\circ})$ Data varies before reaching a critical point while being concave down (thus being a local maximum).
+  \item $angle \in (37^{\circ}, 48^{\circ})$ Data slowly and inconsistently decreases.
+  \item $angle \in (48^{\circ}, 52^{\circ})$ Decreases before reaching a critical point and point of inflection (thus being a local minimum).
+  \item $angle \in (53^{\circ}, 80^{\circ})$ Data varies.
+  \item $angle \in (259^{\circ}, 260.2^{\circ})$ Data is increasing and concave up before reaching a point of inflection.
+  \item $angle \in (260.2^{\circ}, 261^{\circ})$ Data is varying, but is critical and has a varying second derivative, meaning the data has a local maximum in this area.
+  \item $angle \in (261^{\circ}, 271^{\circ})$ Data is decreasing, but second derivative goes from negative to positive, reaching a critical point where the second derivative is positive (thus being a local minimum).
+  \item $angle \in (290^{\circ}, 355^{\circ})$ Data is consistently increasing, reaching a maximum at the end of the data.
+\end{itemize}
+
+The critical points on the interval $(26^{\circ}, 37^{\circ})$ and the general clustering of data around them represents the jet stream, blowing towards the NEbN (Northeast by North), while the critical point near 260 degrees seems to be the surface wind, which blows towards WbS (West by South).
+
+The jet stream data can be fit by a normal distribution with $R = 0.536$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{alan-data-2.png}
+  \caption{Plot of Wind Velocity vs. Wind Angle on the Interval $(10^{\circ}, 60^{\circ})$ Fit by a Normal Distribution}
+\end{figure}
 
 
+The equation for the distribution is:
+\[
+wind(\theta) = \frac{1}{\sqrt{2*(11.18753)^2*\pi}}*e^{-\frac{(\theta-31.65742)^2}{2*(11.18753)^2}}*846
+\]
 
+This gives us that the mean direction of the jet stream occurs at 31.65742 degrees.
+
+\appendix
+\begin{table}[H]
+\centering
+\includegraphics[width=5in]{PANDA.png}
+\caption{Numerical analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
+\end{table}
 \end{document}
