@@ -62,6 +62,7 @@ static const uint32_t VALID_POS_TIMEOUT = 2000;  // ms
 // Module variables
 static int32_t next_aprs = 0;
 
+
 void setup()
 {
   pinMode(LED_PIN, OUTPUT);
@@ -107,6 +108,26 @@ void setup()
   }  
   // TODO: beep while we get a fix, maybe indicating the number of
   // visible satellites by a series of short beeps?
+  cli();
+ wdt_reset();
+/*
+ WDTCSR configuration:
+ WDIE = 1: Interrupt Enable
+ WDE = 1 :Reset Enable
+ See table for time-out variations:
+ WDP3 = 0 :For 1000ms Time-out
+ WDP2 = 1 :For 1000ms Time-out
+ WDP1 = 1 :For 1000ms Time-out
+ WDP0 = 0 :For 1000ms Time-out
+*/
+// Enter Watchdog Configuration mode:
+WDTCSR |= (1<<WDCE) | (1<<WDE);
+// Set Watchdog settings:
+ WDTCSR = (1<<WDIE) | (1<<WDE) |
+(1<<WDP3) | (0<<WDP2) | (0<<WDP1) |
+(1<<WDP0);
+
+sei();
 }
 
 void get_pos()
@@ -135,26 +156,10 @@ void loop()
     get_pos();
     aprs_send();
     next_aprs += APRS_PERIOD * 1000L;
-    char temp[12];
-    Wire.beginTransmission(0x21);
-    Wire.write(gps_aprs_lat);     // Lat: 38deg and 22.20 min (.20 are NOT seconds, but 1/100th of minutes)
-    Wire.write(gps_aprs_lon);     // Lon: 000deg and 25.80 min
-  snprintf(temp, 4, "%03d", (int)(gps_course + 0.5)); 
-    Wire.write(temp);             // Course (degrees)
-  snprintf(temp, 4, "%03d", (int)(gps_speed + 0.5));
-    Wire.write(temp);             // speed (knots)
-  snprintf(temp, 7, "%06ld", (long)(gps_altitude + 0.5));
-    Wire.write(temp); //alt
-  snprintf(temp, 6, "%ld", sensors_pressure());
-    Wire.write(temp); //p
-  dtostrf(sensors_humidity(), -1, 2, temp);
-    Wire.write(temp); //rh
-  dtostrf(sensors_temperature(), -1, 2, temp);
-    Wire.write(temp); //temp
-    Wire.endTransmission();
     while (afsk_flush()) {
       power_save();
     }
+
 #ifdef DEBUG_MODEM
     // Show modem ISR stats from the previous transmission
     afsk_debug();
