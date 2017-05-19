@@ -417,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }; */
 
-    
+
     public void setUiEnabled(boolean bool) {
         startButton.setEnabled(!bool);
         sendButton.setEnabled(bool);
