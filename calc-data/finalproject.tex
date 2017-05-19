@@ -1,7 +1,6 @@
 \documentclass{journal}
 \usepackage{graphicx}
 \usepackage{siunitx}
-\usepackage{booktabs}
 \usepackage{caption}
 \usepackage{float}
 
@@ -14,104 +13,18 @@
 \maketitle
 
 \begin{abstract}
-This is an analysis of data taken from the GOSH Flight Path Predictor\textsuperscript{TM}.  Four separate sets of data were analyzed: temperature vs. density, wind velocity vs. pressure, wind angle vs. wind velocity, and wind velocity vs. altitude. Each is discussed in more depth in subsequent parts.
+This is an analysis of data taken from the GOSH Flight Path Predictor\textsuperscript{TM}.
+Four separate sets of data were analyzed:
+temperature vs. density, wind velocity vs. pressure, wind angle vs. wind velocity, and wind velocity vs. altitude.
+Each is discussed in more depth in subsequent parts.
 \end{abstract}
 
-\part{Wind Velocity Vs. Altitude}
-This data has several interesting patterns.  Initially, the data points are closely clustered around the same windspeed (about 5\si{\frac{m}{s}}).  These are the ground conditions in the Rapid City area.  As altitude increases, however, the windspeed dips significantly before rising again - forming what appears to be a cusp (though it could possibly be a relative minimum).  This cusp behavior can be seen in Table \ref{joshtable1}: Where x=2641.95, the first derivative is negative, but at the next value recorded, x=2861.54, the first derivative has become positive.
-
-The next notable feature of the data is a sharp change in the rate at which the wind speed is increasing.  This occurs when the altitude is approximately 5000\si{m}. After this point, the wind picks up speed at a much slower rate than before.  This is the overall shape of the graph as demonstrated by Figure \ref{josh1}.  Such a dominant graphical feature is likely indicative of a comparably dominant atmospheric phenomenon, and research indicates that the largest contributor to wind speed in the upper atmosphere is the jet stream~\cite{National-Geographic}.  According to National Geographic~\cite{National-Geographic}, the Jet Stream occurs betwen 8 and 15 \si{km} above the earth.  This matches the data in Table \ref{joshtable1} very well.
-
-After these initial features the most prominent pattern in the data is what appears to be an absolute maximum slightly after 10000\si{m}, before 15000\si{m} meters.  At this point the wind speed is nearly 40\si{\frac{m}{s}}.  Wind speed increases as it approaches this maximum, though it increases at a slower and slower rate. Near this point the wind speed neither increases nor decreases by any signficiant amount.  After the maximum, the wind speed begins to decrease at an increasing rate.
-
-
-\begin{table}[]
+\part{Wind Velocity vs. Altitude}
+This data seems to have two points that are of great interest.
+\begin{figure}[h]
 \centering
-\caption{Raw Data From Predictions of Wind Speed Vs. Height}
-\label{joshtable1}
-\begin{tabular}{@{}llllll@{}}
-\toprule
-altitude (m) & wind speed (m/s) & first derivative & second    & f is & concave \\ \midrule
-947.84       & 5.90581712       &                  &           &      &         \\
-985.55       & 6.1990502        & 0.007776003      &           & +    &         \\
-1023.37      & 6.39453892       & 0.005168924      & -6.89E-05 & +    & DOWN    \\
-1061.3       & 6.49228328       & 0.002576967      & -6.83E-05 & +    & DOWN    \\
-1101.25      & 6.49228328       & 0                & -6.45E-05 & -    & DOWN    \\
-1141.34      & 6.49228328       & 0                & 0         & -    & DOWN    \\
-1182.52      & 6.59002764       & 0.002373588      & 5.76E-05  & +    & UP      \\
-1224.81      & 6.59002764       & 0                & -5.61E-05 & -    & DOWN    \\
-1268.21      & 6.59002764       & 0                & 0         & -    & DOWN    \\
-1313.71      & 6.59002764       & 0                & 0         & -    & DOWN    \\
-1361.33      & 6.59002764       & 0                & 0         & -    & DOWN    \\
-1411.1       & 6.59002764       & 0                & 0         & -    & DOWN    \\
-1463.04      & 6.49228328       & -0.001881871     & -3.62E-05 & -    & DOWN    \\
-1518.18      & 6.49228328       & 0                & 3.41E-05  & -    & UP      \\
-1575.56      & 6.47684996       & -0.000268967     & -4.69E-06 & -    & DOWN    \\
-1639.2       & 6.47684996       & 0                & 4.23E-06  & -    & UP      \\
-1710.22      & 6.3791056        & -0.001376293     & -1.94E-05 & -    & DOWN    \\
-1792.78      & 6.3791056        & 0                & 1.67E-05  & -    & UP      \\
-1889.17      & 6.26592792       & -0.001174164     & -1.22E-05 & -    & DOWN    \\
-2000.74      & 6.26592792       & 0                & 1.05E-05  & -    & UP      \\
-2130.05      & 6.15275024       & -0.000875243     & -6.77E-06 & -    & DOWN    \\
-2277.72      & 5.41709532       & -0.004981749     & -2.78E-05 & -    & DOWN    \\
-2447.89      & 3.54451916       & -0.01100415      & -3.54E-05 & -    & DOWN    \\
-2641.95      & 2.81400868       & -0.003764354     & 3.73E-05  & -    & UP      \\
-2861.54      & 5.82350608       & 0.013705075      & 7.96E-05  & +    & UP      \\
-3107.44      & 9.14681432       & 0.013514877      & -7.73E-07 & +    & DOWN    \\
-3381.51      & 15.16066468      & 0.021942753      & 3.08E-05  & +    & UP      \\
-3681.25      & 18.38622856      & 0.010761206      & -3.73E-05 & +    & DOWN    \\
-4002.43      & 18.86980592      & 0.001505627      & -2.88E-05 & +    & DOWN    \\ \bottomrule
-\end{tabular}
-\end{table}
-
-
-\begin{table}[]
-\centering
-\caption{Table 1 Continued}
-\label{joshtable2}
-\begin{tabular}{@{}llllll@{}}
-\toprule
-altitude (m) & wind speed (m/s) & first derivative & second    & f is & concave \\ \midrule
-4344.09      & 18.91610588      & 0.000135515      & -4.01E-06 & +    & DOWN    \\
-4706.73      & 19.2144834       & 0.000822793      & 1.90E-06  & +    & UP      \\
-5089.27      & 20.63434884      & 0.003711678      & 7.55E-06  & +    & UP      \\
-5491.59      & 22.02849208      & 0.00346526       & -6.12E-07 & +    & DOWN    \\
-5913.8       & 21.9153144       & -0.00026806      & -8.84E-06 & -    & DOWN    \\
-6358.13      & 23.72615728      & 0.004075446      & 9.78E-06  & +    & UP      \\
-6822.71      & 26.43213272      & 0.005824563      & 3.76E-06  & +    & UP      \\
-7313.41      & 24.72932308      & -0.003470164     & -1.89E-05 & -    & DOWN    \\
-7830.24      & 26.751088        & 0.003911857      & 1.43E-05  & +    & UP      \\
-8382.36      & 29.10209708      & 0.004258149      & 6.27E-07  & +    & UP      \\
-8972.84      & 33.18678244      & 0.006917568      & 4.50E-06  & +    & UP      \\
-9591.32      & 36.33003528      & 0.005082222      & -2.97E-06 & +    & DOWN    \\
-10215.39     & 37.811634        & 0.002374091      & -4.34E-06 & +    & DOWN    \\
-10824.28     & 39.2006328       & 0.002281198      & -1.53E-07 & +    & DOWN    \\
-11416.76     & 39.18519948      & -2.60E-05        & -3.89E-06 & -    & DOWN    \\
-11995.67     & 36.77760156      & -0.004158847     & -7.14E-06 & -    & DOWN    \\
-12565.71     & 30.64028464      & -0.010766467     & -1.16E-05 & -    & DOWN    \\
-13130.59     & 28.41788656      & -0.003934284     & 1.21E-05  & -    & UP      \\
-13704.45     & 27.4970318       & -0.001604668     & 4.06E-06  & -    & UP      \\
-14307.19     & 22.40918064      & -0.008441204     & -1.13E-05 & -    & DOWN    \\
-14949.59     & 16.31301924      & -0.009489666     & -1.63E-06 & -    & DOWN    \\
-15626.44     & 21.2722594       & 0.007326941      & 2.48E-05  & +    & UP      \\
-16364.28     & 22.4040362       & 0.001533905      & -7.85E-06 & +    & DOWN    \\
-17178.71     & 9.42461408       & -0.015936817     & -2.15E-05 & -    & DOWN    \\
-18095.86     & 5.80292832       & -0.003948848     & 1.31E-05  & -    & UP      \\
-19133.84     & 5.57142852       & -0.000223029     & 3.59E-06  & -    & UP      \\
-20359.21     & 2.829442         & -0.00223768      & -1.64E-06 & -    & DOWN    \\
-21888.32     & 2.55164224       & -0.000181674     & 1.34E-06  & -    & UP      \\
-23904.7      & 0.20063316       & -0.001165955     & -4.88E-07 & -    & DOWN    \\
-26910.97     & 0.31381084       & 3.76E-05         & 4.00E-07  & +    & UP      \\
-33038.6      & 8.58607036       & 0.001349993      & 2.14E-07  & +    & UP      \\
-AVG:         & 14.57059741      & 0.000699214      & -3.47E-06 & +    & DOWN    \\ \bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}
-\centering
-\includegraphics{josh-data/figure1.pdf}
+\includegraphics{josh-images/figure1.pdf}
 \caption{Test}
-\label{josh1}
 
 \end{figure}
 
@@ -126,8 +39,26 @@ AVG:         & 14.57059741      & 0.000699214      & -3.47E-06 & +    & DOWN    
 \end{figure}
 
 \begin{flushleft}
-\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched.  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
+\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched (see Numerical Analysis of Wind Velocity of Wind Velocity vs. Pressure in the Appendix).  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
 \end{flushleft}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=2.25in]{LPANDA.png}\hfill \includegraphics[width=2.25in]{RPANDA.png}
+\caption{Plots of Wind Velocity vs. Pressure on Given Intervals}
+\end{figure}
+
+\begin{flushleft}
+\textbf{Interpolation:} After separating the data into the intervals of (0,230) and (230,725), each plot can be fitted with a linear trend line.  Behavior within these intervals is remarkably consistent, and wind velocity can be estimated with the following equations:
+\end{flushleft}
+
+\begin{align*}
+\centering
+    V(P) &= 0.2107P - 6.1117&& \text{\qquad $P\in(0,230)$} \\
+    V(P) &= -0.0613P + 52.754 && \text{\qquad $P\in(230,725)$} \\
+\end{align*}
+
+
 \part{Wind Velocity vs. Wind Angle}
 \begin{figure}[H]
   \centering
@@ -161,39 +92,19 @@ The jet stream data can be fit by a normal distribution with $R = 0.536$.
   \caption{Plot of Wind Velocity vs. Wind Angle on the Interval $(10^{\circ}, 60^{\circ})$ Fit by a Normal Distribution}
 \end{figure}
 
-
+<<<<<<< HEAD
 The equation for the distribution is:
 \[
 wind(\theta) = \frac{1}{\sqrt{2*(11.18753)^2*\pi}}*e^{-\frac{(\theta-31.65742)^2}{2*(11.18753)^2}}*846
 \]
-
-This gives us that the mean direction of the jet stream occurs at 31.65742 degrees.
-
+=======
 \appendix
 \begin{table}[H]
 \centering
 \includegraphics[width=5in]{PANDA.png}
-\caption{Numerical analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
+\caption{Numerical Analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
 \end{table}
+>>>>>>> origin/master
 
-
-
-\begin{thebibliography}{1}
-
-\bibitem{notes} John W. Dower {\em Readings compiled for History
-21.479.}  1991.
-
-\bibitem{impj}  The Japan Reader {\em Imperial Japan 1800-1945} 1973:
-Random House, N.Y.
-
-\bibitem{National-Geographic} E. H. Norman {\em Japan's emergence as a modern
-state} 1940: International Secretariat, Institute of Pacific
-Relations. https://www.nationalgeographic.org/encyclopedia/jet-stream/
-
-\bibitem{fo} Bob Tadashi Wakabayashi {\em Anti-Foreignism and Western
-Learning in Early-Modern Japan} 1986: Harvard University Press.
-
-\end{thebibliography}
-
-
+This gives us that the mean direction of the jet stream occurs at 31.65742 degrees.
 \end{document}
