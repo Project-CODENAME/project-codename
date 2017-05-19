@@ -19,6 +19,14 @@
 \begin{abstract}
 This is an analysis of data taken from the GOSH Flight Path Predictor\textsuperscript{TM}.  Four separate sets of data were analyzed: temperature vs. density, wind velocity vs. pressure, wind angle vs. wind velocity, and wind velocity vs. altitude. Each is discussed in more depth in subsequent parts.
 \end{abstract}
+\part{Common Tools}
+For determining rates of change with discrete values, the difference quotient must be used between every point.  The difference quotient takes the form:
+$$m=\frac{f(x+h)-f(x)}{h}$$
+Where $h$ is the difference in value between two values on the x axis.
+
+
+
+
 
 \part{Wind Velocity Vs. Altitude}
 This data has several interesting patterns.  Initially, the data points are closely clustered around the same windspeed (about 5\si{\frac{m}{s}}).  These are the ground conditions in the Rapid City area.  As altitude increases, however, the windspeed dips significantly before rising again - forming what appears to be a cusp (though it could possibly be a relative minimum).  This cusp behavior can be seen in Table \ref{joshtable1}: Where x=2641.95, the first derivative is negative, but at the next value recorded, x=2861.54, the first derivative has become positive.
@@ -49,7 +57,7 @@ After these initial features the most prominent pattern in the data is what appe
 \end{figure}
 
 \begin{flushleft}
-\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched (see Numerical Analysis of Wind Velocity vs. Pressure in the Appendix).  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
+\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched (see Numerical Analysis of Wind Velocity vs. Pressure in the Appendix).  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will resemble a horizontal reflection in this case although certain intervals will expand or contract.
 \end{flushleft}
 
 \begin{figure}[H]
