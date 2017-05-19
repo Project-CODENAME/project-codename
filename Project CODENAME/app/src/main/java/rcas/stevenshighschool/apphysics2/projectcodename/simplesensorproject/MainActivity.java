@@ -66,36 +66,35 @@ import java.util.Date;
 @SuppressWarnings("deprecation")
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * Sensor manager
-     */
+    //the manager of the sensors (isn't that kinda obvious?)
     private SensorManager sensorManager;
 
-    /**
-     * Main loops for the sensors
-     */
-    final Handler h = new Handler();
-    Runnable r;
+    //loops for the phone to run and their manager
+    final Handler runnableManager = new Handler();
+    Runnable rSensors;
     Runnable rCamera;
 
-    /**
-     * Data values
-     */
-    float t;
-    float a_y;
-    float a_x;
-    float a_z;
-    float p;
-    float m_x;
-    float m_y;
-    float m_z;
-    float rh;
+    //initialize all the data values
+    float tAsInTemperature;
+    float aLin_x;
+    float aLin_y;
+    float aLin_z;
+    float pAsInPressure;
+    float magnetic_x;
+    float magnetic_y;
+    float magnetic_z;
+    float relativeHumidity;
     float rot_x;
     float rot_y;
     float rot_z;
-    float g_x;
-    float g_y;
-    float g_z;
+    float gravity_x;
+    float gravity_y;
+    float gravity_z;
+    float actualA_x;
+    float actualA_y;
+    float actualA_z;
+
+    //These ones are disabled by default
     float ext_lat = -1;
     float ext_lon = -1;
     float ext_alt = -1;
@@ -105,15 +104,11 @@ public class MainActivity extends AppCompatActivity {
     float ext_rh = -1;
     float course = -1;
     float gps_speed = -1;
-    float a2_x;
-    float a2_y;
-    float a2_z;
 
+    // a useful variable no longer used
     int stoppedN = 0;
 
-    /**
-     * Sensors and their listeners
-     */
+    //Sensors and their listeners
     Sensor accelerometer;
     Sensor accelerometer2;
     Sensor pressure;
@@ -132,14 +127,10 @@ public class MainActivity extends AppCompatActivity {
     SensorEventListener accelerometer2Listener;
 
 
-    /**
-     * Root Access variables
-     */
+    // Root variables, probably not really used anymore either
     Button rootTest, reboot, sysui;
 
-    /**
-     * Arduino USB connection variables
-     */
+    // Arduino connection variables, from a more hopeful time
     UsbDevice device;
     public static final String ACTION_USB_PERMISSION = "rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject.USB_PERMISSION";
     Button startButton, sendButton, clearButton, stopButton;
@@ -148,7 +139,11 @@ public class MainActivity extends AppCompatActivity {
     UsbManager usbManager;
     UsbSerialDevice serialPort;
     UsbDeviceConnection connection;
+    byte ch, buffer[] = new byte[1024];
+    int iterReading = 0;
+    String arduinoInRecent;
 
+    // All of the cameras that could be used (one is!)
     Camera mVideoCamera;
     Camera flash;
     Camera mainCamera;
@@ -156,21 +151,42 @@ public class MainActivity extends AppCompatActivity {
     private boolean isRecording = false;
     private boolean cameraTaken = false;
 
-    byte ch, buffer[] = new byte[1024];
-    int iterReading = 0;
-    String arduinoInRecent;
-
     Date sensorFileName;
 
+    //Array of data points that will be put into the file
+    ArrayList<DataPoint> dataPointArrayList;
+
+    // Tag for Log.d
+    private final String TAG = "SENSORS v0: ";
+
+    /**
+     * A piece of code that wrestles control of the camera from the main photo-taking thread
+     * before turning on the camera flashlight on the back, in order to make the payload easier
+     * to find at night. It is not used primarily because it's so difficult to implement
+     * interlacing between the main camera and this flashlight camera, but hopefully it can be fixed
+     * at some point.
+     *
+     * @param view Just in case you wanted to open call this method with a UI button, but
+     *             passing in null is fine.
+     */
     public void flashLightOn(View view) {
         Log.d(TAG, "flashLightOn");
+
+        // if the camera's already taken, then we can't do anything about it
         if (cameraTaken) {
             return;
         }
+
+        // everything is in a try block because it will inevitably break
+        // TODO: 5/18/2017 maybe we should try doing something in the finally block to solve interlacing problems
         try {
+            // this if statement is just in case your phone is terrible and doesn't even have a camera flash
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH)) {
+                //wrestles control
                 takeCameraFromOtherThread();
+
+                // finds the back camera and takes it (don't mind the weird logging)
                 int cameraId = 0;
                 int numberOfCameras = Camera.getNumberOfCameras();
                 Log.d("Hey", "" + numberOfCameras);
@@ -183,22 +199,33 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 flash = Camera.open(cameraId);
+
+                // sets the camera up to do the flash thing
                 Camera.Parameters p = flash.getParameters();
                 p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 flash.setParameters(p);
+
+                // you'll be blinded if you're not careful
                 flash.startPreview();
+
+                // don't let anyone else take it
                 cameraTaken = true;
             }
         } catch (Exception e) {
+            // well something went wrong now debug it
             e.printStackTrace();
             Toast.makeText(getBaseContext(), "Exception flashLightOn()",
                     Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * This is the code that does the actual wrestling for {@link #flashLightOn(View)}.
+     * It kills the camera and opens it up to domination by another thread.
+     */
     public void takeCameraFromOtherThread() {
         if (mainCamera != null) {
-            h.removeCallbacks(rCamera);
+            runnableManager.removeCallbacks(rCamera);
             mainCamera.stopPreview();
             mainCamera.release();
             mainCamera = null;
@@ -207,12 +234,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * In life, sometimes you've got to return things you've taken forcefully. Control of the camera
+     * is no exception. This is like the yin to the {@link #takeCameraFromOtherThread()}'s yang. It
+     * makes the main camera active again and starts the rCamera runnable again.
+     */
     public void giveCameraBackToOtherThread() {
+        // if the other camera is dead, we can safely start the old thread back up
         if (flash == null && !cameraTaken) {
+            // open the camera but very carefully
             mainCamera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
             cameraTaken = true;
             if (mainCamera == null) {
-                h.postDelayed(new Runnable() {
+                // if it doesn't work, try, try again
+                runnableManager.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         Log.d(TAG, "no Camera for now");
@@ -220,28 +255,42 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, 10000);
             }
+            // this code used to act weird on a Samsung Galaxy S4, so this was part of the solution. Figures.
             useThisOne = new SurfaceTexture(hackInt());
             try {
                 mainCamera.setPreviewTexture(useThisOne);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
+                // well...
                 e.printStackTrace();
             }
+
+            // start the camera
             mainCamera.startPreview();
         }
-        h.post(rCamera);
+        // and then we start running the thread
+        runnableManager.post(rCamera);
     }
 
+    /**
+     * This one turns the flashlight off if the flashlight is on. It's not called because
+     * {@link #flashLightOn(View)} doesn't work either and isn't called.
+     *
+     * @param view Just in case you wanted to open call this method with a UI button, but
+     *             passing in null is fine.
+     */
     public void flashLightOff(View view) {
         Log.d(TAG, "flashLightOff");
         try {
             if (getPackageManager().hasSystemFeature(
                     PackageManager.FEATURE_CAMERA_FLASH) && flash != null) {
+                //kill our camera
                 flash.stopPreview();
                 flash.release();
                 flash = null;
                 Log.d(TAG, "cameraCLOSED");
                 cameraTaken = false;
+
+                //give it back
                 giveCameraBackToOtherThread();
             }
         } catch (Exception e) {
@@ -251,19 +300,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Array list of datapoints
-     */
-    ArrayList<DataPoint> dataPointArrayList;
-
-    /**
-     * Logging TAG
-     */
-    private final String TAG = "SENSORS v0: ";
-
-    /**
-     * ARDUINO CONNECTION CODE
-     */
+    // Arduino Connection Code - kept to be revived at some point possibly
     //TODO variables taken from TrackSoar be written to ext_p, ext_t, lat, long, and alt
 
     /*UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
@@ -379,6 +416,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }; */
+
+    
     public void setUiEnabled(boolean bool) {
         startButton.setEnabled(!bool);
         sendButton.setEnabled(bool);
@@ -599,9 +638,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes a to most recent value
-                a_x = sensorEvent.values[0];
-                a_y = sensorEvent.values[1];
-                a_z = sensorEvent.values[2];
+                aLin_x = sensorEvent.values[0];
+                aLin_y = sensorEvent.values[1];
+                aLin_z = sensorEvent.values[2];
             }
 
             @Override
@@ -614,9 +653,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes a to most recent value
-                a2_x = sensorEvent.values[0];
-                a2_y = sensorEvent.values[1];
-                a2_z = sensorEvent.values[2];
+                actualA_x = sensorEvent.values[0];
+                actualA_y = sensorEvent.values[1];
+                actualA_z = sensorEvent.values[2];
             }
 
             @Override
@@ -628,8 +667,8 @@ public class MainActivity extends AppCompatActivity {
         pressureListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes p to most recent value
-                p = sensorEvent.values[0];
+                //changes pAsInPressure to most recent value
+                pAsInPressure = sensorEvent.values[0];
             }
 
             @Override
@@ -642,9 +681,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes m to most recent value
-                m_x = sensorEvent.values[0];
-                m_y = sensorEvent.values[1];
-                m_z = sensorEvent.values[2];
+                magnetic_x = sensorEvent.values[0];
+                magnetic_y = sensorEvent.values[1];
+                magnetic_z = sensorEvent.values[2];
             }
 
             @Override
@@ -655,8 +694,8 @@ public class MainActivity extends AppCompatActivity {
         humidityListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes rh to most recent value
-                rh = sensorEvent.values[0];
+                //changes relativeHumidity to most recent value
+                relativeHumidity = sensorEvent.values[0];
             }
 
             @Override
@@ -682,9 +721,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 //changes g to most recent value
-                g_x = sensorEvent.values[0];
-                g_y = sensorEvent.values[1];
-                g_z = sensorEvent.values[2];
+                gravity_x = sensorEvent.values[0];
+                gravity_y = sensorEvent.values[1];
+                gravity_z = sensorEvent.values[2];
             }
 
             @Override
@@ -695,8 +734,8 @@ public class MainActivity extends AppCompatActivity {
         temperatureListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                //changes t to most recent value
-                t = sensorEvent.values[0];
+                //changes tAsInTemperature to most recent value
+                tAsInTemperature = sensorEvent.values[0];
             }
 
             @Override
@@ -756,13 +795,13 @@ public class MainActivity extends AppCompatActivity {
         new File(docsPath).mkdirs();
         //Initializes and starts Runnable
         final Context context = this;
-        r = new Runnable() {
+        rSensors = new Runnable() {
             public void run() {
                 Log.d(TAG, "RUN!");
 
                 // Initializes the data point class
                 // TODO decide on preferred order order of variables - not hugely important but deserves some consideration
-                DataPoint point = new DataPoint(t, g_x, g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
+                DataPoint point = new DataPoint(tAsInTemperature, gravity_x, gravity_y, gravity_z, rot_x, rot_y, rot_z, relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure, new Date());
 
                 point.ext_alt = ext_alt;
                 point.ext_lon = ext_lon;
@@ -773,13 +812,13 @@ public class MainActivity extends AppCompatActivity {
                 point.ext_rh = ext_rh;
                 point.course = course;
                 point.gps_speed = gps_speed;
-                point.a_actual_x = a2_x;
-                point.a_actual_y = a2_y;
-                point.a_actual_z = a2_z;
+                point.a_actual_x = actualA_x;
+                point.a_actual_y = actualA_y;
+                point.a_actual_z = actualA_z;
                 point.battery_percent = getBatteryPercentage(context);
                 point.battery_temp = getBatteryTemp(context);
-                Log.d(TAG, "" + Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y, 2) + Math.pow(a2_z, 2)));
-                if (Math.abs(Math.sqrt(Math.pow(a2_x, 2) + Math.pow(a2_y, 2) + Math.pow(a2_z, 2)) - 9.81) < 0.4) {
+                Log.d(TAG, "" + Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)));
+                if (Math.abs(Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)) - 9.81) < 0.4) {
                     Log.d("HEY!", "stopped: " + stoppedN);
                     stoppedN++;
                 } else {
@@ -826,7 +865,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //schedules the next job
-                h.postDelayed(this, delay);
+                runnableManager.postDelayed(this, delay);
             }
         };
 
@@ -873,11 +912,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (getBatteryPercentage(context) > 394) {
-                    h.postDelayed(rCamera, delayCameraHOT);
+                    runnableManager.postDelayed(rCamera, delayCameraHOT);
                 } else if (getBatteryPercentage(context) > 366) {
-                    h.postDelayed(rCamera, delayCameraWarm);
+                    runnableManager.postDelayed(rCamera, delayCameraWarm);
                 } else {
-                    h.postDelayed(rCamera, delayCamera);
+                    runnableManager.postDelayed(rCamera, delayCamera);
                 }
                 mainCamera.takePicture(null, null, captureCallback);
                 Log.d(TAG, "PHOTO!");
@@ -914,7 +953,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         //schedules the first job
-        h.postDelayed(r, delay);
+        runnableManager.postDelayed(rSensors, delay);
         giveCameraBackToOtherThread();
         //flashLightOn(null);
         //Runnable once = new Runnable() {
@@ -923,24 +962,24 @@ public class MainActivity extends AppCompatActivity {
         //        flashLightOff(null);
         //    }
         //};
-        //h.postDelayed(once, 1000 * 10);
+        //runnableManager.postDelayed(once, 1000 * 10);
     }
 
     public void stopRecord(View view) {
-        h.removeCallbacks(r);
-        h.removeCallbacks(rCamera);
+        runnableManager.removeCallbacks(rSensors);
+        runnableManager.removeCallbacks(rCamera);
     }
 
     /**
-     * public void batterysave() { h.removeCallbacks(r); h.removeCallbacks(rCamera); final int delay
+     * public void batterysave() { runnableManager.removeCallbacks(rSensors); runnableManager.removeCallbacks(rCamera); final int delay
      * = 1000 * 10; //milliseconds final int delayCamera = 1000 * 120; //milliseconds
      *
-     * //Initializes and starts Runnable r = new Runnable() { public void run() { Log.d(TAG,
+     * //Initializes and starts Runnable rSensors = new Runnable() { public void run() { Log.d(TAG,
      * "RUN!");
      *
      * // Initializes the data point class // TODO decide on preferred order order of variables -
-     * not hugely important but deserves some consideration DataPoint point = new DataPoint(t, g_x,
-     * g_y, g_z, rot_x, rot_y, rot_z, rh, m_x, m_y, m_z, a_x, a_y, a_z, p, new Date());
+     * not hugely important but deserves some consideration DataPoint point = new DataPoint(tAsInTemperature, gravity_x,
+     * gravity_y, gravity_z, rot_x, rot_y, rot_z, relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure, new Date());
      *
      * point.ext_alt = ext_alt; point.ext_lon = ext_lon; point.ext_lat = ext_lat; point.ext_altEST =
      * ext_altEST; point.ext_temp = ext_temp; point.ext_p = ext_p; point.ext_rh = ext_rh;
@@ -953,7 +992,7 @@ public class MainActivity extends AppCompatActivity {
      * new File(path, "SENSORDATA.txt"); try { //noinspection ResultOfMethodCallIgnored
      * path.mkdirs(); OutputStream os = new FileOutputStream(file); ObjectOutputStream out = new
      * ObjectOutputStream(os); out.writeObject(dataPointArrayList); out.close(); os.close(); } catch
-     * (Exception e) { e.printStackTrace(); } //schedules the next job h.postDelayed(this, delay); }
+     * (Exception e) { e.printStackTrace(); } //schedules the next job runnableManager.postDelayed(this, delay); }
      * }; rCamera = new Runnable() {
      *
      * @Override public void run() { Log.d(TAG, "PHOTO!"); Camera camera =
@@ -980,8 +1019,8 @@ public class MainActivity extends AppCompatActivity {
      * finalPath = path2 + new Date() + ".jpg";// set your directory path here outStream = new
      * FileOutputStream(finalPath); outStream.write(data); outStream.close(); } catch (Exception e)
      * { e.printStackTrace(); } finally { camera.stopPreview(); camera.release(); camera = null; } }
-     * }; camera2.takePicture(null, null, jpegCallback2); h.postDelayed(this, delayCamera); } };
-     * //schedules the first job h.postDelayed(r, delay); h.postDelayed(rCamera, delayCamera); }
+     * }; camera2.takePicture(null, null, jpegCallback2); runnableManager.postDelayed(this, delayCamera); } };
+     * //schedules the first job runnableManager.postDelayed(rSensors, delay); runnableManager.postDelayed(rCamera, delayCamera); }
      */
 
     public static int getBatteryPercentage(Context context) {
