@@ -4,6 +4,7 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{amsmath}
 \usepackage[toc,page]{appendix}
 
 
@@ -39,11 +40,7 @@ After these initial features the most prominent pattern in the data is what appe
 \part{Temperature Vs. Density}
 
 \part{Wind Velocity vs. Pressure}
-\begin{table}[H]
-\centering
-\includegraphics[width=5in]{PANDA.png}
-\caption{Numerical Analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
-\end{table}
+
 
 \begin{figure}[H]
 \centering
@@ -52,7 +49,7 @@ After these initial features the most prominent pattern in the data is what appe
 \end{figure}
 
 \begin{flushleft}
-\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched.  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
+\textbf{Analysis:} After plotting all the points in a scatterplot, we notice our predicted concavities are well matched (see Numerical Analysis of Wind Velocity vs. Pressure in the Appendix).  From the first derivative, we can split the data points into two distinct sections.  Pressures $\in$ [0,230) experience mostly increasing wind velocity, and Pressures $\in$ (230,725] experience primarily decreasing wind velocity.  Following a pressure of 800 Pascals, wind velocity stabilizes at $6.3\frac{m}{s} \pm 0.2\frac{m}{s}$.  We notice that wind speed is caused by shifts from high to low pressures, and the data from (230, 900) conforms to this principle: Wind speed increases as Pressure decreases.  Factors including temperature and the location of Jet Streams will result in divergence from this pattern.  Pressure is highest when altitude is lower, so the stable plateau of wind velocity at the highest pressures is expected.  Pressure collected in our data monotonically decreased with altitude.  Plots of Wind Velocity vs. Pressure or Altitude will simply be a horizontal reflection in this case.
 \end{flushleft}
 
 \begin{figure}[H]
@@ -67,8 +64,8 @@ After these initial features the most prominent pattern in the data is what appe
 
 \begin{align*}
 \centering
-    V(P) &= 0.2107P - 6.1117&& \text{\qquad $P\in(0,230)$} \\
-    V(P) &= -0.0613P + 52.754 && \text{\qquad $P\in(230,725)$} \\
+    V(P) &= 0.2107P - 6.1117&& \text{\quad $P\in(0,230)$} \\
+    V(P) &= -0.0613P + 52.754 && \text{\quad $P\in(230,725)$} \\
 \end{align*}
 \part{Wind Velocity vs. Wind Angle}
 \begin{figure}[H]
@@ -135,6 +132,13 @@ Learning in Early-Modern Japan} 1986: Harvard University Press.
 
 \appendix
 \section{Charts and Graphs}
+
+\begin{table}[H]
+\centering
+\includegraphics[width=5in]{PANDA.png}
+\caption{Numerical Analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
+\end{table}
+
 \begin{table}[]
 \centering
 \caption{Raw Data From Predictions of Wind Speed Vs. Height}
