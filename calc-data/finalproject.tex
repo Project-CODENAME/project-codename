@@ -24,6 +24,9 @@ For determining rates of change with discrete values, the difference quotient mu
 $$m=\frac{f(x+h)-f(x)}{h}$$
 Where $h$ is the difference in value between two values on the x axis.
 
+\begin{flushleft}
+For this document, the term "derivative" refers to the difference quotient.
+\end{flushleft}
 
 
 
@@ -52,7 +55,7 @@ After these initial features the most prominent pattern in the data is what appe
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=5in]{IMG1CDATA.png}
+\includegraphics[width=\textwidth]{IMG1CDATA.png}
 \caption{Plot of Wind Velocity vs. Pressure}
 \end{figure}
 
@@ -143,8 +146,14 @@ Learning in Early-Modern Japan} 1986: Harvard University Press.
 
 \begin{table}[H]
 \centering
-\includegraphics[width=5in]{PANDA.png}
+\includegraphics[width=\textwidth]{PANDA.png}
 \caption{Numerical Analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
+\end{table}
+
+\begin{table}[H]
+\centering
+\includegraphics[width=\textwidth]{alan-data-3.pdf}
+\caption{Numerical Analysis of Wind Velocity vs. Wind Angle. \\Note: Critical points on this spreadsheet are where the first derivative changes sign. Points of inflection on this spreadsheet are where the second derivative changes sign. This is as the Intermediate Value Theorem requires that at some point between the points the derivative be ACTUALLY equal to zero, creating either a critical point or point of inflection.}
 \end{table}
 
 \begin{table}[]
@@ -228,8 +237,5 @@ altitude (m) & wind speed (m/s) & first derivative & second    & f is & concave 
 AVG:         & 14.57059741      & 0.000699214      & -3.47E-06 & +    & DOWN    \\ \bottomrule
 \end{tabular}
 \end{table}
-
-
-
 
 \end{document}
