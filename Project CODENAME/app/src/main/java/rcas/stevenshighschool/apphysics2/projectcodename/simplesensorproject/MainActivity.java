@@ -263,9 +263,6 @@ public class MainActivity extends AppCompatActivity {
                 // well...
                 e.printStackTrace();
             }
-
-            // start the camera
-            mainCamera.startPreview();
         }
         // and then we start running the thread
         runnableManager.post(rCamera);
@@ -883,6 +880,7 @@ public class MainActivity extends AppCompatActivity {
         new File(path).mkdirs();
         captureCallback = new Camera.PictureCallback() {
             public void onPictureTaken(byte[] data, Camera camera) {
+                mainCamera.stopPreview();
                 FileOutputStream outStream;
                 Log.d(TAG, "picDONE");
                 try {
@@ -921,6 +919,8 @@ public class MainActivity extends AppCompatActivity {
         rCamera = new Runnable() {
             @Override
             public void run() {
+                // start the camera
+                mainCamera.startPreview();
                 if (getBatteryTemp(context) > 250) {
                     runnableManager.postDelayed(rCamera, delayCameraREALLYHOT);
                 } else if (getBatteryTemp(context) > 200) {
