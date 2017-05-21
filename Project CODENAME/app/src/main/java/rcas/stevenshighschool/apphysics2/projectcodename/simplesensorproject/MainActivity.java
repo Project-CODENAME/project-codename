@@ -758,8 +758,8 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent2, 0);
         alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES,
-                AlarmManager.INTERVAL_FIFTEEN_MINUTES, alarmIntent);
+                SystemClock.elapsedRealtime() + 60 * 1000 * 5,
+                60 * 1000 * 5, alarmIntent);
     }
 
     Camera.PictureCallback captureCallback;
@@ -782,10 +782,14 @@ public class MainActivity extends AppCompatActivity {
     public long tMinusBackup = 60 * 20;
 
     public void record(View view) {
-        final int delay = 1000; //milliseconds
+        final int delay = 1000 * 20; //milliseconds
+        final int delayHOT = 1000 * 60;
+        final int delayREALLYHOT = 1000 * 60 * 3;
+        final int delayCameraCold = 1000 * 30;
         final int delayCamera = 1000 * 60; //milliseconds
         final int delayCameraWarm = 1000 * 60 * 2;
         final int delayCameraHOT = 1000 * 60 * 5;
+        final int delayCameraREALLYHOT = 1000 * 60 * 10;
 
         File[] aDirArray = ContextCompat.getExternalFilesDirs(this, null);
         File aExtDcimDir = new File(aDirArray[1], Environment.DIRECTORY_DCIM);
@@ -817,13 +821,13 @@ public class MainActivity extends AppCompatActivity {
                 point.a_actual_z = actualA_z;
                 point.battery_percent = getBatteryPercentage(context);
                 point.battery_temp = getBatteryTemp(context);
-                Log.d(TAG, "" + Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)));
-                if (Math.abs(Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)) - 9.81) < 0.4) {
+                Log.d(TAG, "" + point.battery_temp);
+                /**if (Math.abs(Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)) - 9.81) < 0.4) {
                     Log.d("HEY!", "stopped: " + stoppedN);
                     stoppedN++;
                 } else {
                     stoppedN = 0;
-                }
+                }*/
 
                 /**if(stoppedN > 1000){
                  flashLightOn(null);
@@ -865,7 +869,13 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //schedules the next job
-                runnableManager.postDelayed(this, delay);
+                if(getBatteryTemp(context) > 250){
+                    runnableManager.postDelayed(this, delayREALLYHOT);
+                } else if (getBatteryTemp(context) > 200) {
+                    runnableManager.postDelayed(this, delayHOT);
+                } else {
+                    runnableManager.postDelayed(this, delay);
+                }
             }
         };
 
@@ -911,10 +921,14 @@ public class MainActivity extends AppCompatActivity {
         rCamera = new Runnable() {
             @Override
             public void run() {
-                if (getBatteryPercentage(context) > 394) {
+                if (getBatteryTemp(context) > 250) {
+                    runnableManager.postDelayed(rCamera, delayCameraREALLYHOT);
+                } else if (getBatteryTemp(context) > 200) {
                     runnableManager.postDelayed(rCamera, delayCameraHOT);
-                } else if (getBatteryPercentage(context) > 366) {
+                } else if (getBatteryTemp(context) > 150) {
                     runnableManager.postDelayed(rCamera, delayCameraWarm);
+                } else if (getBatteryTemp(context) < 0) {
+                    runnableManager.postDelayed(rCamera, delayCameraCold);
                 } else {
                     runnableManager.postDelayed(rCamera, delayCamera);
                 }
