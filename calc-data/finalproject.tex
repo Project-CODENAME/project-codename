@@ -20,10 +20,13 @@
 This is an analysis of data taken from the GOSH Flight Path Predictor\textsuperscript{TM}.  Four separate sets of data were analyzed: temperature vs. density, wind velocity vs. pressure, wind angle vs. wind velocity, and wind velocity vs. altitude. Each is discussed in more depth in subsequent parts.
 \end{abstract}
 \part{Common Tools}
-For determining rates of change with discrete values, the difference quotient must be used between every point.  The difference quotient takes the form:
-$$m=\frac{f(x+h)-f(x)}{h}$$
-Where $h$ is the difference in value between two values on the x axis.
-
+For determining rates of change with discrete values, the difference quotient must be used between every point.  Define $m$ to be the average rate of change between two points.  $m$ takes the form:
+$$m=\frac{\Delta y}{\Delta x}=\frac{f(x+h)-f(x)}{h}\qquad\text{First Derivative Approximation}$$
+Where $h$ is the difference in value between the two values on the $x$ axis.
+\\For an approximation of the second derivative, we apply the difference quotient to $m$.  Define $m^\prime$ to be:
+$$m^\prime=\frac{\Delta m}{\Delta x}=\frac{m_{j+1}-m_j}{h}\qquad\text{Second Derivative Approximation}$$
+Where $m_i$ are values of $m$, and $h$ is the difference in the $x$ values that return those rates of change.\\
+Due to the nature of discrete data, critical points are not limited to where the first derivative is equal to zero.  The values collected are continuous, and the intermediate value theorem will apply.  When the first derivative changes signs, a critical point will also be present. 
 \begin{flushleft}
 For this document, the term "derivative" refers to the difference quotient.
 \end{flushleft}
@@ -147,7 +150,7 @@ Learning in Early-Modern Japan} 1986: Harvard University Press.
 \begin{table}[H]
 \centering
 \includegraphics[width=\textwidth]{PANDA.png}
-\caption{Numerical Analysis of Wind Velocity vs. Pressure.  \\Note: Critical points are not limited to where the first derivative is equal to zero.  Because the derivative is discrete, the intermediate value theorem applies to real world data.  When the first derivative changes signs, a critical point will also be present. }
+\caption{Numerical Analysis of Wind Velocity vs. Pressure.\\\textbf{Note:} Pressure monotonically decreases, so no derivative is given for the highest value of pressure.}
 \end{table}
 
 \begin{table}[H]
