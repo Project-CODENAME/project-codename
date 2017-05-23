@@ -114,13 +114,17 @@ public class Main {
             Element doc = new Element("Document");
             //Element ext_doc = new Element("Document");
             int iter = 0;
+            Date standard = new Date();
             for (DataPoint pnt : dataPoint) {
                 //also prints it to command line, not necessary in production
+                if(iter == 0){
+                    standard = pnt.time;
+                }
                 System.out.println(pnt.time);
                 System.out.println("A_X: " + pnt.a_x + ", A_Y: " + pnt.a_y + ", A_Z:" + pnt.a_z + ", P: " + pnt.p);
                 System.out.println("lat: " + pnt.lat + ", lon: " + pnt.lon + ", alt:" + pnt.alt);
                 System.out.println("====");
-                sb.append(iter);
+                sb.append((pnt.time.getTime() - standard.getTime())/10000);
                 iter++;
                 sb.append(',');
                 sb.append(pnt.a_x);
