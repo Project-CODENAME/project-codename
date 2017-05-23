@@ -415,13 +415,19 @@ public class MainActivity extends AppCompatActivity {
     }; */
 
 
+    /**
+     * Code that enables/disables the Arduino connection UI. It is no longer used by the app but
+     * should be revived with the Arduino code when the time comes.
+     *
+     * @param bool state of the variables - if connected, it should be true
+     */
     public void setUiEnabled(boolean bool) {
         startButton.setEnabled(!bool);
         sendButton.setEnabled(bool);
         stopButton.setEnabled(bool);
         textView.setEnabled(bool);
-
     }
+
     /*
     public void onClickStart(View view) {
         Log.d(TAG, "clickstart1");
@@ -466,11 +472,24 @@ public class MainActivity extends AppCompatActivity {
 
     } */
 
+    /**
+     * Clears both the text of the incoming messages and outgoing messages for Arduino connection,
+     * meaning that it is no longer used but can be revived along with everything else.
+     *
+     * @param view can be called with null, used to support button clicks
+     */
     public void onClickClear(View view) {
         textView.setText(" ");
         editText.setText(" ");
     }
 
+    /**
+     * adds text to a TextView, used to add incoming messages from the defunct Arduino connection
+     * code to the textview displaying those messages. It is defunct currently.
+     *
+     * @param tv TextView to add text to
+     * @param text text to add to the TextView
+     */
     private void tvAppend(TextView tv, CharSequence text) {
         final TextView ftv = tv;
         final CharSequence ftext = text;
@@ -490,46 +509,16 @@ public class MainActivity extends AppCompatActivity {
      * -------------------------------------
      */
 
-    //Initialization of the activity
-
-
-    private class StartUp extends AsyncTask<String, Void, Void> {
-        Context context = null;
-        boolean suAvailable = false;
-
-        MainActivity.StartUp setContext(Context context) {
-            this.context = context;
-            return this;
+    public boolean rootTest() {
+        boolean suAvailable = Shell.SU.available();
+        if (suAvailable) {
+            Toast.makeText(getApplicationContext(), "Your Phone Is Rooted, Begin The Asian Invasion", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "The Asian Invasion Cannot Begin, Your Phone Is Not Rooted", Toast.LENGTH_SHORT).show();
         }
-
-        @Override
-        protected Void doInBackground(String... params) {
-            suAvailable = Shell.SU.available();
-            if (suAvailable) {
-
-                // suResult = Shell.SU.run(new String[] {"cd data; ls"}); Shell.SU.run("reboot");
-                switch (params[0]) {
-                    //case "reboot"  : Shell.SU.run("reboot");break;
-                    case "rootTest":
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-
-                                Toast.makeText(getApplicationContext(), "Your Phone Is Rooted, Begin The Asian Invasion", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                }
-            } else {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-
-                        Toast.makeText(getApplicationContext(), "The Asian Invasion Cannot Begin, Your Phone Is Not Rooted", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-
-            return null;
-        }
+        return suAvailable;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -559,34 +548,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Root Actions
         rootTest = (Button) findViewById(R.id.rootTest);
-        reboot = (Button) findViewById(R.id.btn_reb);
-        sysui = (Button) findViewById(R.id.SysUi);
 
         rootTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                (new MainActivity.StartUp()).setContext(v.getContext()).execute("rootTest");
+                rootTest();
             }
         });
-
-        reboot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                (new MainActivity.StartUp()).setContext(v.getContext()).execute("reboot");
-            }
-        });
-
-        sysui.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                (new MainActivity.StartUp()).setContext(v.getContext()).execute("sysui");
-
-            }
-        });
-
 
         //gets sensors and checks for permissions
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
