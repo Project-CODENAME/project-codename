@@ -18,7 +18,6 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
-import android.os.AsyncTask;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -166,8 +165,8 @@ public class MainActivity extends AppCompatActivity {
      * interlacing between the main camera and this flashlight camera, but hopefully it can be fixed
      * at some point.
      *
-     * @param view Just in case you wanted to open call this method with a UI button, but
-     *             passing in null is fine.
+     * @param view Just in case you wanted to open call this method with a UI button, but passing in
+     *             null is fine.
      */
     public void flashLightOn(View view) {
         Log.d(TAG, "flashLightOn");
@@ -272,8 +271,8 @@ public class MainActivity extends AppCompatActivity {
      * This one turns the flashlight off if the flashlight is on. It's not called because
      * {@link #flashLightOn(View)} doesn't work either and isn't called.
      *
-     * @param view Just in case you wanted to open call this method with a UI button, but
-     *             passing in null is fine.
+     * @param view Just in case you wanted to open call this method with a UI button, but passing in
+     *             null is fine.
      */
     public void flashLightOff(View view) {
         Log.d(TAG, "flashLightOff");
@@ -487,7 +486,7 @@ public class MainActivity extends AppCompatActivity {
      * adds text to a TextView, used to add incoming messages from the defunct Arduino connection
      * code to the textview displaying those messages. It is defunct currently.
      *
-     * @param tv TextView to add text to
+     * @param tv   TextView to add text to
      * @param text text to add to the TextView
      */
     private void tvAppend(TextView tv, CharSequence text) {
@@ -503,34 +502,40 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     /**
-     * ------------------------------------- END ARDUINO CONNECTION CODE
-     * -------------------------------------
+     * Tests if the phone is rooted, although that is unimportant to the app as of now.
+     * This could be used to further exploit the abilities of the phone being used.
+     *
+     * @return True if root is available on the phone, False if not
      */
-
     public boolean rootTest() {
         boolean suAvailable = Shell.SU.available();
         if (suAvailable) {
-            Toast.makeText(getApplicationContext(), "Your Phone Is Rooted, Begin The Asian Invasion", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Your Phone Is Rooted.", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getApplicationContext(), "The Asian Invasion Cannot Begin, Your Phone Is Not Rooted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Your Phone Is Not Rooted.", Toast.LENGTH_SHORT).show();
         }
         return suAvailable;
     }
 
-
+    /**
+     * Creates the activity and all of its parts. Better to read it than write a description.
+     *
+     * @param savedInstanceState past to the super function, maintaining the saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "CREATE");
+
         //starts things
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //starts our service that maintains persistence
         Intent intent = new Intent(this, PersistenceService.class);
         startService(intent);
 
         // Arduino Connection Stuff
-
         usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
         startButton = (Button) findViewById(R.id.buttonStart);
         sendButton = (Button) findViewById(R.id.buttonSend);
@@ -568,15 +573,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    251);
-
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
 
@@ -596,9 +592,6 @@ public class MainActivity extends AppCompatActivity {
         gravity = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         temperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
         accelerometer2 = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        // TODO incorporate low-power mode for payload in emergency low-power situation
-
-
         accelerometerListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -713,12 +706,15 @@ public class MainActivity extends AppCompatActivity {
         //Initializes Array
         dataPointArrayList = new ArrayList<DataPoint>();
 
+        // Makes sure the screen turns on and stays on so that the activity can continue to do
+        // its work in the foreground
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
 
+        // Prepares in case the app and persistence service is killed
         Intent intent2 = new Intent(this, PersistenceService.class);
         AlarmManager alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent2, 0);
@@ -727,6 +723,8 @@ public class MainActivity extends AppCompatActivity {
                 60 * 1000 * 5, alarmIntent);
     }
 
+    // some global variables that we need for photo taking that we created in a debug for Samsung
+    // Galaxy S4, which contains all the necessary sensors.
     Camera.PictureCallback captureCallback;
     SurfaceTexture useThisOne;
 
@@ -788,11 +786,11 @@ public class MainActivity extends AppCompatActivity {
                 point.battery_temp = getBatteryTemp(context);
                 Log.d(TAG, "" + point.battery_temp);
                 /**if (Math.abs(Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)) - 9.81) < 0.4) {
-                    Log.d("HEY!", "stopped: " + stoppedN);
-                    stoppedN++;
-                } else {
-                    stoppedN = 0;
-                }*/
+                 Log.d("HEY!", "stopped: " + stoppedN);
+                 stoppedN++;
+                 } else {
+                 stoppedN = 0;
+                 }*/
 
                 /**if(stoppedN > 1000){
                  flashLightOn(null);
@@ -834,7 +832,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //schedules the next job
-                if(getBatteryTemp(context) > 250){
+                if (getBatteryTemp(context) > 250) {
                     runnableManager.postDelayed(this, delayREALLYHOT);
                 } else if (getBatteryTemp(context) > 200) {
                     runnableManager.postDelayed(this, delayHOT);
@@ -953,15 +951,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * public void batterysave() { runnableManager.removeCallbacks(rSensors); runnableManager.removeCallbacks(rCamera); final int delay
-     * = 1000 * 10; //milliseconds final int delayCamera = 1000 * 120; //milliseconds
+     * public void batterysave() { runnableManager.removeCallbacks(rSensors);
+     * runnableManager.removeCallbacks(rCamera); final int delay = 1000 * 10; //milliseconds final
+     * int delayCamera = 1000 * 120; //milliseconds
      *
      * //Initializes and starts Runnable rSensors = new Runnable() { public void run() { Log.d(TAG,
      * "RUN!");
      *
      * // Initializes the data point class // TODO decide on preferred order order of variables -
-     * not hugely important but deserves some consideration DataPoint point = new DataPoint(tAsInTemperature, gravity_x,
-     * gravity_y, gravity_z, rot_x, rot_y, rot_z, relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure, new Date());
+     * not hugely important but deserves some consideration DataPoint point = new
+     * DataPoint(tAsInTemperature, gravity_x, gravity_y, gravity_z, rot_x, rot_y, rot_z,
+     * relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure,
+     * new Date());
      *
      * point.ext_alt = ext_alt; point.ext_lon = ext_lon; point.ext_lat = ext_lat; point.ext_altEST =
      * ext_altEST; point.ext_temp = ext_temp; point.ext_p = ext_p; point.ext_rh = ext_rh;
@@ -974,8 +975,8 @@ public class MainActivity extends AppCompatActivity {
      * new File(path, "SENSORDATA.txt"); try { //noinspection ResultOfMethodCallIgnored
      * path.mkdirs(); OutputStream os = new FileOutputStream(file); ObjectOutputStream out = new
      * ObjectOutputStream(os); out.writeObject(dataPointArrayList); out.close(); os.close(); } catch
-     * (Exception e) { e.printStackTrace(); } //schedules the next job runnableManager.postDelayed(this, delay); }
-     * }; rCamera = new Runnable() {
+     * (Exception e) { e.printStackTrace(); } //schedules the next job
+     * runnableManager.postDelayed(this, delay); } }; rCamera = new Runnable() {
      *
      * @Override public void run() { Log.d(TAG, "PHOTO!"); Camera camera =
      * openCamera(Camera.CameraInfo.CAMERA_FACING_BACK); try { camera.setPreviewTexture(new
@@ -1001,8 +1002,9 @@ public class MainActivity extends AppCompatActivity {
      * finalPath = path2 + new Date() + ".jpg";// set your directory path here outStream = new
      * FileOutputStream(finalPath); outStream.write(data); outStream.close(); } catch (Exception e)
      * { e.printStackTrace(); } finally { camera.stopPreview(); camera.release(); camera = null; } }
-     * }; camera2.takePicture(null, null, jpegCallback2); runnableManager.postDelayed(this, delayCamera); } };
-     * //schedules the first job runnableManager.postDelayed(rSensors, delay); runnableManager.postDelayed(rCamera, delayCamera); }
+     * }; camera2.takePicture(null, null, jpegCallback2); runnableManager.postDelayed(this,
+     * delayCamera); } }; //schedules the first job runnableManager.postDelayed(rSensors, delay);
+     * runnableManager.postDelayed(rCamera, delayCamera); }
      */
 
     public static int getBatteryPercentage(Context context) {
