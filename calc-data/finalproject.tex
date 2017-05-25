@@ -26,7 +26,7 @@ Where $h$ is the difference in value between the two values on the $x$ axis.
 \\For an approximation of the second derivative, we apply the difference quotient to $m$.  Define $m^\prime$ to be:
 $$m^\prime=\frac{\Delta m}{\Delta x}=\frac{m_{j+1}-m_j}{h}\qquad\text{Second Derivative Approximation}$$
 Where $m_i$ are values of $m$, and $h$ is the difference in the $x$ values that return those rates of change.\\
-Due to the nature of discrete data, critical points are not limited to where the first derivative is equal to zero.  The values collected are continuous, and the intermediate value theorem will apply.  When the first derivative changes signs, a critical point will also be present. 
+Due to the nature of discrete data, critical points are not limited to where the first derivative is equal to zero.  The values collected are continuous, and the intermediate value theorem will apply.  When the first derivative changes signs, a critical point will also be present.
 \begin{flushleft}
 For this document, the term "derivative" refers to the difference quotient.
 \end{flushleft}
@@ -52,6 +52,126 @@ After these initial features the most prominent pattern in the data is what appe
 
 
 \part{Temperature Vs. Density}
+
+With balloon launch data, our group has picked out different variables to determine any correlation between the data and how it would make sense in the real world if there is a strong correlation between the data that we have chosen.
+The data that I have chosen to analyze is temperature versus air density. In excel I have taken the first and second derivatives to get an idea of what how the two data points are related. To my knowledge right now, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
+In the data there are many points of inflection indicating a concavity change when the derivative changes from positive to negative. It is hard to analyze where the data would have these points because it jumps huge gaps between numbers when the derivative changes from positive to negative. Airgo, I am going to use the properties of calculus to determine were the regression equation:
+
+$$ 1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325 $$
+
+The data being analyzed here is temperature versus air density. In Microsoft Excel I have taken the first and second derivatives to get an idea of how the two pieces of data are related. To my knowledge, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
+Looking at the derivative data in Microsoft Excel, there are many points of inflection indicating a concavity change when the derivative changes from positive to negative--or vice versa. It is hard to analyze the data to determine exaclty where these points of inflection are because, as you can observe in the data, there are large gaps and jumps where the first derivative is a large positive value, down to very low negative values in a very short period relative to air density. Using gnu plot, I was able to plot the data and write a polynomial regression to fit the data. As you can tell by the plot, the regression calculation was success as the curve fits better than I have expected. This regression equation condenses the data I am analyzing
+
+$$ Regression equation: 1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325$$
+
+Using this equation, we can find the first derivative and second derivative equations and then evaluate them to further understand our areas of interest in the excel spreadsheet data.
+First derivative equation: $9640.1544x^5 + 1276.7160x^4 + 22491.3808x^3 – 10710.6660x^2 + 3037.3536x – 319.7193$
+Second derivative equation: $48200.7720x^4 + 5106.8640x^3 + 67474.1424x^2 – 21421.3320x + 3037.3536$
+We will find what we need using the second derivative. Specifically, what we are looking for is the possibility of the regression line having points of inflection between 0.14 and 0.3.
+Temperature Density can be modeled by the equation Int|f(x) dp where f(x) is the regression line. The relationship between temperature and density gives us the product of Temperature Density which increases forever past a certain point of the graph; much like particle motion.
+
+\begin{table}[]
+\centering
+\caption{}
+\label{nathantable1}
+\begin{tabular}{@{}l@{}}
+\toprule
+Final set of parameters            Asymptotic Standard Error     \\ \midrule
+=======================            ==========================    \\
+a               = -6.67852e+009    +/- 1.669e+009   (24.98\%) 20 \\
+b               = 6.32378e+010     +/- 1.577e+010   (24.94\%) 19 \\
+c               = -2.66395e+011    +/- 6.633e+010   (24.9\%) 18  \\
+d               = 6.47242e+011     +/- 1.605e+011   (24.8\%) 17  \\
+e               = -9.63695e+011    +/- 2.362e+011   (24.51\%) 16 \\
+f               = 7.92962e+011     +/- 1.855e+011   (23.4\%) 15  \\
+g               = -3.20871e+010    +/- 5.495e+010   (171.2\%) 14 \\
+h               = -8.46881e+011    +/- 2.742e+011   (32.37\%) 13 \\
+i               = 1.25703e+012     +/- 3.871e+011   (30.8\%) 12  \\
+j               = -1.08047e+012    +/- 3.361e+011   (31.11\%) 11 \\
+k               = 6.42917e+011     +/- 2.063e+011   (32.08\%) 10 \\
+l               = -2.78471e+011    +/- 9.343e+010   (33.55\%) 9  \\
+m               = 8.91538e+010     +/- 3.165e+010   (35.5\%) 8   \\
+n               = -2.10955e+010    +/- 8.004e+009   (37.94\%) 7  \\
+o               = 3.65601e+009     +/- 1.492e+009   (40.8\%) 6   \\
+p               = -4.57416e+008    +/- 2e+008       (43.73\%) 5  \\
+q               = 4.06564e+007     +/- 1.858e+007   (45.71\%) 4  \\
+r               = -2.53831e+006    +/- 1.129e+006   (44.48\%) 3  \\
+s               = 111081           +/- 4.087e+004   (36.79\%) 2  \\
+t               = -3311.86         +/- 747.2        (22.56\%) 1  \\
+u               = 266.925          +/- 4.736        (1.774\%) c  \\
+Coefficients for the polynomial regression line                  \\ \bottomrule
+\end{tabular}
+\end{table}
+
+I was able to fit a twentieth power polynomial, tenth polynomial, and a hectic polynomial; they all fit very well with the data but fitting a very high power polynomial is not good in the sense that you can over fit the line. But at this point I’m feeling the need to quench my thirst for hardcore mathematics.
+
+
+\begin{table}[]
+\centering
+\caption{}
+\label{nathantable2}
+\begin{tabular}{@{}ll@{}}
+\toprule
+First Derivative               &  \\ \midrule
+A -13357E11 $\sim$ 19          &  \\
+B 1.201503E12 $\sim$ 18        &  \\
+C -4.795502E12 $\sim$ 17       &  \\
+D 1.100308E13 $\sim$ 16        &  \\
+E -1.541904E13 $\sim$ 15       &  \\
+F -2.82155871931E22 $\sim$ 14  &  \\
+G -4.49218E11 $\sim$ 13        &  \\
+H -1.100944E13 $\sim$ 12       &  \\
+I 1.5084E13 $\sim$ 11          &  \\
+J -1.18844E13 $\sim$ 10        &  \\
+K 6.4291E12 $\sim$ 9           &  \\
+L -2.50623E12 $\sim$ 8         &  \\
+M 7.132304E11 $\sim$ 7         &  \\
+N -1.476685E11 $\sim$ 6        &  \\
+O 2.1936E10 $\sim$ 5           &  \\
+P -2.2870E9 $\sim$ 4           &  \\
+Q 1.6262E8 $\sim$ 3            &  \\
+R -7.6149E6 $\sim$ 2           &  \\
+S 2.22162E5 $\sim$ 1           &  \\
+T -3.31186E3                   &  \\
+                               &  \\
+Second Derivative              &  \\
+A -2.53783E12 $\sim$ 18        &  \\
+B 2.1627054E13 $\sim$ 17       &  \\
+C -8.151534E13 $\sim$ 16       &  \\
+D 1.7604928E14 $\sim$15        &  \\
+E -2.312856E14 $\sim$ 14       &  \\
+F -3.95018220703E23 $\sim$ 13  &  \\
+G -5.839834E12 $\sim$ 12       &  \\
+H -1.3211328E14 $\sim$ 11      &  \\
+I 1.65924E14 $\sim$ 10         &  \\
+J -1.18844E14 $\sim$ 9         &  \\
+K 5.78619E13 $\sim$ 8          &  \\
+L -2.004984E13 $\sim$ 7        &  \\
+M 4.9926128E12 $\sim$ 6        &  \\
+N -8.86011E11 $\sim$ 5         &  \\
+O 1.0968E11 $\sim$ 4           &  \\
+P -9.1482E9 $\sim$ 3           &  \\
+Q 4.87872E8 $\sim$ 2           &  \\
+R -1.52298E7 $\sim$ 1          &  \\
+S 2.22162E5                    &  \\
+First Derivative X Candidates  &  \\
+X = -2.91710832459E1           &  \\
+X = -4.86017676428E-1          &  \\
+X = -2.71992314617E-2          &  \\
+Second Derivative X Candidates &  \\
+X = -1.7144540973E2            &  \\
+X = 3.31412357739E-2           &  \\ \bottomrule
+\end{tabular}
+\end{table}
+
+In the data, there is an interesting trend of positive and negative derivative values. This is between 0.14 and 0.3. The zeros I had found with the derivative do not fall between 0.14 and 0.3. This means that there is no maximum for the section of data I am looking at even though that the pattern indicates that there should be. There is only one point of inflection in the interval that I am looking at and is insignificant in the context of the data.
+The graph fits the data very nicely but it does not tell us anything significant about the trends in the data as it is concave up and increasing most of the time during this interval.
+The integrals for the derivatives effectively reverse the second derivative to the first derivative and the first derivative to the original function. The integral for the function gives you a product of temperature density.
+
+
+
+
+
 
 \part{Wind Velocity vs. Pressure}
 
