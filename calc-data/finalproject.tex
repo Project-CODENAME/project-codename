@@ -95,6 +95,7 @@ In the data there are many points of inflection indicating a concavity change wh
    1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 \\ -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325
  \end{dmath*}
 
+
 The data being analyzed here is temperature versus air density. In Microsoft Excel I have taken the first and second derivatives to get an idea of how the two pieces of data are related. To my knowledge, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
 Looking at the derivative data in Microsoft Excel, there are many points of inflection indicating a concavity change when the derivative changes from positive to negative--or vice versa. It is hard to analyze the data to determine exaclty where these points of inflection are because, as you can observe in the data, there are large gaps and jumps where the first derivative is a large positive value, down to very low negative values in a very short period relative to air density. Using gnu plot, I was able to plot the data and write a polynomial regression to fit the data. As you can tell by the plot, the regression calculation was success as the curve fits better than I have expected. This regression equation condenses the data I am analyzing
 
@@ -109,6 +110,20 @@ We will find what we need using the second derivative. Specifically, what we are
 Temperature Density can be modeled by the equation Int|f(x) dp where f(x) is the regression line. The relationship between temperature and density gives us the product of Temperature Density which increases forever past a certain point of the graph; much like particle motion.
 
 I was able to fit a twentieth power polynomial, tenth polynomial, and a hectic polynomial; they all fit very well with the data but fitting a very high power polynomial is not good in the sense that you can over fit the line. But at this point I’m feeling the need to quench my thirst for hardcore mathematics.
+
+\begin{figure}[p]
+\centering
+\includegraphics[scale=0.5]{nate-data/six}
+\caption{Sixth Power regression line}
+\label{nate1}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[scale=0.5]{nate-data/twenty}
+\caption{Twentieth Power regression line}
+\label{nate2}
+\end{figure}
 
 In the data, there is an interesting trend of positive and negative derivative values. This is between 0.14 and 0.3. The zeros I had found with the derivative do not fall between 0.14 and 0.3. This means that there is no maximum for the section of data I am looking at even though that the pattern indicates that there should be. There is only one point of inflection in the interval that I am looking at and is insignificant in the context of the data.
 The graph fits the data very nicely but it does not tell us anything significant about the trends in the data as it is concave up and increasing most of the time during this interval.
