@@ -6,7 +6,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage[toc,page]{appendix}
-
+\usepackage{breqn}
 
 
 \begin{document}
@@ -34,25 +34,89 @@ For this document, the term "derivative" refers to the difference quotient.
 
 
 
-\part{Wind Velocity Vs. Altitude}
-This data has several interesting patterns.  Initially, the data points are closely clustered around the same windspeed (about 5\si{\frac{m}{s}}).  These are the ground conditions in the Rapid City area.  As altitude increases, however, the windspeed dips significantly before rising again - forming what appears to be a cusp (though it could possibly be a relative minimum).  This cusp behavior can be seen in Table \ref{joshtable1}: Where x=2641.95, the first derivative is negative, but at the next value recorded, x=2861.54, the first derivative has become positive.
+This data has several interesting patterns.  Initially, the data points are closely clustered around the same windspeed (about 5\si{\frac{m}{s}}).  These are the ground conditions in the Rapid City area.  As altitude increases, however, the windspeed dips significantly before rising again - forming what appears to be a cusp (though it could possibly be a relative minimum).  This cusp behavior can be seen in Table \ref{joshtable1}: Where x=2641.95, the first derivative is negative, but at the next value recorded, x=2861.54, the first derivative has become positive.  Research~\cite{notes} indicates that this is likely a result of weather conditions near the ground, and the pressure differences that accompany them.  This relationship is explored more in Part \ref{george}.
 
-The next notable feature of the data is a sharp change in the rate at which the wind speed is increasing.  This occurs when the altitude is approximately 5000\si{m}. After this point, the wind picks up speed at a much slower rate than before.  This is the overall shape of the graph as demonstrated by Figure \ref{josh1}.  Such a dominant graphical feature is likely indicative of a comparably dominant atmospheric phenomenon, and research indicates that the largest contributor to wind speed in the upper atmosphere is the jet stream~\cite{National-Geographic}.  According to National Geographic~\cite{National-Geographic}, the Jet Stream occurs betwen 8 and 15 \si{km} above the earth.  This matches the data in Table \ref{joshtable1} very well.
+The data is difficult to fit to any one function, but splitting it into several functions allows a reasonable model of the data.
 
-After these initial features the most prominent pattern in the data is what appears to be an absolute maximum slightly after 10000\si{m}, before 15000\si{m} meters.  At this point the wind speed is nearly 40\si{\frac{m}{s}}.  Wind speed increases as it approaches this maximum, though it increases at a slower and slower rate. Near this point the wind speed neither increases nor decreases by any signficiant amount.  After the maximum, the wind speed begins to decrease at an increasing rate.
+$$
+f(x) = \left\{
+        \begin{array}{ll}
+            t(x) & \quad 0 \leq x < 2000 \\
+            h(x) & \quad 2700 \leq x < 3700 \\
+            l(x) & \quad 2700 \leq x < 3680 \\
+            g(x) & \quad 3680 \leq x \leq 27000
+\        \end{array}
+    \right.
+$$
+
+\noindent Where
+\begin{align*}
+  t(x) &= 2.556137318932\cdot10^{-14}x+6.44625407986886 \\
+  h(x) &= -0.0069x+18.64 \\
+  l(x) &= 0.0165x-41.15 \\
+\end{align*} and
+
+\begin{dmath*}
+g(x) = -3.21006\cdot10^{-19}x^5 + 2.47017\cdot10^{-14}x^4 - 6.85779\cdot10^{10}x^3+ \\ 8.17467\cdot10^{-06}x^2-0.0395264x+83.9063
+\end{dmath*}
+
+This model is shown in Figure \ref{josh2}.  It helps to analyze the next notable feature of the data: a sharp change in the rate at which the wind speed is increasing.  This occurs when the altitude is approximately 5000\si{m}; After this point, the wind picks up speed at a much slower rate than before.  While $f(x)$ is not differentiable at that point of change, the derivative of points on either side lend some insight into the changing nature of the rate of increase:
+
+\begin{align}
+  l'(3679) &= 0.0165 \\
+  g'(3681) &= 0.0015
+\end{align}
+
+After these initial features the most prominent pattern in the data is what appears to be an absolute maximum slightly after 10000\si{m}, before 15000\si{m}.  The graphical model $f(x)$ suggests this maximum occurs near x=11000: at this point $g'(x) = 0$ and $g''(x)$ is negative.  Wind speed increases as it approaches this maximum ($g'(x)$ is positive), though it increases at a slower and slower rate ($g''(x)$ is negative). At the maximum, the wind speed neither increases nor decreases by any significant amount ($g'(x)=0$).  After the maximum, the wind speed begins to decrease at an increasing rate ($g''(x)$ is negative).  This is the overall shape of the graph as demonstrated by Figure \ref{josh1}.  Such a dominant graphical feature is likely indicative of a comparably dominant atmospheric phenomenon, and research indicates that the largest contributor to wind speed in the upper atmosphere is the jet stream~\cite{National-Geographic}.  According to National Geographic~\cite{National-Geographic}, the Jet Stream occurs between 8 and 15 \si{km} above the earth.  This matches the data in Table \ref{joshtable1} very well.  In Part \ref{alan} the direction of the Jet Stream is determined after a similar analysis, concerning the relevance of this research.
 
 
 \begin{figure}
 \centering
 \includegraphics{josh-data/figure1.pdf}
-\caption{Test}
+\caption{Data comparing wind speed at various altitudes taken from the flight predictor}
 \label{josh1}
-
 \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{josh-data/figure2.pdf}
+\caption{Data plotted with line of best fit}
+\label{josh2}
+\end{figure}
+
+
+\part{Temperature Vs. Density}
+
+With balloon launch data, our group has picked out different variables to determine any correlation between the data and how it would make sense in the real world if there is a strong correlation between the data that we have chosen.
+The data that I have chosen to analyze is temperature versus air density. In excel I have taken the first and second derivatives to get an idea of what how the two data points are related. To my knowledge right now, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
+In the data there are many points of inflection indicating a concavity change when the derivative changes from positive to negative. It is hard to analyze where the data would have these points because it jumps huge gaps between numbers when the derivative changes from positive to negative. Airgo, I am going to use the properties of calculus to determine were the regression equation:
+
+$$ 1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325 $$
+
+The data being analyzed here is temperature versus air density. In Microsoft Excel I have taken the first and second derivatives to get an idea of how the two pieces of data are related. To my knowledge, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
+Looking at the derivative data in Microsoft Excel, there are many points of inflection indicating a concavity change when the derivative changes from positive to negative--or vice versa. It is hard to analyze the data to determine exaclty where these points of inflection are because, as you can observe in the data, there are large gaps and jumps where the first derivative is a large positive value, down to very low negative values in a very short period relative to air density. Using gnu plot, I was able to plot the data and write a polynomial regression to fit the data. As you can tell by the plot, the regression calculation was success as the curve fits better than I have expected. This regression equation condenses the data I am analyzing
+
+$$ Regression equation: 1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325$$
+
+Using this equation, we can find the first derivative and second derivative equations and then evaluate them to further understand our areas of interest in the excel spreadsheet data.
+First derivative equation: $9640.1544x^5 + 1276.7160x^4 + 22491.3808x^3 – 10710.6660x^2 + 3037.3536x – 319.7193$
+Second derivative equation: $48200.7720x^4 + 5106.8640x^3 + 67474.1424x^2 – 21421.3320x + 3037.3536$
+We will find what we need using the second derivative. Specifically, what we are looking for is the possibility of the regression line having points of inflection between 0.14 and 0.3.
+Temperature Density can be modeled by the equation Int|f(x) dp where f(x) is the regression line. The relationship between temperature and density gives us the product of Temperature Density which increases forever past a certain point of the graph; much like particle motion.
+
+I was able to fit a twentieth power polynomial, tenth polynomial, and a hectic polynomial; they all fit very well with the data but fitting a very high power polynomial is not good in the sense that you can over fit the line. But at this point I’m feeling the need to quench my thirst for hardcore mathematics.
+
+In the data, there is an interesting trend of positive and negative derivative values. This is between 0.14 and 0.3. The zeros I had found with the derivative do not fall between 0.14 and 0.3. This means that there is no maximum for the section of data I am looking at even though that the pattern indicates that there should be. There is only one point of inflection in the interval that I am looking at and is insignificant in the context of the data.
+The graph fits the data very nicely but it does not tell us anything significant about the trends in the data as it is concave up and increasing most of the time during this interval.
+The integrals for the derivatives effectively reverse the second derivative to the first derivative and the first derivative to the original function. The integral for the function gives you a product of temperature density.
+
+
+
 
 
 
 \part{Wind Velocity vs. Pressure}
+\label{george}
 
 
 \begin{figure}[H]
@@ -80,7 +144,12 @@ After these initial features the most prominent pattern in the data is what appe
     V(P) &= 0.2107P - 6.1117&& \text{\quad $P\in(0,230)$} \\
     V(P) &= -0.0613P + 52.754 && \text{\quad $P\in(230,725)$} \\
 \end{align*}
+
+
+
 \part{Wind Velocity vs. Wind Angle}
+\label{alan}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{alan-data.png}
@@ -200,7 +269,7 @@ altitude (m) & wind speed (m/s) & first derivative & second    & f is & concave 
 
 \begin{table}[]
 \centering
-\caption{Table 1 Continued}
+\caption{Table \ref{joshtable1} Continued}
 \label{joshtable2}
 \begin{tabular}{@{}llllll@{}}
 \toprule
@@ -237,6 +306,97 @@ altitude (m) & wind speed (m/s) & first derivative & second    & f is & concave 
 26910.97     & 0.31381084       & 3.76E-05         & 4.00E-07  & +    & UP      \\
 33038.6      & 8.58607036       & 0.001349993      & 2.14E-07  & +    & UP      \\
 AVG:         & 14.57059741      & 0.000699214      & -3.47E-06 & +    & DOWN    \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Set of parameters for fitting 20th degree polynomial}
+\label{nathantable1}
+\begin{tabular}{@{}l@{}}
+\toprule
+Final set of parameters            Asymptotic Standard Error     \\ \midrule
+=======================            ==========================    \\
+a               = -6.67852e+009    +/- 1.669e+009   (24.98\%) 20 \\
+b               = 6.32378e+010     +/- 1.577e+010   (24.94\%) 19 \\
+c               = -2.66395e+011    +/- 6.633e+010   (24.9\%) 18  \\
+d               = 6.47242e+011     +/- 1.605e+011   (24.8\%) 17  \\
+e               = -9.63695e+011    +/- 2.362e+011   (24.51\%) 16 \\
+f               = 7.92962e+011     +/- 1.855e+011   (23.4\%) 15  \\
+g               = -3.20871e+010    +/- 5.495e+010   (171.2\%) 14 \\
+h               = -8.46881e+011    +/- 2.742e+011   (32.37\%) 13 \\
+i               = 1.25703e+012     +/- 3.871e+011   (30.8\%) 12  \\
+j               = -1.08047e+012    +/- 3.361e+011   (31.11\%) 11 \\
+k               = 6.42917e+011     +/- 2.063e+011   (32.08\%) 10 \\
+l               = -2.78471e+011    +/- 9.343e+010   (33.55\%) 9  \\
+m               = 8.91538e+010     +/- 3.165e+010   (35.5\%) 8   \\
+n               = -2.10955e+010    +/- 8.004e+009   (37.94\%) 7  \\
+o               = 3.65601e+009     +/- 1.492e+009   (40.8\%) 6   \\
+p               = -4.57416e+008    +/- 2e+008       (43.73\%) 5  \\
+q               = 4.06564e+007     +/- 1.858e+007   (45.71\%) 4  \\
+r               = -2.53831e+006    +/- 1.129e+006   (44.48\%) 3  \\
+s               = 111081           +/- 4.087e+004   (36.79\%) 2  \\
+t               = -3311.86         +/- 747.2        (22.56\%) 1  \\
+u               = 266.925          +/- 4.736        (1.774\%) c  \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{}
+\label{nathantable2}
+\begin{tabular}{@{}ll@{}}
+\toprule
+First Derivative               &  \\ \midrule
+A -13357E11 $\sim$ 19          &  \\
+B 1.201503E12 $\sim$ 18        &  \\
+C -4.795502E12 $\sim$ 17       &  \\
+D 1.100308E13 $\sim$ 16        &  \\
+E -1.541904E13 $\sim$ 15       &  \\
+F -2.82155871931E22 $\sim$ 14  &  \\
+G -4.49218E11 $\sim$ 13        &  \\
+H -1.100944E13 $\sim$ 12       &  \\
+I 1.5084E13 $\sim$ 11          &  \\
+J -1.18844E13 $\sim$ 10        &  \\
+K 6.4291E12 $\sim$ 9           &  \\
+L -2.50623E12 $\sim$ 8         &  \\
+M 7.132304E11 $\sim$ 7         &  \\
+N -1.476685E11 $\sim$ 6        &  \\
+O 2.1936E10 $\sim$ 5           &  \\
+P -2.2870E9 $\sim$ 4           &  \\
+Q 1.6262E8 $\sim$ 3            &  \\
+R -7.6149E6 $\sim$ 2           &  \\
+S 2.22162E5 $\sim$ 1           &  \\
+T -3.31186E3                   &  \\
+                               &  \\
+Second Derivative              &  \\ \midrule
+A -2.53783E12 $\sim$ 18        &  \\
+B 2.1627054E13 $\sim$ 17       &  \\
+C -8.151534E13 $\sim$ 16       &  \\
+D 1.7604928E14 $\sim$15        &  \\
+E -2.312856E14 $\sim$ 14       &  \\
+F -3.95018220703E23 $\sim$ 13  &  \\
+G -5.839834E12 $\sim$ 12       &  \\
+H -1.3211328E14 $\sim$ 11      &  \\
+I 1.65924E14 $\sim$ 10         &  \\
+J -1.18844E14 $\sim$ 9         &  \\
+K 5.78619E13 $\sim$ 8          &  \\
+L -2.004984E13 $\sim$ 7        &  \\
+M 4.9926128E12 $\sim$ 6        &  \\
+N -8.86011E11 $\sim$ 5         &  \\
+O 1.0968E11 $\sim$ 4           &  \\
+P -9.1482E9 $\sim$ 3           &  \\
+Q 4.87872E8 $\sim$ 2           &  \\
+R -1.52298E7 $\sim$ 1          &  \\
+S 2.22162E5                    &  \\
+First Derivative X Candidates  &  \\
+X = -2.91710832459E1           &  \\
+X = -4.86017676428E-1          &  \\
+X = -2.71992314617E-2          &  \\
+Second Derivative X Candidates &  \\
+X = -1.7144540973E2            &  \\
+X = 3.31412357739E-2           &  \\ \bottomrule
 \end{tabular}
 \end{table}
 
