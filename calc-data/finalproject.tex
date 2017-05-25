@@ -70,14 +70,14 @@ This model is shown in Figure \ref{josh2}.  It helps to analyze the next notable
 After these initial features the most prominent pattern in the data is what appears to be an absolute maximum slightly after 10000\si{m}, before 15000\si{m}.  The graphical model $f(x)$ suggests this maximum occurs near x=11000: at this point $g'(x) = 0$ and $g''(x)$ is negative.  Wind speed increases as it approaches this maximum ($g'(x)$ is positive), though it increases at a slower and slower rate ($g''(x)$ is negative). At the maximum, the wind speed neither increases nor decreases by any significant amount ($g'(x)=0$).  After the maximum, the wind speed begins to decrease at an increasing rate ($g''(x)$ is negative).  This is the overall shape of the graph as demonstrated by Figure \ref{josh1}.  Such a dominant graphical feature is likely indicative of a comparably dominant atmospheric phenomenon, and research indicates that the largest contributor to wind speed in the upper atmosphere is the jet stream~\cite{National-Geographic}.  According to National Geographic~\cite{National-Geographic}, the Jet Stream occurs between 8 and 15 \si{km} above the earth.  This matches the data in Table \ref{joshtable1} very well.  In Part \ref{alan} the direction of the Jet Stream is determined after a similar analysis, concerning the relevance of this research.
 
 
-\begin{figure}[p]
+\begin{figure}
 \centering
 \includegraphics{josh-data/figure1.pdf}
 \caption{Data comparing wind speed at various altitudes taken from the flight predictor}
 \label{josh1}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}
 \centering
 \includegraphics{josh-data/figure2.pdf}
 \caption{Data plotted with line of best fit}
@@ -87,36 +87,26 @@ After these initial features the most prominent pattern in the data is what appe
 
 \part{Temperature Vs. Density}
 
-With balloon launch data, our group has picked out different variables to determine any correlation between the data and how it would make sense in the real world if there is a strong correlation between the data that we have chosen.
-The data that I have chosen to analyze is temperature versus air density. In excel I have taken the first and second derivatives to get an idea of what how the two data points are related. To my knowledge right now, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
-In the data there are many points of inflection indicating a concavity change when the derivative changes from positive to negative. It is hard to analyze where the data would have these points because it jumps huge gaps between numbers when the derivative changes from positive to negative. Ergo, I am going to use the properties of calculus to determine were the regression equation:
+With balloon launch data we are looking into the correlation between the data that we have chosen.
 
-\begin{dmath*}
-   1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 \\ -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325
- \end{dmath*}
+The data being analyzed here is temperature versus air density. In excel I have taken the first and second derivatives to get an idea of what how the two variables, temperature and air density, are related. To my knowledge right now, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
 
-
-The data being analyzed here is temperature versus air density. In Microsoft Excel I have taken the first and second derivatives to get an idea of how the two pieces of data are related. To my knowledge, there is no specific pattern that the data follows; rather it is just a jumble of numbers as density, the independent variable, is decreasing.
-Looking at the derivative data in Microsoft Excel, there are many points of inflection indicating a concavity change when the derivative changes from positive to negative--or vice versa. It is hard to analyze the data to determine exaclty where these points of inflection are because, as you can observe in the data, there are large gaps and jumps where the first derivative is a large positive value, down to very low negative values in a very short period relative to air density. Using gnu plot, I was able to plot the data and write a polynomial regression to fit the data. As you can tell by the plot, the regression calculation was success as the curve fits better than I have expected. This regression equation condenses the data I am analyzing
+In the data there appear to be many points of inflection indicating a concavity change when the derivative changes from positive to negative as well as indicators for maximums and minimums. The excel spreadsheet shows this behavior, but I cannot be for certain that the regression line will be able to determine this until I create one. Plotting the data with the program called Gnu-plot, I was able to plot the data and fit a regression line. The regression line and equation can be located in Figure \ref{nate1}.
+Regression equation:
 
 \begin{dmath*}
   1606.69248190008x^6 + 255.343421663755x^5 + 5622.84522129159x^4 -3570.2220384097x^3 + 1518.67685908935x^2 -319.719301948874x +235.092280725325
 \end{dmath*}
 
-Using this equation, we can find the first derivative and second derivative equations and then evaluate them to further understand our areas of interest in the excel spreadsheet data.
-First derivative equation: $9640.1544x^5 + 1276.7160x^4 + 22491.3808x^3 – 10710.6660x^2 + 3037.3536x – 319.7193$
-Second derivative equation: $48200.7720x^4 + 5106.8640x^3 + 67474.1424x^2 – 21421.3320x + 3037.3536$
-We will find what we need using the second derivative. Specifically, what we are looking for is the possibility of the regression line having points of inflection between 0.14 and 0.3.
-Temperature Density can be modeled by the equation Int|f(x) dp where f(x) is the regression line. The relationship between temperature and density gives us the product of Temperature Density which increases forever past a certain point of the graph; much like particle motion.
-
-I was able to fit a twentieth power polynomial, tenth polynomial, and a hectic polynomial; they all fit very well with the data but fitting a very high power polynomial is not good in the sense that you can over fit the line. But at this point I’m feeling the need to quench my thirst for hardcore mathematics.
-
-\begin{figure}[p]
+\begin{figure}
 \centering
 \includegraphics[scale=0.5]{nate-data/six}
 \caption{Sixth Power regression line}
 \label{nate1}
 \end{figure}
+
+After taking a look, I was not satisfied with the fit of the sextic polynomial regression. To fix this problem, I looked into fitting a twentieth power polynomial regression line to the data. To my surprise, the twentieth power regression line fit very as shown in Figure \ref{nate2}.
+The coefficients for the twentieth power polynomial are very large.
 
 \begin{figure}[p]
 \centering
@@ -125,12 +115,7 @@ I was able to fit a twentieth power polynomial, tenth polynomial, and a hectic p
 \label{nate2}
 \end{figure}
 
-In the data, there is an interesting trend of positive and negative derivative values. This is between 0.14 and 0.3. The zeros I had found with the derivative do not fall between 0.14 and 0.3. This means that there is no maximum for the section of data I am looking at even though that the pattern indicates that there should be. There is only one point of inflection in the interval that I am looking at and is insignificant in the context of the data.
-The graph fits the data very nicely but it does not tell us anything significant about the trends in the data as it is concave up and increasing most of the time during this interval.
-The integrals for the derivatives effectively reverse the second derivative to the first derivative and the first derivative to the original function. The integral for the function gives you a product of temperature density.
-
-
-
+In the data, there is an interesting trend of positive and negative derivative values. This is between 0.14 and 0.3. The zeros I had found with the derivative do not fall between 0.14 and 0.3. This means that there is no maximum for the section of data I am looking at even though that the pattern indicates that there should be. There is only one point of inflection in the interval that I am looking at and is insignificant in the context of the data. The graph fits the data very nicely but it does not tell us anything significant about the trends in the data as it is concave up and increasing most of the time during this interval. The integrals for the derivatives effectively reverse the second derivative to the first derivative and the first derivative to the original function. The integral for the function gives you a product of temperature density. Therefore that I can conclude that what the data had told me might happen did not happen and that the meaning of this data is almost useless and it does not represent anything meaningful.
 
 
 
