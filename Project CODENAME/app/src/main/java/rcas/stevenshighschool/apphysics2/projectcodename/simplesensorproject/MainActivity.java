@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     float actualA_y;
     float actualA_z;
 
-    //These ones are disabled by default
+    //These ones are disabled by default, because the arduino micro code doesn't work
     float ext_lat = -1;
     float ext_lon = -1;
     float ext_alt = -1;
@@ -527,7 +527,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "CREATE");
 
-        //starts things
+        //starts the actual activity and UI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -553,7 +553,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Root Actions
         rootTest = (Button) findViewById(R.id.rootTest);
-
         rootTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -561,7 +560,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //gets sensors and checks for permissions
+        // gets sensors and checks for permissions
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -703,7 +702,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-        //Initializes Array
+        //Initializes array of data points we're going to use
         dataPointArrayList = new ArrayList<DataPoint>();
 
         // Makes sure the screen turns on and stays on so that the activity can continue to do
@@ -714,7 +713,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
 
-        // Prepares in case the app and persistence service is killed
+        // Prepares in case the app and persistence service is killed (this code may not actually
+        // work with overheat situations)
         Intent intent2 = new Intent(this, PersistenceService.class);
         AlarmManager alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent2, 0);
@@ -727,9 +727,15 @@ public class MainActivity extends AppCompatActivity {
     // Galaxy S4, which contains all the necessary sensors.
     Camera.PictureCallback captureCallback;
     SurfaceTexture useThisOne;
-
     int nTexture = 0;
 
+    /**
+     * At some point, this was used in attempt to solve a problem with the camera of the Samsung
+     * Galaxy S4 in order to create SurfaceTextures from within a Runnable. It's still used but not
+     * in the way it was originally intended.
+     *
+     * @return an id to be used to initialize SurfaceTextures from within a runnable
+     */
     public int hackInt() {
         nTexture++;
         if (nTexture > 100) {
@@ -738,29 +744,37 @@ public class MainActivity extends AppCompatActivity {
         return nTexture;
     }
 
-    /**
-     * Recording function that starts running things
-     */
-    @SuppressWarnings("ResultOfMethodCallIgnored")
+    // saves backup every 1200 times it saves a sensor file
+    // this should be changed since sensor data is now saved at a much more reasonable rate
     public long tMinusBackup = 60 * 20;
 
+    /**
+     * Starts recording data and taking photos at the start of the activity and in testing with the
+     * UI. It changes rates depending on heat to avoid overheating the phone at altitude. Some of
+     * this is better to read than to describe.
+     *
+     * @param view Used to allow for UI interaction to start the recording
+     */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public void record(View view) {
-        final int delay = 1000 * 20; //milliseconds
+        // different delay rates for both the sensors and the camera at different temperatures
+        final int delay = 1000 * 20;
         final int delayHOT = 1000 * 60;
         final int delayREALLYHOT = 1000 * 60 * 3;
         final int delayCameraCold = 1000 * 30;
-        final int delayCamera = 1000 * 60; //milliseconds
+        final int delayCamera = 1000 * 60;
         final int delayCameraWarm = 1000 * 60 * 2;
         final int delayCameraHOT = 1000 * 60 * 5;
         final int delayCameraREALLYHOT = 1000 * 60 * 10;
 
+        // gets folder for the external sd card app data folder and creates the folders we save to
         File[] aDirArray = ContextCompat.getExternalFilesDirs(this, null);
         File aExtDcimDir = new File(aDirArray[1], Environment.DIRECTORY_DCIM);
         File aExtDocsDir = new File(aDirArray[1], Environment.DIRECTORY_DOCUMENTS);
-
         final String docsPath = aExtDocsDir.getAbsolutePath() + "/High Altitude DATA";
         new File(docsPath).mkdirs();
-        //Initializes and starts Runnable
+
+        //Initializes and starts Runnable with context to be used
         final Context context = this;
         rSensors = new Runnable() {
             public void run() {
@@ -770,6 +784,8 @@ public class MainActivity extends AppCompatActivity {
                 // TODO decide on preferred order order of variables - not hugely important but deserves some consideration
                 DataPoint point = new DataPoint(tAsInTemperature, gravity_x, gravity_y, gravity_z, rot_x, rot_y, rot_z, relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure, new Date());
 
+                // adds data values that were added later so as to avoid changing the constructor
+                // note the ext variables aren't actually used
                 point.ext_alt = ext_alt;
                 point.ext_lon = ext_lon;
                 point.ext_lat = ext_lat;
@@ -785,30 +801,38 @@ public class MainActivity extends AppCompatActivity {
                 point.battery_percent = getBatteryPercentage(context);
                 point.battery_temp = getBatteryTemp(context);
                 Log.d(TAG, "" + point.battery_temp);
-                /**if (Math.abs(Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)) - 9.81) < 0.4) {
+
+                // code to detect if the phone is stopped on the ground - it should do something
+                // but what that thing is hasn't been/wasn't decided on
+                /*if (Math.abs(Math.sqrt(Math.pow(actualA_x, 2) + Math.pow(actualA_y, 2) + Math.pow(actualA_z, 2)) - 9.81) < 0.4) {
                  Log.d("HEY!", "stopped: " + stoppedN);
                  stoppedN++;
                  } else {
                  stoppedN = 0;
                  }*/
 
-                /**if(stoppedN > 1000){
+                /*if(stoppedN > 1000){
                  flashLightOn(null);
                  } else if(flash != null) {
                  flashLightOff(null);
                  }*/
 
+                // actually save the thing
                 dataPointArrayList.add(point);
 
-                // Object is serialized here, and the datafile is saved to the documents folder */
+                // Object is serialized here, and the datafile is saved to the documents folder with
+                // a specified time in case the app is killed
                 SimpleDateFormat sdfDate = new SimpleDateFormat("HHmmss");
                 String strDate = sdfDate.format(sensorFileName);
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+
+                // saves to the SD card as well as internal storage
                 File file = new File(path, "SENSORDATA" + strDate + ".txt");
                 File file2 = new File(docsPath, "SENSORDATA" + strDate + ".txt");
                 try {
-                    //noinspection ResultOfMethodCallIgnored
                     path.mkdirs();
+
+                    // saves the arraylist with standard java serialization
                     OutputStream os = new FileOutputStream(file);
                     ObjectOutputStream out = new ObjectOutputStream(os);
                     out.writeObject(dataPointArrayList);
@@ -819,6 +843,7 @@ public class MainActivity extends AppCompatActivity {
                     out2.close();
                     os.close();
                     os2.close();
+
                     tMinusBackup--;
                     if (tMinusBackup == 0) {
                         OutputStream os1 = new FileOutputStream(new File(docsPath, "SENSORBACKUP.txt"));
@@ -842,14 +867,18 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        // now we do the photos path
         final String path = aExtDcimDir.getAbsolutePath() + "/High Altitude Photos";
         new File(path).mkdirs();
+
+        // when we take a photo...
         captureCallback = new Camera.PictureCallback() {
             public void onPictureTaken(byte[] data, Camera camera) {
                 mainCamera.stopPreview();
                 FileOutputStream outStream;
                 Log.d(TAG, "picDONE");
                 try {
+                    // save it with its time and as a JPEG
                     SimpleDateFormat sdfDate = new SimpleDateFormat("HHmmss");
                     Date now = new Date();
                     String strDate = sdfDate.format(now);
@@ -858,18 +887,21 @@ public class MainActivity extends AppCompatActivity {
                     outStream.write(data);
                     outStream.close();
                     Log.d(TAG, "saveINT");
-                    String removableStoragePath = Environment.getExternalStorageDirectory()
-                            .getAbsolutePath();
-                    File fileList[] = new File("/storage/").listFiles();
-                    for (File file : fileList) {
-                        if (!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) && file.isDirectory() && file.canRead() && file.getAbsolutePath().length() == 18)
-                            removableStoragePath = file.getAbsolutePath();
-                    }
-                    String finalPath2 = removableStoragePath + "/High Altitude Photos/Back";// set your directory path here
-                    final File file = new File(finalPath2);
+
+                    // code intended to save directly to external storage without being in app data
+                    // with root - does not work
+                    //String removableStoragePath = Environment.getExternalStorageDirectory()
+                    //        .getAbsolutePath();
+                    //File fileList[] = new File("/storage/").listFiles();
+                    //for (File file : fileList) {
+                    //    if (!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) && file.isDirectory() && file.canRead() && file.getAbsolutePath().length() == 18)
+                    //       removableStoragePath = file.getAbsolutePath();
+                    //}
+                    //String finalPath2 = removableStoragePath + "/High Altitude Photos/Back";// set your directory path here
+                    //final File file = new File(finalPath2);
                     //noinspection ResultOfMethodCallIgnored
-                    Log.d(TAG, file.mkdirs() + "");
-                    finalPath2 += new Date() + ".jpg";
+                    //Log.d(TAG, file.mkdirs() + "");
+                    //finalPath2 += new Date() + ".jpg";
                     //outStream = new FileOutputStream(finalPath2);
                     //outStream.write(data);
                     //outStream.close();
@@ -879,14 +911,16 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                // reconsider this call
                 mainCamera.startPreview();
             }
         };
         rCamera = new Runnable() {
             @Override
             public void run() {
-                // start the camera
+                // start the preview - reconsider this call
                 mainCamera.startPreview();
+                // schedule the next job
                 if (getBatteryTemp(context) > 250) {
                     runnableManager.postDelayed(rCamera, delayCameraREALLYHOT);
                 } else if (getBatteryTemp(context) > 200) {
@@ -898,6 +932,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     runnableManager.postDelayed(rCamera, delayCamera);
                 }
+                // and then take a photo
                 mainCamera.takePicture(null, null, captureCallback);
                 Log.d(TAG, "PHOTO!");
                /* Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
@@ -932,7 +967,7 @@ public class MainActivity extends AppCompatActivity {
                 camera2.takePicture(null, null, jpegCallback2);*/
             }
         };
-        //schedules the first job
+        //schedules the first job and starts the camera stuff
         runnableManager.postDelayed(rSensors, delay);
         giveCameraBackToOtherThread();
         //flashLightOn(null);
@@ -945,12 +980,18 @@ public class MainActivity extends AppCompatActivity {
         //runnableManager.postDelayed(once, 1000 * 10);
     }
 
+    /**
+     * Stops all recording of sensors and photos.
+     *
+     * @param view to be used from UI
+     */
     public void stopRecord(View view) {
         runnableManager.removeCallbacks(rSensors);
         runnableManager.removeCallbacks(rCamera);
     }
 
-    /**
+    /* Code originally intended to save battery - not used because it was unclear when and how
+     * this code should be used (what percentage and what to do).
      * public void batterysave() { runnableManager.removeCallbacks(rSensors);
      * runnableManager.removeCallbacks(rCamera); final int delay = 1000 * 10; //milliseconds final
      * int delayCamera = 1000 * 120; //milliseconds
@@ -1007,6 +1048,13 @@ public class MainActivity extends AppCompatActivity {
      * runnableManager.postDelayed(rCamera, delayCamera); }
      */
 
+    /**
+     * Gets the current battery to be used for {@link #rCamera} and {@link #rSensors} in determining
+     * battery saving and to be saved for data analysis
+     *
+     * @param context the context of the application from which battery stats can be pulled
+     * @return the current percentage of the battery
+     */
     public static int getBatteryPercentage(Context context) {
 
         IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
@@ -1020,6 +1068,13 @@ public class MainActivity extends AppCompatActivity {
         return (int) (batteryPct * 100);
     }
 
+    /**
+     * Gets battery temperature to determine delay of {@link #rCamera} and {@link #rSensors} and to
+     * be recorded for data analysis
+     *
+     * @param context the context of the application from which battery stats are to be pulled
+     * @return battery temperature (deciCelsius?)
+     */
     public static int getBatteryTemp(Context context) {
 
         IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
@@ -1031,7 +1086,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Initializes sensors that should not be done in onCreate
+     * Initializes sensors and other things that should not be done in onCreate
      */
     @Override
     protected void onStart() {
@@ -1053,7 +1108,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * de-initializes sensors that should be destroyed before onDestroyed
+     * de-initializes sensors and things that should be destroyed before onDestroyed
      */
     @Override
     protected void onStop() {
@@ -1072,9 +1127,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Code that runs camera and takes a photograph every 15 seconds
+     * Code that opens the camera (Front or Back) depending on what int is passed in
+     *
+     * @param n Camera.CameraInfo.CAMERA_FACING_BACK or the other one
+     * @return the opened camera
      */
-    //TODO add video capabilities, even if they are commented out
     private Camera openCamera(int n) {
         Log.d(TAG, "cameraOPENED");
         int cameraCount;
@@ -1095,6 +1152,14 @@ public class MainActivity extends AppCompatActivity {
         return cam;
     }
 
+    // video recording capabilities that are currently not used
+    // TODO: 5/28/2017 allow people to use the video capabilities based on config
+
+    /**
+     * prepares video recording - i think this is from an Android tutorial and has never been tested
+     *
+     * @return true if it succeeds or false if it doesn't
+     */
     private boolean prepareVideoRecorder() {
 
         mVideoCamera = openCamera(Camera.CameraInfo.CAMERA_FACING_BACK);
@@ -1137,6 +1202,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * releases the video recorder at the end
+     */
     private void releaseMediaRecorder() {
         if (mMediaRecorder != null) {
             mMediaRecorder.reset();   // clear recorder configuration
@@ -1146,7 +1214,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //this can be called to start and stop recording - it currently isn't at all
+    /**
+     * starts a recording - but isn't called at all right now
+     */
     public void recordButton() {
         if (isRecording) {
             mMediaRecorder.stop();
