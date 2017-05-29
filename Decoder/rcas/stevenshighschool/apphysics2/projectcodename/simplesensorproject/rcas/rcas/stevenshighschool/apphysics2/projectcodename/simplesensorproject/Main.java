@@ -1,22 +1,33 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
 
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
+/**
+ * Class parsing a file containing a serialized ArrayList of DataPoints into a .csv and .kml (although the kml no longer
+ * functions as the phone is no longer taking internal GPS). The .csv file is the most important one and should be the
+ * one used for data analysis.
+ *
+ * @author Alan Zhu
+ * @version idk
+ * @since Fall/Winter 2016
+ */
 public class Main {
 
-    //this is the singular function
+    /**
+     * this does the parsing
+     *
+     * @param args name of the file only
+     */
     public static void main(String[] args) {
-        //
         ArrayList<DataPoint> dataPoint;
         try {
             //deserializes data from file provided in args[0]
@@ -29,9 +40,8 @@ public class Main {
             System.out.println(e.getClass());
             System.out.println(e.toString());
             dataPoint = (ArrayList<DataPoint>) e;
-        }catch (Exception c) {
+        } catch (Exception c) {
             //generic exception catch
-            System.out.println("Employee class not found");
             c.printStackTrace();
             return;
         }
@@ -40,6 +50,8 @@ public class Main {
             SimpleDateFormat sdf = new SimpleDateFormat("hhmmddMM");
             PrintWriter pw = new PrintWriter(new File("data.csv"));
             StringBuilder sb = new StringBuilder();
+
+            // headers
             sb.append("n");
             sb.append(',');
             sb.append("a_x");
@@ -102,6 +114,8 @@ public class Main {
             sb.append(',');
             sb.append("a_actual_z");
             sb.append('\n');
+
+            // headers for .kml file
             Namespace ns = Namespace.getNamespace("http://www.opengis.net/kml/2.2");
             Document kml = new Document();
             //Document ext_kml = new Document();
@@ -114,17 +128,22 @@ public class Main {
             Element doc = new Element("Document");
             //Element ext_doc = new Element("Document");
             int iter = 0;
+
             Date standard = new Date();
             for (DataPoint pnt : dataPoint) {
                 //also prints it to command line, not necessary in production
-                if(iter == 0){
+                if (iter == 0) {
                     standard = pnt.time;
                 }
                 System.out.println(pnt.time);
                 System.out.println("A_X: " + pnt.a_x + ", A_Y: " + pnt.a_y + ", A_Z:" + pnt.a_z + ", P: " + pnt.p);
                 System.out.println("lat: " + pnt.lat + ", lon: " + pnt.lon + ", alt:" + pnt.alt);
                 System.out.println("====");
-                sb.append((pnt.time.getTime() - standard.getTime())/10000);
+
+                // time after first in some unit (decaseconds?)
+                sb.append((pnt.time.getTime() - standard.getTime()) / 10000);
+
+                // prints to .csv
                 iter++;
                 sb.append(',');
                 sb.append(pnt.a_x);
@@ -187,15 +206,19 @@ public class Main {
                 sb.append(',');
                 sb.append(pnt.a_actual_z);
                 sb.append('\n');
+
+                // prints to .kml
                 Element child = new Element("Placemark");
-                child.addContent(new Element("name").addContent(dataPoint.indexOf(pnt)+""));
-                child.addContent(new Element("description").addContent(pnt.time+""));
+                child.addContent(new Element("name").addContent(dataPoint.indexOf(pnt) + ""));
+                child.addContent(new Element("description").addContent(pnt.time + ""));
                 Element point = new Element("Point");
-                point.addContent(new Element("coordinates").addContent(pnt.lon+","+pnt.lat+","+pnt.alt));
+                point.addContent(new Element("coordinates").addContent(pnt.lon + "," + pnt.lat + "," + pnt.alt));
                 point.addContent(new Element("altitudeMode").addContent("absolute"));
                 child.addContent(point);
                 doc.addContent(child);
-                /**
+
+                // idk what this was for
+                /*
                  Element ext_child = new Element("Placemark");
                  ext_child.addContent(new Element("name").addContent(dataPoint.indexOf(pnt)+""));
                  ext_child.addContent(new Element("description").addContent(pnt.time+""));
@@ -206,20 +229,25 @@ public class Main {
                  ext_doc.addContent(ext_child);
                  */
             }
+
+            // write .csv
             pw.write(sb.toString());
             pw.close();
 
+            // write .kml
             root.addContent(doc);
             XMLOutputter outter = new XMLOutputter();
             outter.setFormat(Format.getPrettyFormat());
             outter.output(kml, new FileWriter(new File("data.kml")));
+
             /**
-            ext_root.addContent(doc);
-            XMLOutputter ext_outter = new XMLOutputter();
-            ext_outter.setFormat(Format.getPrettyFormat());
-            ext_outter.output(ext_kml, new FileWriter(new File("dataext.kml")));
-            */
-        } catch (Exception e){
+             ext_root.addContent(doc);
+             XMLOutputter ext_outter = new XMLOutputter();
+             ext_outter.setFormat(Format.getPrettyFormat());
+             ext_outter.output(ext_kml, new FileWriter(new File("dataext.kml")));
+             */
+        } catch (Exception e) {
+            // in case ANYTHING goes wrong.
             e.printStackTrace();
         }
     }

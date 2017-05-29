@@ -1,9 +1,18 @@
 package rcas.stevenshighschool.apphysics2.projectcodename.simplesensorproject;
+
 import java.util.Date;
 
+/**
+ * Class containing all of the sensor values to be recorded.
+ *
+ * @author Alan Zhu
+ * @author Joshua Morin-Baxter
+ * @version idk
+ * @since Fall 2016
+ */
+class DataPoint implements java.io.Serializable {
 
-class DataPoint implements java.io.Serializable{
-    /** Declares each variable that takes a value from an internal sensor */
+    // declares each sensor value variable
     public float t;
     public float a_y;
     public float a_x;
@@ -38,18 +47,16 @@ class DataPoint implements java.io.Serializable{
     public float a_actual_y;
     public float a_actual_z;
 
-    /** Declares each variable that takes a value from an external sensor */
-    //public float ext_p;
-    //public float ext_t;
-    //private float ard_alt;
+    /**
+     * Specific value that corresponds to the decoder (enabling deserialization of data)
+     */
+    private static final long serialVersionUID = 862329458582895689L;
 
-
-
-    /** Specific value that corresponds to the decoder (enabling deserialization of data) */
-    private static final long serialVersionUID= 862329458582895689L;
-
-    /** Initializer.  Each variable must be listed twice, in the row of variables and in the column that begins with this. */
-    public DataPoint(float t, float g_x, float g_y, float g_z, float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time){        this.t = t;
+    /**
+     * Basic initializer.
+     */
+    public DataPoint(float t, float g_x, float g_y, float g_z, float rot_x, float rot_y, float rot_z, float rh, float mag_x, float mag_y, float mag_z, float a_x, float a_y, float a_z, float p, Date time) {
+        this.t = t;
         this.g_x = g_x;
         this.g_y = g_y;
         this.g_z = g_z;
@@ -58,16 +65,16 @@ class DataPoint implements java.io.Serializable{
         this.rot_z = rot_z;
         this.rh = rh;
         this.a_y = a_y;
-        this.a_x=a_x;
-        this.a_z=a_z;
-        this.mag_x=mag_x;
-        this.mag_y=mag_y;
-        this.mag_z=mag_z;
-        this.p=p;
-        this.time=time;
-        this.lat=-1;
-        this.lon=-1;
-        this.alt=-1;
+        this.a_x = a_x;
+        this.a_z = a_z;
+        this.mag_x = mag_x;
+        this.mag_y = mag_y;
+        this.mag_z = mag_z;
+        this.p = p;
+        this.time = time;
+        this.lat = -1;
+        this.lon = -1;
+        this.alt = -1;
         //this.ext_p = ext_p;
         //this.ext_t = ext_t;
         //this.ard_alt = ard_alt;
