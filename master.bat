@@ -23,7 +23,4 @@ copy "pressure.html" "../OUTPUTS/%UserInputPath%/pressure.html"
 copy "pressuretime.png" "../OUTPUTS/%UserInputPath%/pressuretime.png"
 copy "rotation.html" "../OUTPUTS/%UserInputPath%/rotation.html"
 copy "rotationtime.png" "../OUTPUTS/%UserInputPath%/rotationtime.png"
-cd ../Animations
-@echo "OPEN FIREFOX AT localhost:8000, go to main.html, and cntrl-c to end in the cmd"
-python -m http.server
 cd ..
