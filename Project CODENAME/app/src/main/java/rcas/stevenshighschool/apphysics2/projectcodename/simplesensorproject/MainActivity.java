@@ -297,7 +297,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Arduino Connection Code - kept to be revived at some point possibly
-    //TODO variables taken from TrackSoar be written to ext_p, ext_t, lat, long, and alt
 
     /*UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
         @Override
@@ -781,7 +780,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "RUN!");
 
                 // Initializes the data point class
-                // TODO decide on preferred order order of variables - not hugely important but deserves some consideration
                 DataPoint point = new DataPoint(tAsInTemperature, gravity_x, gravity_y, gravity_z, rot_x, rot_y, rot_z, relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure, new Date());
 
                 // adds data values that were added later so as to avoid changing the constructor
@@ -940,7 +938,6 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     camera2.setPreviewTexture(new SurfaceTexture(0));
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 camera2.startPreview();
@@ -999,8 +996,8 @@ public class MainActivity extends AppCompatActivity {
      * //Initializes and starts Runnable rSensors = new Runnable() { public void run() { Log.d(TAG,
      * "RUN!");
      *
-     * // Initializes the data point class // TODO decide on preferred order order of variables -
-     * not hugely important but deserves some consideration DataPoint point = new
+     * // Initializes the data point class
+     * DataPoint point = new
      * DataPoint(tAsInTemperature, gravity_x, gravity_y, gravity_z, rot_x, rot_y, rot_z,
      * relativeHumidity, magnetic_x, magnetic_y, magnetic_z, aLin_x, aLin_y, aLin_z, pAsInPressure,
      * new Date());
@@ -1021,7 +1018,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @Override public void run() { Log.d(TAG, "PHOTO!"); Camera camera =
      * openCamera(Camera.CameraInfo.CAMERA_FACING_BACK); try { camera.setPreviewTexture(new
-     * SurfaceTexture(0)); } catch (IOException e) { // TODO Auto-generated catch block
+     * SurfaceTexture(0)); } catch (IOException e) {
      * e.printStackTrace(); } camera.startPreview(); final String path =
      * Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/High
      * Altitude Photos/Back"; final File file = new File(path); //noinspection
@@ -1035,7 +1032,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * Camera camera2 = openCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); SurfaceView surface2 =
      * new SurfaceView(getBaseContext()); try { camera2.setPreviewTexture(new SurfaceTexture(0)); }
-     * catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); }
+     * catch (IOException e) { e.printStackTrace(); }
      * camera2.startPreview(); final String path2 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
      * + "/High Altitude Photos/Front/"; final File file2 = new File(path); file2.mkdirs();
      * Camera.PictureCallback jpegCallback2 = new Camera.PictureCallback() { public void
@@ -1092,7 +1089,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         sensorFileName = new Date();
-        //TODO add null checks to allow testing on certain phone models
+        // note that even if sensor doesn't exist on the phone it doesn't fail (we think)
         sensorManager.registerListener(accelerometerListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(accelerometer2Listener, accelerometer2, SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(pressureListener, pressure, SensorManager.SENSOR_DELAY_NORMAL);
