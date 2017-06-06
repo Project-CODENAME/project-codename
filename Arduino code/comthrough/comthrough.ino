@@ -1,5 +1,11 @@
 #include <Wire.h>
 
+/*
+ * This was a failed attempt to connect the Phone and Tracksoar together through an Arduino Micro interacting with the two through Serial
+ * and I2C respectively. It could be revived in the future by the community, but we'll see.
+ * It should work - if you can make it work.
+ */
+
 void setup()  
  {  
   Serial.begin(9600);  
