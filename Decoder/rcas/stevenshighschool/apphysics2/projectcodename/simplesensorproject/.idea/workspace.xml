@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" afterPath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/DataPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" afterPath="$PROJECT_DIR$/rcas/rcas/stevenshighschool/apphysics2/projectcodename/simplesensorproject/Main.java" />
-    </list>
+    <list default="true" id="e346d625-2a16-4b92-a943-656e239e0478" name="Default" comment="" />
     <ignored path="simplesensorproject.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -558,16 +555,15 @@
       <workItem from="1494212267281" duration="877000" />
       <workItem from="1494984949923" duration="141000" />
       <workItem from="1495468135632" duration="740000" />
-      <workItem from="1496027782294" duration="715000" />
+      <workItem from="1496027782294" duration="1264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13310000" />
+    <option name="totallyTimeSpent" value="13859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="120" y="-8" width="1808" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
