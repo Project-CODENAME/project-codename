@@ -10,6 +10,7 @@ Welcome to Project CODENAME's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   source/setup
    source/packages
 
 Project CODENAME, which stands for CODE Necessary At Altitude to Man Experiments, is
@@ -20,5 +21,3 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
