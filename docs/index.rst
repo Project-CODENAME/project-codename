@@ -10,10 +10,11 @@ Welcome to Project CODENAME's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Project CODENAME, which stands for CODE Necessary At Altitude to Man Experiments, is
-a framework for a high altitude balloon launch which consists of a phone and 
-an APRS tracking device (Tracksoar).
+   source/packages
 
+Project CODENAME, which stands for CODE Necessary At Altitude to Man Experiments, is
+a framework for a high altitude balloon launch which consists of a phone and
+an APRS tracking device (Tracksoar).
 
 Indices and tables
 ==================
