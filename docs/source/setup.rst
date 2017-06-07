@@ -6,3 +6,7 @@ Setup, Step-by-step
 
    app
    decoder
+   datavis
+   animations
+   tracksoar
+   master
