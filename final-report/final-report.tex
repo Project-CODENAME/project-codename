@@ -32,9 +32,6 @@
 
 \tableofcontents
 
-
-\part{Introduction}
-
 \begin{appendix}
   \addcontentsline{toc}{section}{List of Figures}
   \listoffigures
@@ -42,7 +39,9 @@
   \listoftables
 \end{appendix}
 
-\newpage
+%TODO determine where the list of figures and list of tables belongs (beginning or end of document)
+
+\part{Introduction}
 
 \section{4th Annual High Altitude Challenge}
 This document is an overview of a design concept submitted to the
@@ -69,43 +68,19 @@ and pressure at all times during the flight\label{req:sensors} of the High Altit
 The payload designed by Team CODENAME won first place in the competition
 and was awarded a \$3,000 grant to build the payload according to the specifications described in this document.
 
-
-\section{Component Summary}
-%TODO change this page to reflect what was actually launched
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[scale=0.3]{./images/karah_physics_2-1}
-\par\end{centering}
-\caption{Cross-section of payload}
-\end{figure}
-
-\begin{multicols}{2}
-\begin{enumerate}
-\item \textbf{Samsung Galaxy S4 Chipset} Stripped-down computer board taken
-from phone and reprogrammed.  Contains majority of payload's sensors and stores all payload sensor data in internal storage. Eight hour projected battery life.
-\item \textbf{Arduino Micro} Provides an interface between the Tracksoar and the Samsung Galaxy S4 Chipset, as well as collecting data from the payload's ozone sensor.
-\item \textbf{Tracksoar APRS Transmitter} Leverages existing radio relays
-to keep payload in constant contact after takeoff; sends all sensor
-data to ground station in real-time.  Also equipped with GPS
-capable of high altitude positioning, along with external temperature
-and pressure sensors. Twelve hour projected battery life, does not require other computing components to function.
-\item \textbf{External Cameras} 2MP and 15MP photographs taken for the duration
-of the flight.
-\item \textbf{Additional Sensors} Sixteen distinct sensors (only three diagrammed here).  These are discussed further further in Part \ref{internal_components}.
-\item \textbf{Foamular 150} Insulating outer shell.  Lightweight and impact resistant.
-\end{enumerate}
-\end{multicols}
-Not pictured: Parachute and balloon.
-
-\pagebreak
-\section{Flight Path}
+\part{Path Prediction, Tracking, and Recovery}
 \label{ground-station}
-%TODO this entire part needs to be overhauled to include our use of the spreadsheets
-%TODO it also needs to delicately discuss how crappy our balloon performed and how badly we predicted everything
-The target landing area for the payload is the Badlands National Park; the launch window will open in the first weeks of April, 2017, due to weather concerns.  Project CODENAME will use the HabHub\cite{HabHub} predictive engine to determine more exact launch times.  This predictive engine provides accurate predictions of likely flight paths up to 180 hours into the future. The following variables are required to generate accurate predictions:
+
+\section{Flight Path Prediction}
+\label{sec:path-prediction}
+
+The target landing area for the payload was the Badlands National Park.  Project CODENAME utilized a two-part method for predicting the path of the balloon.  Following the opening of the launch window on April 1, possible flight paths were run via the HabHub Predictive Engine\cite{HabHub} on a weekly basis in search of a flight path that looked promising.  See Figure \ref{fig:hahub} for an example of this.  If a given date looked promising, CODENAME moved to the more accurate Gosh Flight Path Predictor (which can only predict three days into the future.)  This program was designed through the collaborative efforts of Gabriel Spahn and Joshua Morin-Baxter, based on work done by Penny Zabel.  The GOSH Flight Path predictor allows an hour-by-hour analysis of every possible flight path within a three day window.  See Figure \ref{fig:GOSH} for a better idea of what this means.
+
+%TODO add a section devoted to explaining the GOSH Flight Path Predictor
+
+Both flight path predictors rely on the following information to provide accurate predictions.
 
 \begin{description}
-
 \item [Launch Point (lat long)] 44.075604, -103.286696 (Stevens High School Football Field)
 \item [Launch Point Elevation] 1043.2 m or 3422.5 feet
 \item [Burst Altitude] 39060m*
@@ -118,60 +93,127 @@ The target landing area for the payload is the Badlands National Park; the launc
 \begin{centering}
 \includegraphics[scale=0.4]{./images/habhub}
 \par\end{centering}
+\label{fig:hahub}
 \caption{Example HabHub flight path prediction map for March 18, 2017.}
 \end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{./images/GOSH}
+\par\end{centering}
+\label{fig:GOSH}
+\caption{Example Prediction using GOSH Flight Path Predictor}
+%TODO add much better photo
+\end{figure}
+
+\section{Tracking}
+\label{sec:tracking}
+
+\section{Recovery}
+\label{sec:recovery}
 
 
 
 \part{Internal Components and Software}
 \label{internal_components}
 
+\section{Internal Component Summary}
+%TODO change this page to reflect what was actually launched
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.65]{./images/component-summary}
+\par\end{centering}
+\caption{Cross-section of payload}
+\end{figure}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item \textbf{Samsung Galaxy S4 Chipset} Stripped-down computer board taken from phone and reprogrammed.  Contains majority of payload's sensors and stores all payload sensor data on a MicroSD card and in internal storage.
+\item \textbf{Chipset Battery} Extended lithium-ion battery.  5200mAh.
+\item \textbf{Chipset Camera} 16 MP Camera, pointed toward the ground.
+\item \textbf{Tracksoar APRS Transmitter} Leverages existing radio relays
+to keep payload in constant contact after takeoff; sends all sensor data to ground station in real-time.  Also equipped with GPS capable of high altitude positioning, along with external temperature and pressure sensors.
+\item \textbf{Tracksoar Battery} High durability lithium-ion battery.  Powered the Tracksoar for 40 hours uninterrupted during ground tests.
+\item \textbf{Tracksoar Antenna} Antenna
+\item \textbf{Foamular 150} Insulating outer shell.  Lightweight and impact resistant.
+\end{enumerate}
+\end{multicols}
+Not pictured: Parachute and balloon.
+
+\newpage
+
 Project CODENAME has developed two important operational scripts: one runs on the S4 Chipset and is essentially a highly persistent app that commandeers the phone's onboard sensors and camera; the second is a modification to the source code shipped with the Tracksoar APRS Tracking device.  These are discussed in greater detail within subsequent sections.
 
 
 \section{Samsung Galaxy S4 Chipset}
 
-This is the primary computing component of the payload. It consists
-of a computer board taken from a Samsung Galaxy S4 phone, reprogrammed
-to suit the needs of the project. The chipset contains eight integrated
-sensors, including a RGB light sensor, a magnetometer, a gravimeter,
-an accelerometer, thermometer, barometer, hygrometer, and sensors
-to measure orientation vectors. Since all of these sensors are built into
-the chipset, they add no extra weight and write data directly to the
-phone's memory where it can be stored for later retrieval. Additionally,
-the two chipset cameras (the front-facing and rear-facing cameras
-of the S4 phone, 2MP and 13MP respectively) provide two unique angles
-from which the payload can take photographs for the duration of the
-flight. These cameras are removed from the board and reattached with
-longer wires to optimize their viewing positions. All sensor data
-collected by the other two computing components (described below)
-are written to the S4's internal storage, which can be read after
-the payload returns to the ground.  An extended lithium-ion battery (5200mAh) provides a projected eight hours of battery life under ideal operating conditions.
-
-The script roots the S4 chipset to maximize utility, reduce unwanted phone operations and increase battery life. %TODO write more in-depth on the significance and importance of the operational script
+This is the primary computing component of the payload. It consists of a computer board taken from a Samsung Galaxy S4 phone, reprogrammed to suit the needs of the project. See Figure \ref{fig:chipset-alone}.  The chipset contains eight integrated sensors, including a RGB light sensor, a magnetometer, a gravimeter, an accelerometer, thermometer, barometer, hygrometer, and sensors to measure orientation vectors. Since all of these sensors are built into the chipset, they add no extra weight and write data directly to the phone's memory where it can be stored for later retrieval. Project CODENAME has further configured the chipset to write data to an external SD card as a failsafe.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.2]{./images/chipset}
+\includegraphics[scale=0.3]{./images/chipset-alone}
 \par\end{centering}
-\caption{A Samsung Galaxy S4 Chipset being removed from the rest of the phone.}
+\label{fig:chipset-alone}
+\caption{Chipset alone; note that the RGB light sensor and LED indicator are missing as they were lost on impact}
 \end{figure}
+
+\textbf{Cameras} In addition to the sensors enumerated above, the two chipset cameras (the front-facing and rear-facing cameras of the S4 phone, 2MP and 13MP respectively) provide two unique angles from which the payload can take photographs for the duration of the flight. Due to last-minute technical limitations, Project CODENAME flew with only the 13MP rear camera operational.  Despite this setback, the payload collected nearly 349 high-quality photographs between the ground and around 100,000 feet.  Several have been included in this report, but the entire collection can be found at the following web address: \\ \texttt{https://goo.gl/photos/KxeScd8xWUMMQ9vt6}
+%TODO figure out the best way to make these photographs available to readers
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.9]{./images/rear4}
+\par\end{centering}
+\caption{Photograph taken by rear camera on Galaxy S4 Chipset}
+\end{figure}
+%TODO add the four others already in the image folder
+%TODO if at all possible, indicate the various altitudes at which the photographs were taken in the album
+
+\textbf{Power Supply and Battery Life} The Galaxy Samsung S4 Phone ships with a 2600mAh battery.  As projections suggested this would only provide around three hours of reliable operation, Project CODENAME replaced the factory battery with an extended lithium-ion battery, doubling the capacity to 5600mAh.  During ground tests, the chipset ran between 6 and 8 hours on a single charge.  During the flight, the chipset powered down with 40\% battery remaining.  While the cause is not entirely understood, it is believed to be related to overheating. (See Temperature below).
+
+\textbf{Weight Reduction} Due to the weight of the screen, Project CODENAME chose to remove the chipset entirely from the rest of the phone.  Both the chipset and the battery were secured on the plastic phone back designed for use with the extended battery.  The plastic phone back was perforated to increase heat dissipation and reduce weight.  All other phone components were removed.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.2]{./images/chipset-tray}
+\par\end{centering}
+\label{chipset-tray}
+\caption{Plastic phone back modified to house the chipset and battery}
+\end{figure}
+
+\textbf{Temperature} The biggest hurdle encountered concerning the chipset was heat dissipation.  The temperature at which the chipset was operating had a big impact on its battery life, and to examine this, it was allowed to expend one full battery charge at room temperature, one in a refrigerator, and one in a freezer.  The results yielded insights into the impact of temperature on battery life.
+%TODO ALAN discuss what these insights were, including figures and graphs
+
+When running at room temperature (and often when refrigerated as well) the chipset had a tendency to overheat to the point of shutting down.  This issue stemmed from the excessive camera use required by the program and was exacerbated by the larger battery and plastic tray.  To solve this, Project CODENAMe made a number of minor adjustments to the programming to maintain optimal temperature conditions.
+%TODO ALAN explain how the program maintains optimal temperatures.  Also feel free to rewrite anything I said about the heat managing program so far, and add your name in if you want since it was your baby
+
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.2]{./images/tray}
+\par\end{centering}
+\label{tray}
+\caption{Entire chipset tray as it flew in the payload}
+\end{figure}
+
+%TODO include all the images for the chipset
+%TODO ALAN add table of chipset data to appendices
 
 
 \section{Tracksoar APRS Transmitter}
 
-The Tracksoar APRS transmitter is the third and final computing component
-aboard the payload. While it is equipped with several sensors (specifically
-a GPS sensor along with external temperature, pressure, and humidity)
-it primarily serves as the point of contact between the payload and
-the ground. The transmitter transmits the payload's location (and
-its sensor readings) on the 2 meter band, where it is picked up by
-the APRS relay system and can be received anywhere in the state of
-South Dakota, as per requirement \ref{req:APRS}. This allows for constant monitoring of the payload's
-position and exact conditions. The Tracksoar also has an independent
-power source projected to last up to 12 hours; this ensure that even
-if the rest of the payload loses power the capsule will continue transmitting
-its location.  The Tracksoar is connected to the Arduino micro via the I$^2$C port.
+The Tracksoar APRS transmitter is the second computing component aboard the payload. While it is equipped with several sensors (specifically a GPS sensor along with external temperature, pressure, and humidity) it primarily serves as the point of contact between the payload and the ground. The transmitter transmits the payload's location (and its sensor readings) on the 2 meter band, where it is picked up by the APRS relay system and can be received anywhere in the state of South Dakota, as per requirement \ref{req:APRS} of the HAC. This allows for constant monitoring of the payload's position and exact conditions. The Tracksoar ships with a three AA battery power source purported to provide 12 hours of continual transmission, but Project CODENAME chose to upgrade to a high-density lipo battery.  This allowed the Tracksoar to operate for over 40 hours during ground testing.
+
+The Tracksoar that accompanied the payload on the balloon flight was actually the third Tracksoar device Project CODENAME worked with.  The first device shipped to CODENAME had an undetermined error that finally resulted in a critical failure of the entire device.  The second device had the same error, which was finally determined to be a wiring issue on the motherboard.  Finally, a third Tracksoar was acquired that did NOT have this issue.  However, programming on this third computing component revealed a critical flaw in the official source code that resulted in the Tracksoar freezing and becoming inoperable after random intervals of time.  Project CODENAME fixed this error by leveraging the existing watchdog timer on the ATMEGA328P.  The working version of the source code is available on Project CODENAME's Github.
+%TODO ALAN change this in any way you see fit
+
+Following the changes to the source code, the Tracksoar performed admirably for the entire flight and even continued transmitting after it was recovered on the ground.
+
+
+%TODO add table of Tracksoar data to appendices
+%TODO Discuss antenna
+%TODO discuss how the Tracksoar fared in the flight
+%TODO add other images of the Tracksoar
 
 \begin{figure}[H]
 \begin{centering}
@@ -183,6 +225,10 @@ its location.  The Tracksoar is connected to the Arduino micro via the I$^2$C po
 
 \pagebreak
 \section{Sensors}
+
+%TODO clean this up so it accurately reflects the sensor data we collected
+%TODO add graphs of sensor data that combines data from both the chipset AND the Tracksoar
+%TODO possibly discuss any notable pieces of data, such as confirming the jet stream etc.
 
 While the High Altitude Challenge requires only four sensors (internal
 and external temperature and pressure), the project CODENAME payload
@@ -241,8 +287,7 @@ at a given altitude.
 
 \section{Housing}
 
-The payload shape was inspired by the famous Soyuz capsule, first
-employed by the USSR and NASA as early as 1960 but still in use today.  This shape is ideal for stabilizing a craft as it reenters the atmosphere (requirement number \ref{req:spinning} of the High Altitude Challenge requirements.)  This proved particularly relevant for the payload as the parachute did not deploy.
+The payload shape was inspired by the famous Soyuz capsule, first employed by the USSR and NASA as early as 1960 but still in use today.  This shape is ideal for stabilizing a craft as it reenters the atmosphere (requirement number \ref{req:spinning} of the High Altitude Challenge requirements.)  This proved particularly relevant for the payload as the parachute did not deploy.
 
 %TODO confirm this is actually Foamular 150
 The housing material is Foamular 150.  This is an insulating foam that is ideal for keeping the payload within operating temperature conditions, without adding unnecessary weight.
@@ -261,9 +306,7 @@ The housing material is Foamular 150.  This is an insulating foam that is ideal 
 \section{Balloon and Helium}
 Past teams in the High Altitude Challenge have typically used 1200 gram weather balloons; however, Project CODENAME has selected a larger 1500 gram weather balloon.  This increase in size will allow the payload to travel higher in a shorter amount of time, though it will increase the helium demand.  See Table \ref{balloon_size} in the appendix for a comparison of the standard weather balloon sizes\cite{balloon-performance-calculator}.
 
-
-Calculations determined that the  amount of positive lift needed for the payload to achieve the best possible combination of flight time and burst altitude was approximately 160 grams.  A dummy payload was created weighing 410 grams (250+160); this was attached to the balloon as it was filled, and fill stopped when the balloon became buoyant.  Sponsor A\&B Welding of Rapid City donated the helium required for the flight.
-% what calculations
+Simulations run on the GOSH Flight predictor (discussed in Part \ref{ground-station}). determined that the  amount of positive lift needed for the payload to achieve the best possible combination of flight time and burst altitude was approximately 160 grams.  A dummy payload was created weighing 410 grams (250+160); this was attached to the balloon as it was filled, and fill stopped when the balloon became buoyant.  Sponsor A\&B Welding of Rapid City donated the helium required for the flight.
 
 Given any one type of balloon, the exact amount of helium that is needed comes from a consideration of two factors: burst altitude and flight time.  As more helium is added to the balloon, flight time decreases (which is an important consideration for the battery life of the payload) but burst altitude also decreases. Conversely, less helium ensures a higher burst altitude, but a longer flight time.  These relationships are demonstrated in Figure~\ref{fig:heliumgraph}.
 

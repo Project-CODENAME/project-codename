@@ -1,0 +1,20 @@
+\select@language {english}
+\contentsline {section}{List of Figures}{1}
+\contentsline {section}{List of Tables}{2}
+\contentsline {part}{I\hspace {1em}Introduction}{4}
+\contentsline {section}{4th Annual High Altitude Challenge}{5}
+\contentsline {part}{II\hspace {1em}Path Prediction, Tracking, and Recovery}{6}
+\contentsline {section}{Flight Path Prediction}{7}
+\contentsline {part}{III\hspace {1em}Internal Components and Software}{10}
+\contentsline {section}{Internal Component Summary}{11}
+\contentsline {section}{Samsung Galaxy S4 Chipset}{12}
+\contentsline {section}{Tracksoar APRS Transmitter}{14}
+\contentsline {section}{Sensors}{16}
+\contentsline {part}{IV\hspace {1em}External}{17}
+\contentsline {section}{Housing}{18}
+\contentsline {section}{Balloon and Helium}{19}
+\contentsline {section}{Parachute}{20}
+\contentsline {part}{V\hspace {1em}Data Collected}{22}
+\contentsline {chapter}{Appendices}{25}
+\contentsline {chapter}{\numberline {A}Table Data}{26}
+\contentsline {chapter}{\numberline {A}Tracksoar Data}{28}
